@@ -1,0 +1,4 @@
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\bin\Debug\Warden.Core.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\bin\Debug\Warden.Core.pdb
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\obj\Debug\Warden.Core.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\obj\Debug\Warden.Core.pdb

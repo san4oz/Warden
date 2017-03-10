@@ -1,0 +1,4 @@
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Search\bin\Debug\Warden.Search.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Search\bin\Debug\Warden.Search.pdb
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Search\obj\Debug\Warden.Search.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Search\obj\Debug\Warden.Search.pdb

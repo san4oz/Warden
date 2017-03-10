@@ -1,0 +1,1 @@
+﻿// Dummy. Global.asax was moved to Warden.Mvc assemblt

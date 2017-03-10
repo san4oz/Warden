@@ -1,0 +1,4 @@
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Business\bin\Debug\Warden.Business.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Business\bin\Debug\Warden.Business.pdb
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Business\obj\Debug\Warden.Business.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Business\obj\Debug\Warden.Business.pdb

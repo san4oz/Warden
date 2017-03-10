@@ -1,0 +1,4 @@
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.DataProvider\bin\Debug\Warden.DataProvider.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.DataProvider\bin\Debug\Warden.DataProvider.pdb
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.pdb

@@ -1,0 +1,4 @@
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.ExternalDataProvider.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.ExternalDataProvider.pdb
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.dll
+c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.pdb
