@@ -9,3 +9,7 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.csprojResolveAssemblyReference.cache
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.dll
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\Iesi.Collections.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\NHibernate.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\Iesi.Collections.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\NHibernate.xml

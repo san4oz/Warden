@@ -8,7 +8,11 @@ using Warden.Business.Entities;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public class TransactionDataProvider : BaseDataProvider
+    public class TransactionDataProvider : BaseDataProvider<Transaction>, ITransactionDataProvider
     {
+        public List<Transaction> GetTransactionsByCategoryId(Guid categoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -17,5 +17,7 @@ namespace Warden.Business.Contracts.Providers
         List<T> All();
 
         void Delete(Guid id);
+
+        T Get(Guid id);
     }
 }

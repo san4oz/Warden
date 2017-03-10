@@ -3,31 +3,90 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public class BaseDataProvider : IDataProvider<Entity>
+    public abstract class BaseDataProvider<T> : IDataProvider<T>
+        where T : Entity, new()
     {
-        public virtual List<Entity> All()
+        public virtual List<T> All()
         {
-            throw new NotImplementedException();
+            return Execute(session =>
+            {
+                var criteria = session.CreateCriteria<T>();
+
+                return criteria.List<T>().ToList();
+            });
         }
 
         public virtual void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            Execute(session =>
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var valueToBeRemoved = session.Get<T>(id);
+                    if (valueToBeRemoved != null)
+                    {
+                        session.Delete(valueToBeRemoved);
+                        transaction.Commit();
+                    }
+                }
+            });
         }
 
-        public virtual void Save(Entity entity)
+        public T Get(Guid id)
+        {
+            return Execute<T>(session =>
+            {
+                return session.Get<T>(id);
+            });
+        }
+
+        public virtual void Save(T entity)
+        {
+            Execute(session =>
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(entity);
+                    transaction.Commit();
+                }
+            });
+        }
+
+        public virtual void Update(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void Update(Entity entity)
+        #region helpers
+        protected T Execute<T>(Func<ISession, T> expression)
         {
-            throw new NotImplementedException();
+            using (var session = NhibernateSessionHelper.OpenSession())
+            {
+                return expression(session);
+            }
         }
+
+        protected bool Execute(Func<ISession, bool> expression)
+        {
+            using (var session = NhibernateSessionHelper.OpenSession())
+            {
+                return expression(session);
+            }
+        }
+
+        protected void Execute(Action<ISession> expression)
+        {
+            using (var session = NhibernateSessionHelper.OpenSession())
+            {
+                expression(session);
+            }
+        }      
+        #endregion
     }
 }

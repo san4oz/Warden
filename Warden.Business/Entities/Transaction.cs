@@ -8,14 +8,14 @@ namespace Warden.Business.Entities
 {
     public class Transaction : Entity
     {
-        public string PayerId { get; set; }
+        public virtual string PayerId { get; set; }
 
-        public string ReceiverId { get; set; }
+        public virtual string ReceiverId { get; set; }
 
-        public decimal Price { get; set; }
+        public virtual decimal Price { get; set; }
 
-        public string Keywords { get; set; }
+        public virtual string Keywords { get; set; }
 
-        public DateTime Date { get; set; }
+        public virtual DateTime Date { get; set; }
     }
 }

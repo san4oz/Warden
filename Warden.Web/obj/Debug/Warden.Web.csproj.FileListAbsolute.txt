@@ -96,3 +96,11 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.Business.pdb
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.ExternalDataProvider.pdb
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.Core.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.Search.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.Search.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Iesi.Collections.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\NHibernate.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.DataProvider.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Iesi.Collections.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\NHibernate.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Web\bin\Warden.DataProvider.pdb

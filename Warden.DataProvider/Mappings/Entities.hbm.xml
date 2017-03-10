@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"  assembly="Warden.Business" namespace="Warden.Business.Entities">
+  <class name="Transaction" table="Transactions">
+    <id name="Id" type="System.Guid"></id>
+    <property name="PayerId" type="System.String"/>
+    <property name="ReceiverId" type="System.String"/>
+    <property name="Price" type="System.Decimal"/>
+    <property name="Keywords" type="System.String"/>
+    <property name="Date" type="System.DateTime"/>
+  </class>  
+</hibernate-mapping>

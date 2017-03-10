@@ -56,3 +56,7 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Warden.DataProvider.pdb
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Warden.ExternalDataProvider.pdb
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Warden.Search.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\NHibernate.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Iesi.Collections.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\NHibernate.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Iesi.Collections.xml
