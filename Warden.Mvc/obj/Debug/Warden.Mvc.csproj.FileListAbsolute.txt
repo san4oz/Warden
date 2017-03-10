@@ -21,3 +21,5 @@ c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Mvc\bi
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Mvc\bin\Debug\Autofac.Integration.Mvc.dll
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Mvc\bin\Debug\Autofac.xml
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Mvc\bin\Debug\Autofac.Integration.Mvc.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden\Warden.Mvc\bin\Debug\Warden.Business.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden\Warden.Mvc\bin\Debug\Warden.Business.pdb
