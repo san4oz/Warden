@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Integration.Mvc;
+using Warden.Business.Contracts.Providers;
 
 namespace Warden.Mvc.App_Start
 {
@@ -22,7 +23,7 @@ namespace Warden.Mvc.App_Start
 
         private static void RegisterTypes(ContainerBuilder builder)
         {
-
+            builder.RegisterType<ExternalDataProvider.ExternalDataProvider>().As<IExternalDataProvider>();
         }
     }
 }

@@ -1,0 +1,9 @@
+﻿.pure-menu-list{
+    background-color: #2d3e50;
+    height: 100vh;
+}
+
+.pure-menu-item a{
+    color: white;
+    text-align: center;    
+}

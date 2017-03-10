@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Warden.Business.Entities.Transaction>
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+<table class="pure-table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PayerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiverId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keywords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>     
+    </tr>
+}
+
+</table>

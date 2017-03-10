@@ -8,7 +8,7 @@ using System.Web.Routing;
 
 namespace Warden.Mvc.App_Start
 {
-    public static class RouteConfig
+    public static class FrontendRouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {

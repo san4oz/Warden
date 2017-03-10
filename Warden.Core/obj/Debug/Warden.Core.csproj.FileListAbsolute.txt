@@ -2,3 +2,8 @@ c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\b
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\bin\Debug\Warden.Core.pdb
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\obj\Debug\Warden.Core.dll
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Core\obj\Debug\Warden.Core.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\bin\Debug\Warden.Core.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\bin\Debug\Warden.Core.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\obj\Debug\Warden.Core.csprojResolveAssemblyReference.cache
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\obj\Debug\Warden.Core.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\obj\Debug\Warden.Core.pdb

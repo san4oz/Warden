@@ -2,3 +2,12 @@ c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.Extern
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.ExternalDataProvider.pdb
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.dll
 c:\users\o.kotvytskyi\documents\visual studio 2015\Projects\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.ExternalDataProvider.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.ExternalDataProvider.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.Business.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.Core.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.Business.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Warden.Core.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.csprojResolveAssemblyReference.cache
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.pdb
