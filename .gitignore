@@ -279,3 +279,4 @@ bin/
 obj/
 packages/
 .vs/
+Warden.Web/obj/Debug/Warden.Web.csproj.FileListAbsolute.txt

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="wardenApplication">
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warden</title>
+    <link rel="stylesheet" href="assets/css/pure.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script src="assets/libs/angular.js"></script>
+    <script src="assets/libs/angular-route.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.route.js"></script>
+    <script src="app/components/frontend/home/homeController.js"></script>
+    <script src="app/components/frontend/about/aboutController.js"></script>
+    <script src="app/components/frontend/contact/contactController.js"></script>
+</head>
+<body> 
+        <div class="header">
+            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                <a class="pure-menu-heading" href="/">Warden</a>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item pure-menu-selected"><a ng-href="about" class="pure-menu-link">About us</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            <ng-view></ng-view>
+        </div>
+</body>
+</html>

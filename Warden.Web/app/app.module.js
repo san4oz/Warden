@@ -1,0 +1,1 @@
+﻿var wardenApp = angular.module('wardenApplication', ['ngRoute']);
