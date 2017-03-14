@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Contracts\Providers\IDataProvider.cs" />
     <Compile Include="Contracts\Providers\IExternalDataProvider.cs" />
     <Compile Include="Contracts\Managers\ISearchManager.cs" />

@@ -9,6 +9,7 @@ using Autofac.Builder;
 using Autofac.Integration.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.DataProvider.DataProviders;
+using Warden.Search;
 
 namespace Warden.Mvc.App_Start
 {
@@ -26,6 +27,7 @@ namespace Warden.Mvc.App_Start
         {
             builder.RegisterType<ExternalDataProvider.ExternalDataProvider>().As<IExternalDataProvider>();
             builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
+            builder.RegisterType<SearchManager>().As<ISearchManager>();
         }
     }
 }
