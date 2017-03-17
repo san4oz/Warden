@@ -25,22 +25,10 @@ namespace Warden.Mvc.App_Start.Routes
             base.RegisterRoutes(registrationContext);
 
             MapRoute(
-                name: "_TransactionList",
-                url: "parsedtranscations",
+                name: "api/transactions/all",
+                url: "api/transactions/all",
                 defaults: new { controller = "Transaction", action = "List" }               
-            );
-
-            MapRoute(
-                name: "_Admin",
-                url: "",
-                defaults: new { controller = "Home", action = "Index" }
-            );
-
-            MapRoute(
-               name: "_Default",
-               url: "{controller}/{action}",
-               defaults: new { controller = "Home", action = "Index" }
-           );
+            );        
         }
     }
 }

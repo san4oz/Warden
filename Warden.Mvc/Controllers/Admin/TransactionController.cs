@@ -33,7 +33,7 @@ namespace Warden.Mvc.Controllers.Admin
                 TransactionProvider.Save(transaction);
             }
 
-            return View(transactions);
+            return Json(transactions, JsonRequestBehavior.AllowGet);
         }
     }
 }

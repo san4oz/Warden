@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="wardenAdminApplication">
+<head>
+    <base href="/admin" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warden | Admin</title>
+    <link rel="stylesheet" href="assets/css/pure.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.js"></script>
+    <script src="assets/libs/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.3/angular-resource.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.route.js"></script>
+    <script src="app/components/admin/home/homeController.js"></script>
+    <script src="app/components/admin/transaction/transactionService.js"></script>
+    <script src="app/components/admin/transaction/transactionController.js"></script>
+</head>
+<body> 
+    <div id="layout">     
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#">Warden</a>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="/admin/transactions" class="pure-menu-link">Transactions</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+                    <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
+                        <a href="#" class="pure-menu-link">Services</a>
+                    </li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            <div class="page">
+                <ng-view></ng-view>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

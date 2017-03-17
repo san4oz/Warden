@@ -1,0 +1,18 @@
+﻿<table class="pure-table">
+    <thead>
+        <tr>
+            <th>Платник</th>
+            <th>Ціна</th>
+            <th>Дата</th>
+            <th>Ключові слова</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="transaction in transactions">
+            <td>{{transaction.PayerId}}</td>
+            <td>{{transaction.Price | currency}}</td>
+            <td>{{transaction.Date | date }}</td>
+            <td>{{transaction.Keywords}}</td>
+        </tr>
+    </tbody>
+</table>
