@@ -27,7 +27,7 @@
     MapAdminRoutes = function () {
         wardenAdminApp.config(function ($routeProvider, $locationProvider) {
             $routeProvider
-                .when('/admin', {
+                .when('/adminIndex.html', {
                     templateUrl: '/app/components/admin/home/homeView.html',
                     controller: 'homeController'
                 })
