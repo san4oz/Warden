@@ -7,10 +7,11 @@ using System.Web.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities.ExternalProvider;
 using Warden.Search.Utils.Tokenizer;
+using Warden.Mvc.Helpers;
 
 namespace Warden.Mvc.Controllers.Admin
 {
-    public class TransactionController : Controller
+    public class TransactionController : ApiController
     {
         private IExternalDataProvider Provider { get; set; }
         private ITransactionDataProvider TransactionProvider { get; set; }
@@ -33,7 +34,7 @@ namespace Warden.Mvc.Controllers.Admin
                 TransactionProvider.Save(transaction);
             }
 
-            return Json(transactions, JsonRequestBehavior.AllowGet);
+            return ToJson(transactions, allowGet: true);
         }
     }
 }
