@@ -10,3 +10,4 @@ D:\study\Warden\Warden.Core\bin\Debug\Warden.Core.dll
 D:\study\Warden\Warden.Core\bin\Debug\Warden.Core.pdb
 D:\study\Warden\Warden.Core\obj\Debug\Warden.Core.dll
 D:\study\Warden\Warden.Core\obj\Debug\Warden.Core.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\obj\Debug\Warden.Core.csprojResolveAssemblyReference.cache

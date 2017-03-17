@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NLP\Among.cs" />
+    <Compile Include="NLP\IStemmer.cs" />
+    <Compile Include="NLP\RussianStemmer.cs" />
+    <Compile Include="NLP\StemmerOperations.cs" />
+    <Compile Include="NLP\WordHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\CsvReader.cs" />
   </ItemGroup>
