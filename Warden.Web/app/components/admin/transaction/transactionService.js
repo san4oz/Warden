@@ -2,8 +2,15 @@
     var transactionService = angular.module('transactionService', ['ngResource']);
 
     transactionService.factory('Transactions', ['$resource', function ($resource) {
-        return $resource('admin/api/transactions/all/', {}, {
-            query: { method: 'GET', params: {}, isArray: true }
-        });
+        var Transactions = $resource('admin/api/transactions/:action');
+
+        return {
+            transactions: function () {
+                return Transactions.get({ action: 'all' });
+            },
+            indexTransactions: function () {
+                return Transactions.get({ action: 'index' });
+            }
+        }
     }]);
 })();

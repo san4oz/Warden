@@ -19,10 +19,12 @@
 <body> 
     <div id="layout">     
         <div id="menu">
-            <div class="pure-menu">
+            <div class="pure-menu" ng-controller="transactionListController">
                 <a class="pure-menu-heading" href="#">Warden</a>
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item"><a href="/admin/transactions" class="pure-menu-link">Transactions</a></li>
+                    <!--<li class="pure-menu-item"><a href="/admin/transactions" class="pure-menu-link">Transactions</a></li>-->
+                    <li class="pure-menu-item"><button ng-click="transactions()" class="pure-menu-link">Transaction</button></li>
+                    <li class="pure-menu-item"><button ng-click="indexTransactions()" class="pure-menu-link">Index</button></li>
                     <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
                     <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
                         <a href="#" class="pure-menu-link">Services</a>
