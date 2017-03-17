@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 using Warden.Business.Entities.Search;
-using System.Web;
 using Lucene.Net.Store;
 using Lucene.Net.Index;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Search;
 using Lucene.Net.Documents;
 using Warden.Business;
+using System.Configuration;
+using System.Web.Hosting;
 
 namespace Warden.Search
 {
     public class SearchManager : ISearchManager
     {
-        private string luceneDir = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "../index");
+        private string luceneDir = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, ConfigurationManager.ConnectionStrings["IndexDirectory"].ConnectionString);
+        //private string luceneDir = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "../index");
         private FSDirectory directoryTemp;
         private Lucene.Net.Util.Version version = Lucene.Net.Util.Version.LUCENE_30;
 
@@ -76,8 +78,6 @@ namespace Warden.Search
             var doc = new Document();
             doc.Add(new Field(Constants.Search.Id, transaction.Id.ToString(), Field.Store.YES, Field.Index.NO));
 
-            //TODO:
-            //Are transaction keywords alreay cleaned?
             var keywords = transaction.Keywords;
             doc.Add(new Field(Constants.Search.Keywords, keywords, Field.Store.YES, Field.Index.ANALYZED));
             return doc;
