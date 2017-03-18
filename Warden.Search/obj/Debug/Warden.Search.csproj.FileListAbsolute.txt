@@ -7,3 +7,8 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Search\obj\Debug\Warden.Search.dll
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Search\obj\Debug\Warden.Search.pdb
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Search\obj\Debug\Warden.Search.csprojResolveAssemblyReference.cache
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Warden.Search.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Warden.Search.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\obj\Debug\Warden.Search.csprojResolveAssemblyReference.cache
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\obj\Debug\Warden.Search.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\obj\Debug\Warden.Search.pdb

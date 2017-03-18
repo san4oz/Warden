@@ -8,7 +8,7 @@ using Warden.Business.Entities.ExternalProvider;
 
 namespace Warden.Business.Contracts.Providers
 {
-    public interface IExternalDataProvider
+    public interface IExternalApi
     {
         List<Transaction> GetTransactions(TransactionRequest request);
     }

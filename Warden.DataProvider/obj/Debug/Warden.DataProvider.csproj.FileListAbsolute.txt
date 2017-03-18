@@ -13,3 +13,14 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\NHibernate.dll
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\Iesi.Collections.xml
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.DataProvider\bin\Debug\NHibernate.xml
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\Warden.DataProvider.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\Warden.DataProvider.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\Iesi.Collections.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\NHibernate.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\Warden.Business.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\Warden.Business.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\Iesi.Collections.xml
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\bin\Debug\NHibernate.xml
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.csprojResolveAssemblyReference.cache
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.DataProvider\obj\Debug\Warden.DataProvider.pdb

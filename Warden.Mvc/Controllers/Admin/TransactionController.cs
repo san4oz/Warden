@@ -12,18 +12,18 @@ namespace Warden.Mvc.Controllers.Admin
 {
     public class TransactionController : Controller
     {
-        private IExternalDataProvider Provider { get; set; }
+        private IExternalApi ExternalApi { get; set; }
         private ITransactionDataProvider TransactionProvider { get; set; }
 
-        public TransactionController(IExternalDataProvider externalProvider, ITransactionDataProvider transactionProvider)
+        public TransactionController(IExternalApi externalApi, ITransactionDataProvider transactionProvider)
         {
-            Provider = externalProvider;
+            ExternalApi = externalApi;
             TransactionProvider = transactionProvider;
         }
 
         public ActionResult List()
         {
-            var transactions = Provider.GetTransactions(new TransactionRequest());
+            var transactions = ExternalApi.GetTransactions(new TransactionRequest());
 
             var tokenizer = new SimpleWordTokenizer();
 

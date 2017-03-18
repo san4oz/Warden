@@ -25,7 +25,7 @@ namespace Warden.Mvc.App_Start
 
         private static void RegisterTypes(ContainerBuilder builder)
         {
-            builder.RegisterType<ExternalDataProvider.ExternalDataProvider>().As<IExternalDataProvider>();
+            builder.RegisterType<ExternalDataProvider.ExternalApi>().As<IExternalApi>();
             builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
         }
