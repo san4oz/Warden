@@ -24,31 +24,6 @@ namespace Warden.Mvc.Controllers.Admin
             TransactionProvider = transactionProvider;
         }
 
-        public ActionResult List()
-        {
-            var transactions = Provider.GetTransactions(new TransactionRequest());
-
-            var tokenizer = new SimpleWordTokenizer();
-            var stemmer = new RussianStemmer();
-            var dictionary = System.IO.File.ReadAllLines(path).ToList();
-           
-            foreach (var transaction in transactions)
-            {
-                transaction.Keywords = string.Join(";", tokenizer.Tokenize(transaction.Keywords)
-                                         .Select(w =>
-                                         {
-                                             stemmer.Stem(w);
-                                             return WordHelper.RemoveSuffix(w);
-                                         }));
-
-
-
-                TransactionProvider.Save(transaction);
-            }
-
-            return ToJson(transactions, allowGet: true);
-        }
-
         public ActionResult Index()
         {
             var transaction = new List<Transaction>(new[]{

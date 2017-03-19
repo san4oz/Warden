@@ -133,8 +133,12 @@
     <Content Include="app\app.route.js" />
     <Content Include="app\components\admin\home\homeController.js" />
     <Content Include="app\components\admin\home\homeView.html" />
+    <Content Include="app\components\admin\payer\save.html" />
+    <Content Include="app\components\admin\payer\list.html" />
+    <Content Include="app\components\admin\payer\payerController.js" />
+    <Content Include="app\components\admin\payer\payerService.js" />
     <Content Include="app\components\admin\transaction\transactionService.js" />
-    <Content Include="app\components\admin\transaction\transactionView.html" />
+    <Content Include="app\components\admin\transaction\index.html" />
     <Content Include="app\components\admin\transaction\transactionController.js" />
     <Content Include="app\components\frontend\about\aboutController.js" />
     <Content Include="app\components\frontend\about\aboutView.html" />
@@ -152,8 +156,8 @@
     <Content Include="assets\libs\angular-resource.js" />
     <Content Include="Global.asax" />
     <Content Include="assets\libs\angular.js" />
-    <Content Include="adminIndex.html" />
-    <Content Include="index.html" />
+    <None Include="Views\Shared\Admin.cshtml" />
+    <None Include="Views\Shared\Index.cshtml" />
     <Content Include="assets\libs\angular-route.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
