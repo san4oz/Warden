@@ -54,6 +54,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -120,11 +123,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,6 +131,11 @@
   <ItemGroup>
     <Content Include="app\app.module.js" />
     <Content Include="app\app.route.js" />
+    <Content Include="app\components\admin\home\homeController.js" />
+    <Content Include="app\components\admin\home\homeView.html" />
+    <Content Include="app\components\admin\transaction\transactionService.js" />
+    <Content Include="app\components\admin\transaction\transactionView.html" />
+    <Content Include="app\components\admin\transaction\transactionController.js" />
     <Content Include="app\components\frontend\about\aboutController.js" />
     <Content Include="app\components\frontend\about\aboutView.html" />
     <Content Include="app\components\frontend\contact\contactController.js" />
@@ -146,8 +149,10 @@
     <Content Include="assets\css\admin.css" />
     <Content Include="assets\css\pure.css" />
     <Content Include="assets\css\site.css" />
+    <Content Include="assets\libs\angular-resource.js" />
     <Content Include="Global.asax" />
     <Content Include="assets\libs\angular.js" />
+    <Content Include="adminIndex.html" />
     <Content Include="index.html" />
     <Content Include="assets\libs\angular-route.js" />
     <Content Include="Web.config">
@@ -161,7 +166,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\admin\" />
     <Folder Include="app\shared\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />

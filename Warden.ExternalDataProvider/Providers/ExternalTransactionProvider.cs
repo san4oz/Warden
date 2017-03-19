@@ -14,19 +14,20 @@ namespace Warden.ExternalDataProvider.Providers
     {
         protected override string BaseUri
         {
-            get { return "www.007.org.ua/api/export-transactions-with-params"; }
+            get { return "http://www.007.org.ua/api/export-transactions-with-params"; }
         }
 
-        public IList<Transaction> GetTransactions(TransactionRequest request)
+        public async Task<IList<Transaction>> GetTransactions(TransactionRequest request)
         {
             var webRequest = new Dictionary<string, string>()
             {
                 { "from", request.From.ToString("yyyy-mm-dd") },
                 { "to", request.To.ToString("yyyy-mm-dd") },
-                { "who", request.PayerId }
+                { "who", request.PayerId },
+                { "offset", "0" }
             };
 
-            var transactionsData = GetEntities(webRequest).Result;
+            var transactionsData = await GetEntitiesAsync(webRequest);
             if (transactionsData == null)
                 return new List<Transaction>();
 

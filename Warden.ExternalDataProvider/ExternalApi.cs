@@ -21,9 +21,9 @@ namespace Warden.ExternalDataProvider
             this.transactionProvider = new ExternalTransactionProvider();
         }
 
-        public List<Transaction> GetTransactions(TransactionRequest request)
+        public async Task<IList<Transaction>> GetTransactionsAsync(TransactionRequest request)
         {
-            return transactionProvider.GetTransactions(request).ToList();
+            return await transactionProvider.GetTransactions(request);
         }
     }
 }

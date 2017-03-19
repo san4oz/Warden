@@ -28,6 +28,7 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<ExternalDataProvider.ExternalApi>().As<IExternalApi>();
             builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
+            builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
         }
     }
 }

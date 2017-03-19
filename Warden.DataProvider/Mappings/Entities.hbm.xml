@@ -7,5 +7,12 @@
     <property name="Price" type="System.Decimal"/>
     <property name="Keywords" type="System.String"/>
     <property name="Date" type="System.DateTime"/>
-  </class>  
+  </class>
+
+  <class name="Payer" table="Payers">
+    <id name="Id" type="System.Guid"></id>
+    <property name="Name" type="System.String"/>
+    <property name="PayerId" type="System.String"/>
+  </class>
+  
 </hibernate-mapping>

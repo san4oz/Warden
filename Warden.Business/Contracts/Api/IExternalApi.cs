@@ -10,6 +10,6 @@ namespace Warden.Business.Contracts.Providers
 {
     public interface IExternalApi
     {
-        List<Transaction> GetTransactions(TransactionRequest request);
+        Task<IList<Transaction>> GetTransactionsAsync(TransactionRequest request);
     }
 }

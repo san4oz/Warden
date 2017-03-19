@@ -32,13 +32,13 @@ namespace Warden.ExternalDataProvider.Parsers
         {
             var result = new List<T>();
 
-            using (var textFieldParser = new TextFieldParser(, encoding ?? Encoding.GetEncoding(1251)))
+            using (var textFieldParser = new TextFieldParser(stream, encoding ?? Encoding.GetEncoding(1251)))
             {
                 textFieldParser.TextFieldType = FieldType.Delimited;
                 textFieldParser.SetDelimiters(";");
                 textFieldParser.ReadFields();
 
-                while(!textFieldParser.EndOfData)
+                while (!textFieldParser.EndOfData)
                 {
                     result.Add(ParseEntity(textFieldParser.ReadFields()));
                 }

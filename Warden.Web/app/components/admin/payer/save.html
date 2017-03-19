@@ -1,0 +1,20 @@
+﻿<div ng-controller="payerController">
+    <form name="createForm" novalidate class="pure-form pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="Id">ЭДРПОУ</label>
+                <input ng-model="payer.PayerId" id="Id" type="text" required/>
+                <span ng-show="createForm.PayerId.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
+            </div>
+            <div class="pure-control-group">
+                <label for="Name">Назва</label>
+                <input ng-model="payer.Name" id="Name" type="text" required/>
+                <span ng-show="createForm.Name.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
+            </div>
+
+            <div class="pure-controls">
+                <button ng-click="save(payer)" ng-disabled="createForm.$invalid" class="pure-button pure-button-primary">Зберегти</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

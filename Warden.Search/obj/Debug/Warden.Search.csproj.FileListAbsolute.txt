@@ -12,3 +12,9 @@ C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Deb
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\obj\Debug\Warden.Search.csprojResolveAssemblyReference.cache
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\obj\Debug\Warden.Search.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\obj\Debug\Warden.Search.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Lucene.Net.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Warden.Business.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Warden.Business.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Lucene.Net.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Search\bin\Debug\Lucene.Net.xml

@@ -97,3 +97,8 @@ C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\obj\Debug\Warden.Mvc.csprojResolveAssemblyReference.cache
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\obj\Debug\Warden.Mvc.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\obj\Debug\Warden.Mvc.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Lucene.Net.dll
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Lucene.Net.pdb
+C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Lucene.Net.xml

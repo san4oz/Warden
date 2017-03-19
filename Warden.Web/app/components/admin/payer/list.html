@@ -1,0 +1,16 @@
+﻿<a href="/admin/payer/save">Створити нового платника</a>
+
+<table class="pure-table">
+    <thead>
+        <tr>
+            <th>Ім'я</th>
+            <th>ЭДРПОУ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="payer in payers">
+            <th>{{payer.Name}}</th>
+            <th>{{payer.PayerId}}</th>
+        </tr>
+    </tbody>
+</table>

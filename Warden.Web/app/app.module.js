@@ -1,1 +1,2 @@
-﻿var wardenApp = angular.module('wardenApplication', ['ngRoute']);
+﻿var app = angular.module('app', ['ngRoute']);
+var adminApp = angular.module('adminApp', ['ngRoute']);

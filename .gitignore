@@ -280,3 +280,6 @@ obj/
 packages/
 .vs/
 Warden.Web/obj/Debug/Warden.Web.csproj.FileListAbsolute.txt
+Warden.Core/obj/Debug/Warden.Core.csproj.FileListAbsolute.txt
+
+/@data/index

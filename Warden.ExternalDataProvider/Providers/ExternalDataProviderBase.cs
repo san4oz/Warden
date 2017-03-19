@@ -25,14 +25,17 @@ namespace Warden.ExternalDataProvider.Providers
         {
             using (var client = new HttpClient())
             {
-                return await client.GetStreamAsync(string.Format("{0}?{1}", BaseUri, BuildGETParams(parameters)));
+                var url = string.Format("{0}?{1}", BaseUri, BuildGETParams(parameters));
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStreamAsync();
             }
         }
 
-        protected async Task<IList<T>> GetEntities(Dictionary<string, string> request)
+        protected async Task<IList<T>> GetEntitiesAsync(Dictionary<string, string> request)
         {
             var response = await DownloadFileAsync(request);
-            return  Parser.ParseEntities(response);
+            return Parser.ParseEntities(response);
         }
 
         private string BuildGETParams(Dictionary<string, string> parameters)

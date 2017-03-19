@@ -14,10 +14,11 @@ namespace Warden.Mvc.App_Start
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "",
-                defaults: new { controller = "Home", action = "Index" }
+            routes.MapRoute
+            (
+                name: "angular",
+                url: "{*url}",
+                defaults: new {controller = "Home", action = "Index" }
             );
         }
     }
