@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Warden.Search.Utils.Tokenizer.Filter
+namespace Warden.Core.Utils.Tokenizer.Filter
 {
     public class TokenFilter
     {

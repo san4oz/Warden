@@ -64,7 +64,12 @@
     <Compile Include="Entities\TransactionCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Warden.Core\Warden.Core.csproj">
+      <Project>{3ae1d6b3-da7c-4b2f-b34e-d643214f7514}</Project>
+      <Name>Warden.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

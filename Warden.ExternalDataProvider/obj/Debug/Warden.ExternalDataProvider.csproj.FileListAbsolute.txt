@@ -22,3 +22,5 @@ C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.ExternalDataPr
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.ExternalDataProvider\obj\Debug\Warden.ExternalDataProvider.pdb
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.ExternalDataProvider\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.ExternalDataProvider\bin\Debug\Newtonsoft.Json.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Newtonsoft.Json.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.ExternalDataProvider\bin\Debug\Newtonsoft.Json.xml

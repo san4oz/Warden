@@ -102,3 +102,8 @@ C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Lucene.Net.pdb
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Mvc\bin\Debug\Lucene.Net.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Lucene.Net.dll
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Lucene.Net.pdb
+C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Mvc\bin\Debug\Lucene.Net.xml

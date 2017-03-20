@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Warden.ExternalDataProvider.Attributes;
 using Microsoft.VisualBasic.FileIO;
+using Warden.Core.Utils;
 
 namespace Warden.ExternalDataProvider.Parsers
 {
@@ -50,6 +51,7 @@ namespace Warden.ExternalDataProvider.Parsers
 
         public IList<T> ParseEntities(Stream stream, Encoding encoding = null)
         {
+
             var result = new List<T>();
 
             using (var textFieldParser = new TextFieldParser(stream, encoding ?? Encoding.GetEncoding(1251)))
@@ -64,11 +66,16 @@ namespace Warden.ExternalDataProvider.Parsers
                     {
                         result.Add(ParseEntity(textFieldParser.ReadFields()));
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        Logger.Add(ex.StackTrace);                        
+                    }
                 }
             }
 
             return result;
         }
+
     }
 }
+

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
-using Warden.Search.Utils.Tokenizer;
+using Warden.Core.Utils.Tokenizer;
 using Warden.Mvc.Helpers;
 using Warden.Core.NLP;
 using Warden.Business.Contracts.Scheduler;
@@ -35,7 +35,7 @@ namespace Warden.Mvc.Controllers.Admin
         public ActionResult Get(string whoId)
         {
             var result = transactionProvider.All().Where(t => t.PayerId.Equals(whoId));
-            return Json(result);
+            return Json(result.Take(100));
         }
 
         [HttpPost]

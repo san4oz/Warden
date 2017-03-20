@@ -49,6 +49,13 @@
     <Compile Include="NLP\WordHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\CsvReader.cs" />
+    <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\Tokenizer\BaseTokenizer.cs" />
+    <Compile Include="Utils\Tokenizer\Filter\FilterRule.cs" />
+    <Compile Include="Utils\Tokenizer\Filter\TokenFilter.cs" />
+    <Compile Include="Utils\Tokenizer\NoiseCleaner.cs" />
+    <Compile Include="Utils\Tokenizer\TextNormalizer.cs" />
+    <Compile Include="Utils\Tokenizer\TextRepairer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

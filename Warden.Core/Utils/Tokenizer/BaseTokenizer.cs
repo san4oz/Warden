@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warden.Search.Utils.Tokenizer.Filter;
+using Warden.Core.Utils.Tokenizer.Filter;
 
-namespace Warden.Search.Utils.Tokenizer
+namespace Warden.Core.Utils.Tokenizer
 {
     public abstract class BaseTokenizer
     {
