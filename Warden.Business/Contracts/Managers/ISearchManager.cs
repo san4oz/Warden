@@ -12,6 +12,6 @@ namespace Warden.Business.Contracts.Providers
     {
         void Index(IEnumerable<Transaction> transactions);
 
-        List<Transaction> Search(SearchRequest request);
+        SearchResponse Search(SearchRequest request);
     }
 }

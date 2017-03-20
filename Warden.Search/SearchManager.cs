@@ -12,16 +12,18 @@ using Lucene.Net.Index;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Search;
 using Lucene.Net.Documents;
+using Lucene.Net.QueryParsers;
 using Warden.Business;
 using System.Configuration;
 using System.Web.Hosting;
+using Warden.Search.Utils;
+using Warden.Search.Utils.Persisters;
 
 namespace Warden.Search
 {
     public class SearchManager : ISearchManager
     {
         private string luceneDir = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, ConfigurationManager.ConnectionStrings["IndexDirectory"].ConnectionString);
-        //private string luceneDir = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "../index");
         private FSDirectory directoryTemp;
         private Lucene.Net.Util.Version version = Lucene.Net.Util.Version.LUCENE_30;
 
@@ -60,12 +62,82 @@ namespace Warden.Search
             }
         }
 
-        public List<Transaction> Search(SearchRequest request)
+        public SearchResponse Search(SearchRequest request)
         {
-            throw new NotImplementedException();
+            var result = new SearchResponse();
+            if (string.IsNullOrEmpty(request.Query))
+                return result;
+
+            using (var searcher = new IndexSearcher(directory))
+            {
+                var hitsLimit = short.MaxValue;
+                using (var analyzer = new StandardAnalyzer(version))
+                {
+                    var query = CreateQuery(request, analyzer);
+                    var hits = searcher.Search(query, hitsLimit).ScoreDocs;
+                    var searchResponse = CreateSearchResponse(searcher, hits, request);
+                    result.Results.AddRange(searchResponse);
+                }
+            }
+            return result;
         }
 
-        protected void AddToIndex(Transaction transaction, IndexWriter writer)
+        protected virtual IList<Entry> CreateSearchResponse(IndexSearcher searcher, IEnumerable<ScoreDoc> hits, SearchRequest request)
+        {
+            var result = new List<Entry>();
+            //var indexInfo = new List<string>(); 
+            var persister = new IndexFieldPersister();
+
+            var fields = new List<string>(new string[] { string.IsNullOrEmpty(request.SearchField) ? Constants.Search.Keywords : request.SearchField });
+            fields.Add(Constants.Search.Id);
+            foreach (var hit in hits)
+            {
+                var doc = GetDocument(searcher, hit.Doc, fields);
+                var entry = new Entry() { Id = doc.Get(Constants.Search.Id), Score = hit.Score };
+                entry.Fields = fields.ToDictionary(key => key, value => persister.ParseRawValue(doc.Get(value)));
+                result.Add(entry);
+            }
+            return result;
+        }
+
+        protected virtual Document GetDocument(IndexSearcher searcher, int n, IList<string> fields)
+        {
+            return searcher.Doc(n, new MapFieldSelector(fields));
+        }
+
+        protected virtual Query CreateQuery(SearchRequest request, StandardAnalyzer analyzer)
+        {
+            if (string.IsNullOrEmpty(request.Query))
+                return null;
+
+            var searchField = string.IsNullOrEmpty(request.SearchField) ? Constants.Search.Keywords : request.SearchField;
+            var parser = new QueryParser(version, searchField, analyzer);
+            InitQueryParserOperator(parser, request.MatchAllKeywords);
+            if (request.IsWildCardSearch)
+            {
+                request.Query = GetWildCardQuery(request.Query, request.MatchAllKeywords);
+                InitWildCardSearch(parser);
+            }
+            return parser.Parse(request.Query);
+        }
+
+        protected virtual void InitQueryParserOperator(QueryParser parser, bool matchAllKeywords)
+        {
+            parser.DefaultOperator = matchAllKeywords ? QueryParser.Operator.OR : QueryParser.Operator.AND;
+        }
+
+        protected virtual void InitWildCardSearch(QueryParser parser)
+        {
+            parser.AllowLeadingWildcard = true;
+            parser.DefaultOperator = QueryParser.Operator.OR;
+        }
+
+        protected virtual string GetWildCardQuery(string query, bool matchAllKeywords)
+        {
+            return SearchHelper.GetWildCardQuery(query, matchAllKeywords);
+        }
+
+        protected virtual void AddToIndex(Transaction transaction, IndexWriter writer)
         {
             var searchQuery = new TermQuery(new Term("Id", transaction.Id.ToString()));
             writer.DeleteDocuments(searchQuery);
@@ -73,7 +145,7 @@ namespace Warden.Search
             writer.AddDocument(doc);
         }
 
-        protected Document CreateDocument(Transaction transaction)
+        protected virtual Document CreateDocument(Transaction transaction)
         {
             var doc = new Document();
             doc.Add(new Field(Constants.Search.Id, transaction.Id.ToString(), Field.Store.YES, Field.Index.NO));

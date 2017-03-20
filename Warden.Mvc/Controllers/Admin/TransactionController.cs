@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
-using Warden.Business.Entities.ExternalProvider;
-using Warden.Search.Utils.Tokenizer;
-using Warden.Mvc.Helpers;
-using Warden.Core.NLP;
 using Warden.Business.Contracts.Scheduler;
-using Warden.Business.Entities;
+using Warden.Business.Entities.Search;
 
 namespace Warden.Mvc.Controllers.Admin
 {
@@ -53,11 +47,22 @@ namespace Warden.Mvc.Controllers.Admin
         {
             var transaction = new List<Transaction>(new[]{
                 new Transaction() { Id = Guid.NewGuid(), Keywords = "оплата за грудень" },
-                new Transaction() { Id = Guid.NewGuid(), Keywords = "стипендія за травень" } });
+                new Transaction() { Id = Guid.NewGuid(), Keywords = "стипендія за травень" },
+                new Transaction() { Id = Guid.NewGuid(), Keywords = "зарплата за вер." },
+                new Transaction() { Id = Guid.NewGuid(), Keywords = "заробітня плата" }});
 
             var searchManager = DependencyResolver.Current.GetService<ISearchManager>();
             searchManager.Index(transaction);
-            return View();
+            return Json(true);
+        }
+
+        public ActionResult Search()
+        {
+            var request = new SearchRequest();
+            request.Query = "зарплата";
+            var searchManager = DependencyResolver.Current.GetService<ISearchManager>();
+            searchManager.Search(request);
+            return Json(true);
         }
     }
 }
