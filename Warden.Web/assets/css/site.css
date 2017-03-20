@@ -540,3 +540,33 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     margin: 30px;
     display: block;
 }
+
+.searched-data table,
+.searched-data select {
+    width: 100%;
+    text-align-last: center;
+}
+
+.tags{
+    border: 1px solid lightgrey;
+    height: 80px;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: yellow;
+    border-radius: 100%;
+    padding: 3px;
+    margin: 7px;
+    display: inline-block;
+    color: black;
+    min-height: 15px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.tag > i{
+    color: red;
+    font-size: small;
+    cursor: pointer;
+}

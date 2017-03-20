@@ -7,6 +7,7 @@ using Warden.Business.Contracts.Providers;
 using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
+using Warden.Core.Utils.Tokenizer;
 
 namespace Warden.Business.Scheduler
 {
@@ -63,11 +64,16 @@ namespace Warden.Business.Scheduler
                 PayerId = this.configuration.PayerId
             };
 
+            var tokenizer = new TextNormalizer();
+
             Task.Run(async () =>
             {
                 var transactions = await externalApi.GetTransactionsAsync(request);
                 foreach (var transaction in transactions)
+                {
+                    transaction.Keywords = string.Join(";", tokenizer.Tokenize(transaction.Keywords));
                     dataProvider.Save(transaction);
+                }
             });
         }
 

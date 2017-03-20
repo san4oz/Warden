@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Warden.Search.Utils.Tokenizer.Filter
+namespace Warden.Core.Utils.Tokenizer.Filter
 {
     public class FilterRule
     {

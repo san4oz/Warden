@@ -4,6 +4,13 @@ using System.Linq;
 using System.Web.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
+<<<<<<< HEAD
+=======
+using Warden.Business.Entities.ExternalProvider;
+using Warden.Core.Utils.Tokenizer;
+using Warden.Mvc.Helpers;
+using Warden.Core.NLP;
+>>>>>>> origin/master
 using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities.Search;
 
@@ -29,7 +36,7 @@ namespace Warden.Mvc.Controllers.Admin
         public ActionResult Get(string whoId)
         {
             var result = transactionProvider.All().Where(t => t.PayerId.Equals(whoId));
-            return Json(result);
+            return Json(result.Take(100));
         }
 
         [HttpPost]
