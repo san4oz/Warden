@@ -279,12 +279,10 @@ bin/
 obj/
 packages/
 .vs/
-Warden.Web/obj/Debug/Warden.Web.csproj.FileListAbsolute.txt
-Warden.Core/obj/Debug/Warden.Core.csproj.FileListAbsolute.txt
 
+
+#custom
 /@data/index
-Warden.Business/obj/Debug/Warden.Business.csproj.FileListAbsolute.txt
-Warden.Search/obj/Debug/Warden.Search.csproj.FileListAbsolute.txt
-Warden.ExternalDataProvider/obj/Debug/Warden.ExternalDataProvider.csproj.FileListAbsolute.txt
-
-**/obj/Debug
+*FileListAbsolute.txt
+Warden.Mvc/bin/
+Warden.Mvc/obj/
