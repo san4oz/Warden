@@ -286,3 +286,5 @@ Warden.Core/obj/Debug/Warden.Core.csproj.FileListAbsolute.txt
 Warden.Business/obj/Debug/Warden.Business.csproj.FileListAbsolute.txt
 Warden.Search/obj/Debug/Warden.Search.csproj.FileListAbsolute.txt
 Warden.ExternalDataProvider/obj/Debug/Warden.ExternalDataProvider.csproj.FileListAbsolute.txt
+
+**/obj/Debug
