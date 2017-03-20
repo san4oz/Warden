@@ -9,6 +9,5 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Business\obj\Debug\Warden.Business.pdb
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Business\bin\Debug\Warden.Business.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Business\bin\Debug\Warden.Business.pdb
-C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Business\obj\Debug\Warden.Business.csprojResolveAssemblyReference.cache
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Business\obj\Debug\Warden.Business.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Business\obj\Debug\Warden.Business.pdb

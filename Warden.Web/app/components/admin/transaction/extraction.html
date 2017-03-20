@@ -1,0 +1,18 @@
+﻿<table class="pure-table" ng-controller="transactionController">
+    <thead>
+        <tr>
+            <th>Платник</th>
+            <th><button ng-click="startExtractionTaskAll" class="pure-button pure-button-danger">Запустити всі</button></th>
+            <th>Налаштування</th>
+            <th>Лог</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="payer in payers">
+            <td>{{payer.Name}}</td>
+            <td><button ng-click="startExtractionTask(payer.PayerId)" class="pure-button">Запустити</button></td>
+            <td>Налаштування</td>
+            <td>Лог</td>
+        </tr>
+    </tbody>
+</table>

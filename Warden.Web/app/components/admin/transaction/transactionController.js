@@ -5,7 +5,21 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         $scope.payers = result.data;
     });
 
-    $scope.parse = function () {
-        $scope.parsedcount = transactionService.Parse($scope.payerId, $scope.from, $scope.to);
+    $scope.startExtractionTask = function (whoId) {
+        transactionService.startExtractionTask(whoId)
+            .then(function (result) {
+                alert("Запущено!");
+            });
+    }; 
+
+    $scope.startExtractionTaskAll = function () {
+        this.startExtractionTask(null);
     };
+
+    $scope.load = function () {
+        transactionService.get($scope.selectedPayerId).then(function (result) {
+            $scope.transactions = result.data;
+        });
+    };
+    
 });

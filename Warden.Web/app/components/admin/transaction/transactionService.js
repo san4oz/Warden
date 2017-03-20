@@ -3,13 +3,15 @@
 adminApp.service('transactionService', function (
     $http
 ) {
-    this.Parse = function (payerId, from, to) {
+    this.startExtractionTask = function (whoId) {
         return $http({
-            url: "admin/api/transactions/parse",
+            url: "/admin/api/transaction/startExtraction",
             method: "POST",
-            data: { payerId: payerId, from: from, to: to }
-        }).then(function (result) {
-            return result.data;
+            data: { whoId: whoId }
         });
     }
+
+    this.get = function (whoId) {
+        return $http.post("/admin/api/transaction/get", { whoId: whoId });
+    };
 });

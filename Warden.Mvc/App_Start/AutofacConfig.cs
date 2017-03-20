@@ -10,6 +10,11 @@ using Autofac.Integration.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.DataProvider.DataProviders;
 using Warden.Search;
+using Warden.Business.Entities;
+using Warden.Business.Contracts.Scheduler;
+using Warden.Business.Entities;
+using Warden.ExternalDataProvider;
+using Warden.Business.Scheduler;
 
 namespace Warden.Mvc.App_Start
 {
@@ -25,10 +30,19 @@ namespace Warden.Mvc.App_Start
 
         private static void RegisterTypes(ContainerBuilder builder)
         {
-            builder.RegisterType<ExternalDataProvider.ExternalApi>().As<IExternalApi>();
-            builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
+            RegisterDataProviders(builder);
+
+            builder.RegisterType<ExternalApi>().As<IExternalApi>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
+            builder.RegisterType<TransactionExtractionTaskConfiguration>().As<ITaskConfiguration>();
+            builder.RegisterType<TransactionExtractionTask>().As<ITransactionExtractionTask>();
+        }
+
+        private static void RegisterDataProviders(ContainerBuilder builder)
+        {
+            builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
             builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
+            builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionTaskConfigurationDataProvider>();
         }
     }
 }

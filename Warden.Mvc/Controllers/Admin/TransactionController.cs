@@ -10,18 +10,43 @@ using Warden.Business.Entities.ExternalProvider;
 using Warden.Search.Utils.Tokenizer;
 using Warden.Mvc.Helpers;
 using Warden.Core.NLP;
+using Warden.Business.Contracts.Scheduler;
+using Warden.Business.Entities;
 
 namespace Warden.Mvc.Controllers.Admin
 {
     public class TransactionController : ApiController
     {
-        private IExternalApi ExternalApi { get; set; }
-        private ITransactionDataProvider TransactionProvider { get; set; }
+        private IExternalApi externalApi;
+        private ITransactionDataProvider transactionProvider;
+        private ITransactionExtractionTask extractionTask;
 
-        public TransactionController(IExternalApi externalApi, ITransactionDataProvider transactionProvider)
+        public TransactionController(
+            IExternalApi externalApi,
+            ITransactionDataProvider transactionProvider,
+            ITransactionExtractionTask extractionTask)
         {
-            ExternalApi = externalApi;
-            TransactionProvider = transactionProvider;
+            this.externalApi = externalApi;
+            this.transactionProvider = transactionProvider;
+            this.extractionTask = extractionTask;
+        }
+        
+        [HttpPost]
+        public ActionResult Get(string whoId)
+        {
+            var result = transactionProvider.All().Where(t => t.PayerId.Equals(whoId));
+            return Json(result);
+        }
+
+        [HttpPost]
+        public ActionResult StartExtraction(string whoId)
+        {
+            if (string.IsNullOrEmpty(whoId))
+                extractionTask.RunAll();
+            else
+                extractionTask.RunExect(whoId);
+
+            return Json(true);
         }
 
         public ActionResult Index()

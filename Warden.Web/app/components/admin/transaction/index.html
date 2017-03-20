@@ -1,14 +1,20 @@
-﻿<h1>Transactions parsing</h1>
+﻿<div ng-controller="transactionController">
+    <select ng-model="selectedPayerId" ng-change="load()">
+        <option ng-repeat="payer in payers" value="{{payer.PayerId}}">{{payer.Name}}</option>
+    </select>
 
-<div>
-    <label for="payerId">Payer Id</label>
-    <input name="payerId" ng-model="payerId"/>
-
-    <label for="from">From</label>
-    <input name="from" ng-model="from" />
-
-    <label for="to">to</label>
-    <input name="to" ng-model="to" />
-
-    <input type="button" ng-click="parse()" value="Submit"/>
+    <table class="pure-table">
+        <thead>
+            <tr>
+                <th>Вартість</th>
+                <th>Призначення</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="transaction in transactions">
+                <th>{{transaction.Price | currency}}</th>
+                <th>{{transaction.Keywords}}</th>
+            </tr>
+        </tbody>
+    </table>
 </div>

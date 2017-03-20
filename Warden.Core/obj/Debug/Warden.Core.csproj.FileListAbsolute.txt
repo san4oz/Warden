@@ -8,6 +8,5 @@ C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Wa
 C:\Users\o.kotvytskyi\Documents\Visual Studio 2015\Projects\Warden-Git\Warden\Warden.Core\obj\Debug\Warden.Core.pdb
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Core\bin\Debug\Warden.Core.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Core\bin\Debug\Warden.Core.pdb
-C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Core\obj\Debug\Warden.Core.csprojResolveAssemblyReference.cache
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Core\obj\Debug\Warden.Core.dll
 C:\Users\Alexey\Desktop\Development\Projects\Warden\Warden\Warden.Core\obj\Debug\Warden.Core.pdb

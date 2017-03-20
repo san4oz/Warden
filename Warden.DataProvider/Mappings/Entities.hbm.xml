@@ -14,5 +14,12 @@
     <property name="Name" type="System.String"/>
     <property name="PayerId" type="System.String"/>
   </class>
+
+  <class name="TransactionExtractionTaskConfiguration" table="TransactionExtractionTaskConfigurations">
+    <id name="Id" type="System.Guid"></id>
+    <property name="StartDate" type="System.DateTime"/>
+    <property name="EndDate" type="System.DateTime"/>
+    <property name="PayerId" type="System.String"/>
+  </class>
   
 </hibernate-mapping>

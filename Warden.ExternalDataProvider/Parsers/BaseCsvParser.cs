@@ -16,13 +16,33 @@ namespace Warden.ExternalDataProvider.Parsers
         {
             var entity = new T();
             var properties = entity.GetType().GetProperties();
-            foreach(var property in properties)
+            foreach (var property in properties)
             {
                 var indexAttribute = property.GetCustomAttributes(typeof(FieldIndexAttribute), true).FirstOrDefault() as FieldIndexAttribute;
                 if (indexAttribute == null)
                     continue;
 
-                entity.GetType().GetProperty(property.Name).SetValue(entity, fields[indexAttribute.FieldIndex]);
+                var value = fields[indexAttribute.FieldIndex];
+                if (property.PropertyType == typeof(decimal))
+                {
+                    decimal outDecimal;
+                    if (decimal.TryParse(value, out outDecimal))
+                    {
+                        property.SetValue(entity, outDecimal);
+                    }
+                }
+                else if (property.PropertyType == typeof(DateTime))
+                {
+                    DateTime outDate;
+                    if (DateTime.TryParse(value, out outDate))
+                    {
+                        property.SetValue(entity, outDate);
+                    }
+                }
+                else
+                {
+                    property.SetValue(entity, value);
+                }
             }
 
             return entity;
@@ -40,7 +60,11 @@ namespace Warden.ExternalDataProvider.Parsers
 
                 while (!textFieldParser.EndOfData)
                 {
-                    result.Add(ParseEntity(textFieldParser.ReadFields()));
+                    try
+                    {
+                        result.Add(ParseEntity(textFieldParser.ReadFields()));
+                    }
+                    catch { }
                 }
             }
 

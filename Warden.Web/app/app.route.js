@@ -35,6 +35,10 @@
                     templateUrl: 'app/components/admin/transaction/index.html',
                     controller: 'transactionController'
                 })
+                .when('/admin/scheduler', {
+                    templateUrl: 'app/components/admin/transaction/extraction.html',
+                    controller: 'transactionController'
+                })
                 .when('/admin/payers', {
                     templateUrl: 'app/components/admin/payer/list.html',
                     controller: 'payerController'

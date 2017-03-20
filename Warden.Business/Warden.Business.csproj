@@ -42,14 +42,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Contracts\Providers\ITransactionTaskConfigurationDataProvider.cs" />
     <Compile Include="Contracts\Providers\IDataProvider.cs" />
     <Compile Include="Contracts\Api\IExternalApi.cs" />
     <Compile Include="Contracts\Managers\ISearchManager.cs" />
     <Compile Include="Contracts\Providers\IPayerDataProvider.cs" />
     <Compile Include="Contracts\Providers\ITransactionDataProvider.cs" />
+    <Compile Include="Contracts\Scheduler\ITask.cs" />
+    <Compile Include="Contracts\Scheduler\ITaskConfiguration.cs" />
+    <Compile Include="Contracts\Scheduler\ITransactionExtractionTask.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExternalProvider\TransactionRequest.cs" />
     <Compile Include="Entities\Payer.cs" />
+    <Compile Include="Scheduler\TransactionExtractionTask.cs" />
+    <Compile Include="Entities\TransactionExtractionTaskConfiguration.cs" />
     <Compile Include="Entities\Search\Entry.cs" />
     <Compile Include="Entities\Search\SearchRequest.cs" />
     <Compile Include="Entities\Search\SearchResponse.cs" />
@@ -58,6 +64,7 @@
     <Compile Include="Entities\TransactionCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
