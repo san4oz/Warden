@@ -15,6 +15,10 @@ using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities;
 using Warden.ExternalDataProvider;
 using Warden.Business.Scheduler;
+using Warden.Business.Api;
+using Warden.Business.Contracts.Api;
+using Warden.Business.Pipeline;
+using Warden.Business.Contracts.Pipeline;
 
 namespace Warden.Mvc.App_Start
 {
@@ -30,12 +34,16 @@ namespace Warden.Mvc.App_Start
 
         private static void RegisterTypes(ContainerBuilder builder)
         {
+            
             RegisterDataProviders(builder);
 
             builder.RegisterType<ExternalApi>().As<IExternalApi>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<TransactionExtractionTaskConfiguration>().As<ITaskConfiguration>();
-            builder.RegisterType<TransactionExtractionTask>().As<ITransactionExtractionTask>();
+            builder.RegisterType<TransactionTextProcessor>().As<ITransactionTextProcessor>();
+
+            builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>();
+            RegisterPipeline(builder);
         }
 
         private static void RegisterDataProviders(ContainerBuilder builder)
@@ -43,6 +51,12 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
             builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
             builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionTaskConfigurationDataProvider>();
+        }
+
+        private static void RegisterPipeline(ContainerBuilder builder)
+        {
+            builder.RegisterType<TransactionImportPipeline>().As<ITransactionImportPipeline>().SingleInstance();
+            builder.RegisterType<TransactionImportPipelineContext>().As<IPipelineContext>();
         }
     }
 }

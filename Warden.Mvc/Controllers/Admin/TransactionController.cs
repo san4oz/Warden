@@ -13,12 +13,12 @@ namespace Warden.Mvc.Controllers.Admin
     {
         private IExternalApi externalApi;
         private ITransactionDataProvider transactionProvider;
-        private ITransactionExtractionTask extractionTask;
+        private ITransactionImportTask extractionTask;
 
         public TransactionController(
             IExternalApi externalApi,
             ITransactionDataProvider transactionProvider,
-            ITransactionExtractionTask extractionTask)
+            ITransactionImportTask extractionTask)
         {
             this.externalApi = externalApi;
             this.transactionProvider = transactionProvider;
