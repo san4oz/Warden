@@ -53,6 +53,34 @@ namespace Warden.Mvc.App_Start.Routes
             );
 
             MapRoute
+           (
+               name: "api/category/attachkeywordtocategory",
+               url: "api/category/attachkeywordtocategory",
+               defaults: new { controller = "Category", action = "AttachKeywordToCategory" }
+           );
+
+            MapRoute
+            (
+                name: "api/category/unprocessedkeywords",
+                url: "api/category/unprocessedkeywords",
+                defaults: new { controller = "Category", action = "UnprocessedKeywords" }
+            );
+
+            MapRoute
+            (
+                name: "api/category/all",
+                url: "api/category/all",
+                defaults: new { controller = "Category", action = "All" }
+            );
+
+            MapRoute
+           (
+               name: "api/category/create",
+               url: "api/category/create",
+               defaults: new { controller = "Category", action = "Create" }
+           );
+
+            MapRoute
             (
                 name: "_angular",
                 url: "{*url}",

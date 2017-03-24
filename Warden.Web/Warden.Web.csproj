@@ -131,6 +131,11 @@
   <ItemGroup>
     <Content Include="app\app.module.js" />
     <Content Include="app\app.route.js" />
+    <Content Include="app\components\admin\category\create.html" />
+    <Content Include="app\components\admin\category\categories.html" />
+    <Content Include="app\components\admin\category\categoryService.js" />
+    <Content Include="app\components\admin\category\unprocessedKeywords.html" />
+    <Content Include="app\components\admin\category\categoryController.js" />
     <Content Include="app\components\admin\home\homeController.js" />
     <Content Include="app\components\admin\home\homeView.html" />
     <Content Include="app\components\admin\payer\save.html" />

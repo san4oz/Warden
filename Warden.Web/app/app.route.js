@@ -47,6 +47,18 @@
                     templateUrl: 'app/components/admin/payer/save.html',
                     controller: 'payerController'
                 })
+                .when("/admin/category/unprocessedkeywords", {
+                    templateUrl: 'app/components/admin/category/unprocessedKeywords.html',
+                    controller: 'categoryController'
+                })
+                .when("/admin/category", {
+                    templateUrl: 'app/components/admin/category/categories.html',
+                    controller: 'categoryController'
+                })
+                .when("/admin/category/create", {
+                    templateUrl: 'app/components/admin/category/create.html',
+                    controller: 'categoryController'
+                })
                 .otherwise({
                     redirectTo: "/admin/pageNotFound"
                 });

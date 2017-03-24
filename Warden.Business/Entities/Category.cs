@@ -8,8 +8,8 @@ namespace Warden.Business.Entities
 {
     public class Category : Entity
     {
-        public string Title { get; set; }
+        public virtual string Title { get; set; }
 
-        public string Query { get; set; }
+        public virtual string Keywords { get; set; }
     }
 }

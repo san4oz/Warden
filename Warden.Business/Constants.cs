@@ -13,5 +13,10 @@ namespace Warden.Business
             public const string Id = "_id";
             public const string Keywords = "_keywords";
         }
+
+        public class Business
+        {
+            public const int MinKeywordLength = 3;
+        }
     }
 }

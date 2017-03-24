@@ -1,0 +1,15 @@
+﻿<div ng-controller="categoryController">
+    <form name="createForm" novalidate class="pure-form pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="Id">Назва</label>
+                <input ng-model="category.Title" id="Title" type="text" required />
+                <span ng-show="createForm.Title.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
+            </div>
+        
+            <div class="pure-controls">
+                <button ng-click="create(category)" ng-disabled="createForm.$invalid" class="pure-button pure-button-primary">Зберегти</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

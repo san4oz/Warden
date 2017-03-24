@@ -18,13 +18,15 @@ namespace Warden.Business.Pipeline
         private ITransactionDataProvider provider;
         private ISearchManager search;
         private ITransactionTextProcessor textProcessor;
+        private ICategoryDataProvider categoryProvider;
 
-        public TransactionImportPipeline(IExternalApi api, ITransactionDataProvider provider, ISearchManager search, ITransactionTextProcessor textProcessor)
+        public TransactionImportPipeline(IExternalApi api, ITransactionDataProvider provider, ISearchManager search, ITransactionTextProcessor textProcessor, ICategoryDataProvider categoryProvider)
         {
             this.api = api;
             this.provider = provider;
             this.search = search;
             this.textProcessor = textProcessor;
+            this.categoryProvider = categoryProvider;
         }
 
         public void Execute(IPipelineContext context)
@@ -45,6 +47,7 @@ namespace Warden.Business.Pipeline
             this.Steps.Add(new TransactionProcessingStep(textProcessor));
             this.Steps.Add(new TransactionCreatingStep(provider));
             this.Steps.Add(new TransactionIndexingStep(search));
+            this.Steps.Add(new KeywordsExtractingStep(categoryProvider));
         }
     }
 }

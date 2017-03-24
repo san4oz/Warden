@@ -15,6 +15,17 @@
     <property name="PayerId" type="System.String"/>
   </class>
 
+  <class name="Category" table="Categories">
+    <id name="Id" type="System.Guid"></id>
+    <property name="Title" type="System.String"/>
+    <property name="Keywords" type="System.String"/>
+  </class>
+
+  <class name="UnprocessedKeyword" table="UnprocessedKeywords">
+    <id name="Id" type="System.Guid"></id>
+    <property name="Value" type="System.String"/>
+  </class>
+
   <class name="TransactionExtractionTaskConfiguration" table="TransactionExtractionTaskConfigurations">
     <id name="Id" type="System.Guid"></id>
     <property name="StartDate" type="System.DateTime"/>

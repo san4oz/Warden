@@ -51,6 +51,7 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
             builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
             builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionTaskConfigurationDataProvider>();
+            builder.RegisterType<CategoryDataProvider>().As<ICategoryDataProvider>();
         }
 
         private static void RegisterPipeline(ContainerBuilder builder)

@@ -48,6 +48,9 @@
     <Compile Include="Contracts\Pipeline\IPipelineContext.cs" />
     <Compile Include="Contracts\Pipeline\IPipelineStep.cs" />
     <Compile Include="Contracts\Pipeline\ITransactionImportPipeline.cs" />
+    <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
+    <Compile Include="Entities\UnprocessedKeyword.cs" />
+    <Compile Include="Pipeline\Steps\KeywordsExtractingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionCreatingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionIndexingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionProcessingStep.cs" />

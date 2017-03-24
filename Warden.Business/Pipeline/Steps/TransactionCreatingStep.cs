@@ -10,14 +10,13 @@ namespace Warden.Business.Pipeline.Steps
 {
     public class TransactionCreatingStep : IPipelineStep
     {
+        private TransactionImportPipelineContext context;
         private ITransactionDataProvider provider;
 
         public TransactionCreatingStep(ITransactionDataProvider provider)
         {
             this.provider = provider;
-        }
-
-        private TransactionImportPipelineContext context;
+        }        
         public void Execute(IPipelineContext context)
         {
             this.context = (TransactionImportPipelineContext)context;

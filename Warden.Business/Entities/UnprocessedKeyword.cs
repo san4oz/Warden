@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Warden.Mvc.Models
+namespace Warden.Business.Entities
 {
-    class Dummy
+    public class UnprocessedKeyword : Entity
     {
+        public virtual string Value { get; set; }
     }
 }

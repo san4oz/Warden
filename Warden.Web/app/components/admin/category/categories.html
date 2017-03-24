@@ -1,0 +1,16 @@
+﻿<span><a href="/admin/category/create">Створити нову категорію</a></span>
+<span><a href="/admin/category/unprocessedkeywords">Необроблені слова</a></span>
+<table ng-controller="categoryController">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Слова</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="category in categories">
+            <td>{{category.Title}}</td>
+            <td>{{category.Keywords}}</td>
+        </tr>
+    </tbody>
+</table>

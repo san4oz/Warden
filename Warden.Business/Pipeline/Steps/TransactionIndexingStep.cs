@@ -10,10 +10,15 @@ namespace Warden.Business.Pipeline.Steps
 {
     public class TransactionIndexingStep : IPipelineStep
     {
+        private TransactionImportPipelineContext context;
+
         private ISearchManager search;
 
         public void Execute(IPipelineContext context)
         {
+            this.context = (TransactionImportPipelineContext)context;
+
+            search.Index(this.context.Items);
         }
 
         public TransactionIndexingStep(ISearchManager search)
