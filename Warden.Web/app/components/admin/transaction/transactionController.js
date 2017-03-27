@@ -18,6 +18,14 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         this.startExtractionTask(null);
     };
 
+    $scope.startIndexTask = function () {
+        transactionService.index();
+    };
+
+    $scope.search = function () {
+        transactionService.search();
+    };
+
     $scope.load = function () {
         transactionService.get($scope.selectedPayerId).then(function (result) {
             $scope.transactions = result.data;

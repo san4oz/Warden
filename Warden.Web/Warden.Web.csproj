@@ -142,6 +142,9 @@
     <Content Include="app\components\admin\payer\list.html" />
     <Content Include="app\components\admin\payer\payerController.js" />
     <Content Include="app\components\admin\payer\payerService.js" />
+    <Content Include="app\components\admin\task\index.html" />
+    <Content Include="app\components\admin\task\taskController.js" />
+    <Content Include="app\components\admin\task\taskService.js" />
     <Content Include="app\components\admin\transaction\extraction.html" />
     <Content Include="app\components\admin\transaction\transactionService.js" />
     <Content Include="app\components\admin\transaction\index.html" />

@@ -29,9 +29,9 @@ namespace Warden.Search.Utils
                 while (tokenizer.IncrementToken())
                 {
                     string word = termAttribute.Term;
-                    builder.Append(string.Format("{1}{2}{3} ", tokenStart, word, tokenEnd));
+                    builder.Append(string.Format("{0}{1}{2} ", tokenStart, word, tokenEnd));
                 }
-                return builder.ToString();
+                return builder.ToString().TrimEnd();
             }
         }
     }

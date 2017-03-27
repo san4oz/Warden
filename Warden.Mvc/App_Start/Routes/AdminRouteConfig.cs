@@ -53,6 +53,20 @@ namespace Warden.Mvc.App_Start.Routes
             );
 
             MapRoute
+            (
+                name: "api/transaction/search",
+                url: "api/transaction/search",
+                defaults: new { controller = "Transaction", action = "Search" }
+            );
+
+            MapRoute
+            (
+                name: "api/task/index",
+                url: "api/task/index",
+                defaults: new { controller = "Task", action = "Index" }
+            );
+
+            MapRoute
            (
                name: "api/category/attachkeywordtocategory",
                url: "api/category/attachkeywordtocategory",

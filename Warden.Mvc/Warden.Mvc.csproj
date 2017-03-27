@@ -89,6 +89,7 @@
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\CategoryController.cs" />
     <Compile Include="Controllers\Admin\PayerController.cs" />
+    <Compile Include="Controllers\Admin\TaskController.cs" />
     <Compile Include="Controllers\Admin\TransactionController.cs" />
     <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -43,26 +43,14 @@ namespace Warden.Mvc.Controllers.Admin
             return Json(true);
         }
 
-
-        public ActionResult Index()
-        {
-            var transaction = new List<Transaction>(new[]{
-                new Transaction() { Id = Guid.NewGuid(), Keywords = "оплата за грудень" },
-                new Transaction() { Id = Guid.NewGuid(), Keywords = "стипендія за травень" },
-                new Transaction() { Id = Guid.NewGuid(), Keywords = "зарплата за вер." },
-                new Transaction() { Id = Guid.NewGuid(), Keywords = "заробітня плата" }});
-
-            var searchManager = DependencyResolver.Current.GetService<ISearchManager>();
-            searchManager.Index(transaction);
-            return Json(true);
-        }
-
+        [HttpPost]
         public ActionResult Search()
         {
             var request = new SearchRequest();
-            request.Query = "зарплата";
+            request.Query = "зар";
+            request.IsWildCardSearch = true;
             var searchManager = DependencyResolver.Current.GetService<ISearchManager>();
-            searchManager.Search(request);
+            var result = searchManager.Search(request);
             return Json(true);
         }
     }

@@ -67,6 +67,7 @@ namespace Warden.Search
             var result = new SearchResponse();
             if (string.IsNullOrEmpty(request.Query))
                 return result;
+            result.Results = new List<Entry>();
 
             using (var searcher = new IndexSearcher(directory))
             {

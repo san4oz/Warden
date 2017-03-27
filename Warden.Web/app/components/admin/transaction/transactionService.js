@@ -14,4 +14,8 @@ adminApp.service('transactionService', function (
     this.get = function (whoId) {
         return $http.post("/admin/api/transaction/get", { whoId: whoId });
     };
+
+    this.search = function () {
+        return $http.post("/admin/api/transaction/search")
+    };
 });
