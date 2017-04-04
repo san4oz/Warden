@@ -61,6 +61,13 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
             (
+                name: "api/transaction/processed",
+                url: "api/transaction/processed",
+                defaults: new { controller = "Transaction", action = "GetProcessedTransaction" }
+            );
+
+            MapRoute
+            (
                 name: "api/task/index",
                 url: "api/task/index",
                 defaults: new { controller = "Task", action = "Index" }
@@ -68,9 +75,9 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
            (
-               name: "api/category/attachkeywordtocategory",
-               url: "api/category/attachkeywordtocategory",
-               defaults: new { controller = "Category", action = "AttachKeywordToCategory" }
+               name: "api/transaction/attachToCategory",
+               url: "api/transaction/attachToCategory",
+               defaults: new { controller = "Transaction", action = "AttachToCategory" }
            );
 
             MapRoute

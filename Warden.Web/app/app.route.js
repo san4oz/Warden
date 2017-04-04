@@ -35,13 +35,9 @@
                     templateUrl: 'app/components/admin/transaction/index.html',
                     controller: 'transactionController'
                 })
-                .when('/admin/scheduler', {
-                    templateUrl: 'app/components/admin/transaction/extraction.html',
+                .when('/admin/import', {
+                    templateUrl: 'app/components/admin/transaction/import.html',
                     controller: 'transactionController'
-                })
-                .when('/admin/tasks', {
-                    templateUrl: 'app/components/admin/task/index.html',
-                    controller: 'taskController'
                 })
                 .when('/admin/payers', {
                     templateUrl: 'app/components/admin/payer/list.html',
@@ -50,10 +46,6 @@
                 .when('/admin/payer/save', {
                     templateUrl: 'app/components/admin/payer/save.html',
                     controller: 'payerController'
-                })
-                .when("/admin/category/unprocessedkeywords", {
-                    templateUrl: 'app/components/admin/category/unprocessedKeywords.html',
-                    controller: 'categoryController'
                 })
                 .when("/admin/category", {
                     templateUrl: 'app/components/admin/category/categories.html',

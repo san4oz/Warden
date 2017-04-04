@@ -134,7 +134,6 @@
     <Content Include="app\components\admin\category\create.html" />
     <Content Include="app\components\admin\category\categories.html" />
     <Content Include="app\components\admin\category\categoryService.js" />
-    <Content Include="app\components\admin\category\unprocessedKeywords.html" />
     <Content Include="app\components\admin\category\categoryController.js" />
     <Content Include="app\components\admin\home\homeController.js" />
     <Content Include="app\components\admin\home\homeView.html" />
@@ -142,12 +141,9 @@
     <Content Include="app\components\admin\payer\list.html" />
     <Content Include="app\components\admin\payer\payerController.js" />
     <Content Include="app\components\admin\payer\payerService.js" />
-    <Content Include="app\components\admin\task\index.html" />
-    <Content Include="app\components\admin\task\taskController.js" />
-    <Content Include="app\components\admin\task\taskService.js" />
-    <Content Include="app\components\admin\transaction\extraction.html" />
-    <Content Include="app\components\admin\transaction\transactionService.js" />
+    <Content Include="app\components\admin\transaction\import.html" />
     <Content Include="app\components\admin\transaction\index.html" />
+    <Content Include="app\components\admin\transaction\transactionService.js" />
     <Content Include="app\components\admin\transaction\transactionController.js" />
     <Content Include="app\components\frontend\about\aboutController.js" />
     <Content Include="app\components\frontend\about\aboutView.html" />

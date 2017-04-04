@@ -9,19 +9,19 @@ namespace Warden.ExternalDataProvider.Entities
 {
     public class TransactionData
     {
-        [FieldIndex(6)]
+        [FieldIndex(7)]
         public string ReceiverId { get; set; }
 
-        [FieldIndex(2)]
+        [FieldIndex(3)]
         public string PayerId { get; set; }
 
-        [FieldIndex(10)]
+        [FieldIndex(12)]
         public decimal Price { get; set; }
 
         [FieldIndex(11)]
         public string Keywords { get; set; }
 
-        [FieldIndex(1)]
+        [FieldIndex(2)]
         public DateTime Date { get; set; }
     }
 }

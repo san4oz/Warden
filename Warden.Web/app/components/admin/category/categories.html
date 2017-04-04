@@ -1,18 +1,15 @@
 ﻿<div class="pure-control-group">
     <span><a href="/admin/category/create" class="pure-button">Створити нову категорію</a></span>
-    <span><a href="/admin/category/unprocessedkeywords" class="pure-button">Необроблені слова</a></span>
 </div>
 <table ng-controller="categoryController" class="pure-table">
     <thead>
         <tr>
             <th>Назва</th>
-            <th>Слова</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="category in categories">
             <td>{{category.Title}}</td>
-            <td>{{category.Keywords}}</td>
         </tr>
     </tbody>
 </table>

@@ -11,6 +11,12 @@ adminApp.controller('categoryController', function ($scope, categoryService) {
         $scope.unprocessedKeywords.splice($scope.unprocessedKeywords.indexOf(keyword), 1);
     }
 
+    $scope.searchTransactionsByKeyword = function (keyword) {
+        return categoryService.searchTransactionsByKeyword(keyword).then(function (result) {
+            $scope.searchResults = result.data;
+        });
+    };
+
     var loadUprocessedKeywords = function () {
         return categoryService.getUnprocessedKeywords().then(function (result) {
             $scope.unprocessedKeywords = result.data;

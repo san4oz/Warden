@@ -13,6 +13,6 @@ namespace Warden.Business.Contracts.Providers
         List<UnprocessedKeyword> GetUprocessedKeywords();
         UnprocessedKeyword GetUprocessedKeyword(Guid id);
         Category GetByTitle(string title);
-        void DeleteUnprocessedKeyword(Guid id);
+        void DeleteUnprocessedKeyword(Guid id);   
     }
 }

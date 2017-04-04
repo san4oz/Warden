@@ -18,4 +18,8 @@ adminApp.service('categoryService', function (
     this.attachKeywordToCategory = function (keywordId, categoryId) {
         $http.post("/admin/api/category/attachkeywordtocategory", { keywordId: keywordId, categoryId: categoryId });
     };
+
+    this.searchTransactionsByKeyword = function (keyword) {
+        $http.post("admin/api/transaction/search", { keyword: keyword });
+    };
 });

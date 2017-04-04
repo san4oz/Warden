@@ -8,8 +8,8 @@ namespace Warden.Business.Entities
 {
     public class TransactionCategory : Entity
     {
-        public Guid CategoryId { get; set; }
+        public virtual Guid CategoryId { get; set; }
 
-        public Guid TransactionId { get; set; }
+        public virtual Guid TransactionId { get; set; }
     }
 }

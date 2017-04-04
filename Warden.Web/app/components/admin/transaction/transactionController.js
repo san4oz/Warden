@@ -1,58 +1,58 @@
 ﻿'use strict'
 
-adminApp.controller('transactionController', function ($scope, transactionService, payerService) {
-    payerService.getAll().then(function (result) {
-        $scope.payers = result.data;
-    });
+adminApp.controller('transactionController', function ($scope, transactionService, payerService, categoryService) {
+    $scope.tab = 1;
 
-    $scope.keywords = $scope.keywords || [];
+    $scope.tabs = {
+        setTab: function (newTab) {
+            $scope.tab = newTab;
+        },
+        isSet: function (tabNum) {
+            return $scope.tab === tabNum;
+        },
+    };
 
-    $scope.startExtractionTask = function (whoId) {
+    $scope.startImportTask = function (whoId) {
         transactionService.startExtractionTask(whoId)
             .then(function (result) {
                 alert("Запущено!");
             });
     };
 
-    $scope.startExtractionTaskAll = function () {
+    $scope.startImportTaskAll = function () {
         this.startExtractionTask(null);
     };
 
-    $scope.startIndexTask = function () {
-        transactionService.index();
-    };
+    $scope.search = function (query) {
+        if (query.length < 3)
+            return;
 
-    $scope.search = function () {
-        transactionService.search();
-    };
-
-    $scope.load = function () {
-        transactionService.get($scope.selectedPayerId).then(function (result) {
+        transactionService.search(query).then(function (result) {
             $scope.transactions = result.data;
+        });
+    }
+
+    $scope.attachToCategory = function (transaction, category) {
+        transactionService.attachToCategory(transaction, category).then(function () {
+            $scope.search($scope.searchQuery);
         });
     };
 
-    $scope.addTag = function (tag) {
-        if ($scope.keywords.indexOf(tag) == -1) {
-            $scope.keywords.push(tag);
-            $scope.tagBox = "";
-        }
+    $scope.getCategoryTransactions = function (category) {
+        transactionService.getCategoryTransactions(category).then(function (result) {
+            $scope.transactions = result.data;
+        });
+    }
 
+    $scope.init = function () {
+        payerService.getAll().then(function (result) {
+            $scope.payers = result.data;
+        });
+
+        categoryService.getCategories().then(function (result) {
+            $scope.categories = result.data;
+        });
     };
 
-    $scope.removeTag = function (tag) {
-        var index = $scope.keywords.indexOf(tag);
-        if (index != -1)
-            $scope.keywords.splice(index, 1);
-    };
-
-    $scope.showUpTag = function (tag) {
-        $scope.tagToShowUp = tag;
-    };
-
-    $scope.containsTag = function (keywords) {
-        return function (transaction) {
-            return keywords.every(el => transaction.Keywords.indexOf(el) != -1) && transaction.Keywords.indexOf($scope.tagToShowUp) != -1;
-        };
-    };
+    $scope.init();
 });

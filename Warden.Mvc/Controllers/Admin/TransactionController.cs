@@ -14,24 +14,23 @@ namespace Warden.Mvc.Controllers.Admin
         private IExternalApi externalApi;
         private ITransactionDataProvider transactionProvider;
         private ITransactionImportTask extractionTask;
+        private ISearchManager searchManager;
+        private ICategoryDataProvider categoryProvider;
 
         public TransactionController(
             IExternalApi externalApi,
             ITransactionDataProvider transactionProvider,
-            ITransactionImportTask extractionTask)
+            ITransactionImportTask extractionTask,
+            ISearchManager searchManager,
+            ICategoryDataProvider categoryProvider)
         {
             this.externalApi = externalApi;
             this.transactionProvider = transactionProvider;
             this.extractionTask = extractionTask;
+            this.searchManager = searchManager;
+            this.categoryProvider = categoryProvider;
         }
         
-        [HttpPost]
-        public ActionResult Get(string whoId)
-        {
-            var result = transactionProvider.All().Where(t => t.PayerId.Equals(whoId));
-            return Json(result.Take(100));
-        }
-
         [HttpPost]
         public ActionResult StartExtraction(string whoId)
         {
@@ -44,14 +43,39 @@ namespace Warden.Mvc.Controllers.Admin
         }
 
         [HttpPost]
-        public ActionResult Search()
+        public ActionResult Search(string keyword)
         {
             var request = new SearchRequest();
-            request.Query = "зар";
+            request.Query = keyword;
             request.IsWildCardSearch = true;
-            var searchManager = DependencyResolver.Current.GetService<ISearchManager>();
-            var result = searchManager.Search(request);
+            var searchResult = searchManager.Search(request);
+
+            var transactions = transactionProvider.GetUnprocessedTransactions(searchResult.Results.Select(e => new Guid(e.Id)).ToArray());
+
+            return Json(transactions);
+        }
+
+        [HttpPost]
+        public ActionResult AttachToCategory(Guid transactionId, Guid categoryId)
+        {
+            var keyword = transactionProvider.Get(transactionId);
+            if (keyword == null)
+                return HttpNotFound();
+
+            var category = categoryProvider.Get(categoryId);
+            if (category == null)
+                return HttpNotFound();
+
+            transactionProvider.AttachToCategory(transactionId, categoryId);
+
             return Json(true);
+        }
+
+        [HttpPost]
+        public ActionResult GetProcessedTransaction(Guid categoryId)
+        {
+            var transactions = transactionProvider.GetProcessedTransactions(categoryId);
+            return Json(transactions);
         }
     }
 }

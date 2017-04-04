@@ -9,6 +9,12 @@
     <property name="Date" type="System.DateTime"/>
   </class>
 
+  <class name="TransactionCategory" table="TransactionCategories">
+    <id name="Id" type="System.Guid"></id>
+    <property name="TransactionId" type="System.Guid"/>
+    <property name="CategoryId" type="System.Guid"/>
+  </class>
+
   <class name="Payer" table="Payers">
     <id name="Id" type="System.Guid"></id>
     <property name="Name" type="System.String"/>

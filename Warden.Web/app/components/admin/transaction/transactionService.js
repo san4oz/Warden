@@ -11,11 +11,15 @@ adminApp.service('transactionService', function (
         });
     }
 
-    this.get = function (whoId) {
-        return $http.post("/admin/api/transaction/get", { whoId: whoId });
+    this.getCategoryTransactions = function (category) {
+        return $http.post("/admin/api/transaction/processed", { categoryId: category.Id });
     };
 
-    this.search = function () {
-        return $http.post("/admin/api/transaction/search")
+    this.search = function (query) {
+        return $http.post("/admin/api/transaction/search", { keyword: query });
+    };
+
+    this.attachToCategory = function (transaction, category) {
+        return $http.post("/admin/api/transaction/attachtocategory", { transactionId: transaction.Id, categoryId: category.Id });
     };
 });
