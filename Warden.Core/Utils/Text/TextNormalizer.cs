@@ -11,13 +11,18 @@ namespace Warden.Core.Utils.Tokenizer
     {
         protected TokenFilter Filter = new TokenFilter();
 
+        private static Dictionary<char, char> CharacterReplacementRules = new Dictionary<char, char>()
+        {
+            { 'i', 'і' }
+        };
+
         public string Normalize(string text)
         {
             var words = ExtractWords(RemoveNoizyCharacters(text));
                                
             var processedWords = words
                 .Where(word => Filter.IsTokenValid(word))
-                    .Select(word => TextRepairer.ProcessWronglyEncodedSymbols(word)).ToArray();
+                    .Select(word => ProcessWronglyEncodedSymbols(word)).ToArray();
 
             return string.Join(";", processedWords);
         }
@@ -30,6 +35,16 @@ namespace Warden.Core.Utils.Tokenizer
         protected string[] ExtractWords(string text)
         {
             return text.Split(new[] { ' ', '(', ')' });
+        }
+
+        public static string ProcessWronglyEncodedSymbols(string word)
+        {
+            var result = word;
+
+            foreach (var rule in CharacterReplacementRules)
+                result = result.Replace(rule.Key, rule.Value);
+
+            return result;
         }
     }
 }

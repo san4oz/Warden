@@ -9,24 +9,24 @@ using Warden.Business.Entities.Search;
 
 namespace Warden.Mvc.Controllers.Admin
 {
-    public class TransactionController : ApiController
+    public class TransactionController : Controller
     {
         private IExternalApi externalApi;
         private ITransactionDataProvider transactionProvider;
-        private ITransactionImportTask extractionTask;
+        private ITransactionImportTask importTask;
         private ISearchManager searchManager;
         private ICategoryDataProvider categoryProvider;
 
         public TransactionController(
             IExternalApi externalApi,
             ITransactionDataProvider transactionProvider,
-            ITransactionImportTask extractionTask,
+            ITransactionImportTask importTask,
             ISearchManager searchManager,
             ICategoryDataProvider categoryProvider)
         {
             this.externalApi = externalApi;
             this.transactionProvider = transactionProvider;
-            this.extractionTask = extractionTask;
+            this.importTask = importTask;
             this.searchManager = searchManager;
             this.categoryProvider = categoryProvider;
         }
@@ -35,9 +35,9 @@ namespace Warden.Mvc.Controllers.Admin
         public ActionResult StartExtraction(string whoId)
         {
             if (string.IsNullOrEmpty(whoId))
-                extractionTask.RunAll();
+                importTask.RunAll();
             else
-                extractionTask.RunExect(whoId);
+                importTask.RunExect(whoId);
 
             return Json(true);
         }
@@ -45,13 +45,8 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult Search(string keyword)
         {
-            var request = new SearchRequest();
-            request.Query = keyword;
-            request.IsWildCardSearch = true;
-            var searchResult = searchManager.Search(request);
-
+            var searchResult = searchManager.Search(new SearchRequest() { Query = keyword, IsWildCardSearch = true });            
             var transactions = transactionProvider.GetUnprocessedTransactions(searchResult.Results.Select(e => new Guid(e.Id)).ToArray());
-
             return Json(transactions);
         }
 

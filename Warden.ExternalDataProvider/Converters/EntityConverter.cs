@@ -8,7 +8,7 @@ using Warden.ExternalDataProvider.Entities;
 
 namespace Warden.ExternalDataProvider
 {
-    public static class BusinessEntityConverter
+    public static class EntityConverter
     {
         public static Transaction ToWardenTransaction(this TransactionData source)
         {

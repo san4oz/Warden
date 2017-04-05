@@ -10,7 +10,7 @@ using Warden.Mvc.Models;
 
 namespace Warden.Mvc.Controllers.Admin
 {
-    public class PayerController : ApiController
+    public class PayerController : Controller
     {
         private IPayerDataProvider payerProvider;
 

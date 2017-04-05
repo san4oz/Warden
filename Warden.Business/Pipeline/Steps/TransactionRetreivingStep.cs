@@ -10,33 +10,30 @@ using Warden.Business.Entities.ExternalProvider;
 
 namespace Warden.Business.Pipeline.Steps
 {
-    public class TransactionRetreivingStep : IPipelineStep
+    public class TransactionRetreivingStep : ITransactionImportPipelineStep
     {        
         private IExternalApi api;
-
-        private TransactionImportPipelineContext context;
 
         public TransactionRetreivingStep(IExternalApi api)
         {
             this.api = api;
         }
 
-        public void Execute(IPipelineContext context)
+#warning this task will work async...there is no reason to use it as it is
+        public void Execute(TransactionImportPipelineContext context)
         {
-            this.context = (TransactionImportPipelineContext)context;
-
             var transactionRetreivingTask = Task.Run(async () =>
             {
-                var transactions = await RetreiveTransaction(this.context.Request);
-                this.context.Items = transactions.ToList();
+                var transactions = await api.GetTransactionsAsync(new TransactionRetreivingRequest()
+                {
+                    PayerId = context.Request.PayerId,
+                    From = context.Request.FromDate,
+                    To = context.Request.ToDate                    
+                });
+                context.Items = transactions.ToList();
             });
 
             Task.WaitAll(transactionRetreivingTask);
-        }
-
-        public async Task<IList<Transaction>> RetreiveTransaction(TransactionRequest request)
-        {
-            return await api.GetTransactionsAsync(request);
         }
     }
 }

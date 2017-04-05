@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Warden.Business.Entities.ExternalProvider
 {
-    public class TransactionRequest
+    public class TransactionRetreivingRequest
     {
         public string PayerId { get; set; }
-
-        public string ReceiverId { get; set; }
 
         public DateTime From { get; set; }
 

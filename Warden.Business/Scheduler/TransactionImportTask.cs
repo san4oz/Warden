@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warden.Business.Contracts.Api;
 using Warden.Business.Contracts.Pipeline;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
+using Warden.Business.Pipeline;
 using Warden.Core.Utils.Tokenizer;
 
 namespace Warden.Business.Scheduler
 {
     public class TransactionImportTask : ITransactionImportTask
     {
-        private TransactionExtractionTaskConfiguration configuration;
+        private TransactionImportTaskConfiguration configuration;
 
         private ITransactionTaskConfigurationDataProvider configurationDataProvider;
         private IPayerDataProvider payerDataProvider;
@@ -56,15 +56,12 @@ namespace Warden.Business.Scheduler
         }
 
         protected void ExecuteExect(string payerId)
-        {          
-            pipeline.Execute(new TransactionImportPipelineContext()
+        {
+            pipeline.Execute(new TransactionImportRequest()
             {
-                Request = new TransactionRequest()
-                {
-                    From = this.configuration.StartDate,
-                    To = this.configuration.EndDate,
-                    PayerId = this.configuration.PayerId
-                }
+                FromDate = this.configuration.StartDate,
+                PayerId = this.configuration.PayerId,
+                ToDate = this.configuration.EndDate
             });
         }
 

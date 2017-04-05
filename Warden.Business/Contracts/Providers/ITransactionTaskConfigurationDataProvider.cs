@@ -8,10 +8,10 @@ using Warden.Business.Entities;
 
 namespace Warden.Business.Contracts.Providers
 {
-    public interface ITransactionTaskConfigurationDataProvider : IDataProvider<TransactionExtractionTaskConfiguration>
+    public interface ITransactionTaskConfigurationDataProvider : IDataProvider<TransactionImportTaskConfiguration>
     {
-        TransactionExtractionTaskConfiguration GetForPayer(string payerId);
+        TransactionImportTaskConfiguration GetForPayer(string payerId);
 
-        TransactionExtractionTaskConfiguration GetDefault(string payerId);
+        TransactionImportTaskConfiguration GetDefault(string payerId);
     }
 }

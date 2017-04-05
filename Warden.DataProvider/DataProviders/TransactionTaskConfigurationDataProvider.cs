@@ -12,11 +12,11 @@ using Warden.Business.Entities;
 namespace Warden.DataProvider.DataProviders
 {
     public class TransactionTaskConfigurationDataProvider
-        : BaseDataProvider<TransactionExtractionTaskConfiguration>, ITransactionTaskConfigurationDataProvider
+        : BaseDataProvider<TransactionImportTaskConfiguration>, ITransactionTaskConfigurationDataProvider
     {
-        public TransactionExtractionTaskConfiguration GetDefault(string payerId)
+        public TransactionImportTaskConfiguration GetDefault(string payerId)
         {
-            return new TransactionExtractionTaskConfiguration()
+            return new TransactionImportTaskConfiguration()
             {
                 PayerId = payerId,
                 StartDate = new DateTime(2016, 1, 1),
@@ -24,14 +24,14 @@ namespace Warden.DataProvider.DataProviders
             };
         }
 
-        public TransactionExtractionTaskConfiguration GetForPayer(string payerId)
+        public TransactionImportTaskConfiguration GetForPayer(string payerId)
         {
             return Execute(session =>
             {
                 var result = session
-                    .CreateCriteria<TransactionExtractionTaskConfiguration>()
+                    .CreateCriteria<TransactionImportTaskConfiguration>()
                         .Add(Expression.Eq("PayerId", payerId))
-                        .UniqueResult<TransactionExtractionTaskConfiguration>();
+                        .UniqueResult<TransactionImportTaskConfiguration>();
 
                 return result ?? GetDefault(payerId);
             });

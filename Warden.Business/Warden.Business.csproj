@@ -41,16 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\TransactionTextProcessor.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Contracts\Api\ITransactionProcessorApi.cs" />
-    <Compile Include="Contracts\Pipeline\IPipeline.cs" />
-    <Compile Include="Contracts\Pipeline\IPipelineContext.cs" />
-    <Compile Include="Contracts\Pipeline\IPipelineStep.cs" />
+    <Compile Include="Contracts\Pipeline\ITransactionImportPipelineStep.cs" />
     <Compile Include="Contracts\Pipeline\ITransactionImportPipeline.cs" />
     <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
-    <Compile Include="Entities\UnprocessedKeyword.cs" />
-    <Compile Include="Pipeline\Steps\KeywordsExtractingStep.cs" />
+    <Compile Include="Pipeline\TransactionImportRequest.cs" />
     <Compile Include="Pipeline\Steps\TransactionCreatingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionIndexingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionProcessingStep.cs" />
@@ -63,14 +58,14 @@
     <Compile Include="Contracts\Providers\ITransactionDataProvider.cs" />
     <Compile Include="Contracts\Scheduler\ITask.cs" />
     <Compile Include="Contracts\Scheduler\ITaskConfiguration.cs" />
-    <Compile Include="Contracts\Scheduler\ITransactionExtractionTask.cs" />
+    <Compile Include="Contracts\Scheduler\ITransactionImportTask.cs" />
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\ExternalProvider\TransactionRequest.cs" />
+    <Compile Include="Entities\ExternalProvider\TransactionRetreivingRequest.cs" />
     <Compile Include="Entities\Payer.cs" />
     <Compile Include="Pipeline\Steps\TransactionRetreivingStep.cs" />
     <Compile Include="Pipeline\TransactionImportPipeline.cs" />
     <Compile Include="Scheduler\TransactionImportTask.cs" />
-    <Compile Include="Entities\TransactionExtractionTaskConfiguration.cs" />
+    <Compile Include="Scheduler\TransactionImportTaskConfiguration.cs" />
     <Compile Include="Entities\Search\Entry.cs" />
     <Compile Include="Entities\Search\SearchRequest.cs" />
     <Compile Include="Entities\Search\SearchResponse.cs" />

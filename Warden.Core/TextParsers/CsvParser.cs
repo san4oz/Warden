@@ -4,13 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warden.ExternalDataProvider.Attributes;
 using Microsoft.VisualBasic.FileIO;
 using Warden.Core.Utils;
 
-namespace Warden.ExternalDataProvider.Parsers
+namespace Warden.Core.TextParsers
 {
-    public class BaseCsvParser<T>
+    public class CsvParser<T>
         where T : class, new()
     {
         protected T ParseEntity(string[] fields)
@@ -68,7 +67,7 @@ namespace Warden.ExternalDataProvider.Parsers
                     }
                     catch (Exception ex)
                     {
-                        Logger.Add(ex.StackTrace);                        
+#warning do something with exceptions
                     }
                 }
             }

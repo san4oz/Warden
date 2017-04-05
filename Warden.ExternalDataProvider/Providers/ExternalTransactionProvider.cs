@@ -17,7 +17,7 @@ namespace Warden.ExternalDataProvider.Providers
             get { return "http://www.007.org.ua/api/export-transactions-with-params"; }
         }
 
-        public async Task<IList<Transaction>> GetTransactions(TransactionRequest request)
+        public async Task<IList<Transaction>> GetTransactions(TransactionRetreivingRequest request)
         {
             var webRequest = new Dictionary<string, string>()
             {

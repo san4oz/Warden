@@ -9,7 +9,7 @@ using Warden.Business.Entities;
 
 namespace Warden.Mvc.Controllers.Admin
 {
-    public class TaskController : ApiController
+    public class TaskController : Controller
     {
         [HttpPost]
         public ActionResult Index()

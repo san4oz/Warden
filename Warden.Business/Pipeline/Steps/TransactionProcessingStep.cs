@@ -3,28 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warden.Business.Contracts.Api;
 using Warden.Business.Contracts.Pipeline;
 using Warden.Core.Utils.Tokenizer;
 
 namespace Warden.Business.Pipeline.Steps
 {
-    public class TransactionProcessingStep : IPipelineStep
+    public class TransactionProcessingStep : ITransactionImportPipelineStep
     {
-        private TransactionImportPipelineContext context;
-
-        private ITransactionTextProcessor processor;
-
-        public TransactionProcessingStep(ITransactionTextProcessor processor)
+        public void Execute(TransactionImportPipelineContext context)
         {
-            this.processor = processor;
-        }
-
-        public void Execute(IPipelineContext context)
-        {
-            this.context = (TransactionImportPipelineContext)context;
-
-            this.processor.MakeUpKeywords(this.context.Items);
+            var normalizer = new TextNormalizer();
+            foreach(var item in context.Items)
+            {
+                item.Keywords = normalizer.Normalize(item.Keywords);
+            }
         }
     }
 }

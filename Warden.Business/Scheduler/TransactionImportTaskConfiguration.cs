@@ -8,7 +8,7 @@ using Warden.Business.Entities;
 
 namespace Warden.Business.Entities
 {
-    public class TransactionExtractionTaskConfiguration : Entity, ITaskConfiguration
+    public class TransactionImportTaskConfiguration : Entity, ITaskConfiguration
     {
         public virtual DateTime StartDate { get; set; }
 

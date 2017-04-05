@@ -8,17 +8,13 @@ using Warden.Business.Contracts.Providers;
 
 namespace Warden.Business.Pipeline.Steps
 {
-    public class TransactionIndexingStep : IPipelineStep
+    public class TransactionIndexingStep : ITransactionImportPipelineStep
     {
-        private TransactionImportPipelineContext context;
-
         private ISearchManager search;
 
-        public void Execute(IPipelineContext context)
+        public void Execute(TransactionImportPipelineContext context)
         {
-            this.context = (TransactionImportPipelineContext)context;
-
-            search.Index(this.context.Items);
+            search.Index(context.Items);
         }
 
         public TransactionIndexingStep(ISearchManager search)

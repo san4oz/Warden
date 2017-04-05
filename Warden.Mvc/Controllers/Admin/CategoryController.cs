@@ -19,13 +19,6 @@ namespace Warden.Mvc.Controllers.Admin
         }
 
         [HttpPost]
-        public ActionResult UnprocessedKeywords()
-        {
-            var keywords = categoryProvider.GetUprocessedKeywords();
-            return Json(keywords);
-        }
-
-        [HttpPost]
         public ActionResult Create(Category category)
         {
             if (!ModelState.IsValid)
@@ -35,24 +28,6 @@ namespace Warden.Mvc.Controllers.Admin
                 return Json(new { error = $"Item with title '{category.Title}' already exists" });
 
             categoryProvider.Save(category);
-
-            return Json(true);
-        }
-
-        [HttpPost]
-        public ActionResult AttachKeywordToCategory(Guid keywordId, Guid categoryId)
-        {
-            var keyword = categoryProvider.GetUprocessedKeyword(keywordId);
-            if (keyword == null)
-                return HttpNotFound();
-
-            var category = categoryProvider.Get(categoryId);
-            if (category == null)
-                return HttpNotFound();
-
-            category.Keywords = string.Format("{0};{1}", category.Keywords, keyword.Value).Trim(new[] { ';' });
-            categoryProvider.Save(category);
-            categoryProvider.DeleteUnprocessedKeyword(keywordId);
 
             return Json(true);
         }

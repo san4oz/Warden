@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Warden.ExternalDataProvider.Parsers;
+using Warden.Core.TextParsers;
 
 namespace Warden.ExternalDataProvider.Providers
 {
@@ -14,11 +14,11 @@ namespace Warden.ExternalDataProvider.Providers
     {
         protected abstract string BaseUri { get; }
 
-        protected BaseCsvParser<T> Parser { get; set; }
+        protected CsvParser<T> Parser { get; set; }
 
         public ExternalDataProviderBase()
         {
-            Parser = new BaseCsvParser<T>();
+            Parser = new CsvParser<T>();
         }
 
         protected async Task<Stream> DownloadFileAsync(Dictionary<string, string> parameters)

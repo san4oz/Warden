@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
-using Warden.Core.Readers;
 using Warden.ExternalDataProvider.Providers;
 
 namespace Warden.ExternalDataProvider
@@ -21,7 +20,7 @@ namespace Warden.ExternalDataProvider
             this.transactionProvider = new ExternalTransactionProvider();
         }
 
-        public async Task<IList<Transaction>> GetTransactionsAsync(TransactionRequest request)
+        public async Task<IList<Transaction>> GetTransactionsAsync(TransactionRetreivingRequest request)
         {
             return await transactionProvider.GetTransactions(request);
         }

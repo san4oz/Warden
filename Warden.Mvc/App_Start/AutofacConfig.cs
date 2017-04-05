@@ -12,11 +12,8 @@ using Warden.DataProvider.DataProviders;
 using Warden.Search;
 using Warden.Business.Entities;
 using Warden.Business.Contracts.Scheduler;
-using Warden.Business.Entities;
 using Warden.ExternalDataProvider;
 using Warden.Business.Scheduler;
-using Warden.Business.Api;
-using Warden.Business.Contracts.Api;
 using Warden.Business.Pipeline;
 using Warden.Business.Contracts.Pipeline;
 
@@ -39,9 +36,7 @@ namespace Warden.Mvc.App_Start
 
             builder.RegisterType<ExternalApi>().As<IExternalApi>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
-            builder.RegisterType<TransactionExtractionTaskConfiguration>().As<ITaskConfiguration>();
-            builder.RegisterType<TransactionTextProcessor>().As<ITransactionTextProcessor>();
-
+            builder.RegisterType<TransactionImportTaskConfiguration>().As<ITaskConfiguration>();
             builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>();
             RegisterPipeline(builder);
         }
@@ -57,7 +52,6 @@ namespace Warden.Mvc.App_Start
         private static void RegisterPipeline(ContainerBuilder builder)
         {
             builder.RegisterType<TransactionImportPipeline>().As<ITransactionImportPipeline>().SingleInstance();
-            builder.RegisterType<TransactionImportPipelineContext>().As<IPipelineContext>();
         }
     }
 }

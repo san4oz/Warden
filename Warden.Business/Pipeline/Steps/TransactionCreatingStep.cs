@@ -8,20 +8,17 @@ using Warden.Business.Contracts.Providers;
 
 namespace Warden.Business.Pipeline.Steps
 {
-    public class TransactionCreatingStep : IPipelineStep
+    public class TransactionCreatingStep : ITransactionImportPipelineStep
     {
-        private TransactionImportPipelineContext context;
         private ITransactionDataProvider provider;
 
         public TransactionCreatingStep(ITransactionDataProvider provider)
         {
             this.provider = provider;
         }        
-        public void Execute(IPipelineContext context)
+        public void Execute(TransactionImportPipelineContext context)
         {
-            this.context = (TransactionImportPipelineContext)context;
-
-            foreach(var item in this.context.Items)
+            foreach(var item in context.Items)
             {
                 provider.Save(item);
             }

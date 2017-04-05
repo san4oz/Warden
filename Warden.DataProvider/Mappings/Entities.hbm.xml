@@ -27,12 +27,7 @@
     <property name="Keywords" type="System.String"/>
   </class>
 
-  <class name="UnprocessedKeyword" table="UnprocessedKeywords">
-    <id name="Id" type="System.Guid"></id>
-    <property name="Value" type="System.String"/>
-  </class>
-
-  <class name="TransactionExtractionTaskConfiguration" table="TransactionExtractionTaskConfigurations">
+  <class name="TransactionImportTaskConfiguration" table="TransactionImportTaskConfigurations">
     <id name="Id" type="System.Guid"></id>
     <property name="StartDate" type="System.DateTime"/>
     <property name="EndDate" type="System.DateTime"/>

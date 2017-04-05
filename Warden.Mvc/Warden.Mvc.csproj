@@ -91,10 +91,7 @@
     <Compile Include="Controllers\Admin\PayerController.cs" />
     <Compile Include="Controllers\Admin\TaskController.cs" />
     <Compile Include="Controllers\Admin\TransactionController.cs" />
-    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Helpers\JsonResult.cs" />
-    <Compile Include="Http\AngularHttpModule.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\PayerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
