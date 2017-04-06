@@ -11,7 +11,11 @@ namespace Warden.Business.Contracts.Providers
     {
         List<Transaction> GetTransactionsByCategoryId(Guid categoryId);
 
+        List<Transaction> GetTransactionsByPayerId(string payerId);
+
         List<Transaction> GetByIdList(Guid[] ids);
+
+        void Delete(Guid[] ids);
 
         void AttachToCategory(Guid transactionId, Guid categoryId);
 

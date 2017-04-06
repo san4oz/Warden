@@ -13,14 +13,14 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     };
 
     $scope.startImportTask = function (whoId) {
-        transactionService.startExtractionTask(whoId)
+        transactionService.startImportTask(whoId)
             .then(function (result) {
                 alert("Запущено!");
             });
     };
 
     $scope.startImportTaskAll = function () {
-        this.startExtractionTask(null);
+        this.startImportTask(null);
     };
 
     $scope.search = function (query) {

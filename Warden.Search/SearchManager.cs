@@ -146,6 +146,21 @@ namespace Warden.Search
             writer.AddDocument(doc);
         }
 
+        public void CleanIndexEntries(Guid[] ids)
+        {
+            using (var analyzer = new StandardAnalyzer(version))
+            {
+                using (var writer = new IndexWriter(directory, analyzer, IndexWriter.MaxFieldLength.UNLIMITED))
+                {
+                    ids.ToList().ForEach(id =>
+                    {
+                        var query = new TermQuery(new Term("Id", id.ToString()));
+                        writer.DeleteDocuments(query);
+                    });
+                }
+            }                 
+        }
+
         protected virtual Document CreateDocument(Transaction transaction)
         {
             var doc = new Document();

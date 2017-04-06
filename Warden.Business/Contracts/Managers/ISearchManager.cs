@@ -13,5 +13,7 @@ namespace Warden.Business.Contracts.Providers
         void Index(IEnumerable<Transaction> transactions);
 
         SearchResponse Search(SearchRequest request);
+
+        void CleanIndexEntries(Guid[] ids);
     }
 }

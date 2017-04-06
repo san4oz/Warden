@@ -32,7 +32,7 @@ namespace Warden.Mvc.Controllers.Admin
         }
         
         [HttpPost]
-        public ActionResult StartExtraction(string whoId)
+        public ActionResult StartImport(string whoId)
         {
             if (string.IsNullOrEmpty(whoId))
                 importTask.RunAll();

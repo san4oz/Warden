@@ -40,9 +40,9 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
             (
-                name: "api/transaction/startExtraction",
-                url: "api/transaction/startExtraction",
-                defaults: new { controller = "Transaction", action = "StartExtraction" }
+                name: "api/transaction/startImport",
+                url: "api/transaction/startImport",
+                defaults: new { controller = "Transaction", action = "StartImport" }
             );
 
             MapRoute

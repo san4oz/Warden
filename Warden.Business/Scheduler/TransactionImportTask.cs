@@ -60,7 +60,7 @@ namespace Warden.Business.Scheduler
             pipeline.Execute(new TransactionImportRequest()
             {
                 FromDate = this.configuration.StartDate,
-                PayerId = this.configuration.PayerId,
+                PayerId = payerId,
                 ToDate = this.configuration.EndDate
             });
         }

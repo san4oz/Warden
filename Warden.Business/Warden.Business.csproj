@@ -45,6 +45,7 @@
     <Compile Include="Contracts\Pipeline\ITransactionImportPipelineStep.cs" />
     <Compile Include="Contracts\Pipeline\ITransactionImportPipeline.cs" />
     <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
+    <Compile Include="Pipeline\Steps\TransactionCleaningStep.cs" />
     <Compile Include="Pipeline\TransactionImportRequest.cs" />
     <Compile Include="Pipeline\Steps\TransactionCreatingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionIndexingStep.cs" />

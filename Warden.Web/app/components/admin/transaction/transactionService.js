@@ -3,9 +3,9 @@
 adminApp.service('transactionService', function (
     $http
 ) {
-    this.startExtractionTask = function (whoId) {
+    this.startImportTask = function (whoId) {
         return $http({
-            url: "/admin/api/transaction/startExtraction",
+            url: "/admin/api/transaction/startImport",
             method: "POST",
             data: { whoId: whoId }
         });

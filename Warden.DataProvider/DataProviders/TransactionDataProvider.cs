@@ -21,6 +21,14 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
+        public List<Transaction> GetTransactionsByPayerId(string payerId)
+        {
+            return Execute(session =>
+            {
+                return session.CreateCriteria<Transaction>().Add(Expression.Eq("PayerId", payerId)).List<Transaction>().ToList();
+            });
+        }
+
 
         public List<Transaction> GetByIdList(Guid[] ids)
         {
@@ -72,6 +80,20 @@ namespace Warden.DataProvider.DataProviders
                 return session.CreateCriteria<Transaction>()
                         .Add(Expression.In("Id", ids))
                         .List<Transaction>().ToList();
+            });
+        }
+
+        public void Delete(Guid[] ids)
+        {
+            Execute(session =>
+            {
+                foreach (var id in ids)
+                {
+                    var item = session.Get<Transaction>(id);
+                    session.Delete(item);
+                }
+
+                session.Flush();
             });
         }
     }
