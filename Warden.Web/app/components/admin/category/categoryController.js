@@ -5,21 +5,9 @@ adminApp.controller('categoryController', function ($scope, categoryService) {
         categoryService.create(category);
     }
 
-    $scope.attachToCategory = function (keyword, category) {
-        categoryService.attachKeywordToCategory(keyword.Id, category.Id);
-
-        $scope.unprocessedKeywords.splice($scope.unprocessedKeywords.indexOf(keyword), 1);
-    }
-
     $scope.searchTransactionsByKeyword = function (keyword) {
         return categoryService.searchTransactionsByKeyword(keyword).then(function (result) {
             $scope.searchResults = result.data;
-        });
-    };
-
-    var loadUprocessedKeywords = function () {
-        return categoryService.getUnprocessedKeywords().then(function (result) {
-            $scope.unprocessedKeywords = result.data;
         });
     };
 
@@ -31,7 +19,6 @@ adminApp.controller('categoryController', function ($scope, categoryService) {
 
     $scope.init = function () {
         loadCategories();
-        loadUprocessedKeywords();
     };
 
     $scope.init();

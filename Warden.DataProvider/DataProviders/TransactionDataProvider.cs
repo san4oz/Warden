@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
+using Warden.Core.Extensions;
 
 namespace Warden.DataProvider.DataProviders
 {
@@ -69,11 +70,19 @@ namespace Warden.DataProvider.DataProviders
                 var withCategoryIds = session.CreateCriteria<TransactionCategory>()
                          .List<TransactionCategory>().Select(tc => tc.TransactionId).ToArray();
 
-                var withoutCategoryIds = ids.Except(withCategoryIds).ToArray();
+                var withoutCategoryIds = ids.Except(withCategoryIds);
 
-                return session.CreateCriteria<Transaction>()
-                        .Add(Expression.In("Id", withoutCategoryIds))
+                var result = new List<Transaction>();
+                foreach(var batch in withoutCategoryIds.Batch<Guid>(1000))
+                {
+                    var batchData = session.CreateCriteria<Transaction>()
+                        .Add(Expression.In("Id", batch.ToArray()))
                         .List<Transaction>().ToList();
+
+                    result.AddRange(batchData);
+                }
+
+                return result;
             });
         }
 

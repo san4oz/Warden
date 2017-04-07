@@ -19,19 +19,33 @@ namespace Warden.ExternalDataProvider.Providers
 
         public async Task<IList<Transaction>> GetTransactions(TransactionRetreivingRequest request)
         {
-            var webRequest = new Dictionary<string, string>()
-            {
-                { "from", request.From.ToString("yyyy-mm-dd") },
-                { "to", request.To.ToString("yyyy-mm-dd") },
-                { "who", request.PayerId },
-                { "offset", "0" }
-            };
+            int offset = 0;
+            int count = 0;
+            var result = new List<Transaction>();
 
-            var transactionsData = await GetEntitiesAsync(webRequest);
-            if (transactionsData == null)
+            do
+            {
+                count = result.Count();
+
+                var webRequest = new Dictionary<string, string>()
+                {
+                    { "from", request.From.ToString("yyyy-mm-dd") },
+                    { "to", request.To.ToString("yyyy-mm-dd") },
+                    { "who", request.PayerId },
+                    { "offset", offset.ToString() }
+                };
+
+                var transactionsData = await GetEntitiesAsync(webRequest);
+                result.AddRange(transactionsData.Select(td => td.ToWardenTransaction()).ToList());
+
+                offset++;
+
+            } while (result.Count() > count);
+
+            if (result == null)
                 return new List<Transaction>();
 
-            return transactionsData.Select(t => t.ToWardenTransaction()).ToList();
+            return result;
         }
     }
 }

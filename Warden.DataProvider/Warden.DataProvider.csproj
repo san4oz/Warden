@@ -62,6 +62,10 @@
       <Project>{2E953051-187F-4E43-9F8A-EA7DC29D83D0}</Project>
       <Name>Warden.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Warden.Core\Warden.Core.csproj">
+      <Project>{3ae1d6b3-da7c-4b2f-b34e-d643214f7514}</Project>
+      <Name>Warden.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

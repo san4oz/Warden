@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities;
-using Warden.Business.Entities;
 
 namespace Warden.DataProvider.DataProviders
 {

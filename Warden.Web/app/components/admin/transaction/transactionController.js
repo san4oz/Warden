@@ -25,7 +25,7 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     };
 
     $scope.search = function (query) {
-        if (query.length < 3)
+        if (query && query.length < 3)
             return;
 
         transactionService.search(query).then(function (result) {
@@ -46,16 +46,21 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     }
 
     $scope.init = function () {
-        payerService.getAll().then(function (result) {
+        var payersLoading = payerService.getAll().then(function (result) {
             $scope.payers = result.data;
         });
 
-        categoryService.getCategories().then(function (result) {
+        var categoriesLoading = categoryService.getCategories().then(function (result) {
             $scope.categories = result.data;
         });
 
-        transactionService.getGeneralTransactionCount().then(function (result) {
+        var transactionsCountLoading = transactionService.getGeneralTransactionCount().then(function (result) {
             $scope.transactionCount = result.data;
+        });
+
+        LockScreen(true);
+        Promise.all([payersLoading, categoriesLoading, transactionsCountLoading]).then(() => {
+            LockScreen(false);
         });
     };
 

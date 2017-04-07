@@ -50,8 +50,18 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult Search(string keyword)
         {
-            var searchResult = searchManager.Search(new SearchRequest() { Query = keyword, IsWildCardSearch = true });            
+            if (string.IsNullOrEmpty(keyword))
+                return Json(null);
+
+            var searchResult = searchManager.Search(
+                            new SearchRequest()
+                            {
+                                Query = keyword,
+                                IsWildCardSearch = true
+                            });
+            
             var transactions = transactionProvider.GetUnprocessedTransactions(searchResult.Results.Select(e => new Guid(e.Id)).ToArray());
+
             return Json(transactions);
         }
 
