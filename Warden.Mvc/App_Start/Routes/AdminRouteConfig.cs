@@ -61,6 +61,13 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
             (
+                name: "api/transaction/count",
+                url: "api/transaction/count",
+                defaults: new { controller = "Transaction", action = "Count" }
+            );
+
+            MapRoute
+            (
                 name: "api/transaction/processed",
                 url: "api/transaction/processed",
                 defaults: new { controller = "Transaction", action = "GetProcessedTransaction" }

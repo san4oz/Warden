@@ -39,8 +39,22 @@
             </div>
         </div>
     </div>
-    <div class="loader">
-
+    <div class="screen-locker">
     </div>
+    <div class="loader">
+    </div>
+
+    <script type="text/javascript">
+        function LockScreen(show) {
+            if (show) {
+                document.querySelector('.screen-locker').className += ' active';
+                document.querySelector('.loader').className += ' active';
+            }
+            else {
+                document.querySelector(".screen-locker").className = document.querySelector(".screen-locker").className.replace('active', '');
+                document.querySelector('.loader').className = document.querySelector('.loader').className.replace('active', '');
+            }
+        }
+    </script>
 </body>
 </html>

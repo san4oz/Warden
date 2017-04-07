@@ -22,4 +22,8 @@ adminApp.service('transactionService', function (
     this.attachToCategory = function (transaction, category) {
         return $http.post("/admin/api/transaction/attachtocategory", { transactionId: transaction.Id, categoryId: category.Id });
     };
+
+    this.getGeneralTransactionCount = function () {
+        return $http.post("/admin/api/transaction/count");
+    };
 });

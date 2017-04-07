@@ -42,6 +42,11 @@ namespace Warden.Mvc.Controllers.Admin
             return Json(true);
         }
 
+        public ActionResult Count()
+        {
+            return Json(transactionProvider.GetGeneralTransactionCount());
+        }
+
         [HttpPost]
         public ActionResult Search(string keyword)
         {

@@ -22,5 +22,7 @@ namespace Warden.Business.Contracts.Providers
         List<Transaction> GetUnprocessedTransactions(Guid[] ids);
 
         List<Transaction> GetProcessedTransactions(Guid categoryId);
+
+        int GetGeneralTransactionCount();
     }
 }

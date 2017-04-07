@@ -9,6 +9,9 @@
         <li class="tab-link" ng-class="{active: tabs.isSet(3)}">
             <a href="" ng-click="tabs.setTab(3)">Імпорт</a>
         </li>       
+        <li class="tab-link">
+            <span>Загальна кількість транзакцій: {{transactionCount}}</span>
+        </li>
     </ul>
 
     <div ng-show="tabs.isSet(1)" class="pure-g searched-data">

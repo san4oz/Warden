@@ -141,7 +141,6 @@
     <Content Include="app\components\admin\payer\list.html" />
     <Content Include="app\components\admin\payer\payerController.js" />
     <Content Include="app\components\admin\payer\payerService.js" />
-    <Content Include="app\components\admin\transaction\import.html" />
     <Content Include="app\components\admin\transaction\index.html" />
     <Content Include="app\components\admin\transaction\transactionService.js" />
     <Content Include="app\components\admin\transaction\transactionController.js" />

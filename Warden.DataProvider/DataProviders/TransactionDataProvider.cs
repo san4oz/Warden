@@ -21,6 +21,14 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
+        public int GetGeneralTransactionCount()
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<Transaction>().RowCount();                        
+            });
+        }
+
         public List<Transaction> GetTransactionsByPayerId(string payerId)
         {
             return Execute(session =>

@@ -13,9 +13,10 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     };
 
     $scope.startImportTask = function (whoId) {
+        LockScreen(true);
         transactionService.startImportTask(whoId)
             .then(function (result) {
-                alert("Запущено!");
+                LockScreen(false);
             });
     };
 
@@ -51,6 +52,10 @@ adminApp.controller('transactionController', function ($scope, transactionServic
 
         categoryService.getCategories().then(function (result) {
             $scope.categories = result.data;
+        });
+
+        transactionService.getGeneralTransactionCount().then(function (result) {
+            $scope.transactionCount = result.data;
         });
     };
 
