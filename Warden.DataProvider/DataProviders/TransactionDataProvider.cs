@@ -34,7 +34,8 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                return session.CreateCriteria<Transaction>().Add(Expression.Eq("PayerId", payerId)).List<Transaction>().ToList();
+                return session.QueryOver<Transaction>()
+                            .Where(t => t.PayerId == payerId).List().ToList();
             });
         }
 
@@ -43,9 +44,8 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                return session.CreateCriteria<Transaction>()
-                        .Add(Expression.In("Id", ids))
-                        .List<Transaction>().ToList();
+                return session.QueryOver<Transaction>()
+                            .Where(t => t.Id.IsIn(ids)).List().ToList();
             });
         }
        
@@ -53,13 +53,14 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                var ids = session.CreateCriteria<TransactionCategory>()
-                                        .Add(Expression.Eq("CategoryId", categoryId))
-                                        .List<TransactionCategory>().Select(tc => tc.TransactionId).ToArray();
+                var ids = session.QueryOver<TransactionCategory>()
+                                .Where(tc => tc.CategoryId == categoryId)
+                                .Select(tc => tc.TransactionId)
+                                .List()
+                                .ToArray();
 
-                return session.CreateCriteria<Transaction>()
-                                    .Add(Expression.In("Id", ids))
-                                    .List<Transaction>().ToList();
+                return session.QueryOver<Transaction>()
+                                .Where(t => t.Id.IsIn(ids)).List().ToList();
             });
         }
 
@@ -73,7 +74,7 @@ namespace Warden.DataProvider.DataProviders
                 var withoutCategoryIds = ids.Except(withCategoryIds);
 
                 var result = new List<Transaction>();
-                foreach(var batch in withoutCategoryIds.Batch<Guid>(1000))
+                foreach(var batch in withoutCategoryIds.Batch(1000))
                 {
                     var batchData = session.CreateCriteria<Transaction>()
                         .Add(Expression.In("Id", batch.ToArray()))
@@ -111,6 +112,14 @@ namespace Warden.DataProvider.DataProviders
                 }
 
                 session.Flush();
+            });
+        }
+
+        public int GetTransactionCountForPayer(string payerId)
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<Transaction>().Where(t => t.PayerId == payerId).RowCount();
             });
         }
     }

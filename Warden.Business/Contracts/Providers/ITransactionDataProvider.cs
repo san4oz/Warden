@@ -24,5 +24,7 @@ namespace Warden.Business.Contracts.Providers
         List<Transaction> GetProcessedTransactions(Guid categoryId);
 
         int GetGeneralTransactionCount();
+
+        int GetTransactionCountForPayer(string payerId);
     }
 }

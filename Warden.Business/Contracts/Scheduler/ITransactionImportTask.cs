@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Warden.Business.Contracts.Scheduler
 {
-    public interface ITransactionImportTask : ITask
+    public interface ITransactionImportTask
     {
-        void RunExect(string payerId);
-        void RunAll();
+        void StartImport(string payerId = null);
     }
 }

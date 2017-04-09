@@ -60,7 +60,14 @@ namespace Warden.DataProvider.DataProviders
 
         public virtual void Update(T entity)
         {
-            throw new NotImplementedException();
+            Execute(session =>
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(entity);
+                    transaction.Commit();
+                }
+            });
         }
 
         #region helpers

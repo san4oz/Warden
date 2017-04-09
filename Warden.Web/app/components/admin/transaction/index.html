@@ -77,7 +77,7 @@
                     <tr ng-repeat="payer in payers">
                         <td>{{payer.Name}}</td>
                         <td><button ng-click="startImportTask(payer.PayerId)" class="pure-button">Запустити</button></td>
-                        <td>Налаштування</td>
+                        <td><a ng-href="/admin/transaction-import/settings/{{payer.PayerId}}">Налаштування</a></td>
                         <td>Лог</td>
                     </tr>
                 </tbody>

@@ -1,7 +1,7 @@
 ﻿'use strict'
 
-adminApp.controller('transactionController', function ($scope, transactionService, payerService, categoryService) {
-    $scope.tab = 1;
+adminApp.controller('transactionController', function ($scope, transactionService, payerService, categoryService, $route, $window) {
+    $scope.tab = 1;   
 
     $scope.tabs = {
         setTab: function (newTab) {
@@ -42,6 +42,22 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     $scope.getCategoryTransactions = function (category) {
         transactionService.getCategoryTransactions(category).then(function (result) {
             $scope.transactions = result.data;
+        });
+    }
+
+    $scope.getImportSettings = function () {
+        transactionService.getImportSettings($route.current.params.payerId).then(function (result) {
+            $scope.importSettings = result.data;
+            $scope.importSettings.FromDate = convertToDate(result.data.FromDate).toDateString();
+            $scope.importSettings.ToDate = convertToDate(result.data.ToDate).toDateString();
+        });
+    }
+
+    $scope.updateImportSettings = function (settings) {
+        transactionService.updateImportSettings(settings).then(function (result) {
+            if (result.data) {
+                $window.location.href = "/admin/transactions";
+            }
         });
     }
 

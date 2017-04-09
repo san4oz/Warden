@@ -20,7 +20,7 @@ namespace Warden.Core.Extensions
 
                 bucket[count++] = item;
 
-                if (count <= batchSize)
+                if (count < batchSize)
                     continue;
 
                 yield return bucket.Select(x => x);

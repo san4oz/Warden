@@ -19,7 +19,7 @@ namespace Warden.Business.Pipeline.Steps
             this.api = api;
         }
 
-#warning this task will work async...there is no reason to use it as it is
+#warning this task will work sync...there is no reason to use it as it is
         public void Execute(TransactionImportPipelineContext context)
         {
             var transactionRetreivingTask = Task.Run(async () =>
@@ -28,7 +28,8 @@ namespace Warden.Business.Pipeline.Steps
                 {
                     PayerId = context.Request.PayerId,
                     From = context.Request.FromDate,
-                    To = context.Request.ToDate                    
+                    To = context.Request.ToDate,
+                    OffsetNumber = context.Request.OffsetNumber
                 });
                 context.Items = transactions.ToList();
             });

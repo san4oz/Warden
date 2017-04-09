@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities;
+using Warden.Business.Import;
 
 namespace Warden.DataProvider.DataProviders
 {
     public class TransactionTaskConfigurationDataProvider
-        : BaseDataProvider<TransactionImportTaskConfiguration>, ITransactionTaskConfigurationDataProvider
+        : BaseDataProvider<TransactionImportTaskConfiguration>, ITransactionImportConfigurationDataProvider
     {
         public TransactionImportTaskConfiguration GetDefault(string payerId)
         {

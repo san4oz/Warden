@@ -35,9 +35,9 @@
                     templateUrl: 'app/components/admin/transaction/index.html',
                     controller: 'transactionController'
                 })
-                .when('/admin/import', {
-                    templateUrl: 'app/components/admin/transaction/import.html',
-                    controller: 'transactionController'
+                .when('/admin/transaction-import/settings/:payerId', {
+                    templateUrl: 'app/components/admin/transaction/importSettings.html',
+                    controller: 'transactionController',
                 })
                 .when('/admin/payers', {
                     templateUrl: 'app/components/admin/payer/list.html',

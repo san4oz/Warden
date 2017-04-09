@@ -141,6 +141,7 @@
     <Content Include="app\components\admin\payer\list.html" />
     <Content Include="app\components\admin\payer\payerController.js" />
     <Content Include="app\components\admin\payer\payerService.js" />
+    <Content Include="app\components\admin\transaction\importSettings.html" />
     <Content Include="app\components\admin\transaction\index.html" />
     <Content Include="app\components\admin\transaction\transactionService.js" />
     <Content Include="app\components\admin\transaction\transactionController.js" />
@@ -155,9 +156,13 @@
       <DependentUpon>Warden.mdf</DependentUpon>
     </Content>
     <Content Include="assets\css\admin.css" />
+    <Content Include="assets\css\pikaday.css" />
     <Content Include="assets\css\pure.css" />
     <Content Include="assets\css\site.css" />
+    <Content Include="assets\js\common.js" />
     <Content Include="assets\libs\angular-resource.js" />
+    <Content Include="assets\libs\pikaday-angular.js" />
+    <Content Include="assets\libs\pikaday.js" />
     <Content Include="Global.asax" />
     <Content Include="assets\libs\angular.js" />
     <None Include="Views\Shared\Admin.cshtml" />
@@ -176,7 +181,6 @@
   <ItemGroup>
     <Folder Include="app\shared\" />
     <Folder Include="assets\img\" />
-    <Folder Include="assets\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

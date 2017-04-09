@@ -42,7 +42,21 @@ namespace Warden.Mvc.App_Start.Routes
             (
                 name: "api/transaction/startImport",
                 url: "api/transaction/startImport",
-                defaults: new { controller = "Transaction", action = "StartImport" }
+                defaults: new { controller = "TransactionImport", action = "StartImport" }
+            );
+
+            MapRoute
+            (
+                name: "api/import/settings/get",
+                url: "api/import/settings/get",
+                defaults: new { controller = "TransactionImport", action = "GetImportSettings" }
+            );
+
+            MapRoute
+            (
+               name: "api/import/settings/update",
+               url: "api/import/settings/update",
+               defaults: new { controller = "TransactionImport", action = "UpdateImportSettings" }
             );
 
             MapRoute
@@ -74,25 +88,11 @@ namespace Warden.Mvc.App_Start.Routes
             );
 
             MapRoute
-            (
-                name: "api/task/index",
-                url: "api/task/index",
-                defaults: new { controller = "Task", action = "Index" }
-            );
-
-            MapRoute
            (
                name: "api/transaction/attachToCategory",
                url: "api/transaction/attachToCategory",
                defaults: new { controller = "Transaction", action = "AttachToCategory" }
            );
-
-            MapRoute
-            (
-                name: "api/category/unprocessedkeywords",
-                url: "api/category/unprocessedkeywords",
-                defaults: new { controller = "Category", action = "UnprocessedKeywords" }
-            );
 
             MapRoute
             (

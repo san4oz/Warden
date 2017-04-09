@@ -13,33 +13,19 @@ namespace Warden.Mvc.Controllers.Admin
     {
         private IExternalApi externalApi;
         private ITransactionDataProvider transactionProvider;
-        private ITransactionImportTask importTask;
         private ISearchManager searchManager;
         private ICategoryDataProvider categoryProvider;
 
         public TransactionController(
             IExternalApi externalApi,
             ITransactionDataProvider transactionProvider,
-            ITransactionImportTask importTask,
             ISearchManager searchManager,
             ICategoryDataProvider categoryProvider)
         {
             this.externalApi = externalApi;
             this.transactionProvider = transactionProvider;
-            this.importTask = importTask;
             this.searchManager = searchManager;
             this.categoryProvider = categoryProvider;
-        }
-        
-        [HttpPost]
-        public ActionResult StartImport(string whoId)
-        {
-            if (string.IsNullOrEmpty(whoId))
-                importTask.RunAll();
-            else
-                importTask.RunExect(whoId);
-
-            return Json(true);
         }
 
         public ActionResult Count()

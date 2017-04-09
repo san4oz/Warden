@@ -15,6 +15,14 @@ adminApp.service('transactionService', function (
         return $http.post("/admin/api/transaction/processed", { categoryId: category.Id });
     };
 
+    this.getImportSettings = function (payerId) {
+        return $http.post("/admin/api/import/settings/get", { payerId: payerId });
+    };
+
+    this.updateImportSettings = function (settings) {
+        return $http.post("/admin/api/import/settings/update", { model: settings });
+    }
+
     this.search = function (query) {
         return $http.post("/admin/api/transaction/search", { keyword: query });
     };

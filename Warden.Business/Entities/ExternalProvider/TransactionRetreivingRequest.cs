@@ -13,5 +13,7 @@ namespace Warden.Business.Entities.ExternalProvider
         public DateTime From { get; set; }
 
         public DateTime To { get; set; }
+
+        public int OffsetNumber { get; set; }
     }
 }

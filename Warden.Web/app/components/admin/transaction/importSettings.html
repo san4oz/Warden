@@ -1,0 +1,21 @@
+﻿<div ng-controller="transactionController" ng-init="getImportSettings()">
+    <form name="updateSettingsForm" novalidate class="pure-form pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="FromDate">Дата початку</label>
+                <input pikaday="myPickerObject1"  ng-model="importSettings.FromDate" id="FromDate" type="text" required />
+                <span ng-show="updateSettingsForm.importSettings.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
+            </div>
+
+            <div class="pure-control-group">
+                <label for="ToDate">Дата завершення</label>
+                <input pikaday="myPickerObject2" ng-model="importSettings.ToDate" id="ToDate" type="text" required />
+                <span ng-show="updateSettingsForm.importSettings.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
+            </div>
+
+            <div class="pure-controls">
+                <button ng-click="updateImportSettings(importSettings)" ng-disabled="updateSettingsForm.$invalid" class="pure-button pure-button-primary">Зберегти</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
