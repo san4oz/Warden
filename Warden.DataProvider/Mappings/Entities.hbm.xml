@@ -32,6 +32,7 @@
     <property name="StartDate" type="System.DateTime"/>
     <property name="EndDate" type="System.DateTime"/>
     <property name="PayerId" type="System.String"/>
+    <property name="Status" type="System.Int32"/>
   </class>
   
 </hibernate-mapping>

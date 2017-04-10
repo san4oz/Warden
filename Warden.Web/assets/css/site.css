@@ -631,3 +631,22 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     list-style: none;
 }
 
+.tab-link.active {
+    background-color: #1f8dd6;
+}
+
+.fa-check{
+    color: green;
+}
+
+.fa-spinner{
+    color: orange;
+}
+
+.fa-close{
+    color: red;
+}
+
+.fa-cog {
+    color: #1f8dd6;
+}

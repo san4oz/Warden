@@ -36,7 +36,7 @@ namespace Warden.Mvc.App_Start
 
             builder.RegisterType<ExternalApi>().As<IExternalApi>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
-            builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>();
+            builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>().SingleInstance();
             RegisterPipeline(builder);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,12 @@ namespace Warden.Business.Import
 {
     public class TransactionImportTask : ITransactionImportTask
     {
-        private ITransactionImportConfigurationDataProvider configurationDataProvider;
-        private IPayerDataProvider payerDataProvider;
-        private ITransactionImportPipeline pipeline;
-        private ITransactionDataProvider transactionProvider;
+        private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
+        private readonly IPayerDataProvider payerDataProvider;
+        private readonly ITransactionImportPipeline pipeline;
+        private readonly ITransactionDataProvider transactionProvider;
+        private bool initialized;
+        private static ConcurrentDictionary<string, TransactionImportTaskConfiguration> Configurations { get; set; }
 
         public TransactionImportTask
         (
@@ -32,10 +35,15 @@ namespace Warden.Business.Import
             this.payerDataProvider = payerDataProvider;
             this.pipeline = pipeline;
             this.transactionProvider = transactionProvider;
+
+            Configurations = new ConcurrentDictionary<string, TransactionImportTaskConfiguration>();
         }
 
-        public void StartImport(string payerId = null)
+        public ImportTaskStatus StartImport(string payerId = null)
         {
+            if (!initialized)
+                throw new InvalidOperationException("Transaction import task wasn't initialized");
+
             if(!string.IsNullOrEmpty(payerId))
             {
                 StartImportForPayer(payerId);
@@ -48,6 +56,8 @@ namespace Warden.Business.Import
                     StartImportForPayer(payer.PayerId);
                 }
             }
+
+            return ImportTaskStatus.Finished;
         }
 
         protected void StartImportForPayer(string payerId)
@@ -55,28 +65,113 @@ namespace Warden.Business.Import
             if (string.IsNullOrEmpty(payerId))
                 return;
 
-            var configuration = configurationDataProvider.GetForPayer(payerId);
-            while (true)
-            {
-                var currentTransactionCount = transactionProvider.GetTransactionCountForPayer(payerId);
+            UpdateTaskStatus(payerId, ImportTaskStatus.InProgress);
 
-                pipeline.Execute(new TransactionImportRequest()
+            try
+            { 
+                while (true)
                 {
-                    FromDate = configuration.StartDate,
-                    PayerId = configuration.PayerId,
-                    ToDate = configuration.EndDate,
-                    OffsetNumber = currentTransactionCount
-                });
+                    var request = BuildImportRequest(payerId);
 
-                if(!ShouldTryToImportMore(configuration.PayerId, currentTransactionCount))
-                    break;
+                    pipeline.Execute(request);
+
+                    if(ShouldTryToImportMore(payerId))
+                    {
+                        UpdateItemsCount(payerId);
+                        
+                    }
+                    else
+                    {
+                        UpdateTaskStatus(payerId, ImportTaskStatus.Finished);
+                        break;
+                    }
+                }
+            }
+            catch
+            {
+                UpdateTaskStatus(payerId, ImportTaskStatus.Failed);
             }
         }
 
-        protected bool ShouldTryToImportMore(string payerId, int oldTransactionCount)
+        public void Initialize()
         {
-            var currentTransactionCount = transactionProvider.GetTransactionCountForPayer(payerId);
-            return oldTransactionCount < currentTransactionCount;
+            foreach(var payer in payerDataProvider.All())
+            {
+                InitializeTaskForPayer(payer.PayerId);
+            }
+
+            OnAfterTaskInitialization();
+
+            this.initialized = true;
+        }
+
+        protected void InitializeTaskForPayer(string payerId)
+        {            
+            if(!Configurations.ContainsKey(payerId))
+            {
+                var configuration = configurationDataProvider.GetForPayer(payerId);
+
+                Configurations.TryAdd(payerId, configuration);               
+            }
+        }
+
+        protected void OnAfterTaskInitialization()
+        {
+            foreach (var config in Configurations)
+            {
+                if(config.Value.Status == ImportTaskStatus.InProgress)
+                {
+                    config.Value.Status = ImportTaskStatus.Failed;
+                    configurationDataProvider.Save(config.Value);
+                }
+            }
+        }
+
+        protected bool ShouldTryToImportMore(string payerId)
+        {
+            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            {
+                return config.TransactionCount < transactionProvider.GetTransactionCountForPayer(payerId);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        protected void UpdateTaskStatus(string payerId, ImportTaskStatus status)
+        {
+            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            {
+                config.Status = status;
+                configurationDataProvider.Save(config);
+            }
+        }
+
+        protected void UpdateItemsCount(string payerId)
+        {
+            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            {
+                config.TransactionCount = transactionProvider.GetTransactionCountForPayer(payerId);
+            }
+        }
+
+        protected TransactionImportRequest BuildImportRequest(string payerId)
+        {
+            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            {
+                return new TransactionImportRequest
+                {
+                    FromDate = config.StartDate,
+                    PayerId = config.PayerId,
+                    ToDate = config.EndDate,
+                    OffsetNumber = config.TransactionCount
+                };
+            }
+            else
+            {
+                throw new InvalidOperationException($"Import task for payer {payerId} hasn't been initialized");
+            }
         }
     }
 }

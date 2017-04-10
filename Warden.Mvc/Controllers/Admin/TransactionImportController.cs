@@ -26,8 +26,8 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult StartImport(string whoId)
         {
-            importTask.StartImport(whoId);
-            return Json(true);
+            var result = importTask.StartImport(whoId);
+            return Json(result);
         }
 
         public ActionResult GetImportSettings(string payerId)
@@ -38,6 +38,7 @@ namespace Warden.Mvc.Controllers.Admin
                 FromDate = settings.StartDate,
                 ToDate = settings.EndDate,
                 PayerId = settings.PayerId,
+                Status = settings.Status
             };
 
             return Json(model);

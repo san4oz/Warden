@@ -1,7 +1,20 @@
 ﻿'use strict'
 
 adminApp.controller('transactionController', function ($scope, transactionService, payerService, categoryService, $route, $window) {
-    $scope.tab = 1;   
+    var taskStatuses = {
+        NotStarted: 0,
+        InProgress: 1,
+        Finished: 2,
+        Failed: 3
+    };
+
+    var updatePayerStatus = function (payer) {
+        transactionService.getImportSettings(payer.PayerId).then(function (result) {
+            payer.taskStatus = result.data.Status;
+        });
+    };
+
+    $scope.tab = 1;  
 
     $scope.tabs = {
         setTab: function (newTab) {
@@ -12,16 +25,25 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         },
     };
 
-    $scope.startImportTask = function (whoId) {
-        LockScreen(true);
-        transactionService.startImportTask(whoId)
-            .then(function (result) {
-                LockScreen(false);
+    $scope.startImportTask = function (payer) {
+        payer.taskStatus = taskStatuses.InProgress;
+        return transactionService.startImportTask(payer.PayerId).then(function (result) {
+                    payer.taskStatus = result.data;
             });
     };
 
     $scope.startImportTaskAll = function () {
-        this.startImportTask(null);
+
+        var tasks = [];
+
+        $scope.payers.forEach(function (payer) {
+            tasks.push($scope.startImportTask(payer));
+        });
+
+        LockScreen(true);
+        Promise.all(tasks).then(function () {
+            LockScreen(false);
+        });
     };
 
     $scope.search = function (query) {
@@ -43,6 +65,22 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         transactionService.getCategoryTransactions(category).then(function (result) {
             $scope.transactions = result.data;
         });
+    };
+
+    $scope.IsTaskFinished = function (payer) {
+        return payer.taskStatus == taskStatuses.Finished;
+    }
+
+    $scope.IsTaskInProgress = function (payer) {
+        return payer.taskStatus == taskStatuses.InProgress;
+    }
+
+    $scope.IsTaskFailed = function (payer) {
+        return payer.taskStatus == taskStatuses.Failed;
+    };
+
+    $scope.IsTaskNotStarted = function (payer) {
+        return payer.taskStatus == taskStatuses.NotStarted;
     }
 
     $scope.getImportSettings = function () {
@@ -51,7 +89,7 @@ adminApp.controller('transactionController', function ($scope, transactionServic
             $scope.importSettings.FromDate = convertToDate(result.data.FromDate).toDateString();
             $scope.importSettings.ToDate = convertToDate(result.data.ToDate).toDateString();
         });
-    }
+    };
 
     $scope.updateImportSettings = function (settings) {
         transactionService.updateImportSettings(settings).then(function (result) {
@@ -59,11 +97,14 @@ adminApp.controller('transactionController', function ($scope, transactionServic
                 $window.location.href = "/admin/transactions";
             }
         });
-    }
+    };
 
     $scope.init = function () {
         var payersLoading = payerService.getAll().then(function (result) {
             $scope.payers = result.data;
+            $scope.payers.forEach(function (payer) {
+                updatePayerStatus(payer);
+            });
         });
 
         var categoriesLoading = categoryService.getCategories().then(function (result) {
@@ -79,6 +120,6 @@ adminApp.controller('transactionController', function ($scope, transactionServic
             LockScreen(false);
         });
     };
-
+   
     $scope.init();
 });
