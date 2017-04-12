@@ -24,9 +24,9 @@ namespace Warden.Mvc.Controllers.Admin
         }
 
         [HttpPost]
-        public ActionResult StartImport(string whoId)
+        public ActionResult StartImport(string whoId, bool rebuild)
         {
-            var result = importTask.StartImport(whoId);
+            var result = importTask.StartImport(whoId, rebuild);
             return Json(result);
         }
 

@@ -42,8 +42,8 @@ namespace Warden.Business.Pipeline
         {
             this.Steps = new List<ITransactionImportPipelineStep>();
 
-            //this.Steps.Add(new TransactionCleaningStep(provider, search));
             this.Steps.Add(new TransactionRetreivingStep(api));
+            this.Steps.Add(new TransactionFilteringStep());
             this.Steps.Add(new TransactionProcessingStep());
             this.Steps.Add(new TransactionCreatingStep(provider));
             this.Steps.Add(new TransactionIndexingStep(search));

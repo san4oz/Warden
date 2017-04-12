@@ -9,7 +9,7 @@ namespace Warden.Business.Contracts.Scheduler
 {
     public interface ITransactionImportTask
     {
-        ImportTaskStatus StartImport(string payerId = null);
+        ImportTaskStatus StartImport(string payerId = null, bool rebuild = false);
 
         void Initialize();
     }

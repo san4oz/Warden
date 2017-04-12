@@ -17,6 +17,8 @@ namespace Warden.Business.Contracts.Providers
 
         void Delete(Guid[] ids);
 
+        void Delete(string payerId);
+
         void AttachToCategory(Guid transactionId, Guid categoryId);
 
         List<Transaction> GetUnprocessedTransactions(Guid[] ids);

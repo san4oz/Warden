@@ -47,6 +47,7 @@
     <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
     <Compile Include="Pipeline\Steps\TransactionCleaningStep.cs" />
+    <Compile Include="Pipeline\Steps\TransactionFilteringStep.cs" />
     <Compile Include="Pipeline\TransactionImportRequest.cs" />
     <Compile Include="Pipeline\Steps\TransactionCreatingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionIndexingStep.cs" />

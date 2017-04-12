@@ -1,4 +1,5 @@
-﻿using NHibernate.Criterion;
+﻿using NHibernate;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,6 +113,32 @@ namespace Warden.DataProvider.DataProviders
                 }
 
                 session.Flush();
+            });
+        }
+
+        public void Delete(string payerId)
+        {
+            if (string.IsNullOrEmpty(payerId))
+                return;
+
+            Execute(session => 
+            {
+                ITransaction transaction = null;
+                try
+                {
+                    transaction = session.BeginTransaction();
+                    var query = session.CreateQuery("DELETE Transaction t WHERE t.PayerId like :id")
+                            .SetParameter("id", payerId, NHibernateUtil.String);
+                    
+                    query.ExecuteUpdate();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    if (transaction != null)
+                        transaction.Rollback();
+                    throw;
+                }
             });
         }
 

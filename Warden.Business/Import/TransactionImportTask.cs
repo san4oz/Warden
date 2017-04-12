@@ -39,52 +39,59 @@ namespace Warden.Business.Import
             Configurations = new ConcurrentDictionary<string, TransactionImportTaskConfiguration>();
         }
 
-        public ImportTaskStatus StartImport(string payerId = null)
+        public ImportTaskStatus StartImport(string payerId = null, bool rebuild = false)
         {
             if (!initialized)
                 throw new InvalidOperationException("Transaction import task wasn't initialized");
 
             if(!string.IsNullOrEmpty(payerId))
             {
-                StartImportForPayer(payerId);
+                StartImportForPayer(payerId, rebuild);
             }
             else
             {
                 var payers = payerDataProvider.All();
                 foreach (var payer in payers)
                 {
-                    StartImportForPayer(payer.PayerId);
+                    StartImportForPayer(payer.PayerId, rebuild);
                 }
             }
 
             return ImportTaskStatus.Finished;
         }
 
-        protected void StartImportForPayer(string payerId)
+        protected void StartImportForPayer(string payerId, bool rebuild = false)
         {
             if (string.IsNullOrEmpty(payerId))
                 return;
+            if (rebuild)
+            {
+                transactionProvider.Delete(payerId);
+                UpdateItemsCount(payerId);
+            }
 
             UpdateTaskStatus(payerId, ImportTaskStatus.InProgress);
 
             try
-            { 
+            {
                 while (true)
                 {
                     var request = BuildImportRequest(payerId);
-
                     pipeline.Execute(request);
 
-                    if(ShouldTryToImportMore(payerId))
+                    bool shouldContinue(string payer)
                     {
-                        UpdateItemsCount(payerId);
-                        
-                    }
-                    else
-                    {
-                        UpdateTaskStatus(payerId, ImportTaskStatus.Finished);
+                        if (Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config) && ShouldTryToImportMore(payer, config))
+                        {
+                            UpdateItemsCount(payer, config);
+                            return true;
+                        }
+                        UpdateTaskStatus(config, ImportTaskStatus.Finished);
+                        return false;
+                    };
+
+                    if (!shouldContinue(payerId))
                         break;
-                    }
                 }
             }
             catch
@@ -127,32 +134,33 @@ namespace Warden.Business.Import
             }
         }
 
-        protected bool ShouldTryToImportMore(string payerId)
+        protected bool ShouldTryToImportMore(string payerId, TransactionImportTaskConfiguration config)
         {
-            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            return config.TransactionCount < transactionProvider.GetTransactionCountForPayer(payerId);
+        }
+
+        protected void UpdateItemsCount(string payerId, TransactionImportTaskConfiguration config = null)
+        {
+            if (config != null || Configurations.TryGetValue(payerId, out config))
             {
-                return config.TransactionCount < transactionProvider.GetTransactionCountForPayer(payerId);
+                config.TransactionCount = transactionProvider.GetTransactionCountForPayer(payerId);
             }
-            else
-            {
-                return false;
-            }
+        }
+
+        protected void UpdateTaskStatus(TransactionImportTaskConfiguration config, ImportTaskStatus status)
+        {
+            if (config == null)
+                return;
+            config.Status = status;
+            configurationDataProvider.Save(config);
         }
 
         protected void UpdateTaskStatus(string payerId, ImportTaskStatus status)
         {
-            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            if (Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
             {
                 config.Status = status;
                 configurationDataProvider.Save(config);
-            }
-        }
-
-        protected void UpdateItemsCount(string payerId)
-        {
-            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
-            {
-                config.TransactionCount = transactionProvider.GetTransactionCountForPayer(payerId);
             }
         }
 

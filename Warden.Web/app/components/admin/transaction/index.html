@@ -69,7 +69,8 @@
                     <tr>
                         <th>Платник</th>
                         <th>Статус</th>
-                        <th><button ng-click="startImportTaskAll()" class="pure-button pure-button-danger">Запустити всі</button></th>
+                        <th><button ng-click="startImportTaskAll()" class="pure-button pure-button-danger">Оновити всі</button></th>
+                        <th><button ng-click="startRebuildImportTaskAll()" class="pure-button pure-button-danger">Імпортувати всі</button></th>
                         <th>Налаштування</th>
                         <th>Лог</th>
                     </tr>
@@ -84,7 +85,10 @@
                             <span ng-show="IsTaskNotStarted(payer)"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
                         </td>
                         <td>
-                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startImportTask(payer)" class="pure-button">Запустити</button>
+                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startImportTask(payer)" class="pure-button">Оновити</button>
+                        </td>
+                        <td>
+                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startRebuildImportTask(payer)" class="pure-button">Імпортувати</button>
                         </td>
                         <td><a ng-href="/admin/transaction-import/settings/{{payer.PayerId}}"><i class="fa fa-cog" aria-hidden="true"></i></a></td>
                         <td>Лог</td>

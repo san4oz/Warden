@@ -3,11 +3,11 @@
 adminApp.service('transactionService', function (
     $http
 ) {
-    this.startImportTask = function (whoId) {
+    this.startImportTask = function (whoId, rebuild) {
         return $http({
             url: "/admin/api/transaction/startImport",
             method: "POST",
-            data: { whoId: whoId }
+            data: { whoId: whoId, rebuild: rebuild }
         });
     }
 

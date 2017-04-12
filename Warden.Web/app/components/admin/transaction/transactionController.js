@@ -14,6 +14,24 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         });
     };
 
+    var runImportTask = function (payer, rebuild) {
+        payer.taskStatus = taskStatuses.InProgress;
+        return transactionService.startImportTask(payer.PayerId, rebuild).then(function (result) {
+            payer.taskStatus = result.data;
+        });
+    };
+
+    var runImportTaskAll = function (rebuild) {
+        var tasks = [];
+        $scope.payers.forEach(function (payer) {
+            tasks.push(runImportTask(payer, rebuild));
+        });
+        LockScreen(true);
+        Promise.all(tasks).then(function () {
+            LockScreen(false);
+        });
+    };
+
     $scope.tab = 1;  
 
     $scope.tabs = {
@@ -26,24 +44,19 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     };
 
     $scope.startImportTask = function (payer) {
-        payer.taskStatus = taskStatuses.InProgress;
-        return transactionService.startImportTask(payer.PayerId).then(function (result) {
-                    payer.taskStatus = result.data;
-            });
+        runImportTask(payer, false);
+    };
+
+    $scope.startRebuildImportTask = function (payer) {
+        runImportTask(payer, true);
+    };
+
+    $scope.startRebuildImportTaskAll = function (payer) {
+        runImportTaskAll(true);
     };
 
     $scope.startImportTaskAll = function () {
-
-        var tasks = [];
-
-        $scope.payers.forEach(function (payer) {
-            tasks.push($scope.startImportTask(payer));
-        });
-
-        LockScreen(true);
-        Promise.all(tasks).then(function () {
-            LockScreen(false);
-        });
+        runImportTaskAll(false);
     };
 
     $scope.search = function (query) {
