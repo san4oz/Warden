@@ -1,6 +1,0 @@
-Date: 2017/04/13 14:10:45.330 | Message: [05407870] | Index taks was started.
-Date: 2017/04/13 14:10:45.349 | Message: [05407870] | Import task status will be changed from Failed to InProgress
-Date: 2017/04/13 14:10:45.394 | Message: [05407870] | Request: StartDate: 4/1/2017, ToDate: 4/10/2017, Offset: 0
-Date: 2017/04/13 14:10:45.723 | Message: [05407870] | Parsed transaction count: 21
-Date: 2017/04/13 14:10:45.991 | Message: [05407870] | Request: StartDate: 4/1/2017, ToDate: 4/10/2017, Offset: 42
-Date: 2017/04/13 14:10:46.080 | Message: [05407870] | Parsed transaction count: 0

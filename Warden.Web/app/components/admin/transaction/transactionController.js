@@ -69,6 +69,7 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     }
 
     $scope.attachToCategory = function (transaction, category) {
+        debugger;
         transactionService.attachToCategory(transaction, category).then(function () {
             $scope.search($scope.searchQuery);
         });

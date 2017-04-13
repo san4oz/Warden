@@ -4,30 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Warden.Business.Contracts.Managers;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
+using Warden.Mvc.Models;
 
 namespace Warden.Mvc.Controllers.Admin
 {
     public class CategoryController : Controller
     {
-        private ICategoryDataProvider categoryProvider;
+        private readonly CategoryManager categoryManager;
 
-        public CategoryController(ICategoryDataProvider categoryProvider)
+        public CategoryController(CategoryManager categoryManager)
         {
-            this.categoryProvider = categoryProvider;
+            this.categoryManager = categoryManager;
         }
 
         [HttpPost]
-        public ActionResult Create(Category category)
+        public ActionResult Create(CategoryViewModel model)
         {
             if (!ModelState.IsValid)
                 return Json(false);
 
-            if (categoryProvider.GetByTitle(category.Title) != null)
-                return Json(new { error = $"Item with title '{category.Title}' already exists" });
+            if (categoryManager.DoesCategoryExist(model.Title))
+                return Json(new { error = $"Item with title '{model.Title}' already exists" });
 
-            categoryProvider.Save(category);
+            var category = new Category()
+            {
+                Title = model.Title,
+                Keywords = model.Keywords
+            };
+
+            categoryManager.Save(category);
 
             return Json(true);
         }
@@ -35,7 +43,9 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult All()
         {
-            var categories = categoryProvider.All().OrderBy(x => x.Title);
+            var categories = categoryManager.All()
+                                .Select(c => new CategoryViewModel() { Id = c.Id, Title = c.Title, Keywords = c.Keywords }).OrderBy(x => x.Title);
+
             return Json(categories);
         }
     }

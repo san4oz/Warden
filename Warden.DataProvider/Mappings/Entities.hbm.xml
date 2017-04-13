@@ -14,6 +14,7 @@
     <id name="Id" type="System.Guid"></id>
     <property name="TransactionId" type="System.Guid"/>
     <property name="CategoryId" type="System.Guid"/>
+    <property name="Voted" type="System.Boolean"/>
   </class>
 
   <class name="Payer" table="Payers">
@@ -34,6 +35,14 @@
     <property name="EndDate" type="System.DateTime"/>
     <property name="PayerId" type="System.String"/>
     <property name="Status" type="System.Int32"/>
+  </class>
+
+  <class name="CategoryKeyword" table="CategoryKeyword">
+    <id name="Id" type="System.Guid"></id>
+    <property name="Keyword" type="System.String"/>
+    <property name="CategoryId" type="System.Guid"/>
+    <property name="SuccessVotes" type="long"/>
+    <property name="TotalVotes" type="long"/>
   </class>
   
 </hibernate-mapping>

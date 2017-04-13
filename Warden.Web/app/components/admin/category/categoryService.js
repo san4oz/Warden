@@ -8,7 +8,7 @@ adminApp.service('categoryService', function (
     };
 
     this.create = function (category) {
-        $http.post("/admin/api/category/create", { category: category });
+        $http.post("/admin/api/category/create", category);
     };
 
     this.searchTransactionsByKeyword = function (keyword) {

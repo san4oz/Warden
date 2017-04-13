@@ -45,10 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Contracts\Managers\AnalysisManager.cs" />
+    <Compile Include="Contracts\Managers\CategoryManager.cs" />
+    <Compile Include="Contracts\Managers\EntityManager.cs" />
+    <Compile Include="Contracts\Managers\PayerManager.cs" />
+    <Compile Include="Contracts\Managers\TransactionManager.cs" />
     <Compile Include="Contracts\Pipeline\ITransactionImportPipelineStep.cs" />
     <Compile Include="Contracts\Pipeline\ITransactionImportPipeline.cs" />
     <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
+    <Compile Include="Contracts\Providers\ICategoryKeywordDataProvider.cs" />
     <Compile Include="Core\TransactionImportTracer.cs" />
+    <Compile Include="Entities\CategoryKeyword.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
     <Compile Include="Pipeline\Steps\TransactionCleaningStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionFilteringStep.cs" />

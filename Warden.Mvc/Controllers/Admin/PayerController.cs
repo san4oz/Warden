@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Warden.Business.Contracts.Managers;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 using Warden.Mvc.Models;
@@ -12,17 +13,18 @@ namespace Warden.Mvc.Controllers.Admin
 {
     public class PayerController : Controller
     {
-        private IPayerDataProvider payerProvider;
+        private PayerManager payerManager;
 
-        public PayerController(IPayerDataProvider payerProvider)
+        public PayerController(PayerManager payerManager)
         {
-            this.payerProvider = payerProvider;
+            this.payerManager = payerManager;
         }
 
         [HttpPost]
         public ActionResult All()
         {
-            return Json(payerProvider.All());
+            var result = payerManager.All();
+            return Json(result);
         }
 
         [HttpPost]
@@ -31,7 +33,7 @@ namespace Warden.Mvc.Controllers.Admin
             if (!ModelState.IsValid)
                 return Json(false);
 
-            payerProvider.Save(new Payer { PayerId = payer.PayerId, Name = payer.Name });
+            payerManager.Save(new Payer { PayerId = payer.PayerId, Name = payer.Name });
 
             return Json(true);
         }

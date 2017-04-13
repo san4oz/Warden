@@ -16,6 +16,7 @@ using Warden.ExternalDataProvider;
 using Warden.Business.Pipeline;
 using Warden.Business.Contracts.Pipeline;
 using Warden.Business.Import;
+using Warden.Business.Contracts.Managers;
 
 namespace Warden.Mvc.App_Start
 {
@@ -33,11 +34,20 @@ namespace Warden.Mvc.App_Start
         {
             
             RegisterDataProviders(builder);
-
             builder.RegisterType<ExternalApi>().As<IExternalApi>();
-            builder.RegisterType<SearchManager>().As<ISearchManager>();
+            RegisterManagers(builder);
+
             builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>().SingleInstance();
             RegisterPipeline(builder);
+        }
+
+        private static void RegisterManagers(ContainerBuilder builder)
+        {
+            builder.RegisterType<CategoryManager>().As<CategoryManager>();
+            builder.RegisterType<PayerManager>().As<PayerManager>();
+            builder.RegisterType<TransactionManager>().As<TransactionManager>();
+            builder.RegisterType<SearchManager>().As<ISearchManager>();
+            builder.RegisterType<AnalysisManager>().As<AnalysisManager>();
         }
 
         private static void RegisterDataProviders(ContainerBuilder builder)
@@ -46,6 +56,7 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
             builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionImportConfigurationDataProvider>();
             builder.RegisterType<CategoryDataProvider>().As<ICategoryDataProvider>();
+            builder.RegisterType<CategoryKeywordDataProvider>().As<ICategoryKeywordDataProvider>();
         }
 
         private static void RegisterPipeline(ContainerBuilder builder)

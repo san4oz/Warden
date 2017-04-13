@@ -17,12 +17,12 @@ namespace Warden.Mvc.Controllers.Admin
 {
     public class TransactionImportController : Controller
     {
-        private readonly ITransactionImportConfigurationDataProvider configurationDatProvider;
+        private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
         private readonly ITransactionImportTask importTask;
 
         public TransactionImportController(ITransactionImportConfigurationDataProvider configurationDataProvider, ITransactionImportTask importTask)
         {
-            this.configurationDatProvider = configurationDataProvider;
+            this.configurationDataProvider = configurationDataProvider;
             this.importTask = importTask;
         }
 
@@ -35,7 +35,7 @@ namespace Warden.Mvc.Controllers.Admin
 
         public ActionResult GetImportSettings(string payerId)
         {
-            var settings = configurationDatProvider.GetForPayer(payerId);
+            var settings = configurationDataProvider.GetForPayer(payerId);
             var model = new ImportTaskSettingsModel()
             {
                 FromDate = settings.StartDate,
@@ -52,14 +52,14 @@ namespace Warden.Mvc.Controllers.Admin
             if (!ModelState.IsValid)
                 return Json(false);
 
-            var settings = configurationDatProvider.GetForPayer(model.PayerId);
+            var settings = configurationDataProvider.GetForPayer(model.PayerId);
             if (settings == null)
                 settings = new TransactionImportTaskConfiguration() { PayerId = model.PayerId };
 
             settings.StartDate = model.FromDate;
             settings.EndDate = model.ToDate;
 
-            configurationDatProvider.Update(settings);
+            configurationDataProvider.Update(settings);
 
             return Json(true);
         }
