@@ -650,3 +650,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 .fa-cog {
     color: #1f8dd6;
 }
+
+.fa-history{
+    color: orange;
+}

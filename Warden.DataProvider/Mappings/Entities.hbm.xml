@@ -7,6 +7,7 @@
     <property name="Price" type="System.Decimal"/>
     <property name="Keywords" type="System.String"/>
     <property name="Date" type="System.DateTime"/>
+    <property name="ExternalId" type="System.String"/>
   </class>
 
   <class name="TransactionCategory" table="TransactionCategories">

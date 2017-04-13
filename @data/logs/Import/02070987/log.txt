@@ -1,0 +1,469 @@
+Date: 2017/04/13 13:20:32.805 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:36.707 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:40.314 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:43.995 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:47.628 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:51.408 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:54.868 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:20:59.397 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:03.042 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:07.770 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:13.493 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:20.252 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:24.555 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:25.501 | Message: 300 transactions were parsed for 02070987 
+
+Date: 2017/04/13 13:21:26.136 | Message: 250 transactions were parsed for 02070987 
+
+Date: 2017-04-13 14:39:58 | Message: [02070987] | Rebuild taks was started.
+Date: 2017-04-13 14:39:58 | Message: [02070987] | Import task status will be changed from Finished to InProgress
+Date: 2017-04-13 14:39:58 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 0
+Date: 2017-04-13 14:39:59 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:39:59 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 300
+Date: 2017-04-13 14:39:59 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:00 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 600
+Date: 2017-04-13 14:40:00 | Message: [02070987] | Parsed transaction count: 294
+Date: 2017-04-13 14:40:00 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 894
+Date: 2017-04-13 14:40:01 | Message: [02070987] | Parsed transaction count: 297
+Date: 2017-04-13 14:40:01 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 1191
+Date: 2017-04-13 14:40:01 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:01 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 1491
+Date: 2017-04-13 14:40:02 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:02 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 1791
+Date: 2017-04-13 14:40:02 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:03 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2091
+Date: 2017-04-13 14:40:03 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:03 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2391
+Date: 2017-04-13 14:40:03 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:04 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2691
+Date: 2017-04-13 14:40:04 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:04 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2991
+Date: 2017-04-13 14:40:04 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:05 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 3291
+Date: 2017-04-13 14:40:05 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:05 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 3591
+Date: 2017-04-13 14:40:05 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:06 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 3891
+Date: 2017-04-13 14:40:06 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:06 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 4191
+Date: 2017-04-13 14:40:06 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:07 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 4491
+Date: 2017-04-13 14:40:07 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:07 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 4791
+Date: 2017-04-13 14:40:07 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:08 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5091
+Date: 2017-04-13 14:40:08 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:08 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5391
+Date: 2017-04-13 14:40:09 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:09 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5691
+Date: 2017-04-13 14:40:09 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:10 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5991
+Date: 2017-04-13 14:40:10 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:10 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 6291
+Date: 2017-04-13 14:40:11 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:11 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 6591
+Date: 2017-04-13 14:40:12 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:12 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 6891
+Date: 2017-04-13 14:40:13 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:13 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 7191
+Date: 2017-04-13 14:40:13 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:14 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 7491
+Date: 2017-04-13 14:40:14 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:14 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 7791
+Date: 2017-04-13 14:40:15 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:15 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 8091
+Date: 2017-04-13 14:40:15 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:16 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 8391
+Date: 2017-04-13 14:40:16 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:16 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 8691
+Date: 2017-04-13 14:40:17 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-13 14:40:17 | Message: [02070987] | There are 122 invalid transactions:
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 03534392 | Price: 1825 | 007.org Id: 12884376
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 40219 | 007.org Id: 13032103
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 7013 | 007.org Id: 13030387
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 77866 | 007.org Id: 13027325
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 4188 | 007.org Id: 13035004
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 42023 | 007.org Id: 13030465
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 15 | 007.org Id: 13036374
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 61913 | 007.org Id: 13027106
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 23188 | 007.org Id: 13027484
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 31 | 007.org Id: 13037101
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 01467243 | Price: 1808 | 007.org Id: 13454902
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 4188 | 007.org Id: 13819576
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 1228 | 007.org Id: 15431262
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 13995 | 007.org Id: 15429905
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 3756 | 007.org Id: 15432932
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 697 | 007.org Id: 15433741
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 18992 | 007.org Id: 15429723
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 3746 | 007.org Id: 15430431
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 3815 | 007.org Id: 15435577
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1143 | 007.org Id: 15430350
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 6 | 007.org Id: 15435462
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 5 | 007.org Id: 15430140
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 706 | 007.org Id: 15430870
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 133 | 007.org Id: 15533429
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 172 | 007.org Id: 15535191
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 68 | 007.org Id: 15541116
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 03534392 | Price: 17166 | 007.org Id: 15601993
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20824737 | Price: 211899 | 007.org Id: 15538433
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 01467243 | Price: 119604 | 007.org Id: 15609565
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 402 | 007.org Id: 16321272
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 03534392 | Price: 13351 | 007.org Id: 16457291
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20806277 | Price: 2301 | 007.org Id: 16413731
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 00019413 | Price: 4134 | 007.org Id: 17062945
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 1256 | 007.org Id: 17253538
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 7226 | 007.org Id: 17254960
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 19509 | 007.org Id: 17253414
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 02125266 | Price: 1000 | 007.org Id: 17341713
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 12198 | 007.org Id: 17431727
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 549 | 007.org Id: 17431537
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 5 | 007.org Id: 17433301
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 10065 | 007.org Id: 17430394
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 11 | 007.org Id: 17434671
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20824737 | Price: 131602 | 007.org Id: 17435815
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 348 | 007.org Id: 17642728
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 424 | 007.org Id: 17637542
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 9155 | 007.org Id: 17642917
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 4725 | 007.org Id: 17642345
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 32 | 007.org Id: 17638900
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 289 | 007.org Id: 17639636
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 4 | 007.org Id: 17641075
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 5725 | 007.org Id: 17634812
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 11 | 007.org Id: 17640077
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 625 | 007.org Id: 17639434
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 7151 | 007.org Id: 17792750
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 901 | 007.org Id: 17791430
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 19443 | 007.org Id: 17784322
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1216 | 007.org Id: 17791306
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 10035 | 007.org Id: 17787928
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 529 | 007.org Id: 17786768
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 13817458 | Price: 4611 | 007.org Id: 17973557
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 01467243 | Price: 28107 | 007.org Id: 18065594
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 18668267
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20824737 | Price: 108143 | 007.org Id: 19301311
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 03534392 | Price: 13351 | 007.org Id: 19476341
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 00019413 | Price: 1378 | 007.org Id: 19570716
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1190 | 007.org Id: 19991133
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 717 | 007.org Id: 20378841
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 762 | 007.org Id: 20383019
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 72363 | 007.org Id: 20381700
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 4 | 007.org Id: 20375898
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 724 | 007.org Id: 20378336
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 8 | 007.org Id: 20379812
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 77 | 007.org Id: 20381283
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 126 | 007.org Id: 20380650
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 01467243 | Price: 10478 | 007.org Id: 20668673
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26252928 | Price: 98500 | 007.org Id: 20968179
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 21068183
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 1811 | 007.org Id: 21597219
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 16545 | 007.org Id: 21599794
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 189564 | 007.org Id: 21601261
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 896 | 007.org Id: 21719487
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 18951 | 007.org Id: 21718978
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 2103 | 007.org Id: 21719376
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 18969 | 007.org Id: 21723822
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 33213 | 007.org Id: 21723155
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20824737 | Price: 67708 | 007.org Id: 21724528
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1190 | 007.org Id: 22010510
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 4249 | 007.org Id: 22330093
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 633 | 007.org Id: 22951034
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 51434 | 007.org Id: 22947782
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 6103 | 007.org Id: 22946921
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 7 | 007.org Id: 22950377
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 34 | 007.org Id: 22953179
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 65 | 007.org Id: 22953195
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 120 | 007.org Id: 22946456
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26252928 | Price: 98500 | 007.org Id: 22890255
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1020 | 007.org Id: 23027759
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 170 | 007.org Id: 23026133
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 02125639 | Price: 101246 | 007.org Id: 23178579
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 01467243 | Price: 7100 | 007.org Id: 23160859
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 00019413 | Price: 11600 | 007.org Id: 23237415
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 03534392 | Price: 11444 | 007.org Id: 23520409
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 23964474
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 03534392 | Price: 8087 | 007.org Id: 24188639
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20824737 | Price: 51151 | 007.org Id: 24126505
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 109729 | 007.org Id: 24368068
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 1352 | 007.org Id: 24369574
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 13025 | 007.org Id: 24369594
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1528 | 007.org Id: 24367999
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 1178 | 007.org Id: 24369085
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 12895 | 007.org Id: 24372272
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 2555 | 007.org Id: 24369001
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 608 | 007.org Id: 24369355
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 21137571 | Price: 2000 | 007.org Id: 24951932
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 11611 | 007.org Id: 25334710
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 6957 | 007.org Id: 25329276
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26180956 | Price: 1099 | 007.org Id: 25332407
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 26181358 | Price: 5655 | 007.org Id: 25525368
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 20824737 | Price: 31742 | 007.org Id: 25681285
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 01467243 | Price: 7700 | 007.org Id: 25782108
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 00019413 | Price: 5800 | 007.org Id: 26284839
+Date: 2017-04-13 14:40:17 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 26496815
+Date: 2017-04-13 14:40:17 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 8869
+Date: 2017-04-13 14:40:18 | Message: [02070987] | Parsed transaction count: 250
+Date: 2017-04-13 14:40:18 | Message: [02070987] | There are 250 invalid transactions:
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 1825 | 007.org Id: 12884376
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 40219 | 007.org Id: 13032103
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 7013 | 007.org Id: 13030387
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 77866 | 007.org Id: 13027325
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4188 | 007.org Id: 13035004
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 42023 | 007.org Id: 13030465
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 15 | 007.org Id: 13036374
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 61913 | 007.org Id: 13027106
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 23188 | 007.org Id: 13027484
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 31 | 007.org Id: 13037101
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 1808 | 007.org Id: 13454902
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4188 | 007.org Id: 13819576
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1228 | 007.org Id: 15431262
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 13995 | 007.org Id: 15429905
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 3756 | 007.org Id: 15432932
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 697 | 007.org Id: 15433741
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 18992 | 007.org Id: 15429723
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 3746 | 007.org Id: 15430431
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 3815 | 007.org Id: 15435577
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1143 | 007.org Id: 15430350
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 6 | 007.org Id: 15435462
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 5 | 007.org Id: 15430140
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 706 | 007.org Id: 15430870
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 133 | 007.org Id: 15533429
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 172 | 007.org Id: 15535191
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 68 | 007.org Id: 15541116
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 17166 | 007.org Id: 15601993
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 211899 | 007.org Id: 15538433
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 119604 | 007.org Id: 15609565
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 402 | 007.org Id: 16321272
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 13351 | 007.org Id: 16457291
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20806277 | Price: 2301 | 007.org Id: 16413731
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 4134 | 007.org Id: 17062945
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1256 | 007.org Id: 17253538
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 7226 | 007.org Id: 17254960
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 19509 | 007.org Id: 17253414
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02125266 | Price: 1000 | 007.org Id: 17341713
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 12198 | 007.org Id: 17431727
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 549 | 007.org Id: 17431537
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 5 | 007.org Id: 17433301
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 10065 | 007.org Id: 17430394
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 11 | 007.org Id: 17434671
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 131602 | 007.org Id: 17435815
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 348 | 007.org Id: 17642728
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 424 | 007.org Id: 17637542
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 9155 | 007.org Id: 17642917
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 4725 | 007.org Id: 17642345
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 32 | 007.org Id: 17638900
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 289 | 007.org Id: 17639636
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 4 | 007.org Id: 17641075
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 5725 | 007.org Id: 17634812
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 11 | 007.org Id: 17640077
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 625 | 007.org Id: 17639434
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 7151 | 007.org Id: 17792750
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 901 | 007.org Id: 17791430
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 19443 | 007.org Id: 17784322
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1216 | 007.org Id: 17791306
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 10035 | 007.org Id: 17787928
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 529 | 007.org Id: 17786768
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 13817458 | Price: 4611 | 007.org Id: 17973557
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 28107 | 007.org Id: 18065594
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 18668267
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 108143 | 007.org Id: 19301311
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 13351 | 007.org Id: 19476341
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 1378 | 007.org Id: 19570716
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1190 | 007.org Id: 19991133
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 717 | 007.org Id: 20378841
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 762 | 007.org Id: 20383019
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 72363 | 007.org Id: 20381700
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 4 | 007.org Id: 20375898
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 724 | 007.org Id: 20378336
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 8 | 007.org Id: 20379812
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 77 | 007.org Id: 20381283
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 126 | 007.org Id: 20380650
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 10478 | 007.org Id: 20668673
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26252928 | Price: 98500 | 007.org Id: 20968179
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 21068183
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1811 | 007.org Id: 21597219
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 16545 | 007.org Id: 21599794
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 189564 | 007.org Id: 21601261
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 896 | 007.org Id: 21719487
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 18951 | 007.org Id: 21718978
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 2103 | 007.org Id: 21719376
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 18969 | 007.org Id: 21723822
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 33213 | 007.org Id: 21723155
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 67708 | 007.org Id: 21724528
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1190 | 007.org Id: 22010510
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 4249 | 007.org Id: 22330093
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 633 | 007.org Id: 22951034
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 51434 | 007.org Id: 22947782
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 6103 | 007.org Id: 22946921
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 7 | 007.org Id: 22950377
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 34 | 007.org Id: 22953179
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 65 | 007.org Id: 22953195
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 120 | 007.org Id: 22946456
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26252928 | Price: 98500 | 007.org Id: 22890255
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1020 | 007.org Id: 23027759
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 170 | 007.org Id: 23026133
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02125639 | Price: 101246 | 007.org Id: 23178579
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 7100 | 007.org Id: 23160859
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 11600 | 007.org Id: 23237415
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 11444 | 007.org Id: 23520409
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 23964474
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 8087 | 007.org Id: 24188639
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 51151 | 007.org Id: 24126505
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 109729 | 007.org Id: 24368068
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1352 | 007.org Id: 24369574
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 13025 | 007.org Id: 24369594
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1528 | 007.org Id: 24367999
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1178 | 007.org Id: 24369085
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 12895 | 007.org Id: 24372272
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 2555 | 007.org Id: 24369001
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 608 | 007.org Id: 24369355
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 21137571 | Price: 2000 | 007.org Id: 24951932
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 11611 | 007.org Id: 25334710
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 6957 | 007.org Id: 25329276
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1099 | 007.org Id: 25332407
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 5655 | 007.org Id: 25525368
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 31742 | 007.org Id: 25681285
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 7700 | 007.org Id: 25782108
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 5800 | 007.org Id: 26284839
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 26496815
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 121316 | 007.org Id: 27151189
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 125 | 007.org Id: 27573247
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 2251 | 007.org Id: 27575072
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 1684 | 007.org Id: 27802504
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 214 | 007.org Id: 27808197
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 494 | 007.org Id: 27802671
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1356 | 007.org Id: 27807258
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 4335 | 007.org Id: 27990754
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26056630 | Price: 1537868 | 007.org Id: 28797471
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 28802348
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02144571 | Price: 841834 | 007.org Id: 28800434
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 391800 | 007.org Id: 28879425
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25224410 | Price: 65443 | 007.org Id: 28925957
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 22350217 | Price: 55466 | 007.org Id: 28922928
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02144542 | Price: 1480199 | 007.org Id: 29015574
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 5800 | 007.org Id: 29057432
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 3798 | 007.org Id: 29553222
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02144565 | Price: 112756 | 007.org Id: 29799322
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 13817458 | Price: 4611 | 007.org Id: 30107517
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 540 | 007.org Id: 30098237
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 397 | 007.org Id: 30203396
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 6998 | 007.org Id: 30197314
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 34728 | 007.org Id: 30197324
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 15465 | 007.org Id: 30201249
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1997 | 007.org Id: 30200591
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 20711 | 007.org Id: 30367204
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 36975 | 007.org Id: 30460901
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02144588 | Price: 155858 | 007.org Id: 30754233
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 15436 | 007.org Id: 31225151
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 680 | 007.org Id: 31223438
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1528292 | 007.org Id: 31224838
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 266 | 007.org Id: 31221071
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 576 | 007.org Id: 31227073
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 881 | 007.org Id: 31224686
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 31393203
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 31835 | 007.org Id: 31845538
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 5800 | 007.org Id: 32113968
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 4875 | 007.org Id: 32608914
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 18 | 007.org Id: 32608281
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 4793 | 007.org Id: 32855060
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 37755 | 007.org Id: 32857036
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26252928 | Price: 90000 | 007.org Id: 33053252
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26252928 | Price: 100500 | 007.org Id: 33053303
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 110171 | 007.org Id: 33192935
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38739037 | Price: 59700 | 007.org Id: 33989748
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38739037 | Price: 114300 | 007.org Id: 33986276
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 33986334
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38739037 | Price: 266700 | 007.org Id: 34079198
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38739037 | Price: 139300 | 007.org Id: 34085206
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 45000 | 007.org Id: 34374745
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 15102 | 007.org Id: 34373272
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 32500 | 007.org Id: 34367922
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 151800 | 007.org Id: 34607073
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 60000 | 007.org Id: 35007200
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 780 | 007.org Id: 35334750
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 30 | 007.org Id: 35309040
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20806277 | Price: 95855 | 007.org Id: 35417501
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 208200 | 007.org Id: 35888681
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25245257 | Price: 68817 | 007.org Id: 35967853
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 51200 | 007.org Id: 36065386
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 55078 | 007.org Id: 36132291
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02214225 | Price: 10353 | 007.org Id: 36184435
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 14500 | 007.org Id: 36334385
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 3217 | 007.org Id: 36409390
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1 | 007.org Id: 36409771
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 22219 | 007.org Id: 36408722
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1553 | 007.org Id: 36405205
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02070996 | Price: 77775 | 007.org Id: 36653223
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02071010 | Price: 115192 | 007.org Id: 36928446
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02071010 | Price: 116144 | 007.org Id: 36924364
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 36971703
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02125556 | Price: 24360 | 007.org Id: 37204169
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 490 | 007.org Id: 37347388
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 112 | 007.org Id: 37341784
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02214739 | Price: 4263 | 007.org Id: 37583624
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38621185 | Price: 142500 | 007.org Id: 37930466
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 180364 | 007.org Id: 38627404
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 23 | 007.org Id: 38626806
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 8000 | 007.org Id: 39029581
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02010793 | Price: 11571 | 007.org Id: 39201236
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02125556 | Price: 6699 | 007.org Id: 39585618
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02010793 | Price: 2871 | 007.org Id: 39850976
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02010793 | Price: 2376 | 007.org Id: 39878000
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 6497 | 007.org Id: 39878343
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 39958773
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 202585 | 007.org Id: 40539906
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 38928694 | Price: 4500 | 007.org Id: 40805765
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 490 | 007.org Id: 41296877
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 107 | 007.org Id: 42124023
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 491 | 007.org Id: 42123079
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 2741006 | 007.org Id: 42124413
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1386 | 007.org Id: 42117980
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 8743 | 007.org Id: 42130687
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 1767 | 007.org Id: 42127681
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 490 | 007.org Id: 42924190
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 4104 | 007.org Id: 42864629
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 34465 | 007.org Id: 43436697
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 70152 | 007.org Id: 43436071
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1544 | 007.org Id: 43440324
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 11783813 | 007.org Id: 43441045
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 2326 | 007.org Id: 43433695
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 5617 | 007.org Id: 43742795
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 150144 | 007.org Id: 44401755
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 5506 | 007.org Id: 44840888
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 53639 | 007.org Id: 44982710
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 264000 | 007.org Id: 45583495
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 335185 | 007.org Id: 45680729
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 1265 | 007.org Id: 46043190
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 14208756 | 007.org Id: 46050723
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 2525 | 007.org Id: 46051227
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 429 | 007.org Id: 46048402
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 11603 | 007.org Id: 46052518
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 147957 | 007.org Id: 46196194
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20806277 | Price: 1144 | 007.org Id: 46673560
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 03534392 | Price: 12583 | 007.org Id: 47290352
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 00019413 | Price: 24000 | 007.org Id: 47609758
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 25261380 | Price: 5506 | 007.org Id: 47559890
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 499000 | 007.org Id: 47796370
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 305000 | 007.org Id: 47774531
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 15272 | 007.org Id: 48022671
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 8989 | 007.org Id: 48020906
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 5057671 | 007.org Id: 48022681
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26181358 | Price: 4133 | 007.org Id: 48022030
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 26180956 | Price: 45 | 007.org Id: 48020346
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 13817458 | Price: 79135 | 007.org Id: 48325577
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 20824737 | Price: 49501 | 007.org Id: 48842989
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 02214225 | Price: 2436 | 007.org Id: 48885776
+Date: 2017-04-13 14:40:18 | Message: [02070987] | PayerId: 01467243 | Price: 40189 | 007.org Id: 49061594
+Date: 2017-04-13 14:40:18 | Message: [02070987] | Task has been successfully finished.

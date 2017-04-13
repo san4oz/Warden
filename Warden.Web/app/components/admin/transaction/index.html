@@ -85,13 +85,13 @@
                             <span ng-show="IsTaskNotStarted(payer)"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
                         </td>
                         <td>
-                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startImportTask(payer)" class="pure-button">Оновити</button>
+                            <button ng-disabled="IsTaskInProgress(payer)" ng-click="startImportTask(payer)" class="pure-button">Оновити</button>
                         </td>
                         <td>
-                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startRebuildImportTask(payer)" class="pure-button">Імпортувати</button>
+                            <button ng-disabled="IsTaskInProgress(payer)" ng-click="startRebuildImportTask(payer)" class="pure-button">Імпортувати</button>
                         </td>
                         <td><a ng-href="/admin/transaction-import/settings/{{payer.PayerId}}"><i class="fa fa-cog" aria-hidden="true"></i></a></td>
-                        <td>Лог</td>
+                        <td><a target="_blank" ng-href="/admin/api/transaction-import/logs/{{payer.PayerId}}"><i class="fa fa-history" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
             </table>

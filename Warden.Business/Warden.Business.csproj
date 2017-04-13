@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.5\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,6 +48,7 @@
     <Compile Include="Contracts\Pipeline\ITransactionImportPipelineStep.cs" />
     <Compile Include="Contracts\Pipeline\ITransactionImportPipeline.cs" />
     <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
+    <Compile Include="Core\TransactionImportTracer.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
     <Compile Include="Pipeline\Steps\TransactionCleaningStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionFilteringStep.cs" />
@@ -80,6 +84,9 @@
       <Project>{3ae1d6b3-da7c-4b2f-b34e-d643214f7514}</Project>
       <Name>Warden.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,5 +4,6 @@ create table Transactions(
 	ReceiverId nvarchar(50) not null,
 	Price money not null,
 	[Date] datetime not null,
-	Keywords nvarchar(max) not null
+	Keywords nvarchar(max) not null,
+	ExternalId nvarchar(100) not null,
 );
