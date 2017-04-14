@@ -17,6 +17,8 @@ namespace Warden.Business
         public class Keywords
         {
             public const char Separator = ';';
+
+            public const decimal ValidTrustRate = 0.8M;
         }
     }
 }

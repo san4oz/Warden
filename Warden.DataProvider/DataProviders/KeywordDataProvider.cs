@@ -20,5 +20,15 @@ namespace Warden.DataProvider.DataProviders
                             .SingleOrDefault();
             });
         }
+
+        public List<CategoryKeyword> Get(string text)
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<CategoryKeyword>()
+                            .Where(keyword => keyword.Keyword == text)
+                            .List().ToList();
+            });
+        }
     }
 }

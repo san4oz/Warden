@@ -10,5 +10,7 @@ namespace Warden.Business.Contracts.Providers
     public interface IKeywordDataProvider : IDataProvider<CategoryKeyword>
     {
         CategoryKeyword Get(string text, Guid categoryId);
+
+        List<CategoryKeyword> Get(string text);
     }
 }

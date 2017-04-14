@@ -56,7 +56,9 @@
     <Compile Include="Contracts\Providers\IKeywordDataProvider.cs" />
     <Compile Include="Core\TransactionImportTracer.cs" />
     <Compile Include="Entities\CategoryKeyword.cs" />
+    <Compile Include="Helper\TrustHelper.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
+    <Compile Include="Pipeline\Steps\CategoryDeterminingStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionCleaningStep.cs" />
     <Compile Include="Pipeline\Steps\TransactionFilteringStep.cs" />
     <Compile Include="Pipeline\TransactionImportRequest.cs" />

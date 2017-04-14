@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Warden.Business.Contracts.Providers;
+using Warden.Business.Core;
 using Warden.Business.Entities;
+using Warden.Business.Helper;
 using Warden.Core.Extensions;
 
 namespace Warden.Business.Contracts.Managers
@@ -48,6 +50,24 @@ namespace Warden.Business.Contracts.Managers
             keywordProvider.Save(keyword);
         }
 
-        public void MarkAsVoted(Guid transactionId) => transactionProvider.MarkAsVoted(transactionId);
+        public bool TryAttachToCategory(Transaction transaction)
+        {
+            var keywords = transaction.Keywords.Split(Constants.Keywords.Separator);
+
+            foreach(var keyword in keywords)
+            {
+                var trustedKeyword = TrustHelper.GetTheMostTrusted(keywordProvider.Get(keyword));
+                if (trustedKeyword != null)
+                {
+                    transactionProvider.AttachToCategory(transaction.Id, trustedKeyword.CategoryId);
+                    MarkTransactionAsVoted(transaction.Id);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void MarkTransactionAsVoted(Guid transactionId) => transactionProvider.MarkAsVoted(transactionId);
     }
 }

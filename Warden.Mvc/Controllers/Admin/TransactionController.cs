@@ -66,7 +66,7 @@ namespace Warden.Mvc.Controllers.Admin
                 analysisManager.VoteForKeyword(model.CategoryId, vote.Keyword, vote.VoteResult);
             }
 
-            analysisManager.MarkAsVoted(model.TransactionId);
+            analysisManager.MarkTransactionAsVoted(model.TransactionId);
 
             return Json(true);
         }
