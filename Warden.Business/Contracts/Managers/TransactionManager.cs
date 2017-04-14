@@ -27,6 +27,8 @@ namespace Warden.Business.Contracts.Managers
             return Provider.GetUnprocessedTransactions(ids.ToArray());
         }
 
+        public List<Transaction> GetTransactionsToCalibrate(Guid categoryId) => Provider.GetTransactionsToCalibrate(categoryId);
+
         public List<Transaction> GetProcessedByCategoryId(Guid categoryId) => Provider.GetProcessedTransactions(categoryId);
 
         public int GetTotalCount() => Provider.GetGeneralTransactionCount();

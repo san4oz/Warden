@@ -89,6 +89,20 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
            (
+              name: "api/transaction/keywordstocalibrate",
+              url: "api/transaction/keywordstocalibrate",
+              defaults: new { controller = "Transaction", action = "KeywordsToCalibrate" }
+           );
+
+            MapRoute
+            (
+            name: "api/transaction/calibratekeywords",
+            url: "api/transaction/calibratekeywords",
+            defaults: new { controller = "Transaction", action = "CalibrateKeywords" }
+            );
+
+            MapRoute
+           (
                name: "api/transaction/attachToCategory",
                url: "api/transaction/attachToCategory",
                defaults: new { controller = "Transaction", action = "AttachToCategory" }

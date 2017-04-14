@@ -69,9 +69,22 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     }
 
     $scope.attachToCategory = function (transaction, category) {
-        debugger;
         transactionService.attachToCategory(transaction, category).then(function () {
             $scope.search($scope.searchQuery);
+        });
+    };
+
+    $scope.getKeywordsToCalibrate = function (category) {
+        transactionService.getKeywordsToCalibrate(category).then(function (result) {
+            $scope.calibrationModels = result.data;
+            $scope.currentCalibrationModel = $scope.calibrationModels.pop();
+        });
+    };
+
+    $scope.calibrateKeywords = function (model) {
+        transactionService.calibrateKeywords(model).then(function (result) {
+            if (result.data)
+                $scope.currentCalibrationModel = $scope.calibrationModels.pop();
         });
     };
 

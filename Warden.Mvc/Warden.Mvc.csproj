@@ -97,6 +97,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\ImportTaskSettingsModel.cs" />
+    <Compile Include="Models\KeywordsCalibrationViewModel.cs" />
+    <Compile Include="Models\KeywordVote.cs" />
     <Compile Include="Models\PayerModel.cs" />
     <Compile Include="Models\TransactionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

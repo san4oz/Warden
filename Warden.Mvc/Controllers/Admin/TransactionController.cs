@@ -8,6 +8,7 @@ using Warden.Business.Contracts.Scheduler;
 using Warden.Business.Entities.Search;
 using Warden.Mvc.Models;
 using Warden.Business.Contracts.Managers;
+using Warden.Business;
 
 namespace Warden.Mvc.Controllers.Admin
 {
@@ -34,6 +35,40 @@ namespace Warden.Mvc.Controllers.Admin
             var model = unprocessedTransactions.Select(ConvertToViewModel);
 
             return Json(model);
+        }
+
+        [HttpPost]
+        public ActionResult KeywordsToCalibrate(Guid categoryId)
+        {
+            var model = transactionManager.GetTransactionsToCalibrate(categoryId).Select(t =>
+            {
+                var keywords = t.Keywords.Split(new[] { Constants.Keywords.Separator });
+
+                return new KeywordsCalibrationViewModel()
+                {
+                    CategoryId = categoryId,
+                    TransactionId = t.Id,
+                    Votes = keywords.Select(k => new KeywordVote() { Keyword = k }).ToList()
+                };
+            });
+
+            return Json(model);
+        }
+
+        [HttpPost]
+        public ActionResult CalibrateKeywords(KeywordsCalibrationViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return Json(false);
+
+            foreach(var vote in model.Votes)
+            {
+                analysisManager.VoteForKeyword(model.CategoryId, vote.Keyword, vote.VoteResult);
+            }
+
+            analysisManager.MarkAsVoted(model.TransactionId);
+
+            return Json(true);
         }
 
         [HttpPost]

@@ -13,5 +13,10 @@ namespace Warden.Business
             public const string Id = "_id";
             public const string Keywords = "_keywords";
         }
+
+        public class Keywords
+        {
+            public const char Separator = ';';
+        }
     }
 }

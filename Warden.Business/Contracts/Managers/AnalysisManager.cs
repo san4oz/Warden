@@ -47,5 +47,7 @@ namespace Warden.Business.Contracts.Managers
 
             keywordProvider.Save(keyword);
         }
+
+        public void MarkAsVoted(Guid transactionId) => transactionProvider.MarkAsVoted(transactionId);
     }
 }
