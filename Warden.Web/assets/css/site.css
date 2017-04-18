@@ -668,7 +668,22 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         height: 100%;
     }
 
+
+/* SVG STYLES */
+
 .svg-map .land:hover {
     fill-opacity: 0.7;
     fill: orange;
+}
+
+.svg-graph .bar {
+    fill:steelblue;
+}
+
+.svg-graph .bar:hover {
+    fill: brown;
+}
+
+.axis--x path {
+    display: none;
 }
