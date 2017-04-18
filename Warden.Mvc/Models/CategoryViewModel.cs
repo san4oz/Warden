@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Warden.Mvc.Models
 {
-    public class CategoryModel
+    public class CategoryViewModel
     {
+        public Guid Id { get; set; }
+
         [Required]
         [MaxLength(150)]
         public string Title { get; set; }

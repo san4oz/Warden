@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Warden.Business.Contracts.Pipeline;
 using Warden.Business.Contracts.Providers;
+using Warden.Business.Core;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
 
@@ -31,6 +32,9 @@ namespace Warden.Business.Pipeline.Steps
                     To = context.Request.ToDate,
                     OffsetNumber = context.Request.OffsetNumber
                 });
+
+                TransactionImportTracer.Trace(context.Request.PayerId, $"Parsed transaction count: {transactions.Count()}");
+
                 context.Items = transactions.ToList();
             });
 

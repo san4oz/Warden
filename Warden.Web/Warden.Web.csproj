@@ -61,6 +61,9 @@
       <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.5\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -172,6 +175,7 @@
     <Content Include="assets\libs\d3\CHANGES.md" />
     <Content Include="assets\libs\d3\API.md" />
     <Content Include="assets\js\control.chart.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Views\Shared\Admin.cshtml" />
     <None Include="Views\Shared\Index.cshtml" />
     <Content Include="assets\libs\angular-route.js" />

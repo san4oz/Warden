@@ -1,7 +1,7 @@
 ﻿<div  ng-controller="transactionController">
     <ul class="tab">
         <li class="tab-link" ng-class="{active: tabs.isSet(1)}">
-            <a href="" ng-click="tabs.setTab(1)">Оброблені</a>
+            <a href="" ng-click="tabs.setTab(1)">Калібровка</a>
         </li>
         <li class="tab-link" ng-class="{active: tabs.isSet(2)}">
             <a href="" ng-click="tabs.setTab(2)">Обробка</a>
@@ -16,23 +16,22 @@
 
     <div ng-show="tabs.isSet(1)" class="pure-g searched-data">
         <div class="pure-u-1-1">
-            <select ng-change="getCategoryTransactions(selectedCategory)" ng-model="selectedCategory" ng-options="category as category.Title for category in categories"></select>
-            <table class="pure-table">
-                <thead>
-                    <tr>
-                        <th>Номер</th>
-                        <th>Ціна</th>
-                        <th>Призначення</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="transaction in transactions">
-                        <td>{{transaction.Id}}</td>
-                        <td>{{transaction.Price}}</td>
-                        <td>{{transaction.Keywords}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <select ng-change="getKeywordsToCalibrate(selectedCategory)" ng-model="selectedCategory" ng-options="category as category.Title for category in categories"></select>
+            <div>
+                <div ng-repeat="pair in currentCalibrationModel.Votes">
+                    <div class="question incorrectState" ng-class="{correctState: vote}">
+                        Чи належить слово <b class="marked-word">{{pair.Keyword}}</b> категорії <b>{{selectedCategory.Title}}</b> ?
+                        <div>
+                            <label class="switch">
+                                <input ng-model="pair.VoteResult" type="checkbox">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button ng-show="currentCalibrationModel.Votes" class="pure-button btn-right" ng-click="calibrateKeywords(currentCalibrationModel)">Наступна транзакція</button>
+                <div ng-show="!currentCalibrationModel.Votes" class="empty-block">Для вибранної категорії немає оброблених транзакцій.</div>
+            </div>
         </div>
     </div>
 
@@ -85,13 +84,13 @@
                             <span ng-show="IsTaskNotStarted(payer)"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
                         </td>
                         <td>
-                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startImportTask(payer)" class="pure-button">Оновити</button>
+                            <button ng-disabled="IsTaskInProgress(payer)" ng-click="startImportTask(payer)" class="pure-button">Оновити</button>
                         </td>
                         <td>
-                            <button ng-disabled="IsTaskRunning(payer)" ng-click="startRebuildImportTask(payer)" class="pure-button">Імпортувати</button>
+                            <button ng-disabled="IsTaskInProgress(payer)" ng-click="startRebuildImportTask(payer)" class="pure-button">Імпортувати</button>
                         </td>
                         <td><a ng-href="/admin/transaction-import/settings/{{payer.PayerId}}"><i class="fa fa-cog" aria-hidden="true"></i></a></td>
-                        <td>Лог</td>
+                        <td><a target="_blank" ng-href="/admin/api/transaction-import/logs/{{payer.PayerId}}"><i class="fa fa-history" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
             </table>

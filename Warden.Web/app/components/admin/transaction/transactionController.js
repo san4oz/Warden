@@ -74,6 +74,20 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         });
     };
 
+    $scope.getKeywordsToCalibrate = function (category) {
+        transactionService.getKeywordsToCalibrate(category).then(function (result) {
+            $scope.calibrationModels = result.data;
+            $scope.currentCalibrationModel = $scope.calibrationModels.pop();
+        });
+    };
+
+    $scope.calibrateKeywords = function (model) {
+        transactionService.calibrateKeywords(model).then(function (result) {
+            if (result.data)
+                $scope.currentCalibrationModel = $scope.calibrationModels.pop();
+        });
+    };
+
     $scope.getCategoryTransactions = function (category) {
         transactionService.getCategoryTransactions(category).then(function (result) {
             $scope.transactions = result.data;

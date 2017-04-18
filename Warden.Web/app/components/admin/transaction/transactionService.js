@@ -34,4 +34,12 @@ adminApp.service('transactionService', function (
     this.getGeneralTransactionCount = function () {
         return $http.post("/admin/api/transaction/count");
     };
+
+    this.getKeywordsToCalibrate = function (category) {
+        return $http.post("/admin/api/transaction/keywordstocalibrate", { categoryId: category.Id });
+    };
+
+    this.calibrateKeywords = function (model) {
+        return $http.post("/admin/api/transaction/calibratekeywords", model);
+    };
 });

@@ -28,5 +28,9 @@ namespace Warden.Business.Contracts.Providers
         int GetGeneralTransactionCount();
 
         int GetTransactionCountForPayer(string payerId);
+
+        List<Transaction> GetTransactionsToCalibrate(Guid categoryId);
+
+        void MarkAsVoted(Guid transactionId);
     }
 }

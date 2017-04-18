@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Warden.Business.Contracts.Pipeline;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Contracts.Scheduler;
+using Warden.Business.Core;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
 using Warden.Business.Pipeline;
@@ -66,8 +67,13 @@ namespace Warden.Business.Import
                 return;
             if (rebuild)
             {
+                TransactionImportTracer.Trace(payerId, "Rebuild taks was started.");
                 transactionProvider.Delete(payerId);
                 UpdateItemsCount(payerId);
+            }
+            else
+            {
+                TransactionImportTracer.Trace(payerId, "Import taks was started.");
             }
 
             UpdateTaskStatus(payerId, ImportTaskStatus.InProgress);
@@ -93,9 +99,12 @@ namespace Warden.Business.Import
                     if (!shouldContinue(payerId))
                         break;
                 }
+
+                TransactionImportTracer.Trace(payerId, $"Task has been successfully finished.");
             }
-            catch
+            catch(Exception ex)
             {
+                TransactionImportTracer.Trace(payerId, $"Task was failed. Stack trace: {Environment.NewLine} {ex.StackTrace}");
                 UpdateTaskStatus(payerId, ImportTaskStatus.Failed);
             }
         }
@@ -159,6 +168,8 @@ namespace Warden.Business.Import
         {
             if (Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
             {
+                TransactionImportTracer.Trace(payerId, $"Import task status will be changed from {config.Status} to {status.GetStringRepresentation()}");
+
                 config.Status = status;
                 configurationDataProvider.Save(config);
             }
@@ -168,6 +179,8 @@ namespace Warden.Business.Import
         {
             if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
             {
+                TransactionImportTracer.Trace(payerId, $"Request: StartDate: {config.StartDate.ToShortDateString()}, ToDate: {config.EndDate.ToShortDateString()}, Offset: {config.TransactionCount }");
+
                 return new TransactionImportRequest
                 {
                     FromDate = config.StartDate,

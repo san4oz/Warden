@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Warden.Business.Contracts.Providers;
 using Warden.Business.Contracts.Scheduler;
+using Warden.Business.Core;
 using Warden.Business.Entities;
 using Warden.DataProvider.DataProviders;
 using Warden.Mvc.Models;
@@ -14,12 +17,12 @@ namespace Warden.Mvc.Controllers.Admin
 {
     public class TransactionImportController : Controller
     {
-        private readonly ITransactionImportConfigurationDataProvider configurationDatProvider;
+        private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
         private readonly ITransactionImportTask importTask;
 
         public TransactionImportController(ITransactionImportConfigurationDataProvider configurationDataProvider, ITransactionImportTask importTask)
         {
-            this.configurationDatProvider = configurationDataProvider;
+            this.configurationDataProvider = configurationDataProvider;
             this.importTask = importTask;
         }
 
@@ -32,7 +35,7 @@ namespace Warden.Mvc.Controllers.Admin
 
         public ActionResult GetImportSettings(string payerId)
         {
-            var settings = configurationDatProvider.GetForPayer(payerId);
+            var settings = configurationDataProvider.GetForPayer(payerId);
             var model = new ImportTaskSettingsModel()
             {
                 FromDate = settings.StartDate,
@@ -49,16 +52,41 @@ namespace Warden.Mvc.Controllers.Admin
             if (!ModelState.IsValid)
                 return Json(false);
 
-            var settings = configurationDatProvider.GetForPayer(model.PayerId);
+            var settings = configurationDataProvider.GetForPayer(model.PayerId);
             if (settings == null)
                 settings = new TransactionImportTaskConfiguration() { PayerId = model.PayerId };
 
             settings.StartDate = model.FromDate;
             settings.EndDate = model.ToDate;
 
-            configurationDatProvider.Update(settings);
+            configurationDataProvider.Update(settings);
 
             return Json(true);
+        }
+
+        [HttpGet]
+        public ActionResult ImportTaskLogs(string payerId)
+        {
+            if (string.IsNullOrEmpty(payerId))
+                return Content("Import task wasn't fired.");
+
+            var tracerFileName = TransactionImportTracer.GetTracerFileName(payerId);
+
+            if (!System.IO.File.Exists(tracerFileName))
+                return Content("Import task wasn't fired.");
+
+            var file = new FileStream(tracerFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            if (file == null)
+                return HttpNotFound();
+
+            var contentDisposition = new ContentDisposition()
+            {
+                FileName = tracerFileName,
+                Inline = true,
+            };
+            Response.AddHeader("Refresh", "5");
+            Response.AppendHeader("Content-Disposition", contentDisposition.ToString());
+            return File(file, "text/plain");
         }
     }
 }

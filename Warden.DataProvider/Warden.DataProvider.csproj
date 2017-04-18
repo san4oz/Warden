@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DataProviders\BaseDataProvider.cs" />
     <Compile Include="DataProviders\CategoryDataProvider.cs" />
+    <Compile Include="DataProviders\KeywordDataProvider.cs" />
     <Compile Include="DataProviders\TransactionTaskConfigurationDataProvider.cs" />
     <Compile Include="DataProviders\PayerDataProvider.cs" />
     <Compile Include="NhibernateSessionHelper.cs" />
