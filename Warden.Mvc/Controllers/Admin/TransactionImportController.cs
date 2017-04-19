@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
-using Warden.Business.Contracts.Providers;
-using Warden.Business.Contracts.Scheduler;
+using Warden.Business;
 using Warden.Business.Core;
 using Warden.Business.Entities;
-using Warden.DataProvider.DataProviders;
+using Warden.Business.Import;
+using Warden.Business.Providers;
 using Warden.Mvc.Models;
 
 namespace Warden.Mvc.Controllers.Admin
@@ -18,18 +13,16 @@ namespace Warden.Mvc.Controllers.Admin
     public class TransactionImportController : Controller
     {
         private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
-        private readonly ITransactionImportTask importTask;
 
-        public TransactionImportController(ITransactionImportConfigurationDataProvider configurationDataProvider, ITransactionImportTask importTask)
+        public TransactionImportController()
         {
-            this.configurationDataProvider = configurationDataProvider;
-            this.importTask = importTask;
+            this.configurationDataProvider = IoC.Resolve<ITransactionImportConfigurationDataProvider>();
         }
 
         [HttpPost]
         public ActionResult StartImport(string whoId, bool rebuild)
         {
-            var result = importTask.StartImport(whoId, rebuild);
+            var result = IoC.Resolve<TransactionImportTask>().StartImport(whoId, rebuild);
             return Json(result);
         }
 

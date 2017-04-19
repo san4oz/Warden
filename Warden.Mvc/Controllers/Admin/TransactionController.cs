@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Warden.Business.Contracts.Providers;
-using Warden.Business.Entities;
-using Warden.Business.Contracts.Scheduler;
-using Warden.Business.Entities.Search;
-using Warden.Mvc.Models;
-using Warden.Business.Contracts.Managers;
 using Warden.Business;
+using Warden.Business.Entities;
+using Warden.Business.Managers;
+using Warden.Mvc.Models;
 
 namespace Warden.Mvc.Controllers.Admin
 {
@@ -17,10 +13,10 @@ namespace Warden.Mvc.Controllers.Admin
         private AnalysisManager analysisManager;
         private TransactionManager transactionManager;
 
-        public TransactionController(AnalysisManager analysisManager, TransactionManager transactionManager)
+        public TransactionController()
         {
-            this.transactionManager = transactionManager;
-            this.analysisManager = analysisManager;
+            this.transactionManager = IoC.Resolve<TransactionManager>();
+            this.analysisManager = IoC.Resolve<AnalysisManager>();
         }
 
         public ActionResult Count() => Json(transactionManager.GetTotalCount());

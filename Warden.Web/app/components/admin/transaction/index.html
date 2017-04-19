@@ -19,7 +19,7 @@
             <select ng-change="getKeywordsToCalibrate(selectedCategory)" ng-model="selectedCategory" ng-options="category as category.Title for category in categories"></select>
             <div>
                 <div ng-repeat="pair in currentCalibrationModel.Votes">
-                    <div class="question incorrectState" ng-class="{correctState: vote}">
+                    <div class="question incorrectState" ng-class="{correctState: pair.VoteResult}">
                         Чи належить слово <b class="marked-word">{{pair.Keyword}}</b> категорії <b>{{selectedCategory.Title}}</b> ?
                         <div>
                             <label class="switch">

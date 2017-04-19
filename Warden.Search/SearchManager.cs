@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Lucene.Net.Analysis.Standard;
+using Lucene.Net.Documents;
+using Lucene.Net.Index;
+using Lucene.Net.QueryParsers;
+using Lucene.Net.Search;
+using Lucene.Net.Store;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warden.Business.Contracts.Providers;
+using System.Web.Hosting;
+using Warden.Business;
 using Warden.Business.Entities;
 using Warden.Business.Entities.Search;
-using Lucene.Net.Store;
-using Lucene.Net.Index;
-using Lucene.Net.Analysis.Standard;
-using Lucene.Net.Search;
-using Lucene.Net.Documents;
-using Lucene.Net.QueryParsers;
-using Warden.Business;
-using System.Configuration;
-using System.Web.Hosting;
+using Warden.Business.Managers;
 using Warden.Search.Utils;
 using Warden.Search.Utils.Persisters;
 
@@ -86,7 +84,6 @@ namespace Warden.Search
         protected virtual IList<Entry> CreateSearchResponse(IndexSearcher searcher, IEnumerable<ScoreDoc> hits, SearchRequest request)
         {
             var result = new List<Entry>();
-            //var indexInfo = new List<string>(); 
             var persister = new IndexFieldPersister();
 
             var fields = new List<string>(new string[] { string.IsNullOrEmpty(request.SearchField) ? Constants.Search.Keywords : request.SearchField });

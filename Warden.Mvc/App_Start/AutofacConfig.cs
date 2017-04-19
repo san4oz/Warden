@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using Autofac;
-using Autofac.Builder;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Warden.Business.Contracts.Providers;
-using Warden.DataProvider.DataProviders;
-using Warden.Search;
-using Warden.Business.Entities;
-using Warden.Business.Contracts.Scheduler;
-using Warden.ExternalDataProvider;
-using Warden.Business.Pipeline;
-using Warden.Business.Contracts.Pipeline;
+using System.Web.Mvc;
+using Warden.Business.Api;
 using Warden.Business.Import;
-using Warden.Business.Contracts.Managers;
+using Warden.Business.Managers;
+using Warden.Business.Import.Pipeline;
+using Warden.Business.Providers;
+using Warden.DataProvider.DataProviders;
+using Warden.ExternalDataProvider;
+using Warden.Search;
 
 namespace Warden.Mvc.App_Start
 {
@@ -37,7 +29,7 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<ExternalApi>().As<IExternalApi>();
             RegisterManagers(builder);
 
-            builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>().SingleInstance();
+            builder.RegisterType<TransactionImportTask>().As<TransactionImportTask>().SingleInstance();
             RegisterPipeline(builder);
         }
 
@@ -61,7 +53,7 @@ namespace Warden.Mvc.App_Start
 
         private static void RegisterPipeline(ContainerBuilder builder)
         {
-            builder.RegisterType<TransactionImportPipeline>().As<ITransactionImportPipeline>().SingleInstance();
+            builder.RegisterType<TransactionImportPipeline>().As<TransactionImportPipeline>();
         }
     }
 }

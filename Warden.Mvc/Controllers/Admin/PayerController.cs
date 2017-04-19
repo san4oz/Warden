@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using Warden.Business.Contracts.Managers;
-using Warden.Business.Contracts.Providers;
+﻿using System.Web.Mvc;
+using Warden.Business;
 using Warden.Business.Entities;
+using Warden.Business.Managers;
 using Warden.Mvc.Models;
 
 namespace Warden.Mvc.Controllers.Admin
@@ -15,9 +10,9 @@ namespace Warden.Mvc.Controllers.Admin
     {
         private PayerManager payerManager;
 
-        public PayerController(PayerManager payerManager)
+        public PayerController()
         {
-            this.payerManager = payerManager;
+            this.payerManager = IoC.Resolve<PayerManager>();
         }
 
         [HttpPost]

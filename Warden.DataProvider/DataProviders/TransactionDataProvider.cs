@@ -3,11 +3,9 @@ using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 using Warden.Core.Extensions;
+using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
@@ -129,7 +127,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
-        public void Delete(string payerId)
+        public void DeleteByPayerId(string payerId)
         {
             if (string.IsNullOrEmpty(payerId))
                 return;

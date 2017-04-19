@@ -1,6 +1,4 @@
-﻿
-
-using Warden.Business.Entities;
+﻿using Warden.Business.Entities;
 
 namespace Warden.Search.Utils.Persisters
 {

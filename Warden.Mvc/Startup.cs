@@ -1,18 +1,12 @@
 ﻿using Autofac.Integration.Mvc;
-using NLog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Warden.Business.Contracts.Scheduler;
+using Warden.Business;
 using Warden.Business.Core;
+using Warden.Business.Import;
 using Warden.Mvc.App_Start;
-using Warden.Mvc.App_Start.Routes;
 
 namespace Warden.Mvc
 {
@@ -24,16 +18,16 @@ namespace Warden.Mvc
             ControllerBuilder.Current.DefaultNamespaces.Add("Warden.Mvc.Controllers");
             FrontendRouteConfig.RegisterRoutes(RouteTable.Routes);
             AutofacConfig.Configure();
+            IoC.Init(AutofacDependencyResolver.Current);
+
             TransactionImportTracer.Configurate(WebConfigurationManager.AppSettings["TransactionImportLogsFolder"]);
-
             InitializeImportTasks();
-
 
         }
 
         private void InitializeImportTasks()
         {
-            var transactionImportTask = AutofacDependencyResolver.Current.GetService<ITransactionImportTask>();
+            var transactionImportTask = AutofacDependencyResolver.Current.GetService<TransactionImportTask>();
             transactionImportTask.Initialize();
         }
     }
