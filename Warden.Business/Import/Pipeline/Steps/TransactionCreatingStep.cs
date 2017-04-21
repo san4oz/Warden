@@ -4,11 +4,11 @@ namespace Warden.Business.Import.Pipeline.Steps
 {
     public class TransactionCreatingStep : ITransactionImportPipelineStep
     {
-        private ITransactionDataProvider provider;
+        private ITransactionProvider provider;
 
         public TransactionCreatingStep()
         {
-            this.provider = IoC.Resolve<ITransactionDataProvider>();
+            this.provider = IoC.Resolve<ITransactionProvider>();
         }        
         public void Execute(TransactionImportPipelineContext context)
         {

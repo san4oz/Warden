@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using Warden.Business.Helper;
+using Warden.Business.Helpers;
 using Warden.Business.Entities;
 using Warden.Business.Managers;
 using Warden.Business.Import.Pipeline;
@@ -10,21 +10,21 @@ namespace Warden.Business.Import
 {
     public class TransactionImportTask
     {
-        private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
+        private readonly ImportSettingsManager settingsManager;
         private readonly PayerManager payerManager;
         private readonly TransactionImportPipeline importPipeline;
         private readonly TransactionManager transactionManager;
         private bool initialized;
-        private static ConcurrentDictionary<string, TransactionImportTaskConfiguration> Configurations { get; set; }
+        private static ConcurrentDictionary<string, TransactionImportSettings> Settings { get; set; }
 
         public TransactionImportTask()
         {
-            this.configurationDataProvider = IoC.Resolve<ITransactionImportConfigurationDataProvider>();
+            this.settingsManager = IoC.Resolve<ImportSettingsManager>();
             this.payerManager = IoC.Resolve<PayerManager>();
             this.importPipeline = IoC.Resolve<TransactionImportPipeline>();
             this.transactionManager = IoC.Resolve<TransactionManager>();
 
-            Configurations = new ConcurrentDictionary<string, TransactionImportTaskConfiguration>();
+            Settings = new ConcurrentDictionary<string, TransactionImportSettings>();
         }
 
         public ImportTaskStatus StartImport(string payerId = null, bool rebuild = false)
@@ -50,8 +50,21 @@ namespace Warden.Business.Import
 
         protected void StartImportForPayer(string payerId, bool rebuild = false)
         {
+#warning This function should not update task status or should be renamed.
+            bool shouldContinue(string payer)
+            {
+                if (Settings.TryGetValue(payerId, out TransactionImportSettings settings) && ShouldTryToImportMore(payer, settings))
+                {
+                    UpdateItemsCount(payer, settings);
+                    return true;
+                }
+                UpdateTaskStatus(payerId, ImportTaskStatus.Finished);
+                return false;
+            };
+
             if (string.IsNullOrEmpty(payerId))
                 return;
+
             if (rebuild)
             {
                 TransactionImportTracer.Trace(payerId, "Rebuild taks was started.");
@@ -72,17 +85,6 @@ namespace Warden.Business.Import
                     var request = BuildImportRequest(payerId);
                     importPipeline.Execute(request);
 
-                    bool shouldContinue(string payer)
-                    {
-                        if (Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config) && ShouldTryToImportMore(payer, config))
-                        {
-                            UpdateItemsCount(payer, config);
-                            return true;
-                        }
-                        UpdateTaskStatus(config, ImportTaskStatus.Finished);
-                        return false;
-                    };
-
                     if (!shouldContinue(payerId))
                         break;
                 }
@@ -102,78 +104,66 @@ namespace Warden.Business.Import
             {
                 InitializeTaskForPayer(payer.PayerId);
             }
-
-            OnAfterTaskInitialization();
-
             this.initialized = true;
+
+            OnAfterTaskInitialized();           
         }
 
         protected void InitializeTaskForPayer(string payerId)
         {            
-            if(!Configurations.ContainsKey(payerId))
+            if(!Settings.ContainsKey(payerId))
             {
-                var configuration = configurationDataProvider.GetForPayer(payerId);
+                var settings = settingsManager.GetByPayerId(payerId);
 
-                Configurations.TryAdd(payerId, configuration);               
+                Settings.TryAdd(payerId, settings);               
             }
         }
 
-        protected void OnAfterTaskInitialization()
+        protected void OnAfterTaskInitialized()
         {
-            foreach (var config in Configurations)
+            foreach (var settings in Settings)
             {
-                if(config.Value.Status == ImportTaskStatus.InProgress)
+                if(settings.Value.Status == ImportTaskStatus.InProgress)
                 {
-                    config.Value.Status = ImportTaskStatus.Failed;
-                    configurationDataProvider.Save(config.Value);
+                    UpdateTaskStatus(settings.Value.PayerId, ImportTaskStatus.Failed);
                 }
             }
         }
 
-        protected bool ShouldTryToImportMore(string payerId, TransactionImportTaskConfiguration config)
+        protected bool ShouldTryToImportMore(string payerId, TransactionImportSettings config)
         {
             return config.TransactionCount < transactionManager.GetCountByPayerId(payerId);
         }
 
-        protected void UpdateItemsCount(string payerId, TransactionImportTaskConfiguration config = null)
+        protected void UpdateItemsCount(string payerId, TransactionImportSettings settings = null)
         {
-            if (config != null || Configurations.TryGetValue(payerId, out config))
+            if (settings != null || Settings.TryGetValue(payerId, out settings))
             {
-                config.TransactionCount = transactionManager.GetCountByPayerId(payerId);
+                settings.TransactionCount = transactionManager.GetCountByPayerId(payerId);
             }
-        }
-
-        protected void UpdateTaskStatus(TransactionImportTaskConfiguration config, ImportTaskStatus status)
-        {
-            if (config == null)
-                return;
-            config.Status = status;
-            configurationDataProvider.Save(config);
         }
 
         protected void UpdateTaskStatus(string payerId, ImportTaskStatus status)
         {
-            if (Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
-            {
-                TransactionImportTracer.Trace(payerId, $"Import task status will be changed from {config.Status} to {status.GetStringRepresentation()}");
-
-                config.Status = status;
-                configurationDataProvider.Save(config);
+            if (Settings.TryGetValue(payerId, out TransactionImportSettings settings))
+            {               
+                TransactionImportTracer.Trace(payerId, $"Import task status will be changed from {settings.Status} to {status.GetStringRepresentation()}");
+                settingsManager.UpdateTaskStatus(settings, status);
             }
         }
 
         protected TransactionImportRequest BuildImportRequest(string payerId)
         {
-            if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
+            if(Settings.TryGetValue(payerId, out TransactionImportSettings settings))
             {
-                TransactionImportTracer.Trace(payerId, $"Request: StartDate: {config.StartDate.ToShortDateString()}, ToDate: {config.EndDate.ToShortDateString()}, Offset: {config.TransactionCount }");
+                TransactionImportTracer.Trace(payerId, $"Request: StartDate: {settings.StartDate.ToShortDateString()}, ToDate: {settings.EndDate.ToShortDateString()}, Offset: {settings.TransactionCount }");
 
                 return new TransactionImportRequest
                 {
-                    FromDate = config.StartDate,
-                    PayerId = config.PayerId,
-                    ToDate = config.EndDate,
-                    OffsetNumber = config.TransactionCount
+                    StartDate = settings.StartDate,
+                    PayerId = settings.PayerId,
+                    EndDate = settings.EndDate,
+                    OffsetNumber = settings.TransactionCount
                 };
             }
             else

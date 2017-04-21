@@ -47,14 +47,15 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Import\Pipeline\Steps\ITransactionImportPipelineStep.cs" />
-    <Compile Include="Helper\TransactionImportTracer.cs" />
+    <Compile Include="Helpers\TransactionImportTracer.cs" />
     <Compile Include="Entities\CategoryKeyword.cs" />
-    <Compile Include="Helper\TrustHelper.cs" />
+    <Compile Include="Helpers\TrustHelper.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="Managers\AnalysisManager.cs" />
     <Compile Include="Managers\CategoryManager.cs" />
     <Compile Include="Managers\EntityManager.cs" />
+    <Compile Include="Managers\ImportSettingsManager.cs" />
     <Compile Include="Managers\ISearchManager.cs" />
     <Compile Include="Managers\PayerManager.cs" />
     <Compile Include="Managers\TransactionManager.cs" />
@@ -68,24 +69,24 @@
     <Compile Include="Import\Pipeline\TransactionImportPipelineContext.cs" />
     <Compile Include="Providers\ISourceTransactionProvider.cs" />
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\ExternalProvider\TransactionRetreivingRequest.cs" />
+    <Compile Include="Entities\TransactionSource\TransactionRequest.cs" />
     <Compile Include="Entities\Payer.cs" />
     <Compile Include="Import\Pipeline\Steps\TransactionRetreivingStep.cs" />
     <Compile Include="Import\Pipeline\TransactionImportPipeline.cs" />
     <Compile Include="Import\TransactionImportTask.cs" />
-    <Compile Include="Import\TransactionImportTaskConfiguration.cs" />
+    <Compile Include="Entities\TransactionImportSettings.cs" />
     <Compile Include="Entities\Search\Entry.cs" />
     <Compile Include="Entities\Search\SearchRequest.cs" />
     <Compile Include="Entities\Search\SearchResponse.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ICategoryDataProvider.cs" />
-    <Compile Include="Providers\IDataProvider.cs" />
-    <Compile Include="Providers\IKeywordDataProvider.cs" />
-    <Compile Include="Providers\IPayerDataProvider.cs" />
-    <Compile Include="Providers\ITransactionDataProvider.cs" />
-    <Compile Include="Providers\ITransactionImportConfigurationDataProvider.cs" />
+    <Compile Include="Providers\ICategoryProvider.cs" />
+    <Compile Include="Providers\IProvider.cs" />
+    <Compile Include="Providers\IKeywordProvider.cs" />
+    <Compile Include="Providers\IPayerProvider.cs" />
+    <Compile Include="Providers\ITransactionProvider.cs" />
+    <Compile Include="Providers\IImportSettingsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Warden.Core\Warden.Core.csproj">

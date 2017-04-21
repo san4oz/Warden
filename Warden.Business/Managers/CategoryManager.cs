@@ -3,9 +3,9 @@ using Warden.Business.Providers;
 
 namespace Warden.Business.Managers
 {
-    public class CategoryManager : EntityManager<Category, ICategoryDataProvider>
+    public class CategoryManager : EntityManager<Category, ICategoryProvider>
     {
-        public CategoryManager(ICategoryDataProvider provider) : base(provider)
+        public CategoryManager(ICategoryProvider provider) : base(provider)
         {
         }
 

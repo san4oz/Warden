@@ -9,7 +9,7 @@ using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public class TransactionDataProvider : BaseDataProvider<Transaction>, ITransactionDataProvider
+    public class TransactionDataProvider : BaseDataProvider<Transaction>, ITransactionProvider
     {
         public void AttachToCategory(Guid transactionId, Guid categoryId)
         {

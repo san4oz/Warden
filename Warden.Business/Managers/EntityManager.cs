@@ -7,7 +7,7 @@ namespace Warden.Business.Managers
 {
     public abstract class EntityManager<T, TProvider>
         where T : Entity, new()
-        where TProvider : IDataProvider<T>        
+        where TProvider : IProvider<T>        
     {
         protected TProvider Provider;
 

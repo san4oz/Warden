@@ -7,11 +7,11 @@ using Warden.Business.Providers;
 
 namespace Warden.Business.Managers
 {
-    public class TransactionManager : EntityManager<Transaction, ITransactionDataProvider>
+    public class TransactionManager : EntityManager<Transaction, ITransactionProvider>
     {
         private readonly ISearchManager searchManager;
 
-        public TransactionManager(ITransactionDataProvider transactionProvider, ISearchManager searchManager) : base(transactionProvider)
+        public TransactionManager(ITransactionProvider transactionProvider, ISearchManager searchManager) : base(transactionProvider)
         {
             this.searchManager = searchManager;
         }

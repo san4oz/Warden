@@ -39,15 +39,16 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<TransactionManager>().As<TransactionManager>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<AnalysisManager>().As<AnalysisManager>();
+            builder.RegisterType<ImportSettingsManager>().As<ImportSettingsManager>();
         }
 
         private static void RegisterDataProviders(ContainerBuilder builder)
         {
-            builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
-            builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
-            builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionImportConfigurationDataProvider>();
-            builder.RegisterType<CategoryDataProvider>().As<ICategoryDataProvider>();
-            builder.RegisterType<KeywordDataProvider>().As<IKeywordDataProvider>();
+            builder.RegisterType<TransactionDataProvider>().As<ITransactionProvider>();
+            builder.RegisterType<PayerDataProvider>().As<IPayerProvider>();
+            builder.RegisterType<ImportSettingsProvider>().As<IImportSettingsProvider>();
+            builder.RegisterType<CategoryDataProvider>().As<ICategoryProvider>();
+            builder.RegisterType<KeywordDataProvider>().As<IKeywordProvider>();
         }
 
         private static void RegisterPipeline(ContainerBuilder builder)

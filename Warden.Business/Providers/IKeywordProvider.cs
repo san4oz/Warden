@@ -4,7 +4,7 @@ using Warden.Business.Entities;
 
 namespace Warden.Business.Providers
 {
-    public interface IKeywordDataProvider : IDataProvider<CategoryKeyword>
+    public interface IKeywordProvider : IProvider<CategoryKeyword>
     {
         CategoryKeyword Get(string text, Guid categoryId);
 

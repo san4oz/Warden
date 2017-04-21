@@ -4,7 +4,7 @@ using Warden.Business.Entities;
 
 namespace Warden.Business.Providers
 {
-    public interface ITransactionDataProvider : IDataProvider<Transaction>
+    public interface ITransactionProvider : IProvider<Transaction>
     {
         List<Transaction> GetByCategoryId(Guid categoryId);
 

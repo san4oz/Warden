@@ -2,7 +2,7 @@
 
 namespace Warden.Business.Providers
 {
-    public interface IPayerDataProvider : IDataProvider<Payer>
+    public interface IPayerProvider : IProvider<Payer>
     {
     }
 }

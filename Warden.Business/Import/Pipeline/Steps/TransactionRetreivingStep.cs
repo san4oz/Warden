@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Warden.Business.Providers;
-using Warden.Business.Helper;
+using Warden.Business.Helpers;
 using Warden.Business.Entities.ExternalProvider;
 
 namespace Warden.Business.Import.Pipeline.Steps
@@ -22,8 +22,8 @@ namespace Warden.Business.Import.Pipeline.Steps
                 var transactions = await transactionSource.GetAsync(new TransactionRequest()
                 {
                     PayerId = context.Request.PayerId,
-                    From = context.Request.FromDate,
-                    To = context.Request.ToDate,
+                    From = context.Request.StartDate,
+                    To = context.Request.EndDate,
                     OffsetNumber = context.Request.OffsetNumber
                 });
 

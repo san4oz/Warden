@@ -7,7 +7,7 @@ using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public abstract class BaseDataProvider<T> : IDataProvider<T>
+    public abstract class BaseDataProvider<T> : IProvider<T>
         where T : Entity, new()
     {
         public virtual List<T> All()

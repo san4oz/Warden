@@ -2,7 +2,7 @@
 using System.Linq;
 using Warden.Business.Entities;
 
-namespace Warden.Business.Helper
+namespace Warden.Business.Helpers
 {
     public static class TrustHelper
     {

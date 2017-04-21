@@ -6,9 +6,9 @@ namespace Warden.Business.Import.Pipeline
     {
         public string PayerId { get; set; }
 
-        public DateTime FromDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public DateTime ToDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         public int OffsetNumber { get; set; }
     }

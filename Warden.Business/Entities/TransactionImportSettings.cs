@@ -3,7 +3,7 @@ using Warden.Business.Import;
 
 namespace Warden.Business.Entities
 {
-    public class TransactionImportTaskConfiguration : Entity
+    public class TransactionImportSettings : Entity
     {
         public virtual DateTime StartDate { get; set; }
 
