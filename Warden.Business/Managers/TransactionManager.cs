@@ -16,26 +16,24 @@ namespace Warden.Business.Managers
             this.searchManager = searchManager;
         }
 
-        public List<Transaction> SearchForUnprocessed(string keyword)
+        public List<Transaction> GetWithoutCategory(string keyword)
         {
             var request = new SearchRequest() { Query = keyword, IsWildCardSearch = true };
             var response = searchManager.Search(request);
-            var ids = response.Results.Select(i => new Guid(i.Id));
-
-            return Provider.GetUnprocessedTransactions(ids.ToArray());
+            return Provider.GetWithoutCategory(response.Results.Select(i => new Guid(i.Id)).ToArray());
         }
 
         public void MarkAsVoted(Guid transactionId) => Provider.MarkAsVoted(transactionId);
 
         public void AttachToCategory(Guid transactionId, Guid categoryId) => Provider.AttachToCategory(transactionId, categoryId);
 
-        public List<Transaction> GetTransactionsToCalibrate(Guid categoryId) => Provider.GetTransactionsToCalibrate(categoryId);
+        public List<Transaction> GetNotVoted(Guid categoryId) => Provider.GetNotVoted(categoryId);
 
-        public List<Transaction> GetByCategoryId(Guid categoryId) => Provider.GetTransactionsByCategoryId(categoryId);
+        public List<Transaction> GetByCategoryId(Guid categoryId) => Provider.GetByCategoryId(categoryId);
 
-        public int GetTotalCount() => Provider.GetGeneralTransactionCount();
+        public int GetTotalCount() => Provider.GetTotalCount();
 
-        public int GetCount(string payerId) => Provider.GetTransactionCountForPayer(payerId);
+        public int GetCountByPayerId(string payerId) => Provider.GetCountByPayerId(payerId);
 
         public void DeleteByPayerId(string payerId) => Provider.DeleteByPayerId(payerId);
     }

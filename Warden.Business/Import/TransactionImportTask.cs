@@ -132,14 +132,14 @@ namespace Warden.Business.Import
 
         protected bool ShouldTryToImportMore(string payerId, TransactionImportTaskConfiguration config)
         {
-            return config.TransactionCount < transactionManager.GetCount(payerId);
+            return config.TransactionCount < transactionManager.GetCountByPayerId(payerId);
         }
 
         protected void UpdateItemsCount(string payerId, TransactionImportTaskConfiguration config = null)
         {
             if (config != null || Configurations.TryGetValue(payerId, out config))
             {
-                config.TransactionCount = transactionManager.GetCount(payerId);
+                config.TransactionCount = transactionManager.GetCountByPayerId(payerId);
             }
         }
 

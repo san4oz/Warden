@@ -22,7 +22,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
-        public int GetGeneralTransactionCount()
+        public int GetTotalCount()
         {
             return Execute(session =>
             {
@@ -30,7 +30,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
-        public List<Transaction> GetTransactionsByPayerId(string payerId)
+        public List<Transaction> GetByPayerId(string payerId)
         {
             return Execute(session =>
             {
@@ -49,7 +49,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
        
-        public List<Transaction> GetTransactionsByCategoryId(Guid categoryId)
+        public List<Transaction> GetByCategoryId(Guid categoryId)
         {
             return Execute(session =>
             {
@@ -59,7 +59,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
-        public List<Transaction> GetUnprocessedTransactions(Guid[] ids)
+        public List<Transaction> GetWithoutCategory(Guid[] ids)
         {
             return Execute(session =>
             {
@@ -79,7 +79,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
-        public List<Transaction> GetTransactionsToCalibrate(Guid categoryId)
+        public List<Transaction> GetNotVoted(Guid categoryId)
         {
             return Execute(session =>
             {
@@ -106,31 +106,20 @@ namespace Warden.DataProvider.DataProviders
 
         public void DeleteByPayerId(string payerId)
         {
-            if (string.IsNullOrEmpty(payerId))
-                return;
-
             Execute(session => 
             {
-                ITransaction transaction = null;
-                try
+                using (var transaction = session.BeginTransaction())
                 {
-                    transaction = session.BeginTransaction();
                     var query = session.CreateQuery("DELETE Transaction t WHERE t.PayerId like :id")
-                            .SetParameter("id", payerId, NHibernateUtil.String);
-                    
+                           .SetParameter("id", payerId, NHibernateUtil.String);
+
                     query.ExecuteUpdate();
                     transaction.Commit();
-                }
-                catch
-                {
-                    if (transaction != null)
-                        transaction.Rollback();
-                    throw;
                 }
             });
         }
 
-        public int GetTransactionCountForPayer(string payerId)
+        public int GetCountByPayerId(string payerId)
         {
             return Execute(session =>
             {

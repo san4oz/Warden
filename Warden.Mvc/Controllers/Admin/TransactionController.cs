@@ -27,7 +27,7 @@ namespace Warden.Mvc.Controllers.Admin
             if (string.IsNullOrEmpty(keyword))
                 return Json(null);
 
-            var unprocessedTransactions = transactionManager.SearchForUnprocessed(keyword);
+            var unprocessedTransactions = transactionManager.GetWithoutCategory(keyword);
             var model = unprocessedTransactions.Select(ConvertToViewModel);
 
             return Json(model);
@@ -36,7 +36,7 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult KeywordsToCalibrate(Guid categoryId)
         {
-            var model = transactionManager.GetTransactionsToCalibrate(categoryId).Select(t =>
+            var model = transactionManager.GetNotVoted(categoryId).Select(t =>
             {
                 var keywords = t.Keywords.Split(new[] { Constants.Keywords.Separator });
 

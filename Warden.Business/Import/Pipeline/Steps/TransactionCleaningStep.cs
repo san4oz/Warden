@@ -11,7 +11,7 @@ namespace Warden.Business.Import.Pipeline.Steps
 
         public void Execute(TransactionImportPipelineContext context)
         {
-            var transactionsIds = provider.GetTransactionsByPayerId(context.Request.PayerId).Select(p => p.Id).ToArray();
+            var transactionsIds = provider.GetByPayerId(context.Request.PayerId).Select(p => p.Id).ToArray();
             provider.Delete(transactionsIds);
             search.CleanIndexEntries(transactionsIds);
         }

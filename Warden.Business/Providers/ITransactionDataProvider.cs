@@ -6,9 +6,9 @@ namespace Warden.Business.Providers
 {
     public interface ITransactionDataProvider : IDataProvider<Transaction>
     {
-        List<Transaction> GetTransactionsByCategoryId(Guid categoryId);
+        List<Transaction> GetByCategoryId(Guid categoryId);
 
-        List<Transaction> GetTransactionsByPayerId(string payerId);
+        List<Transaction> GetByPayerId(string payerId);
 
         List<Transaction> GetByIdList(Guid[] ids);
 
@@ -18,13 +18,13 @@ namespace Warden.Business.Providers
 
         void AttachToCategory(Guid transactionId, Guid categoryId);
 
-        List<Transaction> GetUnprocessedTransactions(Guid[] ids);
+        List<Transaction> GetWithoutCategory(Guid[] ids);
 
-        int GetGeneralTransactionCount();
+        int GetTotalCount();
 
-        int GetTransactionCountForPayer(string payerId);
+        int GetCountByPayerId(string payerId);
 
-        List<Transaction> GetTransactionsToCalibrate(Guid categoryId);
+        List<Transaction> GetNotVoted(Guid categoryId);
 
         void MarkAsVoted(Guid transactionId);
     }
