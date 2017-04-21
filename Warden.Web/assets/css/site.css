@@ -764,13 +764,13 @@ input:checked + .slider:before {
     font-weight: bold;
 }
 
-.svg-graph .bar {
+/*.svg-graph .bar {
     fill: steelblue;
 }
 
 .svg-graph .bar:hover {
     fill: brown;
-}
+}*/
 
 .axis--x path {
     display: none;}

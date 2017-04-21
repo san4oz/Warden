@@ -1,5 +1,8 @@
 ﻿app.controller('payerController', function ($scope, payerService) {
+    
+    $scope.init = function () {
 
+    };
 
     var jsonData = {
         data1: [30, 20, 50, 40, 60, 50],
@@ -17,10 +20,6 @@
             }
         });
     })();
-
-    $scope.init = function () {
-
-    };
 
     $scope.init();
 });
