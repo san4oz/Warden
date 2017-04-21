@@ -15,8 +15,9 @@ namespace Warden.DataProvider.DataProviders
         {
             Execute(session =>
             {
-                var pair = new TransactionCategory() { CategoryId = categoryId, TransactionId = transactionId };
-                session.Save(pair);
+                var transaction = session.Get<Transaction>(transactionId);
+                transaction.CategoryId = categoryId;
+                session.SaveOrUpdate(transaction);
                 session.Flush();
             });
         }
@@ -52,14 +53,9 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                var ids = session.QueryOver<TransactionCategory>()
-                                .Where(tc => tc.CategoryId == categoryId)
-                                .Select(tc => tc.TransactionId)
-                                .List()
-                                .ToArray();
-
                 return session.QueryOver<Transaction>()
-                                .Where(t => t.Id.IsIn(ids)).List().ToList();
+                                .Where(t => t.CategoryId == categoryId)
+                                .List().ToList();
             });
         }
 
@@ -67,36 +63,19 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                var withCategoryIds = session.CreateCriteria<TransactionCategory>()
-                         .List<TransactionCategory>().Select(tc => tc.TransactionId).ToArray();
-
-                var withoutCategoryIds = ids.Except(withCategoryIds);
-
                 var result = new List<Transaction>();
-                foreach(var batch in withoutCategoryIds.Batch(1000))
-                {
-                    var batchData = session.CreateCriteria<Transaction>()
-                        .Add(Expression.In("Id", batch.ToArray()))
-                        .List<Transaction>().ToList();
 
-                    result.AddRange(batchData);
+                foreach(var batch in ids.Batch(1000))
+                {
+                    var data = session.QueryOver<Transaction>()
+                                        .Where(t => t.Id.IsIn(ids))
+                                        .Where(t => t.CategoryId == null)
+                                        .List().ToList();
+
+                    result.AddRange(data);
                 }
 
                 return result;
-            });
-        }
-
-        public List<Transaction> GetProcessedTransactions(Guid categoryId)
-        {
-            return Execute(session =>
-            {
-                var ids = session.CreateCriteria<TransactionCategory>()
-                            .Add(Expression.Eq("CategoryId", categoryId))
-                            .List<TransactionCategory>().Select(tc => tc.TransactionId).ToArray();
-
-                return session.CreateCriteria<Transaction>()
-                        .Add(Expression.In("Id", ids))
-                        .List<Transaction>().ToList();
             });
         }
 
@@ -104,12 +83,10 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                var ids = session.QueryOver<TransactionCategory>()
-                            .Where(tc => !tc.Voted)
-                            .Where(tc => tc.CategoryId == categoryId)
-                            .List().Select(tc => tc.TransactionId).ToArray();
-
-                return session.QueryOver<Transaction>().Where(t => t.Id.IsIn(ids)).List().ToList();
+                return session.QueryOver<Transaction>()
+                            .Where(t => !t.Voted)
+                            .Where(t => t.CategoryId == categoryId)
+                            .List().ToList();
             });
         }
 
@@ -165,7 +142,7 @@ namespace Warden.DataProvider.DataProviders
         {
             Execute(session =>
             {
-                var transaction = session.QueryOver<TransactionCategory>().Where(tc => tc.TransactionId == transactionId).SingleOrDefault();
+                var transaction = session.Get<Transaction>(transactionId);
                 transaction.Voted = true;
                 session.SaveOrUpdate(transaction);
                 session.Flush();

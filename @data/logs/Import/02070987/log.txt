@@ -13,3 +13,104 @@ Date: 2017-04-19 14:42:03 | Message: [02070987] | Parsed transaction count: 300
 Date: 2017-04-19 14:42:04 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 9469
 Date: 2017-04-19 14:42:59 | Message: [02070987] | Parsed transaction count: 0
 Date: 2017-04-19 14:42:59 | Message: [02070987] | Task has been successfully finished.
+Date: 2017-04-21 15:56:57 | Message: [02070987] | Rebuild taks was started.
+Date: 2017-04-21 15:56:58 | Message: [02070987] | Import task status will be changed from Finished to InProgress
+Date: 2017-04-21 15:56:58 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 0
+Date: 2017-04-21 15:57:06 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 15:57:06 | Message: [02070987] | Task was failed. Stack trace: 
+    at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   at NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   at NHibernate.Engine.ActionQueue.ExecuteActions()
+   at NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+   at NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   at NHibernate.Impl.SessionImpl.Flush()
+   at NHibernate.Transaction.AdoTransaction.Commit()
+   at Warden.DataProvider.DataProviders.BaseDataProvider`1.<>c__DisplayClass3_0.<Save>b__0(ISession session) in D:\My_Development\Warden-Git\Warden\Warden.DataProvider\DataProviders\BaseDataProvider.cs:line 54
+   at Warden.DataProvider.DataProviders.BaseDataProvider`1.Execute(Action`1 expression) in D:\My_Development\Warden-Git\Warden\Warden.DataProvider\DataProviders\BaseDataProvider.cs:line 92
+   at Warden.DataProvider.DataProviders.BaseDataProvider`1.Save(T entity) in D:\My_Development\Warden-Git\Warden\Warden.DataProvider\DataProviders\BaseDataProvider.cs:line 49
+   at Warden.Business.Import.Pipeline.Steps.TransactionCreatingStep.Execute(TransactionImportPipelineContext context) in D:\My_Development\Warden-Git\Warden\Warden.Business\Import\Pipeline\Steps\TransactionCreatingStep.cs:line 17
+   at Warden.Business.Import.Pipeline.TransactionImportPipeline.Execute(TransactionImportRequest request) in D:\My_Development\Warden-Git\Warden\Warden.Business\Import\Pipeline\TransactionImportPipeline.cs:line 18
+   at Warden.Business.Import.TransactionImportTask.StartImportForPayer(String payerId, Boolean rebuild) in D:\My_Development\Warden-Git\Warden\Warden.Business\Import\TransactionImportTask.cs:line 73
+Date: 2017-04-21 15:57:06 | Message: [02070987] | Import task status will be changed from InProgress to Failed
+Date: 2017-04-21 15:57:53 | Message: [02070987] | Rebuild taks was started.
+Date: 2017-04-21 15:57:53 | Message: [02070987] | Import task status will be changed from Failed to InProgress
+Date: 2017-04-21 15:58:10 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 0
+Date: 2017-04-21 15:58:11 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 15:59:50 | Message: [02070987] | Task was failed. Stack trace: 
+    at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   at NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   at NHibernate.Engine.ActionQueue.ExecuteActions()
+   at NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+   at NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   at NHibernate.Impl.SessionImpl.Flush()
+   at NHibernate.Transaction.AdoTransaction.Commit()
+   at Warden.DataProvider.DataProviders.BaseDataProvider`1.<>c__DisplayClass3_0.<Save>b__0(ISession session) in D:\My_Development\Warden-Git\Warden\Warden.DataProvider\DataProviders\BaseDataProvider.cs:line 54
+   at Warden.DataProvider.DataProviders.BaseDataProvider`1.Execute(Action`1 expression) in D:\My_Development\Warden-Git\Warden\Warden.DataProvider\DataProviders\BaseDataProvider.cs:line 92
+   at Warden.DataProvider.DataProviders.BaseDataProvider`1.Save(T entity) in D:\My_Development\Warden-Git\Warden\Warden.DataProvider\DataProviders\BaseDataProvider.cs:line 49
+   at Warden.Business.Import.Pipeline.Steps.TransactionCreatingStep.Execute(TransactionImportPipelineContext context) in D:\My_Development\Warden-Git\Warden\Warden.Business\Import\Pipeline\Steps\TransactionCreatingStep.cs:line 17
+   at Warden.Business.Import.Pipeline.TransactionImportPipeline.Execute(TransactionImportRequest request) in D:\My_Development\Warden-Git\Warden\Warden.Business\Import\Pipeline\TransactionImportPipeline.cs:line 18
+   at Warden.Business.Import.TransactionImportTask.StartImportForPayer(String payerId, Boolean rebuild) in D:\My_Development\Warden-Git\Warden\Warden.Business\Import\TransactionImportTask.cs:line 73
+Date: 2017-04-21 15:59:52 | Message: [02070987] | Import task status will be changed from InProgress to Failed
+Date: 2017-04-21 16:01:02 | Message: [02070987] | Rebuild taks was started.
+Date: 2017-04-21 16:01:02 | Message: [02070987] | Import task status will be changed from Failed to InProgress
+Date: 2017-04-21 16:01:13 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 0
+Date: 2017-04-21 16:01:14 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:02:29 | Message: [02070987] | Rebuild taks was started.
+Date: 2017-04-21 16:02:30 | Message: [02070987] | Import task status will be changed from Failed to InProgress
+Date: 2017-04-21 16:02:33 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 0
+Date: 2017-04-21 16:02:34 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:02:42 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 300
+Date: 2017-04-21 16:02:45 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:02:46 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 600
+Date: 2017-04-21 16:02:47 | Message: [02070987] | Parsed transaction count: 294
+Date: 2017-04-21 16:02:48 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 894
+Date: 2017-04-21 16:02:50 | Message: [02070987] | Parsed transaction count: 297
+Date: 2017-04-21 16:02:50 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 1191
+Date: 2017-04-21 16:02:52 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:02:52 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 1491
+Date: 2017-04-21 16:02:55 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:02:55 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 1791
+Date: 2017-04-21 16:02:57 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:02:57 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2091
+Date: 2017-04-21 16:03:00 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:00 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2391
+Date: 2017-04-21 16:03:02 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:02 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2691
+Date: 2017-04-21 16:03:04 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:04 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 2991
+Date: 2017-04-21 16:03:06 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:06 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 3291
+Date: 2017-04-21 16:03:09 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:09 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 3591
+Date: 2017-04-21 16:03:13 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:21 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 3891
+Date: 2017-04-21 16:03:24 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:25 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 4191
+Date: 2017-04-21 16:03:28 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:28 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 4491
+Date: 2017-04-21 16:03:32 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:32 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 4791
+Date: 2017-04-21 16:03:36 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:36 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5091
+Date: 2017-04-21 16:03:40 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:40 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5391
+Date: 2017-04-21 16:03:44 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:44 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5691
+Date: 2017-04-21 16:03:49 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:49 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 5991
+Date: 2017-04-21 16:03:54 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:54 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 6291
+Date: 2017-04-21 16:03:59 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:03:59 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 6591
+Date: 2017-04-21 16:04:02 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:04:03 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 6891
+Date: 2017-04-21 16:04:07 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:04:07 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 7191
+Date: 2017-04-21 16:04:11 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:04:11 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 7491
+Date: 2017-04-21 16:04:15 | Message: [02070987] | Parsed transaction count: 300
+Date: 2017-04-21 16:04:15 | Message: [02070987] | Request: StartDate: 1/1/2016, ToDate: 4/10/2017, Offset: 7791

@@ -77,7 +77,7 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult GetProcessedTransaction(Guid categoryId)
         {
-            var result = transactionManager.GetProcessedByCategoryId(categoryId).Select(ConvertToViewModel);
+            var result = transactionManager.GetByCategoryId(categoryId).Select(ConvertToViewModel);
             return Json(result);
         }
 

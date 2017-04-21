@@ -20,8 +20,6 @@ namespace Warden.Business.Providers
 
         List<Transaction> GetUnprocessedTransactions(Guid[] ids);
 
-        List<Transaction> GetProcessedTransactions(Guid categoryId);
-
         int GetGeneralTransactionCount();
 
         int GetTransactionCountForPayer(string payerId);

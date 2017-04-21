@@ -1,0 +1,5 @@
+alter table transactions
+add CategoryId uniqueidentifier foreign key references Categories(Id)
+
+alter table transactions
+add Voted bit 

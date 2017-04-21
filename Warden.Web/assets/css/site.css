@@ -773,3 +773,9 @@ input:checked + .slider:before {
     text-align: center;
     font-weight: bold;
 }
+
+.td-keywords {
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: 300px;
+}

@@ -31,7 +31,7 @@ namespace Warden.Business.Managers
 
         public List<Transaction> GetTransactionsToCalibrate(Guid categoryId) => Provider.GetTransactionsToCalibrate(categoryId);
 
-        public List<Transaction> GetProcessedByCategoryId(Guid categoryId) => Provider.GetProcessedTransactions(categoryId);
+        public List<Transaction> GetByCategoryId(Guid categoryId) => Provider.GetTransactionsByCategoryId(categoryId);
 
         public int GetTotalCount() => Provider.GetGeneralTransactionCount();
 
