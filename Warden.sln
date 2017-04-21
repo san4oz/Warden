@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Web", "Warden.Web\Warden.Web.csproj", "{871B1B78-10B1-44EF-8518-EA637D7060A9}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Search", "Warden.Sea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.DataProvider", "Warden.DataProvider\Warden.DataProvider.csproj", "{97651772-1EFE-4F59-9BA0-85CFE52822FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.ExternalDataProvider", "Warden.ExternalDataProvider\Warden.ExternalDataProvider.csproj", "{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.TransactionSource", "Warden.ExternalDataProvider\Warden.TransactionSource.csproj", "{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Core", "Warden.Core\Warden.Core.csproj", "{3AE1D6B3-DA7C-4B2F-B34E-D643214F7514}"
 EndProject

@@ -122,9 +122,9 @@
       <Project>{97651772-1efe-4f59-9ba0-85cfe52822fc}</Project>
       <Name>Warden.DataProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Warden.ExternalDataProvider\Warden.ExternalDataProvider.csproj">
+    <ProjectReference Include="..\Warden.ExternalDataProvider\Warden.TransactionSource.csproj">
       <Project>{2d33d3f9-28a0-4cd0-8b13-b950896fee4f}</Project>
-      <Name>Warden.ExternalDataProvider</Name>
+      <Name>Warden.TransactionSource</Name>
     </ProjectReference>
     <ProjectReference Include="..\Warden.Search\Warden.Search.csproj">
       <Project>{276c2f70-9099-4bba-a66b-24c0eec40c6d}</Project>

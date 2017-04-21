@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Import\Pipeline\Steps\ITransactionImportPipelineStep.cs" />
-    <Compile Include="Core\TransactionImportTracer.cs" />
+    <Compile Include="Helper\TransactionImportTracer.cs" />
     <Compile Include="Entities\CategoryKeyword.cs" />
     <Compile Include="Helper\TrustHelper.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
@@ -66,7 +66,7 @@
     <Compile Include="Import\Pipeline\Steps\TransactionIndexingStep.cs" />
     <Compile Include="Import\Pipeline\Steps\TransactionProcessingStep.cs" />
     <Compile Include="Import\Pipeline\TransactionImportPipelineContext.cs" />
-    <Compile Include="Api\IExternalApi.cs" />
+    <Compile Include="Providers\ISourceTransactionProvider.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExternalProvider\TransactionRetreivingRequest.cs" />
     <Compile Include="Entities\Payer.cs" />

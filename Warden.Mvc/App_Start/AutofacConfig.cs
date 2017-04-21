@@ -1,14 +1,13 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using System.Web.Mvc;
-using Warden.Business.Api;
 using Warden.Business.Import;
-using Warden.Business.Managers;
 using Warden.Business.Import.Pipeline;
+using Warden.Business.Managers;
 using Warden.Business.Providers;
 using Warden.DataProvider.DataProviders;
-using Warden.ExternalDataProvider;
 using Warden.Search;
+using Warden.TransactionSource;
 
 namespace Warden.Mvc.App_Start
 {
@@ -26,7 +25,7 @@ namespace Warden.Mvc.App_Start
         {
             
             RegisterDataProviders(builder);
-            builder.RegisterType<ExternalApi>().As<IExternalApi>();
+            builder.RegisterType<TransactionSourceProvider>().As<ITransactionSourceProvider>();
             RegisterManagers(builder);
 
             builder.RegisterType<TransactionImportTask>().As<TransactionImportTask>().SingleInstance();

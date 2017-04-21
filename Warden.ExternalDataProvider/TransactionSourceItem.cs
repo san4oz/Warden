@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Warden.Business.Entities;
 using Warden.Core.TextParsers;
 
-namespace Warden.ExternalDataProvider.Entities
+namespace Warden.TransactionSource
 {
-    public class TransactionData
+    public class TransactionSourceItem
     {
         [FieldIndex(7)]
         public string ReceiverId { get; set; }
@@ -26,5 +23,18 @@ namespace Warden.ExternalDataProvider.Entities
 
         [FieldIndex(1)]
         public string ExternalId { get; set; }
+
+        public Transaction ToWardenTransaction()
+        {
+            return new Transaction()
+            {
+                PayerId = PayerId,
+                ReceiverId = ReceiverId,
+                Price = Price,
+                Date = Date,
+                Keywords = Keywords,
+                ExternalId = ExternalId
+            };
+        }
     }
 }
