@@ -23,5 +23,8 @@ namespace Warden.ExternalDataProvider.Entities
 
         [FieldIndex(2)]
         public DateTime Date { get; set; }
+
+        [FieldIndex(1)]
+        public string ExternalId { get; set; }
     }
 }

@@ -1,40 +1,28 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warden.Business.Contracts.Pipeline;
-using Warden.Business.Contracts.Providers;
-using Warden.Business.Contracts.Scheduler;
+using Warden.Business.Core;
 using Warden.Business.Entities;
-using Warden.Business.Entities.ExternalProvider;
-using Warden.Business.Pipeline;
-using Warden.Core.Utils.Tokenizer;
+using Warden.Business.Managers;
+using Warden.Business.Import.Pipeline;
+using Warden.Business.Providers;
 
 namespace Warden.Business.Import
 {
-    public class TransactionImportTask : ITransactionImportTask
+    public class TransactionImportTask
     {
         private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
-        private readonly IPayerDataProvider payerDataProvider;
-        private readonly ITransactionImportPipeline pipeline;
-        private readonly ITransactionDataProvider transactionProvider;
+        private readonly PayerManager payerManager;
+        private readonly TransactionImportPipeline importPipeline;
+        private readonly TransactionManager transactionManager;
         private bool initialized;
         private static ConcurrentDictionary<string, TransactionImportTaskConfiguration> Configurations { get; set; }
 
-        public TransactionImportTask
-        (
-            ITransactionImportConfigurationDataProvider configurationDataProvider,
-            IPayerDataProvider payerDataProvider,
-            ITransactionImportPipeline pipeline,
-            ITransactionDataProvider transactionProvider
-        )
+        public TransactionImportTask()
         {
-            this.configurationDataProvider = configurationDataProvider;
-            this.payerDataProvider = payerDataProvider;
-            this.pipeline = pipeline;
-            this.transactionProvider = transactionProvider;
+            this.configurationDataProvider = IoC.Resolve<ITransactionImportConfigurationDataProvider>();
+            this.payerManager = IoC.Resolve<PayerManager>();
+            this.importPipeline = IoC.Resolve<TransactionImportPipeline>();
+            this.transactionManager = IoC.Resolve<TransactionManager>();
 
             Configurations = new ConcurrentDictionary<string, TransactionImportTaskConfiguration>();
         }
@@ -50,7 +38,7 @@ namespace Warden.Business.Import
             }
             else
             {
-                var payers = payerDataProvider.All();
+                var payers = payerManager.All();
                 foreach (var payer in payers)
                 {
                     StartImportForPayer(payer.PayerId, rebuild);
@@ -66,8 +54,13 @@ namespace Warden.Business.Import
                 return;
             if (rebuild)
             {
-                transactionProvider.Delete(payerId);
+                TransactionImportTracer.Trace(payerId, "Rebuild taks was started.");
+                transactionManager.DeleteByPayerId(payerId);
                 UpdateItemsCount(payerId);
+            }
+            else
+            {
+                TransactionImportTracer.Trace(payerId, "Import taks was started.");
             }
 
             UpdateTaskStatus(payerId, ImportTaskStatus.InProgress);
@@ -77,7 +70,7 @@ namespace Warden.Business.Import
                 while (true)
                 {
                     var request = BuildImportRequest(payerId);
-                    pipeline.Execute(request);
+                    importPipeline.Execute(request);
 
                     bool shouldContinue(string payer)
                     {
@@ -93,16 +86,19 @@ namespace Warden.Business.Import
                     if (!shouldContinue(payerId))
                         break;
                 }
+
+                TransactionImportTracer.Trace(payerId, $"Task has been successfully finished.");
             }
-            catch
+            catch(Exception ex)
             {
+                TransactionImportTracer.Trace(payerId, $"Task was failed. Stack trace: {Environment.NewLine} {ex.StackTrace}");
                 UpdateTaskStatus(payerId, ImportTaskStatus.Failed);
             }
         }
 
         public void Initialize()
         {
-            foreach(var payer in payerDataProvider.All())
+            foreach(var payer in payerManager.All())
             {
                 InitializeTaskForPayer(payer.PayerId);
             }
@@ -136,14 +132,14 @@ namespace Warden.Business.Import
 
         protected bool ShouldTryToImportMore(string payerId, TransactionImportTaskConfiguration config)
         {
-            return config.TransactionCount < transactionProvider.GetTransactionCountForPayer(payerId);
+            return config.TransactionCount < transactionManager.GetCount(payerId);
         }
 
         protected void UpdateItemsCount(string payerId, TransactionImportTaskConfiguration config = null)
         {
             if (config != null || Configurations.TryGetValue(payerId, out config))
             {
-                config.TransactionCount = transactionProvider.GetTransactionCountForPayer(payerId);
+                config.TransactionCount = transactionManager.GetCount(payerId);
             }
         }
 
@@ -159,6 +155,8 @@ namespace Warden.Business.Import
         {
             if (Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
             {
+                TransactionImportTracer.Trace(payerId, $"Import task status will be changed from {config.Status} to {status.GetStringRepresentation()}");
+
                 config.Status = status;
                 configurationDataProvider.Save(config);
             }
@@ -168,6 +166,8 @@ namespace Warden.Business.Import
         {
             if(Configurations.TryGetValue(payerId, out TransactionImportTaskConfiguration config))
             {
+                TransactionImportTracer.Trace(payerId, $"Request: StartDate: {config.StartDate.ToShortDateString()}, ToDate: {config.EndDate.ToShortDateString()}, Offset: {config.TransactionCount }");
+
                 return new TransactionImportRequest
                 {
                     FromDate = config.StartDate,

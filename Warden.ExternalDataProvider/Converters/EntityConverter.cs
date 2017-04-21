@@ -21,7 +21,8 @@ namespace Warden.ExternalDataProvider
                 ReceiverId = source.ReceiverId,
                 Price = source.Price,
                 Date = source.Date,
-                Keywords = source.Keywords               
+                Keywords = source.Keywords,
+                ExternalId = source.ExternalId
             };            
         }
     }

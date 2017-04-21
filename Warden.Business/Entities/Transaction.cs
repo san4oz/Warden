@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Warden.Business.Entities
 {
@@ -17,5 +13,7 @@ namespace Warden.Business.Entities
         public virtual string Keywords { get; set; }
 
         public virtual DateTime Date { get; set; }
+
+        public virtual string ExternalId { get; set; }
     }
 }

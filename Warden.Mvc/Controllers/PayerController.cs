@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
-using Warden.Business.Contracts.Providers;
+using Warden.Business;
+using Warden.Business.Providers;
 
 namespace Warden.Mvc.Controllers
 {
@@ -12,9 +10,9 @@ namespace Warden.Mvc.Controllers
     {
         IPayerDataProvider payerProvider;
 
-        public PayerController(IPayerDataProvider payerProvider)
+        public PayerController()
         {
-            this.payerProvider = payerProvider;
+            this.payerProvider = IoC.Resolve<IPayerDataProvider>();
         }
 
         [HttpPost]

@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.5\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,29 +49,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="Contracts\Pipeline\ITransactionImportPipelineStep.cs" />
-    <Compile Include="Contracts\Pipeline\ITransactionImportPipeline.cs" />
-    <Compile Include="Contracts\Providers\ICategoryDataProvider.cs" />
+    <Compile Include="Import\Pipeline\Steps\ITransactionImportPipelineStep.cs" />
+    <Compile Include="Core\TransactionImportTracer.cs" />
+    <Compile Include="Entities\CategoryKeyword.cs" />
+    <Compile Include="Helper\TrustHelper.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
-    <Compile Include="Pipeline\Steps\TransactionCleaningStep.cs" />
-    <Compile Include="Pipeline\Steps\TransactionFilteringStep.cs" />
-    <Compile Include="Pipeline\TransactionImportRequest.cs" />
-    <Compile Include="Pipeline\Steps\TransactionCreatingStep.cs" />
-    <Compile Include="Pipeline\Steps\TransactionIndexingStep.cs" />
-    <Compile Include="Pipeline\Steps\TransactionProcessingStep.cs" />
-    <Compile Include="Pipeline\TransactionImportPipelineContext.cs" />
-    <Compile Include="Contracts\Providers\ITransactionTaskConfigurationDataProvider.cs" />
-    <Compile Include="Contracts\Providers\IDataProvider.cs" />
-    <Compile Include="Contracts\Api\IExternalApi.cs" />
-    <Compile Include="Contracts\Managers\ISearchManager.cs" />
-    <Compile Include="Contracts\Providers\IPayerDataProvider.cs" />
-    <Compile Include="Contracts\Providers\ITransactionDataProvider.cs" />
-    <Compile Include="Contracts\Scheduler\ITransactionImportTask.cs" />
+    <Compile Include="IoC.cs" />
+    <Compile Include="Managers\AnalysisManager.cs" />
+    <Compile Include="Managers\CategoryManager.cs" />
+    <Compile Include="Managers\EntityManager.cs" />
+    <Compile Include="Managers\ISearchManager.cs" />
+    <Compile Include="Managers\PayerManager.cs" />
+    <Compile Include="Managers\TransactionManager.cs" />
+    <Compile Include="Import\Pipeline\Steps\CategoryDeterminingStep.cs" />
+    <Compile Include="Import\Pipeline\Steps\TransactionCleaningStep.cs" />
+    <Compile Include="Import\Pipeline\Steps\TransactionFilteringStep.cs" />
+    <Compile Include="Import\Pipeline\TransactionImportRequest.cs" />
+    <Compile Include="Import\Pipeline\Steps\TransactionCreatingStep.cs" />
+    <Compile Include="Import\Pipeline\Steps\TransactionIndexingStep.cs" />
+    <Compile Include="Import\Pipeline\Steps\TransactionProcessingStep.cs" />
+    <Compile Include="Import\Pipeline\TransactionImportPipelineContext.cs" />
+    <Compile Include="Api\IExternalApi.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExternalProvider\TransactionRetreivingRequest.cs" />
     <Compile Include="Entities\Payer.cs" />
-    <Compile Include="Pipeline\Steps\TransactionRetreivingStep.cs" />
-    <Compile Include="Pipeline\TransactionImportPipeline.cs" />
+    <Compile Include="Import\Pipeline\Steps\TransactionRetreivingStep.cs" />
+    <Compile Include="Import\Pipeline\TransactionImportPipeline.cs" />
     <Compile Include="Import\TransactionImportTask.cs" />
     <Compile Include="Import\TransactionImportTaskConfiguration.cs" />
     <Compile Include="Entities\Search\Entry.cs" />
@@ -74,12 +84,21 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\TransactionCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ICategoryDataProvider.cs" />
+    <Compile Include="Providers\IDataProvider.cs" />
+    <Compile Include="Providers\IKeywordDataProvider.cs" />
+    <Compile Include="Providers\IPayerDataProvider.cs" />
+    <Compile Include="Providers\ITransactionDataProvider.cs" />
+    <Compile Include="Providers\ITransactionImportConfigurationDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Warden.Core\Warden.Core.csproj">
       <Project>{3ae1d6b3-da7c-4b2f-b34e-d643214f7514}</Project>
       <Name>Warden.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

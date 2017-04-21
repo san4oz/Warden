@@ -3,11 +3,9 @@ using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warden.Business.Contracts.Providers;
 using Warden.Business.Entities;
 using Warden.Core.Extensions;
+using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
@@ -102,6 +100,19 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
+        public List<Transaction> GetTransactionsToCalibrate(Guid categoryId)
+        {
+            return Execute(session =>
+            {
+                var ids = session.QueryOver<TransactionCategory>()
+                            .Where(tc => !tc.Voted)
+                            .Where(tc => tc.CategoryId == categoryId)
+                            .List().Select(tc => tc.TransactionId).ToArray();
+
+                return session.QueryOver<Transaction>().Where(t => t.Id.IsIn(ids)).List().ToList();
+            });
+        }
+
         public void Delete(Guid[] ids)
         {
             Execute(session =>
@@ -116,7 +127,7 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
-        public void Delete(string payerId)
+        public void DeleteByPayerId(string payerId)
         {
             if (string.IsNullOrEmpty(payerId))
                 return;
@@ -147,6 +158,17 @@ namespace Warden.DataProvider.DataProviders
             return Execute(session =>
             {
                 return session.QueryOver<Transaction>().Where(t => t.PayerId == payerId).RowCount();
+            });
+        }
+
+        public void MarkAsVoted(Guid transactionId)
+        {
+            Execute(session =>
+            {
+                var transaction = session.QueryOver<TransactionCategory>().Where(tc => tc.TransactionId == transactionId).SingleOrDefault();
+                transaction.Voted = true;
+                session.SaveOrUpdate(transaction);
+                session.Flush();
             });
         }
     }

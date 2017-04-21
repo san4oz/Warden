@@ -42,6 +42,10 @@
                 .when('/admin/transaction-import/settings/:payerId', {
                     templateUrl: 'app/components/admin/transaction/importSettings.html',
                     controller: 'transactionController',
+                }).
+                when('/admin/transaction-import/logs/:payerId', {
+                    redirectTo: "dummy",
+                    external: true
                 })
                 .when('/admin/payers', {
                     templateUrl: 'app/components/admin/payer/list.html',

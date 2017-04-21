@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using Autofac;
-using Autofac.Builder;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Warden.Business.Contracts.Providers;
-using Warden.DataProvider.DataProviders;
-using Warden.Search;
-using Warden.Business.Entities;
-using Warden.Business.Contracts.Scheduler;
-using Warden.ExternalDataProvider;
-using Warden.Business.Pipeline;
-using Warden.Business.Contracts.Pipeline;
+using System.Web.Mvc;
+using Warden.Business.Api;
 using Warden.Business.Import;
+using Warden.Business.Managers;
+using Warden.Business.Import.Pipeline;
+using Warden.Business.Providers;
+using Warden.DataProvider.DataProviders;
+using Warden.ExternalDataProvider;
+using Warden.Search;
 
 namespace Warden.Mvc.App_Start
 {
@@ -33,11 +26,20 @@ namespace Warden.Mvc.App_Start
         {
             
             RegisterDataProviders(builder);
-
             builder.RegisterType<ExternalApi>().As<IExternalApi>();
-            builder.RegisterType<SearchManager>().As<ISearchManager>();
-            builder.RegisterType<TransactionImportTask>().As<ITransactionImportTask>().SingleInstance();
+            RegisterManagers(builder);
+
+            builder.RegisterType<TransactionImportTask>().As<TransactionImportTask>().SingleInstance();
             RegisterPipeline(builder);
+        }
+
+        private static void RegisterManagers(ContainerBuilder builder)
+        {
+            builder.RegisterType<CategoryManager>().As<CategoryManager>();
+            builder.RegisterType<PayerManager>().As<PayerManager>();
+            builder.RegisterType<TransactionManager>().As<TransactionManager>();
+            builder.RegisterType<SearchManager>().As<ISearchManager>();
+            builder.RegisterType<AnalysisManager>().As<AnalysisManager>();
         }
 
         private static void RegisterDataProviders(ContainerBuilder builder)
@@ -46,11 +48,12 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
             builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionImportConfigurationDataProvider>();
             builder.RegisterType<CategoryDataProvider>().As<ICategoryDataProvider>();
+            builder.RegisterType<KeywordDataProvider>().As<IKeywordDataProvider>();
         }
 
         private static void RegisterPipeline(ContainerBuilder builder)
         {
-            builder.RegisterType<TransactionImportPipeline>().As<ITransactionImportPipeline>().SingleInstance();
+            builder.RegisterType<TransactionImportPipeline>().As<TransactionImportPipeline>();
         }
     }
 }

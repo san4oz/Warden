@@ -95,9 +95,11 @@ a.pure-button-primary {
     text-align: center;
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
+
 .home-menu {
     background: #2d3e50;
 }
+
 .pure-menu.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
@@ -118,6 +120,7 @@ a.pure-button-primary {
 .home-menu a {
     color: #6FBEF3;
 }
+
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
@@ -149,7 +152,10 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 100px; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
     text-align: center;
     text-transform: uppercase;
 }
@@ -185,7 +191,6 @@ a.pure-button-primary {
     min-height: 12%;
     z-index: 2;
     background: white;
-
 }
 
 /* We want to give the content area some more padding */
@@ -210,6 +215,7 @@ a.pure-button-primary {
 .content-subhead {
     color: #1f8dd6;
 }
+
     .content-subhead i {
         margin-right: 7px;
     }
@@ -245,6 +251,7 @@ a.pure-button-primary {
     .home-menu {
         text-align: left;
     }
+
         .home-menu ul {
             float: right;
         }
@@ -270,7 +277,6 @@ a.pure-button-primary {
     .l-box-lrg {
         border: none;
     }
-
 }
 
 /*
@@ -316,6 +322,7 @@ This is the parent `<div>` that contains the menu and the content area.
     left: 0;
     padding-left: 0;
 }
+
     #layout.active #menu {
         left: 150px;
         width: 150px;
@@ -336,11 +343,6 @@ The content `<div>` is where all your content goes.
 }
 
 .header {
-     margin: 0;
-     color: #333;
-     text-align: center;
-     padding: 2.5em 2em 0;
-     border-bottom: 1px solid #eee;
  }
     .header h1 {
         margin: 0.2em 0;
@@ -391,7 +393,6 @@ appears on the left side of the page.
     /*
     Remove all background/borders, since we are applying them to #menu.
     */
-     #menu .pure-menu,
      #menu .pure-menu ul {
         border: none;
         background: transparent;
@@ -400,9 +401,6 @@ appears on the left side of the page.
     /*
     Add that light border to separate items into groups.
     */
-    #menu .pure-menu ul,
-    #menu .pure-menu .menu-item-divided {
-        border-top: 1px solid #333;
     }
         /*
         Change color of the anchor links on hover/focus.
@@ -485,9 +483,16 @@ small screens.
             content: " ";
         }
 
-        .menu-link span:after {
-            margin-top: 0.6em;
-        }
+            .menu-link span:before,
+            .menu-link span:after {
+                position: absolute;
+                margin-top: -0.6em;
+                content: " ";
+            }
+
+            .menu-link span:after {
+                margin-top: 0.6em;
+            }
 
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
@@ -507,6 +512,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         padding-left: 150px; /* left col width "#menu" */
         left: 0;
     }
+
     #menu {
         left: 150px;
     }
@@ -565,10 +571,6 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     text-align: center;
 }
 
-.tag > i{
-    color: red;
-    font-size: small;
-    cursor: pointer;
 }
 
 .loader {
@@ -620,16 +622,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     background-color: #f1f1f1;
 }
 
-.tab .tab-link {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    list-style: none;
-}
+
 
 .tab-link.active {
     background-color: #1f8dd6;
@@ -651,23 +644,16 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     color: #1f8dd6;
 }
 
-.fa-history{
-    color: orange;
 }
+.fa-history {    color: orange;}
 
 #map {
-    width:620px;
     height:410px;
     position: absolute;
-    left:20%;
     top:10%;
 }
 
-#map svg {
-    width:100%;
-    height: 100%;
-}
-
+    }
 
 /* SVG STYLES */
 
@@ -683,16 +669,15 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     position: relative;
     display: inline-block;
     width: 30px;
-    height: 17px;    
-}
+    height: 17px;}
 
-    /* Hide default HTML checkbox */
-    .switch input {
-        display: none;
-    }
-
-/* The slider */
-.slider {
+}/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+}.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -770,16 +755,13 @@ input:checked + .slider:before {
 
 .svg-graph .bar:hover {
     fill: brown;
-}*/
-
+}
+*/
 .axis--x path {
-    display: none;}
+    display: none;
+}
 
 .arc text {
     font: 10px sans-serif;
     text-anchor: middle;
-}
-
-.arc path {
-    stroke: #fff;
 }

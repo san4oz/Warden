@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Warden.Business.Entities
 {
@@ -11,5 +7,7 @@ namespace Warden.Business.Entities
         public virtual Guid CategoryId { get; set; }
 
         public virtual Guid TransactionId { get; set; }
+
+        public virtual bool Voted { get; set; }
     }
 }

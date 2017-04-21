@@ -21,23 +21,8 @@ namespace Warden.DataProvider
 
         public static ISession OpenSession()
         {
-            //if (CurrentSessionContext.HasBind(sessionFactory))
-            //{
-            //    var result = sessionFactory.GetCurrentSession();
-            //    if (result.IsOpen)
-            //        return result;
-
-            //    Unbind();
-            //}
-
             var session = sessionFactory.OpenSession();
-            //CurrentSessionContext.Bind(session);
             return session;
-        }
-
-        public static void Unbind()
-        {
-            CurrentSessionContext.Unbind(sessionFactory);
         }
     }
 }
