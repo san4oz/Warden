@@ -1,25 +1,22 @@
-﻿app.controller('payerController', function ($scope, payerService) {
+﻿app.controller('payerController', function ($scope, $routeParams, payerService) {
     
     $scope.init = function () {
-
+        var id = $routeParams.payerId;
+        payerService.details(id).then(function (result) {
+            $scope.page = result.data;
+            initChart($scope.page.Chart.Data, $scope.page.Chart.ChartType);
+        });
     };
 
-    var jsonData = {
-        data1: [30, 20, 50, 40, 60, 50],
-        data2: [200, 130, 90, 240, 130, 220],
-        data3: [300, 200, 160, 400, 250, 250]
-    };
-    var chartType = 'pie';
-
-    var c3Chart = (function () {
+    var initChart = function (data, type) {
         var chart = c3.generate({
             bindto: '#c3-chart',
             data: {
-                json: jsonData,
-                type: chartType
+                json: data,
+                type: type
             }
         });
-    })();
+    };
 
     $scope.init();
 });

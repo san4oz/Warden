@@ -23,7 +23,7 @@ namespace Warden.ExternalDataProvider
                 Date = source.Date,
                 Keywords = source.Keywords,
                 ExternalId = source.ExternalId
-            };            
+            };
         }
     }
 }

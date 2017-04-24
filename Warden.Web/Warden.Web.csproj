@@ -180,7 +180,6 @@
     <Content Include="assets\libs\d3\LICENSE" />
     <Content Include="assets\libs\d3\CHANGES.md" />
     <Content Include="assets\libs\d3\API.md" />
-    <Content Include="assets\js\control.chart.js" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Views\Shared\Admin.cshtml" />
     <None Include="Views\Shared\Index.cshtml" />

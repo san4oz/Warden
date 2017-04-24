@@ -49,7 +49,7 @@
     <div id="map-description">
 
     </div>
-    <div ng-controller="payerController">
+    <div ng-controller="homeController">
         <table class="pure-table">
             <thead>
                 <tr>
@@ -60,7 +60,7 @@
             <tbody>
                 <tr ng-repeat="payer in payers">
                     <th>
-                        <a href="" ng-click="details(payer.Id)">{{payer.Name}}</a>
+                        <a href="/payer/{{payer.PayerId}}">{{payer.Name}}</a>
                     </th>
                 </tr>
             </tbody>

@@ -1,37 +1,58 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web.Mvc;
 using Warden.Business;
+using Warden.Business.Managers;
 using Warden.Business.Providers;
+using Warden.Mvc.Models;
 
 namespace Warden.Mvc.Controllers
 {
     public class PayerController : Controller
     {
-        IPayerDataProvider payerProvider;
+        PayerManager payerManager;
+        TransactionManager transactionManager;
 
         public PayerController()
         {
-            this.payerProvider = IoC.Resolve<IPayerDataProvider>();
+            payerManager = IoC.Resolve<PayerManager>();
+            transactionManager = IoC.Resolve<TransactionManager>();
         }
 
         [HttpPost]
         public ActionResult All()
         {
-            return Json(payerProvider.All());
+            return Json(payerManager.All());
         }
 
-        [HttpPost]
         public ActionResult Details(string payerId)
         {
-            if (Guid.TryParse(payerId, out Guid result))
-                return Json(payerProvider.Get(result));
-            return Json(false);
+            var model = CreatePayerDetailsViewModel(payerId);
+            return Json(model);
         }
 
-        public ActionResult Details()
+        protected PayerDetailsViewModel CreatePayerDetailsViewModel(string payerId)
         {
-            return Json(true);
+            if (string.IsNullOrEmpty(payerId))
+                return new PayerDetailsViewModel();
+
+            var payer = payerManager.Get(payerId);
+            var transactions = transactionManager.GetTransactionsByPayerId(payerId);
+            var result = new PayerDetailsViewModel();
+            result.Payer.PayerId = payer.PayerId;
+            result.Payer.PayerName = payer.Name;
+            //result.Payer.Region = payer.Region;
+            var groupedTransactions = transactions.GroupBy(t => t.Price % 2 == 0, //Category
+                                        (key, values) => new { Label = key, Items = values.Select(t => t.Price).ToList() })
+                                        .ToDictionary(key => key.Label.ToString(), value => value.Items);
+
+            result.Chart.Data = groupedTransactions;
+            result.Chart.ChartType = "pie";
+            return result;
         }
     }
 }

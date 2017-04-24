@@ -6,7 +6,7 @@ using Warden.Business.Core;
 using Warden.Business.Entities;
 using Warden.Business.Import;
 using Warden.Business.Providers;
-using Warden.Mvc.Models;
+using Warden.Mvc.Models.Admin;
 
 namespace Warden.Mvc.Controllers.Admin
 {
