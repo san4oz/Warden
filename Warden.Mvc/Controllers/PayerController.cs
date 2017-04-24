@@ -46,9 +46,9 @@ namespace Warden.Mvc.Controllers
             result.Payer.PayerId = payer.PayerId;
             result.Payer.PayerName = payer.Name;
             //result.Payer.Region = payer.Region;
-            var groupedTransactions = transactions.GroupBy(t => t.Price % 2 == 0, //Category
-                                        (key, values) => new { Label = key, Items = values.Select(t => t.Price).ToList() })
-                                        .ToDictionary(key => key.Label.ToString(), value => value.Items);
+            var groupedTransactions = transactions.GroupBy(t => t.CategoryId, //CategoryName
+                                        (key, values) => new { Category = key, Payments = values.Select(t => t.Price).ToList() })
+                                        .ToDictionary(key => key.Category.ToString(), value => value.Payments);
 
             result.Chart.Data = groupedTransactions;
             result.Chart.ChartType = "pie";
