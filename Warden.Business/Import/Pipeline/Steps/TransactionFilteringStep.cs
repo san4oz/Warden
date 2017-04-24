@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Warden.Business.Core;
+using Warden.Business.Helpers;
 
 namespace Warden.Business.Import.Pipeline.Steps
 {

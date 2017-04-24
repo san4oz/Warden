@@ -8,13 +8,8 @@
     <property name="Keywords" type="System.String"/>
     <property name="Date" type="System.DateTime"/>
     <property name="ExternalId" type="System.String"/>
-  </class>
-
-  <class name="TransactionCategory" table="TransactionCategories">
-    <id name="Id" type="System.Guid"></id>
-    <property name="TransactionId" type="System.Guid"/>
-    <property name="CategoryId" type="System.Guid"/>
     <property name="Voted" type="System.Boolean"/>
+    <property name="CategoryId" type="System.Guid"/>
   </class>
 
   <class name="Payer" table="Payers">
@@ -29,7 +24,7 @@
     <property name="Keywords" type="System.String"/>
   </class>
 
-  <class name="TransactionImportTaskConfiguration" table="TransactionImportTaskConfigurations">
+  <class name="TransactionImportSettings" table="TransactionImportSettings">
     <id name="Id" type="System.Guid"></id>
     <property name="StartDate" type="System.DateTime"/>
     <property name="EndDate" type="System.DateTime"/>

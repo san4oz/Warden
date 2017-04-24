@@ -6,7 +6,7 @@ using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public class KeywordDataProvider : BaseDataProvider<CategoryKeyword>, IKeywordDataProvider
+    public class KeywordDataProvider : BaseDataProvider<CategoryKeyword>, IKeywordProvider
     {
         public CategoryKeyword Get(string text, Guid categoryId)
         {

@@ -5,7 +5,7 @@ using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public class PayerDataProvider : BaseDataProvider<Payer>, IPayerDataProvider
+    public class PayerDataProvider : BaseDataProvider<Payer>, IPayerProvider
     {
         public Payer Get(string payerId)
         {

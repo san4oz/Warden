@@ -1,14 +1,13 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using System.Web.Mvc;
-using Warden.Business.Api;
 using Warden.Business.Import;
-using Warden.Business.Managers;
 using Warden.Business.Import.Pipeline;
+using Warden.Business.Managers;
 using Warden.Business.Providers;
 using Warden.DataProvider.DataProviders;
-using Warden.ExternalDataProvider;
 using Warden.Search;
+using Warden.TransactionSource;
 
 namespace Warden.Mvc.App_Start
 {
@@ -26,7 +25,7 @@ namespace Warden.Mvc.App_Start
         {
             
             RegisterDataProviders(builder);
-            builder.RegisterType<ExternalApi>().As<IExternalApi>();
+            builder.RegisterType<TransactionSourceProvider>().As<ITransactionSourceProvider>();
             RegisterManagers(builder);
 
             builder.RegisterType<TransactionImportTask>().As<TransactionImportTask>().SingleInstance();
@@ -40,15 +39,16 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<TransactionManager>().As<TransactionManager>();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<AnalysisManager>().As<AnalysisManager>();
+            builder.RegisterType<ImportSettingsManager>().As<ImportSettingsManager>();
         }
 
         private static void RegisterDataProviders(ContainerBuilder builder)
         {
-            builder.RegisterType<TransactionDataProvider>().As<ITransactionDataProvider>();
-            builder.RegisterType<PayerDataProvider>().As<IPayerDataProvider>();
-            builder.RegisterType<TransactionTaskConfigurationDataProvider>().As<ITransactionImportConfigurationDataProvider>();
-            builder.RegisterType<CategoryDataProvider>().As<ICategoryDataProvider>();
-            builder.RegisterType<KeywordDataProvider>().As<IKeywordDataProvider>();
+            builder.RegisterType<TransactionDataProvider>().As<ITransactionProvider>();
+            builder.RegisterType<PayerDataProvider>().As<IPayerProvider>();
+            builder.RegisterType<ImportSettingsProvider>().As<IImportSettingsProvider>();
+            builder.RegisterType<CategoryDataProvider>().As<ICategoryProvider>();
+            builder.RegisterType<KeywordDataProvider>().As<IKeywordProvider>();
         }
 
         private static void RegisterPipeline(ContainerBuilder builder)

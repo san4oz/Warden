@@ -4,7 +4,7 @@ using Warden.Business.Entities;
 
 namespace Warden.Business.Providers
 {
-    public interface IDataProvider<T>
+    public interface IProvider<T>
         where T : Entity, new()
     {
         void Save(T entity);

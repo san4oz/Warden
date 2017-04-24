@@ -2,7 +2,7 @@
 
 namespace Warden.Business.Providers
 {
-    public interface ICategoryDataProvider : IDataProvider<Category>
+    public interface ICategoryProvider : IProvider<Category>
     {
         Category GetByTitle(string title);
     }

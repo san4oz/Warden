@@ -2,7 +2,7 @@
 using System.Net.Mime;
 using System.Web.Mvc;
 using Warden.Business;
-using Warden.Business.Core;
+using Warden.Business.Helpers;
 using Warden.Business.Entities;
 using Warden.Business.Import;
 using Warden.Business.Providers;
@@ -12,11 +12,11 @@ namespace Warden.Mvc.Controllers.Admin
 {
     public class TransactionImportController : Controller
     {
-        private readonly ITransactionImportConfigurationDataProvider configurationDataProvider;
+        private readonly IImportSettingsProvider configurationDataProvider;
 
         public TransactionImportController()
         {
-            this.configurationDataProvider = IoC.Resolve<ITransactionImportConfigurationDataProvider>();
+            this.configurationDataProvider = IoC.Resolve<IImportSettingsProvider>();
         }
 
         [HttpPost]
@@ -28,7 +28,7 @@ namespace Warden.Mvc.Controllers.Admin
 
         public ActionResult GetImportSettings(string payerId)
         {
-            var settings = configurationDataProvider.GetForPayer(payerId);
+            var settings = configurationDataProvider.GetByPayerId(payerId);
             var model = new ImportTaskSettingsModel()
             {
                 FromDate = settings.StartDate,
@@ -45,9 +45,9 @@ namespace Warden.Mvc.Controllers.Admin
             if (!ModelState.IsValid)
                 return Json(false);
 
-            var settings = configurationDataProvider.GetForPayer(model.PayerId);
+            var settings = configurationDataProvider.GetByPayerId(model.PayerId);
             if (settings == null)
-                settings = new TransactionImportTaskConfiguration() { PayerId = model.PayerId };
+                settings = new TransactionImportSettings() { PayerId = model.PayerId };
 
             settings.StartDate = model.FromDate;
             settings.EndDate = model.ToDate;

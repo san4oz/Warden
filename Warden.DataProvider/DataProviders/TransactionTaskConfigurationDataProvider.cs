@@ -5,30 +5,29 @@ using Warden.Business.Providers;
 
 namespace Warden.DataProvider.DataProviders
 {
-    public class TransactionTaskConfigurationDataProvider
-        : BaseDataProvider<TransactionImportTaskConfiguration>, ITransactionImportConfigurationDataProvider
+    public class ImportSettingsProvider
+        : BaseDataProvider<TransactionImportSettings>, IImportSettingsProvider
     {
-        public TransactionImportTaskConfiguration GetDefault(string payerId)
+        public TransactionImportSettings GetByPayerId(string payerId)
         {
-            return new TransactionImportTaskConfiguration()
+            return Execute(session =>
+            {
+                var result = session.QueryOver<TransactionImportSettings>()
+                                .Where(setting => setting.PayerId == payerId)
+                                .SingleOrDefault();
+
+                return result ?? CreateDefault(payerId);
+            });
+        }
+
+        private TransactionImportSettings CreateDefault(string payerId)
+        {
+            return new TransactionImportSettings()
             {
                 PayerId = payerId,
                 StartDate = new DateTime(2016, 1, 1),
                 EndDate = DateTime.Now
             };
-        }
-
-        public TransactionImportTaskConfiguration GetForPayer(string payerId)
-        {
-            return Execute(session =>
-            {
-                var result = session
-                    .CreateCriteria<TransactionImportTaskConfiguration>()
-                        .Add(Expression.Eq("PayerId", payerId))
-                        .UniqueResult<TransactionImportTaskConfiguration>();
-
-                return result ?? GetDefault(payerId);
-            });
         }
     }
 }

@@ -152,9 +152,9 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 100px; 
-    left: 0; 
-    bottom: 0; 
+    top: 100px;
+    left: 0;
+    bottom: 0;
     right: 0;
     text-align: center;
     text-transform: uppercase;
@@ -257,7 +257,7 @@ a.pure-button-primary {
         }
 
     /* We increase the height of the splash-container */
-/*    .splash-container {
+    /*    .splash-container {
         height: 500px;
     }*/
 
@@ -343,13 +343,20 @@ The content `<div>` is where all your content goes.
 }
 
 .header {
- }
+    margin: 0;
+    color: #333;
+    text-align: center;
+    padding: 2.5em 2em 0;
+    border-bottom: 1px solid #eee;
+}
+
     .header h1 {
         margin: 0.2em 0;
         font-size: 3em;
         font-weight: 300;
     }
-     .header h2 {
+
+    .header h2 {
         font-weight: 300;
         color: #ccc;
         padding: 0;
@@ -393,15 +400,19 @@ appears on the left side of the page.
     /*
     Remove all background/borders, since we are applying them to #menu.
     */
-     #menu .pure-menu ul {
+    #menu .pure-menu,
+    #menu .pure-menu ul {
         border: none;
         background: transparent;
     }
 
-    /*
+        /*
     Add that light border to separate items into groups.
     */
-    }
+        #menu .pure-menu ul,
+        #menu .pure-menu .menu-item-divided {
+            border-top: 1px solid #333;
+        }
         /*
         Change color of the anchor links on hover/focus.
         */
@@ -468,19 +479,12 @@ small screens.
         display: block;
     }
 
-    .menu-link span,
-    .menu-link span:before,
-    .menu-link span:after {
-        background-color: #fff;
-        width: 100%;
-        height: 0.2em;
-    }
-
+        .menu-link span,
         .menu-link span:before,
         .menu-link span:after {
-            position: absolute;
-            margin-top: -0.6em;
-            content: " ";
+            background-color: #fff;
+            width: 100%;
+            height: 0.2em;
         }
 
             .menu-link span:before,
@@ -542,7 +546,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 }
 
 
-#main > .page{
+#main > .page {
     margin: 30px;
     display: block;
 }
@@ -553,7 +557,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     text-align-last: center;
 }
 
-.tags{
+.tags {
     border: 1px solid lightgrey;
     height: 80px;
     margin-top: 10px;
@@ -571,7 +575,11 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     text-align: center;
 }
 
-}
+    .tag > i {
+        color: red;
+        font-size: small;
+        cursor: pointer;
+    }
 
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
@@ -622,21 +630,30 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     background-color: #f1f1f1;
 }
 
-
+    .tab .tab-link {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        list-style: none;
+    }
 
 .tab-link.active {
     background-color: #1f8dd6;
 }
 
-.fa-check{
+.fa-check {
     color: green;
 }
 
-.fa-spinner{
+.fa-spinner {
     color: orange;
 }
 
-.fa-close{
+.fa-close {
     color: red;
 }
 
@@ -644,23 +661,33 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     color: #1f8dd6;
 }
 
+.fa-history {
+    color: orange;
 }
-.fa-history {    color: orange;}
 
 #map {
-    height:410px;
+    width: 620px;
+    height: 410px;
     position: absolute;
-    top:10%;
+    left: 20%;
+    top: 10%;
 }
 
+    #map svg {
+        width: 100%;
+        height: 100%;
     }
+
 
 /* SVG STYLES */
 
 .svg-map .land:hover {
     fill-opacity: 0.7;
     fill: orange;
-.keyword-value{
+}
+
+.keyword-value
+{
     width: 30px;
 }
 
@@ -669,15 +696,16 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     position: relative;
     display: inline-block;
     width: 30px;
-    height: 17px;}
-
-}/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 30px;
     height: 17px;
-}.slider {
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        display: none;
+    }
+
+/* The slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -689,17 +717,17 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     transition: .4s;
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 13px;
-    width: 13px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
 
 input:checked + .slider {
     background-color: #2196F3;
@@ -720,9 +748,9 @@ input:checked + .slider:before {
     border-radius: 34px;
 }
 
-.slider.round:before {
-    border-radius: 50%;
-}
+    .slider.round:before {
+        border-radius: 50%;
+    }
 
 .question {
     text-align: center;
@@ -732,14 +760,11 @@ input:checked + .slider:before {
     border-top: 1px grey dashed;
 }
 
-.incorrectState {
-}
-
 .correctState {
     background-color: lightgreen;
 }
 
-.btn-right{
+.btn-right {
     float: right;
 }
 
@@ -747,6 +772,12 @@ input:checked + .slider:before {
     line-height: 200px;
     text-align: center;
     font-weight: bold;
+}
+
+.td-keywords {
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: 300px;
 }
 
 /*.svg-graph .bar {

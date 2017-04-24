@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using Warden.Business.Entities;
 using Warden.Business.Entities.ExternalProvider;
 
-namespace Warden.Business.Api
+namespace Warden.Business.Providers
 {
-    public interface IExternalApi
+    public interface ITransactionSourceProvider
     {
-        Task<IList<Transaction>> GetTransactionsAsync(TransactionRetreivingRequest request);
+        Task<IList<Transaction>> GetAsync(TransactionRequest request);
     }
 }

@@ -15,5 +15,9 @@ namespace Warden.Business.Entities
         public virtual DateTime Date { get; set; }
 
         public virtual string ExternalId { get; set; }
+
+        public virtual Guid? CategoryId { get; set; }
+
+        public virtual bool Voted { get; set; }
     }
 }

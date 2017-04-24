@@ -3,7 +3,7 @@ using NLog.Config;
 using NLog.Targets;
 using System;
 
-namespace Warden.Business.Core
+namespace Warden.Business.Helpers
 {
     public static class TransactionImportTracer
     {

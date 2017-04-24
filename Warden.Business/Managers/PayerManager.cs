@@ -3,11 +3,12 @@ using Warden.Business.Providers;
 
 namespace Warden.Business.Managers
 {
-    public class PayerManager : EntityManager<Payer, IPayerDataProvider>
+    public class PayerManager : EntityManager<Payer, IPayerProvider>
     {
-        IPayerDataProvider provider;
+        public PayerManager(IPayerProvider provider) : base(provider)
+        IPayerProvider provider;
 
-        public PayerManager(IPayerDataProvider provider) : base(provider)
+        public PayerManager(IPayerProvider provider) : base(provider)
         {
             this.provider = provider;
         }

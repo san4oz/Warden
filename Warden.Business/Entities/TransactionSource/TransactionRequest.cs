@@ -2,7 +2,7 @@
 
 namespace Warden.Business.Entities.ExternalProvider
 {
-    public class TransactionRetreivingRequest
+    public class TransactionRequest
     {
         public string PayerId { get; set; }
 
