@@ -9,5 +9,7 @@ namespace Warden.Mvc.Models
         public Dictionary<string, List<decimal>> Data { get; set; }
 
         public string ChartType { get; set; }
+
+        public bool IsChartAvailable { get; set; }
     }
 }

@@ -1,4 +1,8 @@
-﻿using NHibernate.Criterion;
+﻿using NHibernate;
+using NHibernate.Criterion;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Warden.Business.Entities;
 using Warden.Business.Providers;
 
@@ -10,7 +14,17 @@ namespace Warden.DataProvider.DataProviders
         {
             return Execute(session =>
             {
-                return session.CreateCriteria<Category>().Add(Expression.Eq("Title", title)).UniqueResult<Category>();
+                return session.CreateCriteria<Category>().Add(Restrictions.Eq("Title", title)).UniqueResult<Category>();
+            });
+        }
+
+        public List<Category> GetByIds(Guid[] ids)
+        {
+            return Execute(session => 
+            {
+                return session.QueryOver<Category>()
+                                        .Where(c => c.Id.IsIn(ids))
+                                        .List().ToList();
             });
         }
     }

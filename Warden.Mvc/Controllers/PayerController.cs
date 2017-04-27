@@ -16,11 +16,13 @@ namespace Warden.Mvc.Controllers
     {
         PayerManager payerManager;
         TransactionManager transactionManager;
+        CategoryManager categoryManager;
 
         public PayerController()
         {
             payerManager = IoC.Resolve<PayerManager>();
             transactionManager = IoC.Resolve<TransactionManager>();
+            categoryManager = IoC.Resolve<CategoryManager>();
         }
 
         [HttpPost]
@@ -41,15 +43,29 @@ namespace Warden.Mvc.Controllers
                 return new PayerDetailsViewModel();
 
             var payer = payerManager.Get(payerId);
-            var transactions = transactionManager.GetTransactionsByPayerId(payerId);
+            var transactions = transactionManager.GetTransactionsByPayerId(payerId).Where(t => t.CategoryId.HasValue).ToList();
             var result = new PayerDetailsViewModel();
             result.Payer.PayerId = payer.PayerId;
             result.Payer.PayerName = payer.Name;
             //result.Payer.Region = payer.Region;
-            var groupedTransactions = transactions.GroupBy(t => t.CategoryId, //CategoryName
-                                        (key, values) => new { Category = key, Payments = values.Select(t => t.Price).ToList() })
-                                        .ToDictionary(key => key.Category.ToString(), value => value.Payments);
+            var categoryIds = transactions.Select(v => v.CategoryId.Value).ToArray();
+            var categories = categoryManager.GetByIds(categoryIds);
+            var groupedTransactions = transactions
+                                        .Where(t => categories.Any(c => c.Id == t.CategoryId.Value))
+                                        .GroupBy(t => t.CategoryId, (key, values) => 
+                                                new
+                                                {
+                                                    Category = categories.First(c => c.Id == key.Value).Title,
+                                                    Payments = values.Select(t => t.Price).ToList()
+                                                })
+                                        .ToDictionary(key => key.Category, value => value.Payments);
 
+            if (!groupedTransactions.Any())
+            {
+                result.Chart.IsChartAvailable = false;
+                return result;
+            }
+            result.Chart.IsChartAvailable = true;
             result.Chart.Data = groupedTransactions;
             result.Chart.ChartType = "pie";
             return result;
