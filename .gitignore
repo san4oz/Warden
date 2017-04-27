@@ -287,3 +287,4 @@ packages/
 Warden.Mvc/bin/
 Warden.Mvc/obj/
 /@data/logs/Import
+/@data

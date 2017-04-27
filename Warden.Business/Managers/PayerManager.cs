@@ -5,7 +5,6 @@ namespace Warden.Business.Managers
 {
     public class PayerManager : EntityManager<Payer, IPayerProvider>
     {
-        public PayerManager(IPayerProvider provider) : base(provider)
         IPayerProvider provider;
 
         public PayerManager(IPayerProvider provider) : base(provider)
