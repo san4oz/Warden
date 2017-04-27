@@ -109,7 +109,7 @@ namespace Warden.Business.Import
             OnAfterTaskInitialized();           
         }
 
-        protected void InitializeTaskForPayer(string payerId)
+        public void InitializeTaskForPayer(string payerId)
         {            
             if(!Settings.ContainsKey(payerId))
             {

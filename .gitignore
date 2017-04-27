@@ -286,3 +286,4 @@ packages/
 *FileListAbsolute.txt
 Warden.Mvc/bin/
 Warden.Mvc/obj/
+/@data/logs/Import
