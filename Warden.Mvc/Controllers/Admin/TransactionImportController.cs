@@ -22,7 +22,7 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult StartImport(string whoId, bool rebuild)
         {
-            var result = IoC.Resolve<TransactionImportTask>().StartImport(whoId, rebuild);
+            var result = IoC.Resolve<TransactionImportTask>().StartImportForPayer(whoId, rebuild);
             return Json(result);
         }
 
