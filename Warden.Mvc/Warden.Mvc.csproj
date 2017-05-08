@@ -96,12 +96,16 @@
     <Compile Include="Controllers\Admin\TransactionController.cs" />
     <Compile Include="Controllers\Admin\TransactionImportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\CategoryViewModel.cs" />
-    <Compile Include="Models\ImportTaskSettingsModel.cs" />
-    <Compile Include="Models\KeywordsCalibrationViewModel.cs" />
-    <Compile Include="Models\KeywordVote.cs" />
-    <Compile Include="Models\PayerModel.cs" />
-    <Compile Include="Models\TransactionViewModel.cs" />
+    <Compile Include="Controllers\PayerController.cs" />
+    <Compile Include="Models\Admin\CategoryViewModel.cs" />
+    <Compile Include="Models\Admin\ImportTaskSettingsModel.cs" />
+    <Compile Include="Models\Admin\KeywordsCalibrationViewModel.cs" />
+    <Compile Include="Models\Admin\KeywordVote.cs" />
+    <Compile Include="Models\ChartViewModel.cs" />
+    <Compile Include="Models\PayerDetailsViewModel.cs" />
+    <Compile Include="Models\Admin\PayerModel.cs" />
+    <Compile Include="Models\Admin\TransactionViewModel.cs" />
+    <Compile Include="Models\PayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

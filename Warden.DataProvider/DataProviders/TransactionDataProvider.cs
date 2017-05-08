@@ -68,7 +68,7 @@ namespace Warden.DataProvider.DataProviders
                 foreach(var batch in ids.Batch(1000))
                 {
                     var data = session.QueryOver<Transaction>()
-                                        .Where(t => t.Id.IsIn(ids))
+                                        .Where(t => t.Id.IsIn(batch.ToArray()))
                                         .Where(t => t.CategoryId == null)
                                         .List().ToList();
 

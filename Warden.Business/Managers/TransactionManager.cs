@@ -36,5 +36,7 @@ namespace Warden.Business.Managers
         public int GetCountByPayerId(string payerId) => Provider.GetCountByPayerId(payerId);
 
         public void DeleteByPayerId(string payerId) => Provider.DeleteByPayerId(payerId);
+
+        public List<Transaction> GetTransactionsByPayerId(string payerId) => Provider.GetByPayerId(payerId);
     }
 }

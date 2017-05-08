@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Warden.Business.Import;
 
-namespace Warden.Mvc.Models
+namespace Warden.Mvc.Models.Admin
 {
     public class ImportTaskSettingsModel
     {

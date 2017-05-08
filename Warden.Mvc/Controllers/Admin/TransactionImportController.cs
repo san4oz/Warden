@@ -6,7 +6,7 @@ using Warden.Business.Helpers;
 using Warden.Business.Entities;
 using Warden.Business.Import;
 using Warden.Business.Providers;
-using Warden.Mvc.Models;
+using Warden.Mvc.Models.Admin;
 
 namespace Warden.Mvc.Controllers.Admin
 {
@@ -22,7 +22,7 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult StartImport(string whoId, bool rebuild)
         {
-            var result = IoC.Resolve<TransactionImportTask>().StartImport(whoId, rebuild);
+            var result = IoC.Resolve<TransactionImportTask>().StartImportForPayer(whoId, rebuild);
             return Json(result);
         }
 

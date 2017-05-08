@@ -16,6 +16,10 @@
                     templateUrl: '/app/components/frontend/contact/contactView.html',
                     controller: 'contactController'
                 })
+                .when('/payer/:payerId', {
+                    templateUrl: '/app/components/frontend/payer/payerView.html',
+                    controller: 'payerController'
+                })
                 .otherwise({
                     redirectTo: '/pageNotFound'
                 });

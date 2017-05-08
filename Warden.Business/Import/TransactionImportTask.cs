@@ -4,7 +4,8 @@ using Warden.Business.Helpers;
 using Warden.Business.Entities;
 using Warden.Business.Managers;
 using Warden.Business.Import.Pipeline;
-using Warden.Business.Providers;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Warden.Business.Import
 {
@@ -27,75 +28,47 @@ namespace Warden.Business.Import
             Settings = new ConcurrentDictionary<string, TransactionImportSettings>();
         }
 
-        public ImportTaskStatus StartImport(string payerId = null, bool rebuild = false)
+        public ImportTaskStatus StartImportForPayer(string payerId, bool rebuild = false)
         {
-            if (!initialized)
-                throw new InvalidOperationException("Transaction import task wasn't initialized");
-
-            if(!string.IsNullOrEmpty(payerId))
-            {
-                StartImportForPayer(payerId, rebuild);
-            }
-            else
-            {
-                var payers = payerManager.All();
-                foreach (var payer in payers)
-                {
-                    StartImportForPayer(payer.PayerId, rebuild);
-                }
-            }
-
-            return ImportTaskStatus.Finished;
-        }
-
-        protected void StartImportForPayer(string payerId, bool rebuild = false)
-        {
-#warning This function should not update task status or should be renamed.
-            bool shouldContinue(string payer)
-            {
-                if (Settings.TryGetValue(payerId, out TransactionImportSettings settings) && ShouldTryToImportMore(payer, settings))
-                {
-                    UpdateItemsCount(payer, settings);
-                    return true;
-                }
-                UpdateTaskStatus(payerId, ImportTaskStatus.Finished);
-                return false;
-            };
+            //bool shouldContinue(string payer)
+            //{
+            //    if (Settings.TryGetValue(payerId, out TransactionImportSettings settings) && ShouldTryToImportMore(payer, settings))
+            //    {
+            //        UpdateItemsCount(payer, settings);
+            //        return true;
+            //    }
+            //    return false;
+            //};
 
             if (string.IsNullOrEmpty(payerId))
-                return;
+                return ImportTaskStatus.Failed;
 
-            if (rebuild)
-            {
-                TransactionImportTracer.Trace(payerId, "Rebuild taks was started.");
-                transactionManager.DeleteByPayerId(payerId);
-                UpdateItemsCount(payerId);
-            }
-            else
-            {
-                TransactionImportTracer.Trace(payerId, "Import taks was started.");
-            }
-
-            UpdateTaskStatus(payerId, ImportTaskStatus.InProgress);
-
+            var temporaryTransactions = transactionManager.GetTransactionsByPayerId(payerId);
             try
             {
-                while (true)
-                {
-                    var request = BuildImportRequest(payerId);
-                    importPipeline.Execute(request);
+                OnTaskStarted(payerId, rebuild);
+                var request = BuildImportRequest(payerId, rebuild);
+                importPipeline.Execute(request);
 
-                    if (!shouldContinue(payerId))
-                        break;
-                }
+                //API returns us all records 
+                //so offsets not needed anymore (should be checked and refactored)
+                //while (true)
+                //{
+                //    var request = BuildImportRequest(payerId, rebuild);
+                //    importPipeline.Execute(request);
 
-                TransactionImportTracer.Trace(payerId, $"Task has been successfully finished.");
+                //    rebuild = false;
+                //    if (!shouldContinue(payerId))
+                //        break;
+                //}
             }
             catch(Exception ex)
             {
-                TransactionImportTracer.Trace(payerId, $"Task was failed. Stack trace: {Environment.NewLine} {ex.StackTrace}");
-                UpdateTaskStatus(payerId, ImportTaskStatus.Failed);
+                OnTaskFailed(temporaryTransactions, payerId, ex.StackTrace);
+                return ImportTaskStatus.Failed;
             }
+            OnTaskFinished(payerId);
+            return ImportTaskStatus.Finished;
         }
 
         public void Initialize()
@@ -106,7 +79,7 @@ namespace Warden.Business.Import
             }
             this.initialized = true;
 
-            OnAfterTaskInitialized();           
+            OnAfterTaskInitialized();
         }
 
         public void InitializeTaskForPayer(string payerId)
@@ -117,6 +90,37 @@ namespace Warden.Business.Import
 
                 Settings.TryAdd(payerId, settings);               
             }
+        }
+
+        protected void OnTaskStarted(string payerId, bool rebuild)
+        {
+            TransactionImportTracer.Trace(payerId, rebuild ? "Rebuild task was started." : "Import task was started.");
+            if (rebuild)
+            {
+                transactionManager.DeleteByPayerId(payerId);
+                UpdateItemsCount(payerId);
+            }
+            UpdateTaskStatus(payerId, ImportTaskStatus.InProgress);
+        }
+
+        protected void OnTaskFailed(IEnumerable<Transaction> transactions, string payerId, string stackTrace)
+        {
+            TransactionImportTracer.Trace(payerId, $"Task was failed. Stack trace: {Environment.NewLine} {stackTrace}");
+            if (transactions != null && transactions.Any())
+            {
+                transactionManager.DeleteByPayerId(payerId);
+                foreach (var transaction in transactions)
+                {
+                    transactionManager.Save(transaction);
+                }
+            }
+            UpdateTaskStatus(payerId, ImportTaskStatus.Failed);
+        }
+
+        protected void OnTaskFinished(string payerId)
+        {
+            TransactionImportTracer.Trace(payerId, $"Task has been successfully finished.");
+            UpdateTaskStatus(payerId, ImportTaskStatus.Finished);
         }
 
         protected void OnAfterTaskInitialized()
@@ -152,7 +156,7 @@ namespace Warden.Business.Import
             }
         }
 
-        protected TransactionImportRequest BuildImportRequest(string payerId)
+        protected TransactionImportRequest BuildImportRequest(string payerId, bool rebuild)
         {
             if(Settings.TryGetValue(payerId, out TransactionImportSettings settings))
             {
@@ -163,7 +167,8 @@ namespace Warden.Business.Import
                     StartDate = settings.StartDate,
                     PayerId = settings.PayerId,
                     EndDate = settings.EndDate,
-                    OffsetNumber = settings.TransactionCount
+                    OffsetNumber = settings.TransactionCount,
+                    Rebuild = rebuild
                 };
             }
             else

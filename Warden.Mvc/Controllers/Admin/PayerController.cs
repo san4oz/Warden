@@ -2,7 +2,7 @@
 using Warden.Business;
 using Warden.Business.Entities;
 using Warden.Business.Managers;
-using Warden.Mvc.Models;
+using Warden.Mvc.Models.Admin;
 
 namespace Warden.Mvc.Controllers.Admin
 {

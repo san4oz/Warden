@@ -11,5 +11,7 @@ namespace Warden.Business.Import.Pipeline
         public DateTime EndDate { get; set; }
 
         public int OffsetNumber { get; set; }
+
+        public bool Rebuild { get; set; }
     }
 }

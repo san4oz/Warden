@@ -49,4 +49,20 @@
     <div id="map-description">
 
     </div>
-</div>
+    <div ng-controller="homeController">
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>Ім'я</th>
+                    <th>ЭДРПОУ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="payer in payers">
+                    <th>
+                        <a href="/payer/{{payer.PayerId}}">{{payer.Name}}</a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div></div>

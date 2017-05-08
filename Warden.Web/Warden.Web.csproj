@@ -152,6 +152,9 @@
     <Content Include="app\components\frontend\about\aboutView.html" />
     <Content Include="app\components\frontend\contact\contactController.js" />
     <Content Include="app\components\frontend\contact\contactView.html" />
+    <Content Include="app\components\frontend\payer\payerController.js" />
+    <Content Include="app\components\frontend\payer\payerService.js" />
+    <Content Include="app\components\frontend\payer\payerView.html" />
     <Content Include="app\components\frontend\home\homeController.js" />
     <Content Include="app\components\frontend\home\homeView.html" />
     <Content Include="App_Data\Warden.mdf" />
@@ -164,6 +167,9 @@
     <Content Include="assets\css\site.css" />
     <Content Include="assets\js\common.js" />
     <Content Include="assets\libs\angular-resource.js" />
+    <Content Include="assets\libs\c3\c3.css" />
+    <Content Include="assets\libs\c3\c3.min.js" />
+    <Content Include="assets\libs\d3\d3.v3.min.js" />
     <Content Include="assets\libs\pikaday-angular.js" />
     <Content Include="assets\libs\pikaday.js" />
     <Content Include="Global.asax" />
@@ -174,7 +180,6 @@
     <Content Include="assets\libs\d3\LICENSE" />
     <Content Include="assets\libs\d3\CHANGES.md" />
     <Content Include="assets\libs\d3\API.md" />
-    <Content Include="assets\js\control.chart.js" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Views\Shared\Admin.cshtml" />
     <None Include="Views\Shared\Index.cshtml" />

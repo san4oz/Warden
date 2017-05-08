@@ -14,6 +14,18 @@ namespace Warden.Mvc.App_Start
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                name: "frontend/api/payer/details",
+                url: "frontend/api/payer/details",
+                defaults: new { controller = "Payer", action = "Details" }
+            );
+
+            routes.MapRoute(
+                name: "frontend/api/payer/all",
+                url: "frontend/api/payer/all",
+                defaults: new { controller = "Payer", action = "All" }
+            );
+
             routes.MapRoute
             (
                 name: "angular",
