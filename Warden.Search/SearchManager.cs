@@ -22,39 +22,44 @@ namespace Warden.Search
     public class SearchManager : ISearchManager
     {
         private string luceneDir = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, ConfigurationManager.ConnectionStrings["IndexDirectory"].ConnectionString);
-        private FSDirectory directoryTemp;
         private Lucene.Net.Util.Version version = Lucene.Net.Util.Version.LUCENE_30;
 
-        private FSDirectory directory
-        {
-            get
-            {
-                if (directoryTemp == null) 
-                    directoryTemp = FSDirectory.Open(new DirectoryInfo(luceneDir));
-                if (IndexWriter.IsLocked(directoryTemp)) 
-                    IndexWriter.Unlock(directoryTemp);
+        protected PayerManager payerManager = IoC.Resolve<PayerManager>();
 
-                var lockFilePath = Path.Combine(luceneDir, "write.lock");
-                if (File.Exists(lockFilePath)) 
-                    File.Delete(lockFilePath);
-                return directoryTemp;
-            }
+        private FSDirectory GetDirectory(string path)
+        {
+            var result = FSDirectory.Open(new DirectoryInfo(path));
+            if (IndexWriter.IsLocked(result))
+                IndexWriter.Unlock(result);
+
+            var lockFilePath = Path.Combine(path, "write.lock");
+            if (File.Exists(lockFilePath))
+                File.Delete(lockFilePath);
+            return result;
         }
 
-        public void Index(Transaction transaction)
+        public void Index(Transaction transaction, bool rebuild)
         {
-            Index(new Transaction[] { transaction });
+            Index(new Transaction[] { transaction }, rebuild);
         }
 
-        public void Index(IEnumerable<Transaction> transactions)
+        public void Index(IEnumerable<Transaction> transactions, bool rebuild)
         {
             using (var analyzer = new StandardAnalyzer(version))
             {
-                using (var writer = new IndexWriter(directory, analyzer, IndexWriter.MaxFieldLength.UNLIMITED))
+                var grouped = transactions.GroupBy(t => t.PayerId, (key, values) => new { Payer = key, Transactions = values });
+                foreach (var item in grouped)
                 {
-                    foreach (var transaction in transactions)
+                    var path = Path.Combine(luceneDir, item.Payer);
+                    if (rebuild && System.IO.Directory.Exists(path))
+                        System.IO.Directory.Delete(path, true);
+
+                    using (var writer = new IndexWriter(GetDirectory(path), analyzer, IndexWriter.MaxFieldLength.UNLIMITED))
                     {
-                        AddToIndex(transaction, writer);
+                        foreach (var transaction in item.Transactions)
+                        {
+                            AddToIndex(transaction, writer);
+                        }
                     }
                 }
             }
@@ -67,7 +72,18 @@ namespace Warden.Search
                 return result;
             result.Results = new List<Entry>();
 
-            using (var searcher = new IndexSearcher(directory))
+            var payers = payerManager.All();
+            var searchers = new List<IndexSearcher>();
+            foreach (var directoryPath in System.IO.Directory.GetDirectories(luceneDir))
+            {
+                var directoryName = Path.GetFileName(directoryPath);
+                if (payers.Any(p => p.PayerId == directoryName))
+                {
+                    searchers.Add(new IndexSearcher(GetDirectory(directoryPath)));
+                }
+            }
+
+            using (var searcher = new MultiSearcher(searchers.ToArray()))
             {
                 var hitsLimit = short.MaxValue;
                 using (var analyzer = new StandardAnalyzer(version))
@@ -81,7 +97,7 @@ namespace Warden.Search
             return result;
         }
 
-        protected virtual IList<Entry> CreateSearchResponse(IndexSearcher searcher, IEnumerable<ScoreDoc> hits, SearchRequest request)
+        protected virtual IList<Entry> CreateSearchResponse(Searcher searcher, IEnumerable<ScoreDoc> hits, SearchRequest request)
         {
             var result = new List<Entry>();
             var persister = new IndexFieldPersister();
@@ -98,7 +114,7 @@ namespace Warden.Search
             return result;
         }
 
-        protected virtual Document GetDocument(IndexSearcher searcher, int n, IList<string> fields)
+        protected virtual Document GetDocument(Searcher searcher, int n, IList<string> fields)
         {
             return searcher.Doc(n, new MapFieldSelector(fields));
         }
@@ -141,21 +157,6 @@ namespace Warden.Search
             writer.DeleteDocuments(searchQuery);
             var doc = CreateDocument(transaction);
             writer.AddDocument(doc);
-        }
-
-        public void CleanIndexEntries(Guid[] ids)
-        {
-            using (var analyzer = new StandardAnalyzer(version))
-            {
-                using (var writer = new IndexWriter(directory, analyzer, IndexWriter.MaxFieldLength.UNLIMITED))
-                {
-                    ids.ToList().ForEach(id =>
-                    {
-                        var query = new TermQuery(new Term("Id", id.ToString()));
-                        writer.DeleteDocuments(query);
-                    });
-                }
-            }                 
         }
 
         protected virtual Document CreateDocument(Transaction transaction)

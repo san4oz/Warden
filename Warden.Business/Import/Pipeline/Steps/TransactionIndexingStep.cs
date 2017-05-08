@@ -8,7 +8,7 @@ namespace Warden.Business.Import.Pipeline.Steps
 
         public void Execute(TransactionImportPipelineContext context)
         {
-            search.Index(context.Items);
+            search.Index(context.Items, context.Request.Rebuild);
         }
 
         public TransactionIndexingStep()

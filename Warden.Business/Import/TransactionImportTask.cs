@@ -30,15 +30,15 @@ namespace Warden.Business.Import
 
         public ImportTaskStatus StartImportForPayer(string payerId, bool rebuild = false)
         {
-            bool shouldContinue(string payer)
-            {
-                if (Settings.TryGetValue(payerId, out TransactionImportSettings settings) && ShouldTryToImportMore(payer, settings))
-                {
-                    UpdateItemsCount(payer, settings);
-                    return true;
-                }
-                return false;
-            };
+            //bool shouldContinue(string payer)
+            //{
+            //    if (Settings.TryGetValue(payerId, out TransactionImportSettings settings) && ShouldTryToImportMore(payer, settings))
+            //    {
+            //        UpdateItemsCount(payer, settings);
+            //        return true;
+            //    }
+            //    return false;
+            //};
 
             if (string.IsNullOrEmpty(payerId))
                 return ImportTaskStatus.Failed;
@@ -47,14 +47,20 @@ namespace Warden.Business.Import
             try
             {
                 OnTaskStarted(payerId, rebuild);
-                while (true)
-                {
-                    var request = BuildImportRequest(payerId);
-                    importPipeline.Execute(request);
+                var request = BuildImportRequest(payerId, rebuild);
+                importPipeline.Execute(request);
 
-                    if (!shouldContinue(payerId))
-                        break;
-                }
+                //API returns us all records 
+                //so offsets not needed anymore (should be checked and refactored)
+                //while (true)
+                //{
+                //    var request = BuildImportRequest(payerId, rebuild);
+                //    importPipeline.Execute(request);
+
+                //    rebuild = false;
+                //    if (!shouldContinue(payerId))
+                //        break;
+                //}
             }
             catch(Exception ex)
             {
@@ -150,7 +156,7 @@ namespace Warden.Business.Import
             }
         }
 
-        protected TransactionImportRequest BuildImportRequest(string payerId)
+        protected TransactionImportRequest BuildImportRequest(string payerId, bool rebuild)
         {
             if(Settings.TryGetValue(payerId, out TransactionImportSettings settings))
             {
@@ -161,7 +167,8 @@ namespace Warden.Business.Import
                     StartDate = settings.StartDate,
                     PayerId = settings.PayerId,
                     EndDate = settings.EndDate,
-                    OffsetNumber = settings.TransactionCount
+                    OffsetNumber = settings.TransactionCount,
+                    Rebuild = rebuild
                 };
             }
             else

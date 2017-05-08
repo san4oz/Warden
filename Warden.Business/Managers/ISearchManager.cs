@@ -7,10 +7,8 @@ namespace Warden.Business.Managers
 {
     public interface ISearchManager
     {
-        void Index(IEnumerable<Transaction> transactions);
+        void Index(IEnumerable<Transaction> transactions, bool rebuild);
 
         SearchResponse Search(SearchRequest request);
-
-        void CleanIndexEntries(Guid[] ids);
     }
 }
