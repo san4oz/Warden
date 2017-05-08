@@ -42,6 +42,7 @@ namespace Warden.Business.Import
 
             if (string.IsNullOrEmpty(payerId))
                 return ImportTaskStatus.Failed;
+            InitializeTaskForPayer(payerId);
 
             var temporaryTransactions = transactionManager.GetTransactionsByPayerId(payerId);
             try
