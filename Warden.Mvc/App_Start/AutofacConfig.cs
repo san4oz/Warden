@@ -40,6 +40,7 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<AnalysisManager>().As<AnalysisManager>();
             builder.RegisterType<ImportSettingsManager>().As<ImportSettingsManager>();
+            builder.RegisterType<PostManager>().As<PostManager>();
         }
 
         private static void RegisterDataProviders(ContainerBuilder builder)
@@ -49,6 +50,7 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<ImportSettingsProvider>().As<IImportSettingsProvider>();
             builder.RegisterType<CategoryDataProvider>().As<ICategoryProvider>();
             builder.RegisterType<KeywordDataProvider>().As<IKeywordProvider>();
+            builder.RegisterType<PostProvider>().As<IPostProvider>();
         }
 
         private static void RegisterPipeline(ContainerBuilder builder)

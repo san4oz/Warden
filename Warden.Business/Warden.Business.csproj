@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Entities\Blog\Post.cs" />
     <Compile Include="Import\Pipeline\Steps\ITransactionImportPipelineStep.cs" />
     <Compile Include="Helpers\TransactionImportTracer.cs" />
     <Compile Include="Entities\CategoryKeyword.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Managers\ImportSettingsManager.cs" />
     <Compile Include="Managers\ISearchManager.cs" />
     <Compile Include="Managers\PayerManager.cs" />
+    <Compile Include="Managers\PostManager.cs" />
     <Compile Include="Managers\TransactionManager.cs" />
     <Compile Include="Import\Pipeline\Steps\CategoryDeterminingStep.cs" />
     <Compile Include="Import\Pipeline\Steps\TransactionFilteringStep.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Import\Pipeline\Steps\TransactionIndexingStep.cs" />
     <Compile Include="Import\Pipeline\Steps\TransactionProcessingStep.cs" />
     <Compile Include="Import\Pipeline\TransactionImportPipelineContext.cs" />
+    <Compile Include="Providers\IPostProvider.cs" />
     <Compile Include="Providers\ISourceTransactionProvider.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\TransactionSource\TransactionRequest.cs" />

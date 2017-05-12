@@ -14,9 +14,9 @@ namespace Warden.Mvc.Controllers
 {
     public class PayerController : Controller
     {
-        PayerManager payerManager;
-        TransactionManager transactionManager;
-        CategoryManager categoryManager;
+        private readonly PayerManager payerManager;
+        private readonly TransactionManager transactionManager;
+        private readonly CategoryManager categoryManager;
 
         public PayerController()
         {

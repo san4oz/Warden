@@ -39,5 +39,12 @@
     <property name="SuccessVotes" type="long"/>
     <property name="TotalVotes" type="long"/>
   </class>
+
+  <class name="Post" table="Posts">
+    <id name="Id" type="System.Guid"></id>
+    <property name="Title" type="System.String"/>
+    <property name="ShortDescription" type="System.String"/>
+    <property name="CreatedDate" type="System.DateTime"/>
+  </class>
   
 </hibernate-mapping>

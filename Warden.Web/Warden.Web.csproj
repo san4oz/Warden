@@ -157,6 +157,9 @@
     <Content Include="app\components\frontend\payer\payerView.html" />
     <Content Include="app\components\frontend\home\homeController.js" />
     <Content Include="app\components\frontend\home\homeView.html" />
+    <Content Include="app\components\frontend\postList\postListController.js" />
+    <Content Include="app\components\frontend\postList\postListService.js" />
+    <Content Include="app\components\frontend\postList\postList.html" />
     <Content Include="App_Data\Warden.mdf" />
     <Content Include="App_Data\Warden_log.ldf">
       <DependentUpon>Warden.mdf</DependentUpon>
@@ -165,6 +168,8 @@
     <Content Include="assets\css\pikaday.css" />
     <Content Include="assets\css\pure.css" />
     <Content Include="assets\css\site.css" />
+    <Content Include="assets\img\Posts\TestPost.jpg" />
+    <Content Include="assets\img\warden.png" />
     <Content Include="assets\js\common.js" />
     <Content Include="assets\libs\angular-resource.js" />
     <Content Include="assets\libs\c3\c3.css" />
@@ -196,7 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\shared\" />
-    <Folder Include="assets\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

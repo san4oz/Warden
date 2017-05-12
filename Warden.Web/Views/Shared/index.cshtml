@@ -18,21 +18,35 @@
     <script src="app/components/frontend/home/homeController.js"></script>
     <script src="app/components/frontend/about/aboutController.js"></script>
     <script src="app/components/frontend/contact/contactController.js"></script>
+    <script src="~/app/components/frontend/postList/postListController.js"></script>
+    <script src="~/app/components/frontend/postList/postListService.js"></script>
     <script src="assets/libs/d3/d3.v3.min.js"></script>
     <script src="assets/libs/c3/c3.min.js"></script>
 </head>
 <body>
+    <div class="leaderBoardBanner"></div>
+    <div class="wrapper">
         <div class="header">
-            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-                <a class="pure-menu-heading" href="/">Warden</a>
-                <ul class="pure-menu-list">
-                    <li class="pure-menu-item pure-menu-selected"><a ng-href="about" class="pure-menu-link">About us</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
-                </ul>
-            </div>
+            <div class="clear"></div>
+            <a href="/">
+                <div class="headerImage"></div>
+            </a>
+            <nav class="bgBlack">
+                <div class="menuMain">
+                    <ul class="cat-">
+                        <li class="cat-item">
+                            <a href="/" title="test">Home!</a>
+                        </li>       
+                        <li class="cat-item">
+                            <a href="/posts" title="test">Posts!</a>
+                        </li>         
+                    </ul>
+                </div>
+            </nav>
         </div>
         <div id="main">
-                <ng-view></ng-view>
+            <ng-view></ng-view>
         </div>
+    </div>
 </body>
 </html>
