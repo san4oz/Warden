@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Warden.Mvc.Models
 {
-    public class PostPreviewViewModel
+    public class PostDetailsViewModel
     {
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
 
         public string Description { get; set; }

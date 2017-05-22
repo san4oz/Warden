@@ -15,6 +15,12 @@ namespace Warden.Mvc.App_Start
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "api/post/details",
+               url: "api/post/details",
+               defaults: new { controller = "Blog", action = "Post" }
+            );
+
+            routes.MapRoute(
                  name: "api/post",
                  url: "api/post",
                  defaults: new { controller = "Blog", action = "Posts" }

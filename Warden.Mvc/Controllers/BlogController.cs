@@ -27,9 +27,32 @@ namespace Warden.Mvc.Controllers
             return Json(models, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public ActionResult Post(Guid? postId)
+        {
+            if (!postId.HasValue)
+                return Json(false);
+
+            var post = postManager.Get(postId.Value);
+            var model = CreatePostDetailsModel(post);
+
+            return Json(model);
+        }
+
         private PostPreviewViewModel CreatePostPreview(Post post)
         {
             return new PostPreviewViewModel()
+            {
+                Id = post.Id,
+                Title = post.Title,
+                Description = post.ShortDescription,
+                CreatedDate = post.CreatedDate.ToShortDateString()
+            };
+        }
+
+        private PostDetailsViewModel CreatePostDetailsModel(Post post)
+        {
+            return new PostDetailsViewModel()
             {
                 Title = post.Title,
                 Description = post.ShortDescription,

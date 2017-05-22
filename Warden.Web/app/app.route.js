@@ -12,6 +12,10 @@
                     templateUrl: '/app/components/frontend/postList/postList.html',
                     controller: 'postListController'
                 })
+                .when('/posts/:id', {
+                    templateUrl: '/app/components/frontend/postDetails/postDetails.html',
+                    controller: 'postDetailsController'
+                })
                 .when('/about', {
                     templateUrl: '/app/components/frontend/about/aboutView.html',
                     controller: 'aboutController'
@@ -66,6 +70,14 @@
                 .when("/admin/category/create", {
                     templateUrl: 'app/components/admin/category/create.html',
                     controller: 'categoryController'
+                })
+                .when("/admin/posts", {
+                    templateUrl: 'app/components/admin/postList/postList.html',
+                    controller: 'postListController'
+                })
+                .when("/admin/posts/create", {
+                    templateUrl: 'app/components/admin/postCreation/postCreation.html',
+                    controller: 'postCreationController'
                 })
                 .otherwise({
                     redirectTo: "/admin/pageNotFound"

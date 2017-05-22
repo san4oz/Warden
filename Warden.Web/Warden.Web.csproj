@@ -134,6 +134,9 @@
   <ItemGroup>
     <Content Include="app\app.module.js" />
     <Content Include="app\app.route.js" />
+    <Content Include="app\components\admin\directives\post\blogPost.html" />
+    <Content Include="app\components\admin\directives\post\components\textComponent.html" />
+    <Content Include="app\components\admin\directives\post\postDirective.js" />
     <Content Include="app\components\admin\category\create.html" />
     <Content Include="app\components\admin\category\categories.html" />
     <Content Include="app\components\admin\category\categoryService.js" />
@@ -144,6 +147,12 @@
     <Content Include="app\components\admin\payer\list.html" />
     <Content Include="app\components\admin\payer\payerController.js" />
     <Content Include="app\components\admin\payer\payerService.js" />
+    <Content Include="app\components\admin\postCreation\postCreation.html" />
+    <Content Include="app\components\admin\postCreation\postCreationController.js" />
+    <Content Include="app\components\admin\postCreation\postCreationService.js" />
+    <Content Include="app\components\admin\postList\postList.html" />
+    <Content Include="app\components\admin\postList\postListController.js" />
+    <Content Include="app\components\admin\postList\postListService.js" />
     <Content Include="app\components\admin\transaction\importSettings.html" />
     <Content Include="app\components\admin\transaction\index.html" />
     <Content Include="app\components\admin\transaction\transactionService.js" />
@@ -157,6 +166,9 @@
     <Content Include="app\components\frontend\payer\payerView.html" />
     <Content Include="app\components\frontend\home\homeController.js" />
     <Content Include="app\components\frontend\home\homeView.html" />
+    <Content Include="app\components\frontend\postDetails\postDetails.html" />
+    <Content Include="app\components\frontend\postDetails\postDetailsController.js" />
+    <Content Include="app\components\frontend\postDetails\postDetailsService.js" />
     <Content Include="app\components\frontend\postList\postListController.js" />
     <Content Include="app\components\frontend\postList\postListService.js" />
     <Content Include="app\components\frontend\postList\postList.html" />
@@ -165,26 +177,21 @@
       <DependentUpon>Warden.mdf</DependentUpon>
     </Content>
     <Content Include="assets\css\admin.css" />
+    <Content Include="assets\css\froala_editor.min.css" />
+    <Content Include="assets\css\froala_style.min.css" />
+    <Content Include="assets\css\image.min.css" />
     <Content Include="assets\css\pikaday.css" />
     <Content Include="assets\css\pure.css" />
     <Content Include="assets\css\site.css" />
     <Content Include="assets\img\Posts\TestPost.jpg" />
     <Content Include="assets\img\warden.png" />
-    <Content Include="assets\js\common.js" />
     <Content Include="assets\libs\angular-resource.js" />
-    <Content Include="assets\libs\c3\c3.css" />
-    <Content Include="assets\libs\c3\c3.min.js" />
-    <Content Include="assets\libs\d3\d3.v3.min.js" />
+    <Content Include="assets\libs\froala_editor.min.js" />
+    <Content Include="assets\libs\image.min.js" />
     <Content Include="assets\libs\pikaday-angular.js" />
     <Content Include="assets\libs\pikaday.js" />
     <Content Include="Global.asax" />
     <Content Include="assets\libs\angular.js" />
-    <Content Include="assets\libs\d3\d3.js" />
-    <Content Include="assets\libs\d3\d3.min.js" />
-    <Content Include="assets\libs\d3\README.md" />
-    <Content Include="assets\libs\d3\LICENSE" />
-    <Content Include="assets\libs\d3\CHANGES.md" />
-    <Content Include="assets\libs\d3\API.md" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Views\Shared\Admin.cshtml" />
     <None Include="Views\Shared\Index.cshtml" />
@@ -201,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\shared\" />
+    <Folder Include="assets\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

@@ -10,11 +10,17 @@
     <link rel="stylesheet" href="~/assets/css/pikaday.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/site.css"/>
+    <link rel="stylesheet" href="~/assets/css/froala_style.min.css" />
+    <link rel="stylesheet" href="~/assets/css/froala_editor.min.css" />
+    <link rel="stylesheet" href="~/assets/css/image.min.css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.js"></script>
     <script src="assets/libs/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.3/angular-resource.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/app.route.js"></script>
+
     <script src="app/components/admin/home/homeController.js"></script>
     <script src="app/components/admin/transaction/transactionService.js"></script>
     <script src="app/components/admin/transaction/transactionController.js"></script>
@@ -22,21 +28,44 @@
     <script src="app/components/admin/payer/payerService.js"></script>
     <script src="app/components/admin/category/categoryController.js"></script>
     <script src="app/components/admin/category/categoryService.js"></script>
+
+    <script src="~/app/components/admin/directives/post/postDirective.js"></script>
+
+    <script src="~/app/components/admin/postList/postListController.js"></script>
+    <script src="~/app/components/admin/postList/postListService.js"></script>
+    <script src="~/app/components/admin/postCreation/postCreationController.js"></script>
+    <script src="~/app/components/admin/postCreation/postCreationService.js"></script>
+    <script src="~/assets/libs/froala_editor.min.js"></script>
+    <script src="~/assets/libs/image.min.js"></script>
     <script src="~/assets/libs/pikaday.js"></script>
     <script src="~/assets/libs/pikaday-angular.js"></script>   
-    <script src="~/assets/js/common.js"></script>
 </head>
 <body> 
-    <div id="layout">     
-        <div id="menu">
-            <div class="pure-menu">
-                <a class="pure-menu-heading" href="#">Warden</a>
-                <ul class="pure-menu-list">
-                    <li class="pure-menu-item"><a href="/admin/transactions" class="pure-menu-link">Транзакції</a></li>
-                    <li class="pure-menu-item"><a href="/admin/payers" class="pure-menu-link">Платники</a></li>
-                    <li class="pure-menu-item"><a href="/admin/category" class="pure-menu-link">Категорії</a></li>
-                </ul>
-            </div>
+
+    <div class="wrapper">
+        <div class="header">
+            <div class="clear"></div>
+            <a href="/">
+                <div class="headerImage">WOOOORDEN</div>
+            </a>
+            <nav class="bgBlack">
+                <div class="menuMain">
+                    <ul class="cat-">
+                        <li class="cat-item">
+                            <a href="/admin/transactions" title="test">Transactions!</a>
+                        </li>
+                        <li class="cat-item">
+                            <a href="/admin/payers" title="test">Payers!</a>
+                        </li>
+                        <li class="cat-item">
+                            <a href="/admin/category" title="test">Categories!</a>
+                        </li>
+                        <li class="cat-item">
+                            <a href="/admin/posts" title="posts">Posts!</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
         <div id="main">
             <div class="page">

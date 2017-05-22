@@ -1,6 +1,58 @@
-﻿#main > .page {
-    margin: 30px;
+﻿/* Alignment styles for images, videos and iframes in editable regions */
+
+/* Center (default) */
+[data-editable] iframe,
+[data-editable] image,
+[data-editable] [data-ce-tag=img],
+[data-editable] img,
+[data-editable] video {
+    clear: both;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+/* Left align */
+[data-editable] .align-left {
+    clear: initial;
+    float: left;
+    margin-right: 0.5em;
+}
+
+/* Right align */
+[data-editable].align-right {
+    clear: initial;
+    float: right;
+    margin-left: 0.5em;
+}
+
+/* Alignment styles for text in editable regions */
+[data-editable] .text-center {
+    text-align: center;
+}
+
+[data-editable] .text-left {
+    text-align: left;
+}
+
+[data-editable] .text-right {
+    text-align: right;
+}
+
+.author {
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+/*Site css starts*/
+
+
+#main > .page {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
 }
 
 .searched-data table,
@@ -294,15 +346,13 @@ a:link {
     text-align: center;
 }
 
-.headerImage{
-    background-image: url(/assets/img/warden.png);
-    padding: 0;
-    margin-top: 10px;
-    margin-bottom: 18px;
+.headerImage {
+    padding: 0;  
     margin-left: auto;
     margin-right: auto;
     width: 970px;
-    height: 105px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 9em;
 }
 
 .bgBlack {
