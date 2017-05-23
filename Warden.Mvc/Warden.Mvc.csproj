@@ -91,6 +91,7 @@
     <Compile Include="App_Start\Routes\AdminRouteConfig.cs" />
     <Compile Include="App_Start\Routes\BaseAreaRegistrator.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
+    <Compile Include="Controllers\Admin\BlogController.cs" />
     <Compile Include="Controllers\Admin\CategoryController.cs" />
     <Compile Include="Controllers\Admin\PayerController.cs" />
     <Compile Include="Controllers\Admin\TransactionController.cs" />
@@ -102,6 +103,8 @@
     <Compile Include="Models\Admin\ImportTaskSettingsModel.cs" />
     <Compile Include="Models\Admin\KeywordsCalibrationViewModel.cs" />
     <Compile Include="Models\Admin\KeywordVote.cs" />
+    <Compile Include="Models\Admin\PostComponentViewModel.cs" />
+    <Compile Include="Models\Admin\PostViewModel.cs" />
     <Compile Include="Models\PostDetailsViewModel.cs" />
     <Compile Include="Models\ChartViewModel.cs" />
     <Compile Include="Models\PayerDetailsViewModel.cs" />

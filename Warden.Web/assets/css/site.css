@@ -499,3 +499,47 @@ a:visited {
     color: #000;
     border: 0px;
 }
+
+post-component{
+    padding: 5px;
+}
+
+blog-post{
+    padding: 5px;
+}
+
+.new-component-btn,
+.save-blog-post-btn {
+    position: fixed;
+    top: 250px;
+    right: 10px;
+    z-index: 100000;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black !important;
+    border-radius: 50%;
+    line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.new-component-btn:hover,
+.save-blog-post-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.save-blog-post-btn{
+    top: 360px;
+}
+
+.pure-button{
+    background-color: transparent;
+    border: 1px solid black !important;
+    margin-bottom: 5px;
+}
+
+.pure-button:hover{
+    background-color: black;
+    color: white;
+}

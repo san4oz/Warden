@@ -130,6 +130,13 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
             (
+                name: "api/post/create",
+                url: "api/post/create",
+                defaults: new { controller = "Blog", action = "Create" }
+            );
+
+            MapRoute
+            (
                 name: "_angular",
                 url: "{*url}",
                 defaults: new { controller = "Admin", action = "Admin" }

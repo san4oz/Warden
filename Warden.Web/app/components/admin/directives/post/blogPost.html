@@ -1,3 +1,14 @@
-﻿<div ng-transclude>
+﻿<div class="preview-info">
+    <label for="Title">Title</label>
+    <input type="text" name="Title" id="Title" ng-model="Post.Title"/>
+    <br />
+    <label for="Description">Description</label>
+    <input type="text" name="Description" id="Description" ng-model="Post.Description" />
+    <br />
+    <label for="BannerImage">Banner image</label>
+    <input type="file" id="BannerImage" fileread="Post.Banner"/>  
 
+    <div ng-repeat="component in Post.Components">
+        <post-component contentEditable="true" ng-model="component.Html" ctype="{{component.Type}}"></post-component>
+    </div>
 </div>

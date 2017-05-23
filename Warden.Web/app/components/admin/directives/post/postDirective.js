@@ -7,30 +7,45 @@
 
             this.addComponent = function (component) {
                 components.push(component);
-            };                      
+            };
         }],
-        link: function (scope, element, attrs) {
-            element.on("save", function () {
-                for (var i = 0; i < scope.components.length; i++) {
-                    console.log();
-                }
-            });
-        },
         templateUrl: '/app/components/admin/directives/post/blogPost.html'
     }
 })
-.directive('postComponent', function ($timeout) {
+    .directive('postComponent', function ($timeout, $interpolate, $rootScope) {
     return {
-        require: '^^blogPost',
-        restrict: 'E',
-        link: function (scope, element, attrs, blogPostController) {
+        require: ['^^blogPost', 'ngModel'],
+        restrict: 'E',          
+        link: function (scope, element, attrs, references) {
+
+            var ngModel = references[1];
+            var blogPostController = references[0];
+
             blogPostController.addComponent(scope);
             $timeout(function () {
                 element.froalaEditor();
             });
-        },        
-        templateUrl: function (element, attr) {
-            return '/app/components/admin/directives/post/components/' + element.attr("component-type") + "Component.html"
-        }
+           
+            function read() {
+                ngModel.$setViewValue(element.froalaEditor('html.get'));
+            }
+
+            ngModel.$render = function () {
+                element.html(ngModel.$viewValue || "");
+            };
+
+            element.bind("blur", function () {
+                scope.$apply(read);
+            });
+            element.bind("keydown keypress", function (event) {
+                if (event.which === 13) {
+                    this.blur();
+                    event.preventDefault();
+                }
+            });
+
+            scope.componentTemplate = "/app/components/admin/directives/post/components/" + attrs.ctype + "Component.html";
+        },      
+        template: "<div ng-include='componentTemplate'></div>"     
     }
 });

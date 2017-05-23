@@ -1,5 +1,13 @@
 ﻿adminApp.controller('postCreationController', function ($scope, $routeParams, $compile, postCreationService) {
-    $scope.addComponent = function () {
-        $("blog-post").append($compile("<post-component component-type='text'></<post-component>")($scope));
+    $scope.Post = {};
+    $scope.Post.ComponentsCount = 0;
+    $scope.Post.Components = [];
+
+    $scope.addComponent = function () {       
+        $scope.Post.Components.push({ Type: "text" });
     }
+
+    $scope.savePost = function () {
+        postCreationService.savePost($scope.Post);
+    };
 });
