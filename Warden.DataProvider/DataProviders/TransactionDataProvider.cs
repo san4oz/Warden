@@ -11,13 +11,20 @@ namespace Warden.DataProvider.DataProviders
 {
     public class TransactionDataProvider : BaseDataProvider<Transaction>, ITransactionProvider
     {
-        public void AttachToCategory(Guid transactionId, Guid categoryId)
+        public void AttachToCategory(List<Guid> ids, Guid categoryId)
         {
             Execute(session =>
             {
-                var transaction = session.Get<Transaction>(transactionId);
-                transaction.CategoryId = categoryId;
-                session.SaveOrUpdate(transaction);
+                var transactions = session.QueryOver<Transaction>()
+                            .Where(t => t.Id.IsIn(ids)).List().ToList();
+
+
+                foreach(var transaction in transactions)
+                {
+                    transaction.CategoryId = categoryId;
+                    session.SaveOrUpdate(transaction);
+                }
+
                 session.Flush();
             });
         }
@@ -144,6 +151,14 @@ namespace Warden.DataProvider.DataProviders
                 transaction.Voted = true;
                 session.SaveOrUpdate(transaction);
                 session.Flush();
+            });
+        }
+
+        public List<Transaction> GetByGroupId(string groupId)
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<Transaction>().Where(t => t.GroupId == groupId).List().ToList();
             });
         }
     }

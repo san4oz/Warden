@@ -16,7 +16,7 @@ namespace Warden.Business.Providers
 
         void DeleteByPayerId(string payerId);
 
-        void AttachToCategory(Guid transactionId, Guid categoryId);
+        void AttachToCategory(List<Guid> ids, Guid categoryId);
 
         List<Transaction> GetWithoutCategory(Guid[] ids);
 
@@ -29,5 +29,7 @@ namespace Warden.Business.Providers
         void MarkAsVoted(Guid transactionId);
 
         List<Transaction> GetWithoutCategory();
+
+        List<Transaction> GetByGroupId(string groupId);
     }
 }

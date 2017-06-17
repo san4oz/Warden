@@ -10,6 +10,7 @@
     <property name="ExternalId" type="System.String"/>
     <property name="Voted" type="System.Boolean"/>
     <property name="CategoryId" type="System.Guid"/>
+    <property name="GroupId" type="System.String"/>
   </class>
 
   <class name="Payer" table="Payers">

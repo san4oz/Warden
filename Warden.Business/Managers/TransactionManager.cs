@@ -29,7 +29,7 @@ namespace Warden.Business.Managers
 
         public void MarkAsVoted(Guid transactionId) => Provider.MarkAsVoted(transactionId);
 
-        public void AttachToCategory(Guid transactionId, Guid categoryId) => Provider.AttachToCategory(transactionId, categoryId);
+        public void AttachToCategory(List<Guid> ids, Guid categoryId) => Provider.AttachToCategory(ids, categoryId);
 
         public List<Transaction> GetNotVoted(Guid categoryId) => Provider.GetNotVoted(categoryId);
 
@@ -42,5 +42,7 @@ namespace Warden.Business.Managers
         public void DeleteByPayerId(string payerId) => Provider.DeleteByPayerId(payerId);
 
         public List<Transaction> GetTransactionsByPayerId(string payerId) => Provider.GetByPayerId(payerId);
+
+        public List<Transaction> GetByGroupId(string groupId) => Provider.GetByGroupId(groupId);
     }
 }

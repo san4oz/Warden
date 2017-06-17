@@ -26,6 +26,7 @@ namespace Warden.Business.Import.Pipeline
                 new TransactionRetreivingStep(),
                 new TransactionFilteringStep(),
                 new TransactionProcessingStep(),
+                new TransactionGroupingStep(),
                 new TransactionCreatingStep(),
                 new TransactionIndexingStep()
             };
