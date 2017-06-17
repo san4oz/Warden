@@ -1,3 +1,21 @@
 ﻿<div ng-controller="postDetailsController">
+    <div id="left">
+        <div class="entry">
+            <span class="date">{{post.CreatedDate}}</span>
+            <div class="post internalPost">
+                <h2>{{post.Title}}</h2>
+                <div>
+                    <p>
+                        <img src="{{post.Banner}}" alt="{{post.Title}}" />
+                    </p>
+                    <p>
+                        {{post.ShortDescription}}
+                    </p>
+                </div>
+                <div id="contentComponents" class="contentPost">
+                </div>
+            </div>
+        </div>
+    </div>
     {{post.Title}}
 </div>

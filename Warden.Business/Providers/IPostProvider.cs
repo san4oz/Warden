@@ -10,5 +10,7 @@ namespace Warden.Business.Providers
     public interface IPostProvider : IProvider<Post>
     {
         void SaveWithComponents(Post post, IEnumerable<PostComponent> components);
+
+        Post GetWithComponents(Guid id);
     }
 }

@@ -15,5 +15,7 @@ namespace Warden.Business.Entities
         public virtual DateTime CreatedDate { get; set; }
 
         public virtual string Banner { get; set; }
+
+        public virtual IEnumerable<PostComponent> Components { get; set; }
     }
 }

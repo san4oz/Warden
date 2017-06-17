@@ -15,5 +15,7 @@ namespace Warden.Mvc.Models
         public string Description { get; set; }
 
         public string CreatedDate { get; set; }
+
+        public string Banner { get; set; }
     }
 }

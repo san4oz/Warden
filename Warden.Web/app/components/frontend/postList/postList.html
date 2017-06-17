@@ -5,12 +5,12 @@
                 <span class="date">{{post.CreatedDate}}</span>
                 <div class="post">
                     <h2>
-                        <a href="#">{{post.Title}}</a>
+                        <a ng-href="/posts/{{post.Id}}">{{post.Title}}</a>
                     </h2>
                     <div class="contentPost">
                         <p>
-                            <a class="no_underline" href="#">
-                                <img src="/assets/img/Posts/TestPost.jpg" />
+                            <a class="no_underline" ng-href="/posts/{{post.Id}}">
+                                <img src="{{post.Banner}}" alt="{{post.Title}}"/>
                             </a>
                         </p>
                         <p>

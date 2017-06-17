@@ -53,7 +53,7 @@
   <class name="PostComponent" table="PostComponents">
     <id name="Id" type="System.Guid"></id>
     <property name="Type" type="int"/>
-    <property name="Data" type="System.String"/>
+    <property name="Data" length="2147483647" type="System.String"/>
     <property name="PostId" type="System.Guid"/>
   </class>
   
