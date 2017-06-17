@@ -19,5 +19,7 @@ namespace Warden.Business.Entities
         public virtual Guid? CategoryId { get; set; }
 
         public virtual bool Voted { get; set; }
+
+        public virtual string GroupId { get; set; }
     }
 }

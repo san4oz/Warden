@@ -108,6 +108,14 @@ namespace Warden.Mvc.App_Start.Routes
                defaults: new { controller = "Transaction", action = "AttachToCategory" }
            );
 
+            MapRoute
+         (
+             name: "api/transaction/processcalibratedtransactions",
+             url: "api/transaction/processcalibratedtransactions",
+             defaults: new { controller = "Transaction", action = "ProcessCalibratedTransactions" }
+         );
+
+
             MapRoute(
                 name: "api/transaction-import/logs",
                 url: "api/transaction-import/logs/{payerId}/",

@@ -3,3 +3,6 @@ add CategoryId uniqueidentifier foreign key references Categories(Id)
 
 alter table transactions
 add Voted bit 
+
+alter table Transactions
+add GroupId nvarchar(50)

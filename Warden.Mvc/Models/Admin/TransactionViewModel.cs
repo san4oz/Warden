@@ -11,12 +11,15 @@ namespace Warden.Mvc.Models.Admin
 
         public string[] Keywords { get; set; }
 
-        public TransactionViewModel(Guid id, string payerId, decimal price, string keywords)
+        public bool HasSameTransactions { get; set; }
+
+        public TransactionViewModel(Guid id, string payerId, decimal price, string keywords, bool hasSameTransactions)
         {
             this.Id = id;
             this.PayerId = payerId;
             this.Price = price;
             this.Keywords = keywords.Split(new[] { ';' });
+            this.HasSameTransactions = hasSameTransactions;
         }
     }
 }

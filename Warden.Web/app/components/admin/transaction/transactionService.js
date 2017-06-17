@@ -42,4 +42,8 @@ adminApp.service('transactionService', function (
     this.calibrateKeywords = function (model) {
         return $http.post("/admin/api/transaction/calibratekeywords", model);
     };
+
+    this.processCalibratedTransactions = function () {
+        return $http.post("/admin/api/transaction/processcalibratedtransactions");
+    };
 });

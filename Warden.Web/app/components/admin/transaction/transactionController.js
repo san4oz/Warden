@@ -90,6 +90,14 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         });
     };
 
+    $scope.processCalibratedTransactions = function () {
+        LockScreen(true);
+        transactionService.processCalibratedTransactions().then(function (result) {
+            LockScreen(false);
+            alert(result.data.Count + " transactions were processed");
+        });
+    }
+
     $scope.getCategoryTransactions = function (category) {
         transactionService.getCategoryTransactions(category).then(function (result) {
             $scope.transactions = result.data;
