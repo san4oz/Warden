@@ -12,7 +12,6 @@ namespace Warden.Business.Managers
     {
         private readonly TransactionManager transactionManager;
         private readonly IKeywordProvider keywordProvider;
-        private readonly AnalysisManager analysisManager;
 
         public AnalysisManager()
         {
@@ -60,7 +59,11 @@ namespace Warden.Business.Managers
 
             foreach(var keyword in keywords)
             {
-                var trustedKeyword = TrustHelper.GetTheMostTrusted(keywordProvider.Get(keyword));
+                var categoryKeyword = keywordProvider.Get(keyword);
+                if (categoryKeyword.Count <= 0)
+                    return false;
+
+                var trustedKeyword = TrustHelper.GetTheMostTrusted(categoryKeyword);
                 if (trustedKeyword != null)
                 {
                     AttachToCategory(transaction.Id, trustedKeyword.CategoryId);

@@ -12,6 +12,9 @@
         <li class="tab-link">
             <span>Загальна кількість транзакцій: {{transactionCount}}</span>
         </li>
+        <li class="tab-link">
+            <button ng-click="processCalibratedTransactions()">Обробити автоматично</button>
+        </li>
     </ul>
 
     <div ng-show="tabs.isSet(1)" class="pure-g searched-data">

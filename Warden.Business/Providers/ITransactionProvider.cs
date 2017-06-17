@@ -26,6 +26,8 @@ namespace Warden.Business.Providers
 
         List<Transaction> GetNotVoted(Guid categoryId);
 
+        List<Transaction> GetNotVoted();
+
         void MarkAsVoted(Guid transactionId);
 
         List<Transaction> GetWithoutCategory();

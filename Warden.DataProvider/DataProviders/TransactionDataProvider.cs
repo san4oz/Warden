@@ -106,6 +106,16 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
+        public List<Transaction> GetNotVoted()
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<Transaction>()
+                              .Where(t => !t.Voted)
+                              .List().ToList();
+            });
+        }
+
         public void Delete(Guid[] ids)
         {
             Execute(session =>

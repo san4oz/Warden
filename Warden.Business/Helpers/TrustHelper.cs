@@ -10,7 +10,7 @@ namespace Warden.Business.Helpers
         
         public static CategoryKeyword GetTheMostTrusted(List<CategoryKeyword> keywords)
         {
-            return keywords.Where(k => ShouldTrustKeyword(k)).OrderByDescending(x => x.TrustRate).First();
+            return keywords.Where(k => ShouldTrustKeyword(k)).OrderByDescending(x => x.TrustRate).FirstOrDefault();
         }
     }
 }

@@ -83,6 +83,19 @@ namespace Warden.Mvc.Controllers.Admin
             return Json(true);
         }
 
+        [HttpPost]
+        public ActionResult ProcessCalibratedTransactions()
+        {
+            int attachedTransactionsCount = 0;
+            var transactions = RemoveDuplicates(transactionManager.GetNotVoted());
+            transactions.ForEach(transaction =>
+            {
+                attachedTransactionsCount += analysisManager.TryAttachToCategory(transaction) ? 1 : 0;
+            });
+
+            return Json(new { Count = attachedTransactionsCount });
+        }
+
         private void CalibrateKeywordsForGroup(KeywordsCalibrationViewModel model, Transaction transaction)
         {
             var transactions = transactionManager.GetByGroupId(transaction.GroupId);

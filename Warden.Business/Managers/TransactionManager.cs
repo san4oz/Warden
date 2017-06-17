@@ -33,6 +33,8 @@ namespace Warden.Business.Managers
 
         public List<Transaction> GetNotVoted(Guid categoryId) => Provider.GetNotVoted(categoryId);
 
+        public List<Transaction> GetNotVoted() => Provider.GetNotVoted();
+
         public List<Transaction> GetByCategoryId(Guid categoryId) => Provider.GetByCategoryId(categoryId);
 
         public int GetTotalCount() => Provider.GetTotalCount();
