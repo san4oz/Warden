@@ -16,5 +16,7 @@ namespace Warden.Business.Managers
 
         public void SaveWithComponents(Post post, IEnumerable<PostComponent> postComponents) =>
                     Provider.SaveWithComponents(post, postComponents);
+
+        public Post GetWithComponents(Guid id) => Provider.GetWithComponents(id);
     }
 }
