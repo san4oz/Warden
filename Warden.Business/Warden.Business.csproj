@@ -49,8 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="Entities\Blog\Components\Component.cs" />
-    <Compile Include="Entities\Blog\Components\TextComponent.cs" />
+    <Compile Include="Entities\Blog\PostComponent.cs" />
     <Compile Include="Entities\Blog\Post.cs" />
     <Compile Include="Import\Pipeline\Steps\ITransactionImportPipelineStep.cs" />
     <Compile Include="Helpers\TransactionImportTracer.cs" />

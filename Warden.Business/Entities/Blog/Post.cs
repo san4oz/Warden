@@ -13,5 +13,7 @@ namespace Warden.Business.Entities
         public virtual string ShortDescription { get; set; }
 
         public virtual DateTime CreatedDate { get; set; }
+
+        public virtual string Banner { get; set; }
     }
 }

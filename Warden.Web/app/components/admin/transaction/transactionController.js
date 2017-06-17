@@ -37,6 +37,8 @@ adminApp.controller('transactionController', function ($scope, transactionServic
     $scope.tabs = {
         setTab: function (newTab) {
             $scope.tab = newTab;
+            if ($scope.onTabChange)
+                $scope.onTabChange();
         },
         isSet: function (tabNum) {
             return $scope.tab === tabNum;
@@ -146,6 +148,13 @@ adminApp.controller('transactionController', function ($scope, transactionServic
         Promise.all([payersLoading, categoriesLoading, transactionsCountLoading]).then(() => {
             LockScreen(false);
         });
+    };
+
+    $scope.onTabChange = function () {
+        if ($scope.tabs.isSet(2))
+        {
+            $scope.search("");
+        }
     };
    
     $scope.init();

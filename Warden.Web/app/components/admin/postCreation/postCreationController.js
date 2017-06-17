@@ -4,7 +4,7 @@
     $scope.Post.Components = [];
 
     $scope.addComponent = function () {       
-        $scope.Post.Components.push({ Type: "text" });
+        $scope.Post.Components.push({ Type: "Text" });
     }
 
     $scope.savePost = function () {

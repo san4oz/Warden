@@ -13,5 +13,8 @@ namespace Warden.Business.Managers
         public PostManager(IPostProvider provider) : base(provider)
         {
         }
+
+        public void SaveWithComponents(Post post, IEnumerable<PostComponent> postComponents) =>
+                    Provider.SaveWithComponents(post, postComponents);
     }
 }

@@ -5,6 +5,7 @@ using Warden.Business;
 using Warden.Business.Entities;
 using Warden.Business.Managers;
 using Warden.Mvc.Models.Admin;
+using Warden.Core.Extensions;
 
 namespace Warden.Mvc.Controllers.Admin
 {
@@ -24,7 +25,7 @@ namespace Warden.Mvc.Controllers.Admin
         [HttpPost]
         public ActionResult Search(string keyword)
         {
-            if (string.IsNullOrEmpty(keyword))
+            if (!keyword.IsEmpty() && keyword.Length <= 3)
                 return Json(null);
 
             var unprocessedTransactions = transactionManager.GetWithoutCategory(keyword);

@@ -1,0 +1,6 @@
+create table PostComponents(
+	[Id] uniqueidentifier primary key not null,
+	[Type] int not null,
+	[Data] nvarchar(max) not null,
+	[PostId] uniqueidentifier foreign key references Posts(Id)
+);

@@ -79,6 +79,15 @@ namespace Warden.DataProvider.DataProviders
             });
         }
 
+        public List<Transaction> GetWithoutCategory()
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<Transaction>().Where(t => t.CategoryId == null)
+                                                       .Take(100).List().ToList();
+            });
+        }
+
         public List<Transaction> GetNotVoted(Guid categoryId)
         {
             return Execute(session =>

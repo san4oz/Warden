@@ -3,5 +3,6 @@ create table Posts
 	Id uniqueidentifier not null primary key,
 	Title nvarchar(100) not null,
 	ShortDescription nvarchar(250) not null,
-	CreatedDate datetime2 default(GetDate())
+	CreatedDate datetime2 default(GetDate()),
+	Banner varchar(max) not null
 );

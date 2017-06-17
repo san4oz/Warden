@@ -4,6 +4,7 @@ using System.Linq;
 using Warden.Business.Entities;
 using Warden.Business.Entities.Search;
 using Warden.Business.Providers;
+using Warden.Core.Extensions;
 
 namespace Warden.Business.Managers
 {
@@ -18,6 +19,9 @@ namespace Warden.Business.Managers
 
         public List<Transaction> GetWithoutCategory(string keyword)
         {
+            if (keyword.IsEmpty())
+                return Provider.GetWithoutCategory().ToList();
+
             var request = new SearchRequest() { Query = keyword, IsWildCardSearch = true };
             var response = searchManager.Search(request);
             return Provider.GetWithoutCategory(response.Results.Select(i => new Guid(i.Id)).ToArray());
