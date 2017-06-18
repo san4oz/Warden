@@ -154,10 +154,6 @@
     <Content Include="app\components\frontend\contact\contactView.html" />
     <Content Include="app\components\frontend\home\homeController.js" />
     <Content Include="app\components\frontend\home\homeView.html" />
-    <Content Include="App_Data\Warden.mdf" />
-    <Content Include="App_Data\Warden_log.ldf">
-      <DependentUpon>Warden.mdf</DependentUpon>
-    </Content>
     <Content Include="assets\css\admin.css" />
     <Content Include="assets\css\pikaday.css" />
     <Content Include="assets\css\pure.css" />
@@ -191,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\shared\" />
+    <Folder Include="App_Data\" />
     <Folder Include="assets\img\" />
   </ItemGroup>
   <ItemGroup>

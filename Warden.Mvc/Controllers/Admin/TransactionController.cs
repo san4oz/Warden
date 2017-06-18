@@ -13,10 +13,10 @@ namespace Warden.Mvc.Controllers.Admin
         private AnalysisManager analysisManager;
         private TransactionManager transactionManager;
 
-        public TransactionController()
+        public TransactionController(TransactionManager transactionManager, AnalysisManager analysisManager)
         {
-            this.transactionManager = IoC.Resolve<TransactionManager>();
-            this.analysisManager = IoC.Resolve<AnalysisManager>();
+            this.transactionManager = transactionManager;
+            this.analysisManager = analysisManager;
         }
 
         public ActionResult Count() => Json(transactionManager.GetTotalCount());

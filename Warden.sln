@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Web", "Warden.Web\Warden.Web.csproj", "{871B1B78-10B1-44EF-8518-EA637D7060A9}"
 EndProject
@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Business", "Warden.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Search", "Warden.Search\Warden.Search.csproj", "{276C2F70-9099-4BBA-A66B-24C0EEC40C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.DataProvider", "Warden.DataProvider\Warden.DataProvider.csproj", "{97651772-1EFE-4F59-9BA0-85CFE52822FC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.TransactionSource", "Warden.ExternalDataProvider\Warden.TransactionSource.csproj", "{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.SQLDataProvider", "Warden.SQLDataProvider\Warden.SQLDataProvider.csproj", "{97651772-1EFE-4F59-9BA0-85CFE52822FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Core", "Warden.Core\Warden.Core.csproj", "{3AE1D6B3-DA7C-4B2F-B34E-D643214F7514}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.Mvc", "Warden.Mvc\Warden.Mvc.csproj", "{02BCC5D9-F50D-4407-9771-5252AAFA7EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden.APIDataProvider", "Warden.APIDataProvider\Warden.APIDataProvider.csproj", "{C7311FEF-464E-4C7D-9890-72DCF74D67FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{97651772-1EFE-4F59-9BA0-85CFE52822FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97651772-1EFE-4F59-9BA0-85CFE52822FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97651772-1EFE-4F59-9BA0-85CFE52822FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D33D3F9-28A0-4CD0-8B13-B950896FEE4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AE1D6B3-DA7C-4B2F-B34E-D643214F7514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3AE1D6B3-DA7C-4B2F-B34E-D643214F7514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE1D6B3-DA7C-4B2F-B34E-D643214F7514}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{02BCC5D9-F50D-4407-9771-5252AAFA7EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02BCC5D9-F50D-4407-9771-5252AAFA7EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02BCC5D9-F50D-4407-9771-5252AAFA7EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7311FEF-464E-4C7D-9890-72DCF74D67FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7311FEF-464E-4C7D-9890-72DCF74D67FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7311FEF-464E-4C7D-9890-72DCF74D67FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7311FEF-464E-4C7D-9890-72DCF74D67FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

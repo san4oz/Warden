@@ -1,6 +1,6 @@
 ﻿using System;
 using Warden.Business.Entities;
-using Warden.Business.Helpers;
+using Warden.Business.Utils;
 using Warden.Business.Providers;
 using Warden.Core.Extensions;
 
@@ -11,10 +11,10 @@ namespace Warden.Business.Managers
         private readonly TransactionManager transactionManager;
         private readonly IKeywordProvider keywordProvider;
 
-        public AnalysisManager()
+        public AnalysisManager(IKeywordProvider keywordProvider, TransactionManager transactionManager)
         {
-            this.transactionManager = IoC.Resolve<TransactionManager>();
-            this.keywordProvider = IoC.Resolve<IKeywordProvider>();
+            this.transactionManager = transactionManager;
+            this.keywordProvider = keywordProvider;
         }
 
         public bool AttachToCategory(Guid transactionId, Guid categoryId)
@@ -34,6 +34,7 @@ namespace Warden.Business.Managers
             {
                 keyword = new CategoryKeyword() { CategoryId = categoryId, Keyword = keywordText };
             }
+
             keyword.SuccessVotes += correct ? 1 : 0;
             keyword.TotalVotes += 1;
 

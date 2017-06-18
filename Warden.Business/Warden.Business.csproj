@@ -36,7 +36,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,12 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="Import\Pipeline\Steps\ITransactionImportPipelineStep.cs" />
-    <Compile Include="Helpers\TransactionImportTracer.cs" />
+    <Compile Include="Import\ITransactionImportTask.cs" />
+    <Compile Include="Import\Processor\Steps\ITransactionImportStep.cs" />
+    <Compile Include="Utils\Text\TextNormalizer.cs" />
+    <Compile Include="Utils\Text\WordFilters\FilterRule.cs" />
+    <Compile Include="Utils\Text\WordFilters\TokenFilter.cs" />
+    <Compile Include="Utils\TransactionImportTracer.cs" />
     <Compile Include="Entities\CategoryKeyword.cs" />
-    <Compile Include="Helpers\TrustHelper.cs" />
+    <Compile Include="Utils\TrustHelper.cs" />
     <Compile Include="Import\ImportTaskStatus.cs" />
-    <Compile Include="IoC.cs" />
+    <Compile Include="Import\TransactionImportTaskLogger.cs" />
     <Compile Include="Managers\AnalysisManager.cs" />
     <Compile Include="Managers\CategoryManager.cs" />
     <Compile Include="Managers\EntityManager.cs" />
@@ -59,20 +62,20 @@
     <Compile Include="Managers\ISearchManager.cs" />
     <Compile Include="Managers\PayerManager.cs" />
     <Compile Include="Managers\TransactionManager.cs" />
-    <Compile Include="Import\Pipeline\Steps\CategoryDeterminingStep.cs" />
-    <Compile Include="Import\Pipeline\Steps\TransactionCleaningStep.cs" />
-    <Compile Include="Import\Pipeline\Steps\TransactionFilteringStep.cs" />
-    <Compile Include="Import\Pipeline\TransactionImportRequest.cs" />
-    <Compile Include="Import\Pipeline\Steps\TransactionCreatingStep.cs" />
-    <Compile Include="Import\Pipeline\Steps\TransactionIndexingStep.cs" />
-    <Compile Include="Import\Pipeline\Steps\TransactionProcessingStep.cs" />
-    <Compile Include="Import\Pipeline\TransactionImportPipelineContext.cs" />
-    <Compile Include="Providers\ISourceTransactionProvider.cs" />
+    <Compile Include="Import\Processor\Steps\CategoryDeterminingStep.cs" />
+    <Compile Include="Import\Processor\Steps\TransactionCleaningStep.cs" />
+    <Compile Include="Import\Processor\Steps\TransactionFilteringStep.cs" />
+    <Compile Include="Import\Processor\TransactionImportRequest.cs" />
+    <Compile Include="Import\Processor\Steps\TransactionCreatingStep.cs" />
+    <Compile Include="Import\Processor\Steps\TransactionIndexingStep.cs" />
+    <Compile Include="Import\Processor\Steps\TransactionProcessingStep.cs" />
+    <Compile Include="Import\Processor\TransactionImportContext.cs" />
+    <Compile Include="Providers\IAPITransactionProvider.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\TransactionSource\TransactionRequest.cs" />
     <Compile Include="Entities\Payer.cs" />
-    <Compile Include="Import\Pipeline\Steps\TransactionRetreivingStep.cs" />
-    <Compile Include="Import\Pipeline\TransactionImportPipeline.cs" />
+    <Compile Include="Import\Processor\Steps\TransactionRetreivingStep.cs" />
+    <Compile Include="Import\Processor\TransactionImportProcessor.cs" />
     <Compile Include="Import\TransactionImportTask.cs" />
     <Compile Include="Entities\TransactionImportSettings.cs" />
     <Compile Include="Entities\Search\Entry.cs" />

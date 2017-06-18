@@ -110,6 +110,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Warden.APIDataProvider\Warden.APIDataProvider.csproj">
+      <Project>{c7311fef-464e-4c7d-9890-72dcf74d67fd}</Project>
+      <Name>Warden.APIDataProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Warden.Business\Warden.Business.csproj">
       <Project>{2e953051-187f-4e43-9f8a-ea7dc29d83d0}</Project>
       <Name>Warden.Business</Name>
@@ -118,17 +122,13 @@
       <Project>{3ae1d6b3-da7c-4b2f-b34e-d643214f7514}</Project>
       <Name>Warden.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Warden.DataProvider\Warden.DataProvider.csproj">
-      <Project>{97651772-1efe-4f59-9ba0-85cfe52822fc}</Project>
-      <Name>Warden.DataProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Warden.ExternalDataProvider\Warden.TransactionSource.csproj">
-      <Project>{2d33d3f9-28a0-4cd0-8b13-b950896fee4f}</Project>
-      <Name>Warden.TransactionSource</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Warden.Search\Warden.Search.csproj">
       <Project>{276c2f70-9099-4bba-a66b-24c0eec40c6d}</Project>
       <Name>Warden.Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Warden.SQLDataProvider\Warden.SQLDataProvider.csproj">
+      <Project>{97651772-1efe-4f59-9ba0-85cfe52822fc}</Project>
+      <Name>Warden.SQLDataProvider</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

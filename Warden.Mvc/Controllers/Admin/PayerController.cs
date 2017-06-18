@@ -10,9 +10,9 @@ namespace Warden.Mvc.Controllers.Admin
     {
         private PayerManager payerManager;
 
-        public PayerController()
+        public PayerController(PayerManager payerManager)
         {
-            this.payerManager = IoC.Resolve<PayerManager>();
+            this.payerManager = payerManager;
         }
 
         [HttpPost]

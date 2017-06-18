@@ -2,7 +2,7 @@
 using System.Net.Mime;
 using System.Web.Mvc;
 using Warden.Business;
-using Warden.Business.Helpers;
+using Warden.Business.Utils;
 using Warden.Business.Entities;
 using Warden.Business.Import;
 using Warden.Business.Providers;
@@ -12,23 +12,25 @@ namespace Warden.Mvc.Controllers.Admin
 {
     public class TransactionImportController : Controller
     {
-        private readonly IImportSettingsProvider configurationDataProvider;
+        private readonly IImportSettingsProvider importSettingsManager;
+        private readonly TransactionImportTask importTask;
 
-        public TransactionImportController()
+        public TransactionImportController(IImportSettingsProvider importSettingsManager, TransactionImportTask importTask)
         {
-            this.configurationDataProvider = IoC.Resolve<IImportSettingsProvider>();
+            this.importSettingsManager = importSettingsManager;
+            this.importTask = importTask;
         }
 
         [HttpPost]
         public ActionResult StartImport(string whoId, bool rebuild)
         {
-            var result = IoC.Resolve<TransactionImportTask>().StartImport(whoId, rebuild);
-            return Json(result);
+            importTask.Execute(whoId, rebuild);
+            return Json(ImportTaskStatus.InProgress);
         }
 
         public ActionResult GetImportSettings(string payerId)
         {
-            var settings = configurationDataProvider.GetByPayerId(payerId);
+            var settings = importSettingsManager.GetByPayerId(payerId);
             var model = new ImportTaskSettingsModel()
             {
                 FromDate = settings.StartDate,
@@ -45,14 +47,14 @@ namespace Warden.Mvc.Controllers.Admin
             if (!ModelState.IsValid)
                 return Json(false);
 
-            var settings = configurationDataProvider.GetByPayerId(model.PayerId);
+            var settings = importSettingsManager.GetByPayerId(model.PayerId);
             if (settings == null)
                 settings = new TransactionImportSettings() { PayerId = model.PayerId };
 
             settings.StartDate = model.FromDate;
             settings.EndDate = model.ToDate;
 
-            configurationDataProvider.Update(settings);
+            importSettingsManager.Update(settings);
 
             return Json(true);
         }

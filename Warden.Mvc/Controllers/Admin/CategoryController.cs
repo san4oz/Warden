@@ -11,9 +11,9 @@ namespace Warden.Mvc.Controllers.Admin
     {
         private readonly CategoryManager categoryManager;
 
-        public CategoryController()
+        public CategoryController(CategoryManager categoryManager)
         {
-            this.categoryManager = IoC.Resolve<CategoryManager>();
+            this.categoryManager = categoryManager;
         }
 
         [HttpPost]
