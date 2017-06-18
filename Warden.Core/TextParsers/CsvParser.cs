@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic.FileIO;
-using Warden.Core.Utils;
 
 namespace Warden.Core.TextParsers
 {
@@ -65,10 +63,7 @@ namespace Warden.Core.TextParsers
                     {
                         result.Add(ParseEntity(textFieldParser.ReadFields()));
                     }
-                    catch (Exception ex)
-                    {
-#warning do something with exceptions
-                    }
+                    catch (Exception) {  }
                 }
             }
 

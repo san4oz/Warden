@@ -18,11 +18,11 @@ namespace Warden.Mvc.Controllers
         private readonly TransactionManager transactionManager;
         private readonly CategoryManager categoryManager;
 
-        public PayerController()
+        public PayerController(PayerManager payerManager, TransactionManager transactionManager, CategoryManager categoryManager)
         {
-            payerManager = IoC.Resolve<PayerManager>();
-            transactionManager = IoC.Resolve<TransactionManager>();
-            categoryManager = IoC.Resolve<CategoryManager>();
+            this.payerManager = payerManager;
+            this.transactionManager = transactionManager;
+            this.categoryManager = categoryManager;
         }
 
         [HttpPost]

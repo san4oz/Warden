@@ -2,11 +2,12 @@
 using Autofac.Integration.Mvc;
 using System.Web.Mvc;
 using Warden.Business.Import;
-using Warden.Business.Import.Pipeline;
+using Warden.Business.Import.Processor;
+using Warden.Business.Import.Processor.Steps;
 using Warden.Business.Managers;
 using Warden.Business.Providers;
-using Warden.DataProvider.DataProviders;
 using Warden.Search;
+using Warden.SQLDataProvider.DataProviders;
 using Warden.TransactionSource;
 
 namespace Warden.Mvc.App_Start
@@ -25,11 +26,11 @@ namespace Warden.Mvc.App_Start
         {
             
             RegisterDataProviders(builder);
-            builder.RegisterType<TransactionSourceProvider>().As<ITransactionSourceProvider>();
+            builder.RegisterType<APITransactionProvider>().As<IAPITransactionProvider>();
             RegisterManagers(builder);
 
-            builder.RegisterType<TransactionImportTask>().As<TransactionImportTask>().SingleInstance();
-            RegisterPipeline(builder);
+            RegisterTransactionImportTask(builder);
+            RegisterImportProcessor(builder);
         }
 
         private static void RegisterManagers(ContainerBuilder builder)
@@ -53,9 +54,24 @@ namespace Warden.Mvc.App_Start
             builder.RegisterType<PostProvider>().As<IPostProvider>();
         }
 
-        private static void RegisterPipeline(ContainerBuilder builder)
+        private static void RegisterImportProcessor(ContainerBuilder builder)
         {
-            builder.RegisterType<TransactionImportPipeline>().As<TransactionImportPipeline>();
+            builder.RegisterType<TransactionImportProcessor>().As<TransactionImportProcessor>();
+
+            builder.RegisterType<TransactionRetreivingStep>().As<ITransactionImportStep>();
+            builder.RegisterType<TransactionFilteringStep>().As<ITransactionImportStep>();
+            builder.RegisterType<TransactionProcessingStep>().As<ITransactionImportStep>();
+            builder.RegisterType<TransactionCreatingStep>().As<ITransactionImportStep>();
+            builder.RegisterType<TransactionIndexingStep>().As<ITransactionImportStep>();
+        }
+
+        private static void RegisterTransactionImportTask(ContainerBuilder builder)
+        {
+            builder.RegisterType<TransactionImportTask>()
+                  .Named<ITransactionImportTask>("transactionImportTask");
+
+            builder.RegisterDecorator<ITransactionImportTask>(
+                (c, inner) => new TransactionImportTaskLogger(inner), fromKey: "transactionImportTask");
         }
     }
 }

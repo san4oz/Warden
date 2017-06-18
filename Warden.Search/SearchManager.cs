@@ -4,7 +4,6 @@ using Lucene.Net.Index;
 using Lucene.Net.QueryParsers;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -24,7 +23,12 @@ namespace Warden.Search
         private string luceneDir = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, ConfigurationManager.ConnectionStrings["IndexDirectory"].ConnectionString);
         private Lucene.Net.Util.Version version = Lucene.Net.Util.Version.LUCENE_30;
 
-        protected PayerManager payerManager = IoC.Resolve<PayerManager>();
+        private readonly PayerManager payerManager;
+
+        public SearchManager(PayerManager manager)
+        {
+            this.payerManager = manager;
+        }
 
         private FSDirectory GetDirectory(string path)
         {

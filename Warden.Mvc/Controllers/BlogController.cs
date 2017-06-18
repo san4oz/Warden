@@ -15,9 +15,9 @@ namespace Warden.Mvc.Controllers
     public class BlogController : Controller
     {
         private readonly PostManager postManager;
-        public BlogController()
+        public BlogController(PostManager postManager)
         {
-            postManager = IoC.Resolve<PostManager>();
+            this.postManager = postManager;
         }
 
         [HttpPost]
