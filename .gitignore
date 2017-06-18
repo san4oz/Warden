@@ -285,4 +285,4 @@ packages/
 /@data/index
 *FileListAbsolute.txt
 Warden.Mvc/bin/
-Warden.Mvc/obj/
+/@data

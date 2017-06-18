@@ -9,6 +9,7 @@ namespace Warden.Business.Utils
     {
         private static bool configured;
         private static string logsFolderPath;
+        private static string messagesSeparator = $"{Environment.NewLine}-----------------------------------------------";
 
         private static Logger GetTracer(string name)
         {
@@ -20,7 +21,7 @@ namespace Warden.Business.Utils
 
         public static void Trace(string tracerName, string message)
         {
-            GetTracer(tracerName).Trace($"[{tracerName}] | {message}");
+            GetTracer(tracerName).Trace($"[{tracerName}] | {message}{messagesSeparator}");
         }
         
         public static string GetTracerFileName(string tracerName)

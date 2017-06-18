@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Warden.Mvc.Models
+namespace Warden.Mvc.Models.Admin
 {
     public class PayerModel
     {

@@ -63,7 +63,6 @@
     <Compile Include="Managers\PayerManager.cs" />
     <Compile Include="Managers\TransactionManager.cs" />
     <Compile Include="Import\Processor\Steps\CategoryDeterminingStep.cs" />
-    <Compile Include="Import\Processor\Steps\TransactionCleaningStep.cs" />
     <Compile Include="Import\Processor\Steps\TransactionFilteringStep.cs" />
     <Compile Include="Import\Processor\TransactionImportRequest.cs" />
     <Compile Include="Import\Processor\Steps\TransactionCreatingStep.cs" />

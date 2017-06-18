@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using Warden.Business.Utils;
-using Warden.Business.Entities;
-using Warden.Business.Managers;
-using Warden.Business.Import.Processor;
-using Warden.Business.Providers;
 using System.Collections.Generic;
+using System.Linq;
+using Warden.Business.Entities;
+using Warden.Business.Import.Processor;
+using Warden.Business.Managers;
+using Warden.Business.Utils;
 
 namespace Warden.Business.Import
 {
@@ -71,11 +70,17 @@ namespace Warden.Business.Import
             UpdateTransactionsCount(0);
         }
 
+        protected void UpdateTaskStatus(ImportTaskStatus status)
+        {
+            Settings.Status = status;
+            OnTaskStatusUpdated(status);
+        }
+
         protected bool ShouldContinue()
         {
             var actualTransactionsCount = transactionManager.GetCountByPayerId(Settings.PayerId);
 
-            if(Settings.TransactionCount >= actualTransactionsCount)
+            if (Settings.TransactionCount >= actualTransactionsCount)
             {
                 UpdateTaskStatus(ImportTaskStatus.Finished);
                 return false;
@@ -84,7 +89,6 @@ namespace Warden.Business.Import
             UpdateTransactionsCount(actualTransactionsCount);
             return true;
         }
-
         protected void InitializeTaskSettings(string payerId)
         {
             Settings = settingsManager.GetByPayerId(payerId);
@@ -100,25 +104,7 @@ namespace Warden.Business.Import
             Settings.TransactionCount = count;
         }
 
-        protected void UpdateTaskStatus(ImportTaskStatus status)
-        {
-            settingsManager.UpdateTaskStatus(Settings, status);
-            OnTaskStatusUpdated(status);
-        }
-
-        protected TransactionImportRequest BuildImportRequest()
-        {
-            return new TransactionImportRequest
-            {
-                StartDate = Settings.StartDate,
-                PayerId = Settings.PayerId,
-                EndDate = Settings.EndDate,
-                OffsetNumber = Settings.TransactionCount
-            };
-        }
-
-
-#region events
+        #region events
         public void OnRebuildStart()
         {
         }
@@ -133,11 +119,25 @@ namespace Warden.Business.Import
 
         public void OnTaskFailed()
         {
+
         }
 
         public void OnTaskStatusUpdated(ImportTaskStatus status)
         {
+
         }
-#endregion events
+
+        public TransactionImportRequest BuildImportRequest()
+        {
+            return new TransactionImportRequest
+            {
+                StartDate = Settings.StartDate,
+                PayerId = Settings.PayerId,
+                EndDate = Settings.EndDate,
+                OffsetNumber = Settings.TransactionCount,
+            };
+        }
     }
+    #endregion events
 }
+

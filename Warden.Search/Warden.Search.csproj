@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Warden.Business\Warden.Business.csproj">
-      <Project>{2e953051-187f-4e43-9f8a-ea7dc29d83d0}</Project>
+      <Project>{2E953051-187F-4E43-9F8A-EA7DC29D83D0}</Project>
       <Name>Warden.Business</Name>
     </ProjectReference>
   </ItemGroup>

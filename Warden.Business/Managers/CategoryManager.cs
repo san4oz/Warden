@@ -1,4 +1,6 @@
-﻿using Warden.Business.Entities;
+﻿using System;
+using System.Collections.Generic;
+using Warden.Business.Entities;
 using Warden.Business.Providers;
 
 namespace Warden.Business.Managers
@@ -10,5 +12,7 @@ namespace Warden.Business.Managers
         }
 
         public bool DoesCategoryExist(string title) => Provider.GetByTitle(title) != null;
+
+        public List<Category> GetByIds(Guid[] ids) => Provider.GetByIds(ids);
     }
 }

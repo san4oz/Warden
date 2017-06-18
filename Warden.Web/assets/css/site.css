@@ -779,3 +779,20 @@ input:checked + .slider:before {
     word-wrap: break-word;
     max-width: 300px;
 }
+
+/*.svg-graph .bar {
+    fill: steelblue;
+}
+
+.svg-graph .bar:hover {
+    fill: brown;
+}
+*/
+.axis--x path {
+    display: none;
+}
+
+.arc text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+}

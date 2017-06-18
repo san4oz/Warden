@@ -6,22 +6,22 @@ namespace Warden.TransactionSource
 {
     public class TransactionSourceItem
     {
-        [FieldIndex(7)]
+        [FieldIndex(6)]
         public string ReceiverId { get; set; }
 
-        [FieldIndex(3)]
+        [FieldIndex(2)]
         public string PayerId { get; set; }
 
-        [FieldIndex(12)]
+        [FieldIndex(10)]
         public decimal Price { get; set; }
 
         [FieldIndex(11)]
         public string Keywords { get; set; }
 
-        [FieldIndex(2)]
+        [FieldIndex(1)]
         public DateTime Date { get; set; }
 
-        [FieldIndex(1)]
+        [FieldIndex(0)]
         public string ExternalId { get; set; }
 
         public Transaction ToWardenTransaction()

@@ -1,4 +1,4 @@
-﻿namespace Warden.Mvc.Models
+﻿namespace Warden.Mvc.Models.Admin
 {
     public class KeywordVote
     {

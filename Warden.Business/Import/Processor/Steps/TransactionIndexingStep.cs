@@ -8,7 +8,7 @@ namespace Warden.Business.Import.Processor.Steps
 
         public void Execute(TransactionImportContext context)
         {
-            search.Index(context.Transactions);
+            search.Index(context.Transactions, context.Request.Rebuild);
         }
 
         public TransactionIndexingStep(ISearchManager searchManager)

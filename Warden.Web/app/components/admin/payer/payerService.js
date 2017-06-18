@@ -8,6 +8,6 @@ adminApp.service('payerService', function (
     };
 
     this.savePayer = function (payer) {
-        return $http.post("/admin/api/payer/save", payer);        
+        return $http.post("/admin/api/payer/save", payer);
     };
 });

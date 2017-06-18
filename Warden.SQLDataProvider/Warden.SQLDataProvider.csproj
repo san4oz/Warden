@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataProviders\BaseDataProvider.cs" />
+    <Compile Include="DataProviders\SQLDataProvider.cs" />
     <Compile Include="DataProviders\CategoryDataProvider.cs" />
     <Compile Include="DataProviders\KeywordDataProvider.cs" />
     <Compile Include="DataProviders\TransactionTaskConfigurationDataProvider.cs" />
