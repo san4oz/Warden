@@ -551,3 +551,82 @@ blog-post{
 .pure-table{
     width: 100%;
 }
+
+.payerSelection{
+    width: 100%;
+}
+
+.logo-holder img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 100%;
+    max-height: 200px;
+}
+
+.logo-holder {
+    overflow: hidden;
+}
+
+#payerStatisticPage h1{
+    text-align: center;
+}
+
+.statistic-details{
+}
+
+.payer-details {
+    border-bottom: 1px solid black;
+    padding: 10px 0px;
+}
+
+.statistic-details .text-info{
+    margin-left: 20px;
+}
+
+.statistic-details .text-info .spendings {
+    margin-top: 10px;
+}
+
+.statistic-details .text-info .spendings .value {
+    font-weight: bold;
+}
+
+.spending-row{
+    padding: 15px 0px;
+}
+
+.spending-column{
+    padding: 10px 0px;
+}
+
+.spending-content{
+    border-bottom: 1px solid black;
+    display: inline;
+}
+
+.spending-categories-wrapper{
+    margin-top: 5px;
+}
+
+.spending-categories-wrapper h3{
+    text-align: center;
+}
+
+.spending-categories-wrapper ul{
+    margin-top: 20px;
+}
+
+.spending-categories-wrapper li{
+    text-align: center;
+    border-bottom: 1px solid black; 
+    padding: 5px 0px;
+}
+
+.spending-categories-wrapper li .title{
+    font-style: italic;
+}
+
+.spending-categories-wrapper li .value {
+    font-style: italic;
+    font-weight: bold;
+}

@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Payer\PayerApi.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Entities\Blog\PostComponent.cs" />
     <Compile Include="Entities\Blog\Post.cs" />
     <Compile Include="Import\ITransactionImportTask.cs" />
     <Compile Include="Import\Processor\Steps\ITransactionImportStep.cs" />
+    <Compile Include="Models\PayerModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Providers\IPostProvider.cs" />
     <Compile Include="Utils\Text\TextNormalizer.cs" />
     <Compile Include="Utils\Text\WordFilters\FilterRule.cs" />

@@ -43,8 +43,10 @@ namespace Warden.Business.Managers
 
         public void DeleteByPayerId(string payerId) => Provider.DeleteByPayerId(payerId);
 
-        public List<Transaction> GetTransactionsByPayerId(string payerId) => Provider.GetByPayerId(payerId);
+        public List<Transaction> GetByPayerId(string payerId) => Provider.GetByPayerId(payerId);
 
         public List<Transaction> GetByGroupId(string groupId) => Provider.GetByGroupId(groupId);
+
+        public List<Transaction> GetWithCategoryByPayerId(string payerId) => Provider.GetWithCategoryByPayerId(payerId);
     }
 }

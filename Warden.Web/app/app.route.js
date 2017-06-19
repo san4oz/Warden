@@ -8,6 +8,10 @@
                     templateUrl: '/app/components/frontend/home/homeView.html',
                     controller: 'homeController'
                 })
+                .when('/statistic', {
+                    templateUrl: '/app/components/frontend/statistic/statisticView.html',
+                    controller: 'statisticController'
+                })
                 .when('/posts', {
                     templateUrl: '/app/components/frontend/postList/postList.html',
                     controller: 'postListController'

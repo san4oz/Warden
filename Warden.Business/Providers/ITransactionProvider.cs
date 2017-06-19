@@ -33,5 +33,7 @@ namespace Warden.Business.Providers
         List<Transaction> GetWithoutCategory();
 
         List<Transaction> GetByGroupId(string groupId);
+
+        List<Transaction> GetWithCategoryByPayerId(string payerId);
     }
 }

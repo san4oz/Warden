@@ -71,17 +71,11 @@ namespace Warden.SQLDataProvider.DataProviders
         #region helpers
         protected T Execute<T>(Func<ISession, T> expression)
         {
-            using (var session = NhibernateSessionHelper.OpenSession())
-            {
-                return expression(session);
-            }
-        }
+            return default(T);
 
-        protected bool Execute(Func<ISession, bool> expression)
-        {
             using (var session = NhibernateSessionHelper.OpenSession())
             {
-                return expression(session);
+                return default(T);// expression(session);
             }
         }
 

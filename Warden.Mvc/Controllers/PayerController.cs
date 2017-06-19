@@ -1,74 +1,93 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Web.Mvc;
-using Warden.Business;
+﻿using System.Web.Mvc;
 using Warden.Business.Managers;
-using Warden.Business.Providers;
-using Warden.Mvc.Models;
+using Warden.Mvc.Models.Frontend;
+using Warden.Core.Extensions;
+using System.Linq;
+using Warden.Business.Api.Payer;
+using System.Collections.Generic;
 
 namespace Warden.Mvc.Controllers
 {
     public class PayerController : Controller
     {
-        private readonly PayerManager payerManager;
-        private readonly TransactionManager transactionManager;
-        private readonly CategoryManager categoryManager;
+        private readonly PayerApi payerApi;
 
-        public PayerController(PayerManager payerManager, TransactionManager transactionManager, CategoryManager categoryManager)
+        public PayerController(PayerApi payerApi)
         {
-            this.payerManager = payerManager;
-            this.transactionManager = transactionManager;
-            this.categoryManager = categoryManager;
+            this.payerApi = payerApi;
         }
 
         [HttpPost]
         public ActionResult All()
         {
-            return Json(payerManager.All());
+            //var payers = payerApi.GetAvailablePayers();
+            //var viewModels = payers.Select(p => new PayerViewModel()
+            //{
+            //    Name = p.Name,
+            //    Id = p.Id
+            //});
+            return Json(GetMockedPayers());
         }
 
-        public ActionResult Details(string payerId)
+        [HttpPost]
+        public ActionResult PayerDetails(string payerId)
         {
-            var model = CreatePayerDetailsViewModel(payerId);
+            if (payerId.IsEmpty())
+                return HttpNotFound();
+
+            var model = CreateMockedDetailsModel(payerId);//CreateDetailsModel(payerId);
+
             return Json(model);
         }
 
-        protected PayerDetailsViewModel CreatePayerDetailsViewModel(string payerId)
+        public PayerDetailsViewModel CreateDetailsModel(string payerId)
         {
-            if (string.IsNullOrEmpty(payerId))
-                return new PayerDetailsViewModel();
+            var payer = payerApi.GetPayer(payerId);
+            if (payer == null)
+                return null;
 
-            var payer = payerManager.Get(payerId);
-            var transactions = transactionManager.GetTransactionsByPayerId(payerId).Where(t => t.CategoryId.HasValue).ToList();
-            var result = new PayerDetailsViewModel();
-            result.Payer.PayerId = payer.PayerId;
-            result.Payer.PayerName = payer.Name;
-            //result.Payer.Region = payer.Region;
-            var categoryIds = transactions.Select(v => v.CategoryId.Value).ToArray();
-            var categories = categoryManager.GetByIds(categoryIds);
-            var groupedTransactions = transactions
-                                        .Where(t => categories.Any(c => c.Id == t.CategoryId.Value))
-                                        .GroupBy(t => t.CategoryId, (key, values) => 
-                                                new
-                                                {
-                                                    Category = categories.First(c => c.Id == key.Value).Title,
-                                                    Payments = values.Select(t => t.Price).ToList()
-                                                })
-                                        .ToDictionary(key => key.Category, value => value.Payments);
+            var transactions = payerApi.GetTransactions(payerId);
 
-            if (!groupedTransactions.Any())
+            var model = new PayerDetailsViewModel();
+            model.Total = payerApi.CalculateTotal(transactions);
+            model.HighestSpendingsCategory = payerApi.GetHighestSpendingsCategory(transactions);
+            model.LowestSpendingsCategory = payerApi.GetLowestSpedningsCategory(transactions);
+            model.TransactionsCount = transactions.Count();
+            model.Name = payer.Name;
+
+            var data = transactions.ToDictionary(key => key.Category, value => value.TotalPrice);
+            model.Data = new ChartData(data);
+
+            return model;
+        }
+
+        private PayerDetailsViewModel CreateMockedDetailsModel(string payerId)
+        {
+            var payer = GetMockedPayers().First(p => p.Id == payerId);
+            var model = new PayerDetailsViewModel();
+            model.Name = payer.Name;
+            model.Total = 127000;
+            model.HighestSpendingsCategory = "Стипендія";
+            model.LowestSpendingsCategory = "Ремонт";
+            model.TransactionsCount = 731;
+            var data = new Dictionary<string, decimal>()
             {
-                result.Chart.IsChartAvailable = false;
-                return result;
-            }
-            result.Chart.IsChartAvailable = true;
-            result.Chart.Data = groupedTransactions;
-            result.Chart.ChartType = "pie";
-            return result;
+                 { "Спипендія", 50000 },
+                 { "Ремонт", 10000 }
+            };
+
+            model.Data = new ChartData(data);
+
+            return model;
+        }
+
+        private List<PayerViewModel> GetMockedPayers()
+        {
+            return new List<PayerViewModel>()
+            {
+                new PayerViewModel() { Id = "1", Name = "Житомирський державний технологічний університет" },
+                new PayerViewModel() { Id = "2", Name = "Житомирський державний університет імені Івана Франка" }
+            };
         }
     }
 }

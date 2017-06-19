@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using System.Web.Mvc;
+using Warden.Business.Api.Payer;
 using Warden.Business.Import;
 using Warden.Business.Import.Processor;
 using Warden.Business.Import.Processor.Steps;
@@ -28,9 +29,15 @@ namespace Warden.Mvc.App_Start
             RegisterDataProviders(builder);
             builder.RegisterType<APITransactionProvider>().As<IAPITransactionProvider>();
             RegisterManagers(builder);
+            RegisterApis(builder);
 
             RegisterTransactionImportTask(builder);
             RegisterImportProcessor(builder);
+        }
+
+        private static void RegisterApis(ContainerBuilder builder)
+        {
+            builder.RegisterType<PayerApi>().As<PayerApi>();
         }
 
         private static void RegisterManagers(ContainerBuilder builder)

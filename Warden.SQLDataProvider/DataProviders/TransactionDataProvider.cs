@@ -95,6 +95,17 @@ namespace Warden.SQLDataProvider.DataProviders
             });
         }
 
+        public List<Transaction> GetWithCategoryByPayerId(string payerId)
+        {
+            return Execute(session =>
+            {
+                return session.QueryOver<Transaction>()
+                              .Where(t => t.CategoryId != null)
+                              .Where(t => t.PayerId == payerId)
+                              .List().ToList(); 
+            });
+        }
+
         public List<Transaction> GetNotVoted(Guid categoryId)
         {
             return Execute(session =>

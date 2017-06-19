@@ -8,7 +8,7 @@
     <title>Warden</title>
     <link rel="stylesheet" href="assets/css/pure.css" />
     <link rel="stylesheet" href="assets/css/site.css" />
-    <link rel="stylesheet" href="assets/libs/c3/c3.css" />
+    <script src="~/assets/libs/Chart.bundle.js"></script>
     <script src="assets/libs/angular.js"></script>
     <script src="assets/libs/angular-route.js"></script>
     <script src="app/app.module.js"></script>
@@ -22,10 +22,8 @@
     <script src="~/app/components/frontend/postList/postListService.js"></script>
     <script src="~/app/components/frontend/postDetails/postDetailsController.js"></script>
     <script src="~/app/components/frontend/postDetails/postDetailsService.js"></script>
-
-
-    <script src="assets/libs/d3/d3.v3.min.js"></script>
-    <script src="assets/libs/c3/c3.min.js"></script>
+    <script src="~/app/components/frontend/statistic/statisticController.js"></script>
+    <script src="~/app/components/frontend/statistic/statisticService.js"></script>
 </head>
 <body>
     <div class="leaderBoardBanner"></div>
@@ -39,11 +37,11 @@
                 <div class="menuMain">
                     <ul class="cat-">
                         <li class="cat-item">
-                            <a href="/" title="test">Home!</a>
-                        </li>       
+                            <a href="/posts" title="test">Блог!</a>
+                        </li> 
                         <li class="cat-item">
-                            <a href="/posts" title="test">Posts!</a>
-                        </li>         
+                            <a href="/statistic" title="test">Статистика!</a>
+                        </li>
                     </ul>
                 </div>
             </nav>

@@ -7,7 +7,6 @@
         $scope.Post.Components.push({ Type: "Text" });
     }
 
-    debugger;
     $scope.savePost = function () {
         postCreationService.savePost($scope.Post).then(function(result) {
             if (result.data)
