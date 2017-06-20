@@ -33,6 +33,13 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
             (
+                name: "api/payer",
+                url: "api/payer",
+                defaults: new { controller = "Payer", action = "Get" }
+            );
+
+            MapRoute
+            (
                 name: "api/payer/save",
                 url: "api/payer/save",
                 defaults: new { controller = "Payer", action = "Save" }

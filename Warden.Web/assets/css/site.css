@@ -641,3 +641,7 @@ blog-post{
     background-color: #FFCCCC;
     margin-top: 20px;
 }
+
+.pure-control-group > input {
+    width: 70%;
+}

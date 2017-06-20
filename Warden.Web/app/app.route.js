@@ -59,6 +59,10 @@
                     templateUrl: 'app/components/admin/payer/list.html',
                     controller: 'payerController'
                 })
+                .when('/admin/payer/edit/:payerId', {
+                    templateUrl: 'app/components/admin/payer/save.html',
+                    controller: 'payerController'
+                })
                 .when('/admin/payer/save', {
                     templateUrl: 'app/components/admin/payer/save.html',
                     controller: 'payerController'

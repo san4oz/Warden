@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using Warden.Business;
 using Warden.Business.Entities;
 using Warden.Business.Managers;
 using Warden.Mvc.Models.Admin;
+using Warden.Core.Extensions;
 
 namespace Warden.Mvc.Controllers.Admin
 {
@@ -20,6 +20,19 @@ namespace Warden.Mvc.Controllers.Admin
         {
             var result = payerManager.All();
             return Json(result);
+        }
+
+        [HttpPost]
+        public ActionResult Get(string payerId)
+        {
+            if (payerId.IsEmpty())
+                return Json(null);
+
+            var payer = payerManager.Get(payerId);
+            if (payer == null)
+                return Json(null);
+
+            return Json(payer);
         }
 
         [HttpPost]

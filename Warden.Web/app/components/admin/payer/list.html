@@ -5,12 +5,18 @@
         <tr>
             <th>Ім'я</th>
             <th>ЭДРПОУ</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="payer in payers">
             <th>{{payer.Name}}</th>
             <th>{{payer.PayerId}}</th>
+            <th>
+                <a ng-href="/admin/payer/edit/{{payer.PayerId}}">
+                    <i class="fa fa-edit"></i>
+                </a>
+            </th>
         </tr>
     </tbody>
 </table>
