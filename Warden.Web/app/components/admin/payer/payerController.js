@@ -12,12 +12,19 @@ adminApp.controller('payerController', function (
     });
 
     $scope.save = function (payer) {
-        payerService.savePayer(payer).then(function (result) {
-            if (result.data)
-                $window.location.href = "/admin/payers";
-        });
-
-        $scope.editPayer = null;
+        if ($scope.editMode) {
+            payerService.updatePayer(payer, $route.current.params.payerId).then(function (result) {
+                if (result.data)
+                    $window.location.href = "/admin/payers";
+            });
+        }
+        else
+        {
+            payerService.savePayer(payer).then(function (result) {
+                if (result.data)
+                    $window.location.href = "/admin/payers";
+            });
+        }
     };
 
     $scope.edit = function (payer) {
@@ -25,12 +32,12 @@ adminApp.controller('payerController', function (
     };    
 
     $scope.init = function () {
-        debugger;
         var payerId = $route.current.params.payerId;
         if (payerId)
         {
             payerService.getPayer(payerId).then(function (result) {
                 $scope.payer = result.data;
+                $scope.editMode = true;
             });
         };
     };

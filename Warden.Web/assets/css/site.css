@@ -645,3 +645,9 @@ blog-post{
 .pure-control-group > input {
     width: 70%;
 }
+
+.home-info{
+    text-align: center;   
+    margin-top: 50px;
+    font-style: italic;
+}

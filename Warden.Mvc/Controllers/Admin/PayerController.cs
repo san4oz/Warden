@@ -45,5 +45,23 @@ namespace Warden.Mvc.Controllers.Admin
 
             return Json(true);
         }
+
+        [HttpPost]
+        public ActionResult Edit(PayerModel payer, string payerId)
+        {
+            if (!ModelState.IsValid)
+                return Json(false);
+
+            var existingPayer = payerManager.Get(payerId);
+            {
+                existingPayer.Name = payer.Name;
+                existingPayer.Logo = payer.Logo;
+                existingPayer.PayerId = payer.PayerId;
+            }
+
+            payerManager.Update(existingPayer);
+
+            return Json(true);
+        }
     }
 }

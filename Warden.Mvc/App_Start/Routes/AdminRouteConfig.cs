@@ -47,6 +47,13 @@ namespace Warden.Mvc.App_Start.Routes
 
             MapRoute
             (
+              name: "api/payer/update",
+              url: "api/payer/update",
+              defaults: new { controller = "Payer", action = "Edit" }
+            );
+
+            MapRoute
+            (
                 name: "api/transaction/startImport",
                 url: "api/transaction/startImport",
                 defaults: new { controller = "TransactionImport", action = "StartImport" }

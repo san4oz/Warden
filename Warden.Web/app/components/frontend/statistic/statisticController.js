@@ -21,7 +21,9 @@
     $scope.loadPayerStatistic = function (payer) {
         statisticService.getDetailsData(payer).then(function (result) {
             $scope.Statistic = result.data;
-            renderSpendingChart($scope.Statistic.Data);
+
+            if (!$scope.Statistic.IsEmpty)
+                renderSpendingChart($scope.Statistic.Data);
         });
     };
 
