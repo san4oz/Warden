@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Warden.Business.Models
 {
-    public class TransactionModel
+    public class Spending
     {
         public string Category { get; set; }
 

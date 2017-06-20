@@ -105,7 +105,7 @@
     <Compile Include="Models\Admin\KeywordVote.cs" />
     <Compile Include="Models\Admin\PostComponentViewModel.cs" />
     <Compile Include="Models\Admin\PostViewModel.cs" />
-    <Compile Include="Models\Frontend\PayerDetailsViewModel.cs" />
+    <Compile Include="Models\Frontend\PayerStatisticViewModel.cs" />
     <Compile Include="Models\Frontend\ChartData.cs" />
     <Compile Include="Models\Frontend\PayerViewModel.cs" />
     <Compile Include="Models\PostComponentViewModel.cs" />

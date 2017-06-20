@@ -3,68 +3,72 @@
         <option value="" disabled>Виберіть університет</option>
     </select>
 
-    <div class="statistic-details" ng-show="selectedPayer">
-        <section class="payer-details pure-g">
-            <div class="pure-u-1-4 logo">
-                <div class="logo-holder">
-                    <img src="../../../../assets/img/Posts/TestPost.jpg" />
+    <div ng-show="!Statistic.IsEmpty">
+        <div class="statistic-details" ng-show="selectedPayer">
+            <section class="payer-details pure-g" ng-show="!Statistic.IsEmpty">
+                <div class="pure-u-1-4 logo">
+                    <div class="logo-holder">
+                        <img src="{{selectedPayer.Logo}}" />
+                    </div>
                 </div>
-            </div>
-            <div class="text-info-wrapper pure-u-3-4">
-                <div class="text-info">
-                    <h2>{{selectedPayer.Name}}</h2>
-                    <div class="spendings">
-                        <div class="spending-row pure-g">
-                            <div class="spending-column pure-u-1-2">
-                                <div class="spending-content">
-                                    <span class="title">Зареєстровано платежів на </span>
-                                    <span class="value">{{Statistic.Total}}</span>
+                <div class="text-info-wrapper pure-u-3-4">
+                    <div class="text-info">
+                        <h2>{{selectedPayer.Name}}</h2>
+                        <div class="spendings">
+                            <div class="spending-row pure-g">
+                                <div class="spending-column pure-u-1-2">
+                                    <div class="spending-content">
+                                        <span class="title">Зареєстровано платежів на </span>
+                                        <span class="value">{{Statistic.Total | currencyFilter}}</span>
+                                    </div>
+                                </div>
+                                <div class="spending-column pure-u-1-2">
+                                    <div class="spending-content">
+                                        <span>Найбільші витрати у категорії:</span>
+                                        <span class="value">{{Statistic.HighestSpendingsCategory}}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="spending-column pure-u-1-2">
-                                <div class="spending-content">
-                                    <span>Найбільші витрати у категорії:</span>
-                                    <span class="value">{{Statistic.HighestSpendingsCategory}}</span>
+                            <div class="spending-row pure-g">
+                                <div class="spending-column pure-u-1-2">
+                                    <div class="spending-content">
+                                        <span class="title">Кількість зареєстрованих транзакцій:</span>
+                                        <span class="value">{{Statistic.TransactionsCount}}</span>
+                                    </div>
+                                </div>
+                                <div class="spending-column pure-u-1-2">
+                                    <div class="spending-content">
+                                        <span>Найменші витрати у категорії:</span>
+                                        <span class="value">{{Statistic.LowestSpendingsCategory}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="spending-row pure-g">
-                            <div class="spending-column pure-u-1-2">
-                                <div class="spending-content">
-                                    <span class="title">Кількість зареєстрованих транзакцій</span>
-                                    <span class="value">{{Statistic.TransactionsCount}}</span>
-                                </div>
-                            </div>
-                            <div class="spending-column pure-u-1-2">
-                                <div class="spending-content">
-                                    <span>Найменші витрати у категорії:</span>
-                                    <span class="value">{{Statistic.LowestSpendingsCategory}}</span>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+            </section>
+            <div id="canvas-holder">
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <canvas id="payer-spendings"></canvas>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <div class="spending-categories-wrapper">
+                            <h3>Найбільші категорії витрат</h3>
+                            <ul>
+                                <li ng-repeat="category in Statistic.Data.Labels">
+                                    <span class="title">{{category}}</span>
+                                    -
+                                    <span class="value">{{Statistic.Data.Values[$index] | currencyFilter}}</span>
+                                </li>
+                            </ul>
                         </div>
-                    </div>                  
-                </div>
-            </div>
-        </section>
-       
-        <div id="canvas-holder">      
-            <div class="pure-g">
-                <div class="pure-u-1-2">
-                    <canvas id="payer-spendings"></canvas>
-                </div>
-                <div class="pure-u-1-2">
-                    <div class="spending-categories-wrapper">
-                        <h3>Найбільші категорії витрат</h3>
-                        <ul>
-                            <li ng-repeat="category in Statistic.Data.Labels">
-                                <span class="title">{{category}}</span>
-                                -
-                                <span class="value">{{Statistic.Data.Values[$index]}}</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div ng-show="Statistic.IsEmpty" class="empty-statistic">
+        <span>Вибачте, для вибранного університету поки що відсутня статистика</span>
     </div>
 </div>

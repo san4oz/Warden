@@ -29,32 +29,36 @@ namespace Warden.Business.Api.Payer
             if (payer == null)
                 return null;
 
-            var model = new PayerModel();
-            model.Name = payer.Name;
-
-            return model;
+            return new PayerModel(payer);
         }
 
         public IList<PayerModel> GetAvailablePayers()
         {
-            return payerManager.All().Select(p => new PayerModel() { Name = p.Name, Id = p.PayerId }).ToList();
+            return payerManager.All().Select(p => new PayerModel(p)).ToList();
         }
 
-        public IList<TransactionModel> GetTransactions(string payerId)
+        public IList<Spending> GetSpendings(string payerId)
         {
             var transactions = transactionManager.GetWithCategoryByPayerId(payerId);
             if (transactions.Count <= 0)
-                return new List<TransactionModel>();
+                return new List<Spending>();
 
-            return transactions.Select(t => CreateTransactionModel(t)).ToList();
+            var groupedTransactions = transactions.GroupBy(t => t.CategoryId)
+                                                  .Select(group => new Transaction()
+                                                  {
+                                                      Price = group.Sum(t => t.Price),
+                                                      CategoryId = group.Key
+                                                  });
+
+            return groupedTransactions.Select(t => CreateSpendingModel(t)).ToList();
         }
 
-        public decimal CalculateTotal(IEnumerable<TransactionModel> transactions)
+        public decimal CalculateTotal(IEnumerable<Spending> transactions)
         {
             return transactions.Sum(t => t.TotalPrice);
         }
 
-        public string GetHighestSpendingsCategory(IEnumerable<TransactionModel> transactions)
+        public string GetHighestSpendingCategory(IEnumerable<Spending> transactions)
         {
             if (transactions.Count() <= 0)
                 return null;
@@ -62,7 +66,7 @@ namespace Warden.Business.Api.Payer
             return transactions.OrderByDescending(t => t.TotalPrice).First().Category;
         }
 
-        public string GetLowestSpedningsCategory(IEnumerable<TransactionModel> transactions)
+        public string GetLowestSpedningCategory(IEnumerable<Spending> transactions)
         {
             if (transactions.Count() <= 0)
                 return null;
@@ -70,7 +74,7 @@ namespace Warden.Business.Api.Payer
             return transactions.OrderBy(t => t.TotalPrice).First().Category;
         }
 
-        public TransactionModel CreateTransactionModel(Transaction transaction)
+        public Spending CreateSpendingModel(Transaction transaction)
         {
             if (!transaction.CategoryId.HasValue)
                 return null;
@@ -79,7 +83,12 @@ namespace Warden.Business.Api.Payer
             if (category == null)
                 return null;
 
-            return new TransactionModel() { Category = category.Title, TotalPrice = transaction.Price };
+            return new Spending() { Category = category.Title, TotalPrice = transaction.Price };
+        }
+
+        public int GetRegisteredTransactionsCount(string payerId)
+        {
+            return transactionManager.GetCountByPayerId(payerId);
         }
     }
 }

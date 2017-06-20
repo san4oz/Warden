@@ -10,5 +10,8 @@ namespace Warden.Mvc.Models.Admin
         [Required]
         [MaxLength(250)]
         public string Name { get; set; }
+
+        [Required]
+        public string Logo { get; set; }
     }
 }

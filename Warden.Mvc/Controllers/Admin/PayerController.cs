@@ -28,7 +28,7 @@ namespace Warden.Mvc.Controllers.Admin
             if (!ModelState.IsValid)
                 return Json(false);
 
-            payerManager.Save(new Payer { PayerId = payer.PayerId, Name = payer.Name });
+            payerManager.Save(new Payer { PayerId = payer.PayerId, Name = payer.Name, Logo = payer.Logo });
 
             return Json(true);
         }

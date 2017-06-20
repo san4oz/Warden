@@ -1,2 +1,2 @@
-﻿app.controller('homeController', function ($scope, payerService) {   
+﻿app.controller('homeController', function ($scope) {   
 });

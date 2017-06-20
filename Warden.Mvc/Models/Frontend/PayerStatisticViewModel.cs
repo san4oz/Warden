@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Warden.Mvc.Models.Frontend
 {
-    public class PayerDetailsViewModel
+    public class PayerStatisticViewModel
     {
-        public string Name { get; set; }
-
         public decimal Total { get; set; }
 
         public string HighestSpendingsCategory { get; set; }
@@ -19,5 +17,10 @@ namespace Warden.Mvc.Models.Frontend
         public int TransactionsCount { get; set; }
 
         public ChartData Data { get; set; }
+
+        public bool IsEmpty
+        {
+            get { return Total <= 0; }
+        }
     }
 }

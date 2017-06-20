@@ -6,9 +6,7 @@
             datasets: [
                 {
                     data: dataSet.Values,
-                    backgroundColor: [
-                        "red", "green"
-                    ]
+                    backgroundColor: ChartHelper.GetColorSet()                    
                 }
             ],            
             labels: dataSet.Labels

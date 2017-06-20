@@ -306,7 +306,7 @@ input:checked + .slider:before {
     width: 970px;
     padding: 20px 25px 25px 25px;
     background: #ffffff;
-    min-height: 4000px;
+    min-height: 100vh;
 }
 
 body {
@@ -629,4 +629,15 @@ blog-post{
 .spending-categories-wrapper li .value {
     font-style: italic;
     font-weight: bold;
+}
+
+.spending-content{
+    font-size: 15px
+}
+
+.empty-statistic {
+    text-align: center;
+    padding: 30px;
+    background-color: #FFCCCC;
+    margin-top: 20px;
 }

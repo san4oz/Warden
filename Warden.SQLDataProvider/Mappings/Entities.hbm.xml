@@ -17,6 +17,7 @@
     <id name="Id" type="System.Guid"></id>
     <property name="Name" type="System.String"/>
     <property name="PayerId" type="System.String"/>
+    <property name="Logo" length="2147483647" type="System.String"/>
   </class>
 
   <class name="Category" table="Categories">

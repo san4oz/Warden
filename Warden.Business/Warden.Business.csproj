@@ -51,7 +51,7 @@
     <Compile Include="Import\ITransactionImportTask.cs" />
     <Compile Include="Import\Processor\Steps\ITransactionImportStep.cs" />
     <Compile Include="Models\PayerModel.cs" />
-    <Compile Include="Models\TransactionModel.cs" />
+    <Compile Include="Models\Spending.cs" />
     <Compile Include="Providers\IPostProvider.cs" />
     <Compile Include="Utils\Text\TextNormalizer.cs" />
     <Compile Include="Utils\Text\WordFilters\FilterRule.cs" />

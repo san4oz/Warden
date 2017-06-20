@@ -29,7 +29,7 @@ namespace Warden.Mvc.App_Start
             routes.MapRoute(
                 name: "api/payer/data",
                 url: "api/payer/data",
-                defaults: new { controller = "Payer", action = "PayerDetails" }
+                defaults: new { controller = "Payer", action = "PayerStatistic" }
             );
 
             routes.MapRoute(

@@ -11,6 +11,11 @@
                 <input ng-model="payer.Name" id="Name" type="text" required/>
                 <span ng-show="createForm.Name.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
             </div>
+            <div class="pure-control-group">
+                <label for="PayerLogo">Лого</label>
+                <input type="file" id="BannerImage" fileread="payer.Logo" />  
+                <span ng-show="createForm.Logo.$invalid" class="pure-form-message-inline">Це обов'язкове поле.</span>
+            </div>
 
             <div class="pure-controls">
                 <button ng-click="save(payer)" ng-disabled="createForm.$invalid" class="pure-button">Зберегти</button>
